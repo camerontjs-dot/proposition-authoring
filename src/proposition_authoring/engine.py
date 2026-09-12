@@ -18,7 +18,7 @@ class AuthoringEngine:
     def author(self, request: AuthoringRequest) -> AuthoringResult:
         try:
             return self._author(request)
-        except Exception as exc:
+        except Exception as exc:  # noqa: BLE001 - apparatus exceptions map to explicit FAILED
             contract_a = emit_failed(request)
             receipt = build_receipt(
                 request,
@@ -50,7 +50,7 @@ class AuthoringEngine:
         cluster_members: dict[str, list[dict[str, Any]]] = defaultdict(list)
 
         for proposer in sorted(proposals):
-            for candidate in proposals[proposer]:
+            for candidate in sorted(proposals[proposer], key=lambda row: row["case_id"]):
                 result = self.backend.evaluate(candidate)
                 cluster: str | None = None
                 if result["disposition"] == "ACCEPTABLE_WITHIN_PROFILE":
