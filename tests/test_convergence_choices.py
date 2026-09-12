@@ -13,7 +13,14 @@ from proposition_authoring.model import AuthoringRequest
 
 
 class FakeBackend:
-    def __init__(self, *, candidates=None, root_status="ok", root_frames=2, root_reason=""):
+    def __init__(
+        self,
+        *,
+        candidates=None,
+        root_status="ok",
+        root_frames=2,
+        root_reason="",
+    ):
         self.candidates = candidates or {}
         self.root_status = root_status
         self.root_frames = root_frames
@@ -40,7 +47,12 @@ class ExplodingBackend(FakeBackend):
         raise RuntimeError("synthetic processing failure")
 
 
-def candidate(cid: str, cluster: str, children: tuple[str, str], disposition="ACCEPTABLE_WITHIN_PROFILE"):
+def candidate(
+    cid: str,
+    cluster: str,
+    children: tuple[str, str],
+    disposition="ACCEPTABLE_WITHIN_PROFILE",
+):
     return {
         "case_id": cid,
         "root_id": "r1",
@@ -69,18 +81,36 @@ class ConvergenceChoiceTests(unittest.TestCase):
             root_text=root_text,
         )
 
-    def test_representative_selection_is_candidate_order_invariant(self):
+    def test_representative_selection_is_proposer_order_invariant(self):
         zulu = candidate("P1-z", "cluster-a", ("Zulu A.", "Zulu B."))
         alpha = candidate("P2-a", "cluster-a", ("Alpha A.", "Alpha B."))
-        first = AuthoringEngine(FakeBackend(candidates={"P1": [zulu], "P2": [alpha]})).author(self.request())
-        second = AuthoringEngine(FakeBackend(candidates={"P2": [alpha], "P1": [zulu]})).author(self.request())
+        first = AuthoringEngine(
+            FakeBackend(candidates={"P1": [zulu], "P2": [alpha]})
+        ).author(self.request())
+        second = AuthoringEngine(
+            FakeBackend(candidates={"P2": [alpha], "P1": [zulu]})
+        ).author(self.request())
         self.assertEqual(first.state, "DECLARED")
         self.assertEqual(second.state, "DECLARED")
         self.assertEqual(first.contract_a, second.contract_a)
+        self.assertEqual(first.receipt, second.receipt)
         self.assertEqual(
             [row["text"] for row in first.contract_a["decomposition"]["children"]],
             ["Alpha A.", "Alpha B."],
         )
+
+    def test_candidate_list_order_is_receipt_invariant(self):
+        zulu = candidate("P1-z", "cluster-a", ("Zulu A.", "Zulu B."))
+        alpha = candidate("P1-a", "cluster-a", ("Alpha A.", "Alpha B."))
+        first = AuthoringEngine(FakeBackend(candidates={"P1": [zulu, alpha]})).author(
+            self.request()
+        )
+        second = AuthoringEngine(FakeBackend(candidates={"P1": [alpha, zulu]})).author(
+            self.request()
+        )
+        self.assertEqual(first.state, "DECLARED")
+        self.assertEqual(first.contract_a, second.contract_a)
+        self.assertEqual(first.receipt, second.receipt)
 
     def test_child_ids_are_stable_under_semantically_irrelevant_all_of_reorder(self):
         forward = emit_declared(
