@@ -53,14 +53,14 @@ def candidate(cid, cluster, disposition="ACCEPTABLE_WITHIN_PROFILE"):
 
 
 class EngineBoundaryTests(unittest.TestCase):
-    def request(self):
+    def request(self, root_text="A and B."):
         return AuthoringRequest(
             handoff_id="h1",
             producer_id="proposition-authoring",
             producer_version="test",
             work_id="w1",
             root_id="r1",
-            root_text="A and B.",
+            root_text=root_text,
         )
 
     def test_no_proposal_is_not_automatically_not_decomposed(self):
@@ -71,9 +71,16 @@ class EngineBoundaryTests(unittest.TestCase):
 
     def test_single_root_frame_can_emit_not_decomposed(self):
         engine = AuthoringEngine(FakeBackend(root_status="ok", root_frames=1))
-        result = engine.author(self.request())
+        result = engine.author(self.request(root_text="Panel Cedar approved plan amber."))
         self.assertEqual(result.state, "NOT_NEEDED")
         self.assertEqual(result.contract_a["decomposition"]["state"], "not_decomposed")
+
+    def test_single_frame_with_composition_hazard_abstains(self):
+        engine = AuthoringEngine(FakeBackend(root_status="ok", root_frames=1))
+        result = engine.author(self.request(root_text="Panel Cedar approved plan amber and Board Maple reported Plan bronze."))
+        self.assertEqual(result.state, "ABSTAINED")
+        self.assertEqual(result.reason, "NOT_NEEDED_BLOCKED_BY_COMPOSITION_HAZARD")
+        self.assertIsNone(result.contract_a)
 
     def test_one_surviving_cluster_declares(self):
         c1 = candidate("P1-c1", "cluster-a")
