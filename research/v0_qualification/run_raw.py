@@ -6,11 +6,10 @@ import json
 from pathlib import Path
 from typing import Any
 
+from controls import CONTROLS
 from proposition_authoring.backend import FrozenPredecessorBackend
 from proposition_authoring.engine import AuthoringEngine
 from proposition_authoring.model import AuthoringRequest, SourceRepresentation
-
-from controls import CONTROLS
 
 
 def canon(value: Any) -> str:
@@ -53,10 +52,7 @@ def run_case(
 ) -> dict[str, Any]:
     request = request_from_row(row)
     target = engine.author(request)
-    controls = {
-        name: fn(request, backend)
-        for name, fn in CONTROLS.items()
-    }
+    controls = {name: fn(request, backend) for name, fn in CONTROLS.items()}
     return {
         "case_id": row["case_id"],
         "target": {
