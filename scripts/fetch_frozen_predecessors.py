@@ -17,6 +17,14 @@ FILES = {
         "url": "https://raw.githubusercontent.com/camerontjs-dot/evidence-bundler/b25fa4743e16f40186d29bec3757c378733b7791/research/proposition_compiler_multiproposer_rc0/resolver.py",
         "git_blob": "ca2fbf63855f21551c2e1ebb46019768753746e4",
     },
+    "predecessor_fresh_roots.jsonl": {
+        "url": "https://raw.githubusercontent.com/camerontjs-dot/evidence-bundler/b25fa4743e16f40186d29bec3757c378733b7791/research/proposition_compiler_multiproposer_rc0/fresh_roots.jsonl",
+        "git_blob": "e51ec542898a0f40489e0140bbd0455e1429e0bb",
+    },
+    "predecessor_fresh_gold.jsonl": {
+        "url": "https://raw.githubusercontent.com/camerontjs-dot/evidence-bundler/b25fa4743e16f40186d29bec3757c378733b7791/research/proposition_compiler_multiproposer_rc0/GOLD/fresh_gold.jsonl",
+        "git_blob": "da169fcc9b0efc096cbb3c68a744da9d7beaa03d",
+    },
     "evaluator.py": {
         "url": "https://raw.githubusercontent.com/camerontjs-dot/evidence-bundler/26539c53781148543e980fe1f07b25f1ad9c2005/research/proposition_compiler_evaluator_rc1/evaluator.py",
         "git_blob": "e675b55559af17d50b65cd6af01ac23b0881bb43",
