@@ -71,7 +71,7 @@ def emit_declared(
         text_hash = sha256_text(text)
         children.append(
             {
-                "proposition_id": f"{request.root_id}::pa::{index}::{text_hash[7:19]}",
+                "proposition_id": f"{request.root_id}::pa::{text_hash[7:19]}",
                 "text": text,
                 "text_sha256": text_hash,
                 "sequence": index,
