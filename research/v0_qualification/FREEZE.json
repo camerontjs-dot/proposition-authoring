@@ -1,0 +1,40 @@
+{
+  "freeze_schema": "proposition-authoring-v0-scientific-freeze-1",
+  "scientific_source_head": "f1b2fe8d59a845c0cdfac80c155b0e1ff44c3a72",
+  "scientific_source_tree": "954a8e19dabdad24b303523821f5fe8f2ff9aab5",
+  "development_preflight": {
+    "maintained_ci_run": 34726724597,
+    "research_preflight_run": 34726724598,
+    "status": "success"
+  },
+  "preserved_development_counterexample_run": 34726415119,
+  "frozen_predecessors": {
+    "proposers_blob": "b2684f1752a1eb841dd6ee85b1e81ae523b03810",
+    "rc1_evaluator_blob": "e675b55559af17d50b65cd6af01ac23b0881bb43",
+    "rc1_evaluator_sha256": "1091169da8e960cdf93242ee4c629c7a1a814009c8f80554f4a190f5b3fe989d",
+    "contract_a_validator_blob": "42e5f5b3bf38d677445e9d01ea130ba604e53409"
+  },
+  "frozen_files": [
+    {"path": "src/proposition_authoring/__init__.py", "git_blob": "c1da20c92a07b1a4a86b56b522a7d25438506f1b"},
+    {"path": "src/proposition_authoring/__main__.py", "git_blob": "4e28416e104515e90fca4b69cc60d0c61fd15d61"},
+    {"path": "src/proposition_authoring/backend.py", "git_blob": "bcc03f1d1ec3e78591cd339d3a8600d020faf643"},
+    {"path": "src/proposition_authoring/canonical.py", "git_blob": "8c275c381f6422dfd8ced03a3384628748dd167b"},
+    {"path": "src/proposition_authoring/cli.py", "git_blob": "98de38e2c3e73d0b105bba88ee0f224536ee623c"},
+    {"path": "src/proposition_authoring/contract_a.py", "git_blob": "c7997d91146a1a7b3e888c98a9ed5f9610ce3f6e"},
+    {"path": "src/proposition_authoring/engine.py", "git_blob": "9c8a0f305c4396f28c289e80740973797af438c5"},
+    {"path": "src/proposition_authoring/model.py", "git_blob": "f88c4b76752bdb5843748f7c895d9399b2ab2dc1"},
+    {"path": "src/proposition_authoring/profile.py", "git_blob": "c35569b370d2dafab8acebfc67ea003bf06dcb53"},
+    {"path": "src/proposition_authoring/receipt.py", "git_blob": "8a0c22413333392b5d6de25ca9236a1d887452e7"},
+    {"path": "research/v0_qualification/PREREGISTRATION.md", "git_blob": "6e34f1d396da908ff07e369e98cc01d0a604bea8"},
+    {"path": "research/v0_qualification/controls.py", "git_blob": "6e8331b10a3c74390432a780e2eca208b91a29c5"},
+    {"path": "research/v0_qualification/run_raw.py", "git_blob": "85a33bfa0c45b47e6bfa6883b43c1521f88c8006"},
+    {"path": "research/v0_qualification/score.py", "git_blob": "e80c870c2244ba82497d52c337b6494c8e05c481"},
+    {"path": "research/v0_qualification/verify_freeze.py", "git_blob": "e8fe94d3beb1c4882c9a110b417094e61c3cbcab"},
+    {"path": "scripts/fetch_frozen_predecessors.py", "git_blob": "8d15b86fa8aefe458297cdfd29108db9f3e95a4e"},
+    {"path": "BOOTSTRAP_AUTHORITY.json", "git_blob": "c0110424c69f7bb27684a41aaed356da96a94173"},
+    {"path": "pyproject.toml", "git_blob": "99c0b75513f4f12d8016a3f6eac1fb508c247a72"},
+    {"path": ".github/workflows/research-v0-qualification.yml", "git_blob": "e9af1cc950a68bec0cf9114786b0d148d34d0529"}
+  ],
+  "fresh_surface_exists_at_freeze": false,
+  "post_freeze_rule": "No frozen scientific file may change after fresh-case authorship. Any semantic repair requires a successor experiment."
+}
