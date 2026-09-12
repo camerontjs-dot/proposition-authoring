@@ -13,6 +13,8 @@
       "freeze_commit": "89d3917d4a4fb65851858e3d79711ac391988fd4",
       "proposer_blob": "b2684f1752a1eb841dd6ee85b1e81ae523b03810",
       "resolver_blob": "ca2fbf63855f21551c2e1ebb46019768753746e4",
+      "fresh_roots_blob": "e51ec542898a0f40489e0140bbd0455e1429e0bb",
+      "fresh_gold_blob": "da169fcc9b0efc096cbb3c68a744da9d7beaa03d",
       "disposition": "SUPPORTED_FOR_FRESHER_QUALIFICATION"
     },
     "rc1_authority": {
