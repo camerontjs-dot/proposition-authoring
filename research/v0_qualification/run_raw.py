@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import Any
 
 from controls import CONTROLS
+
 from proposition_authoring.backend import FrozenPredecessorBackend
 from proposition_authoring.engine import AuthoringEngine
 from proposition_authoring.model import AuthoringRequest, SourceRepresentation
