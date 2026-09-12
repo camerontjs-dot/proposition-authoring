@@ -7,6 +7,7 @@ from .backend import FrozenPredecessorBackend, SemanticBackend
 from .canonical import canonical_json, sha256_text
 from .contract_a import emit_declared, emit_failed, emit_not_decomposed
 from .model import AuthoringRequest, AuthoringResult, CandidateEvaluation
+from .profile import not_needed_profile_allows
 from .receipt import build_receipt
 
 
@@ -79,9 +80,7 @@ class AuthoringEngine:
                 key=lambda c: canonical_json([x["text"] for x in c["children"]]),
             )
             child_texts = [x["text"] for x in representative["children"]]
-            decomposition_id = (
-                f"decomp::{request.root_id}::{sha256_text(cluster)[7:19]}"
-            )
+            decomposition_id = f"decomp::{request.root_id}::{sha256_text(cluster)[7:19]}"
             contract_a = emit_declared(
                 request,
                 decomposition_id=decomposition_id,
@@ -127,7 +126,7 @@ class AuthoringEngine:
         status, frame_count, parse_reason = self.backend.root_frame_count(
             request.root_text, context_text
         )
-        if status == "ok" and frame_count == 1:
+        if status == "ok" and frame_count == 1 and not_needed_profile_allows(request.root_text):
             contract_a = emit_not_decomposed(request)
             receipt = build_receipt(
                 request,
@@ -147,7 +146,10 @@ class AuthoringEngine:
                 evaluations=tuple(evaluations),
             )
 
-        reason = f"NO_UNIQUE_WARRANTED_DECLARATION:{status}:{parse_reason or 'none'}"
+        if status == "ok" and frame_count == 1:
+            reason = "NOT_NEEDED_BLOCKED_BY_COMPOSITION_HAZARD"
+        else:
+            reason = f"NO_UNIQUE_WARRANTED_DECLARATION:{status}:{parse_reason or 'none'}"
         receipt = build_receipt(
             request,
             state="ABSTAINED",
