@@ -1,0 +1,15 @@
+{
+  "handoff_id": "handoff-pa-example-001",
+  "producer_id": "proposition-authoring",
+  "producer_version": "V0-UNQUALIFIED",
+  "work_id": "example-work-001",
+  "root_id": "example-root-001",
+  "root_text": "Panel Cedar approved plan amber and Panel Maple approved plan bronze.",
+  "sources": [
+    {
+      "source_id": "source-example-001",
+      "media_type": "text/plain; charset=utf-8",
+      "content": "Panel Cedar approved plan amber. Panel Maple approved plan bronze."
+    }
+  ]
+}
