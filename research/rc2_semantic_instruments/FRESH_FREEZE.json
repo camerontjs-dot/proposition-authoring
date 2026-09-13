@@ -1,0 +1,19 @@
+{
+  "experiment": "proposition-authoring-rc2-independent-semantic-instruments",
+  "status": "FRESH_SURFACE_SEALED_BEFORE_TARGET_OUTPUT",
+  "target_freeze_commit": "c7565f5e40ef73bef3807fbef724e4a32ac6460f",
+  "target_freeze_tree": "7458680e9c247a75e7947966a980a1232d0655cd",
+  "case_count": 36,
+  "safe_count": 20,
+  "block_count": 16,
+  "fresh_cases_git_blob": "8b8481c8f8b1538813a4ee63a251e2d5460be81b",
+  "fresh_gold_git_blob": "d58a38b7913076795a6654de79fc42aa2214cce9",
+  "fresh_cases_sha256": "bcfeb92eef7512b1779ca433459ce7a43f5fe43644e1605529728fc05b83a67a",
+  "fresh_gold_sha256": "f6d71532be180e33dc9760945ef9aed7672fa18b09cdf0c0419ee920e9602d0c",
+  "target_output_observed_before_seal": false,
+  "notes": [
+    "Fresh surface is candidate-level by preregistration; proposer coverage is reserved for RC3.",
+    "Gold is internal bounded adjudication, not independent human consensus.",
+    "No frozen semantic or harness file changed after target freeze."
+  ]
+}

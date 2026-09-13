@@ -1,0 +1,50 @@
+name: Research RC2 Semantic Instruments
+on:
+  pull_request:
+
+jobs:
+  rc2:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Fetch exact predecessor authorities
+        run: python scripts/fetch_frozen_predecessors.py
+      - name: Install
+        run: python -m pip install -e .[dev]
+      - name: Lint
+        run: python -m ruff check src tests scripts research/rc2_semantic_instruments
+      - name: Development and regression tests
+        run: python -m unittest discover -s tests -v
+      - name: Compile
+        run: python -m compileall -q src tests scripts research/rc2_semantic_instruments
+      - name: Verify freeze if present
+        run: |
+          if [ -f research/rc2_semantic_instruments/FREEZE.json ]; then
+            python research/rc2_semantic_instruments/verify_freeze.py
+          fi
+      - name: Run decisive fresh qualification if sealed
+        run: |
+          CASES=research/rc2_semantic_instruments/fresh_cases.jsonl
+          GOLD=research/rc2_semantic_instruments/GOLD/fresh_gold.jsonl
+          if [ -f "$CASES" ] && [ -f "$GOLD" ]; then
+            cp "$GOLD" /tmp/rc2_gold.jsonl
+            rm "$GOLD"
+            python research/rc2_semantic_instruments/run_raw.py --cases "$CASES" --output /tmp/raw-a.jsonl
+            python research/rc2_semantic_instruments/run_raw.py --cases "$CASES" --output /tmp/raw-b.jsonl
+            cmp /tmp/raw-a.jsonl /tmp/raw-b.jsonl
+            python research/rc2_semantic_instruments/score.py --raw /tmp/raw-a.jsonl --gold /tmp/rc2_gold.jsonl --validator vendor/frozen/contract_a_rc2.py --output /tmp/score.json
+            sha256sum /tmp/raw-a.jsonl /tmp/raw-b.jsonl /tmp/score.json > /tmp/SHA256SUMS
+          fi
+      - name: Upload decisive receipts
+        if: ${{ hashFiles('research/rc2_semantic_instruments/fresh_cases.jsonl') != '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: proposition-authoring-rc2-decisive
+          path: |
+            /tmp/raw-a.jsonl
+            /tmp/raw-b.jsonl
+            /tmp/score.json
+            /tmp/SHA256SUMS

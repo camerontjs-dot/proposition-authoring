@@ -1,0 +1,31 @@
+{
+  "experiment": "proposition-authoring-rc2-independent-semantic-instruments",
+  "status": "TARGET_FROZEN_BEFORE_FRESH_AUTHORSHIP",
+  "base_main": "a4f018285ffc6d2c5755b2cc02a751799f1511a1",
+  "rc1_target_freeze": "bd4fca4494b1ffce4a13118fad5a1268990e42db",
+  "rc1_terminal_evidence": "b3d2b429d21b2d52125492b1f14cadab83e1e84f",
+  "scientific_source_head": "e4a2333f8996358e2bb6f205a15ece856c749707",
+  "scientific_source_tree": "f91aed747ff71c26486efcbdf5718eead2ddddd0",
+  "development_research_run": 34790355139,
+  "development_maintained_ci_run": 34790355150,
+  "fresh_cases_present_at_freeze": false,
+  "fresh_gold_present_at_freeze": false,
+  "frozen_files": [
+    {"path": ".github/workflows/research-rc2-semantic-instruments.yml", "git_blob": "78df858466de70d454627dd0136e57245f0d2c15"},
+    {"path": "BOOTSTRAP_AUTHORITY.json", "git_blob": "c0110424c69f7bb27684a41aaed356da96a94173"},
+    {"path": "scripts/fetch_frozen_predecessors.py", "git_blob": "8d15b86fa8aefe458297cdfd29108db9f3e95a4e"},
+    {"path": "src/proposition_authoring/ambiguity.py", "git_blob": "133de6b2a4cfa7fc58d1f0f38a80b1c9ebb0b19d"},
+    {"path": "src/proposition_authoring/authority.py", "git_blob": "1c05f7261171ad5176fbbb19bf164bd10db2b78c"},
+    {"path": "src/proposition_authoring/backend.py", "git_blob": "bcc03f1d1ec3e78591cd339d3a8600d020faf643"},
+    {"path": "src/proposition_authoring/canonical.py", "git_blob": "8c275c381f6422dfd8ced03a3384628748dd167b"},
+    {"path": "src/proposition_authoring/conservation.py", "git_blob": "dbe69e8bde1d9f485f3f16ba7d50f0bd86dff5a1"},
+    {"path": "src/proposition_authoring/contract_a.py", "git_blob": "c7997d91146a1a7b3e888c98a9ed5f9610ce3f6e"},
+    {"path": "src/proposition_authoring/model.py", "git_blob": "f88c4b76752bdb5843748f7c895d9399b2ab2dc1"},
+    {"path": "research/rc2_semantic_instruments/PREREGISTRATION.md", "git_blob": "0952984a00a5cdd823aed8b8cea0ea1ea80cdb6f"},
+    {"path": "research/rc2_semantic_instruments/controls.py", "git_blob": "3f0543cff74eb7d8b74933211e4d0d3027879bc7"},
+    {"path": "research/rc2_semantic_instruments/run_raw.py", "git_blob": "48a41bec96361fe440a749ba0dc879462ca7c462"},
+    {"path": "research/rc2_semantic_instruments/score.py", "git_blob": "11cd5a4bb52e51f683a04fcabe80475a8e3ea950"},
+    {"path": "research/rc2_semantic_instruments/verify_freeze.py", "git_blob": "f387ab073121ca43a5fcce62c6f92db32d78b584"},
+    {"path": "tests/test_rc2_semantic_instruments.py", "git_blob": "7955d75dec7602d901d6a2a29ffd5c3da6438cfc"}
+  ]
+}
