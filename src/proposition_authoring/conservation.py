@@ -6,12 +6,12 @@ from typing import Literal
 
 Disposition = Literal["PASS", "FAIL", "INDETERMINATE"]
 REPORTING = "reported|stated|confirmed|noted|claimed|observed|found|said"
-MATRIX_RE = re.compile(rf"^(?P<matrix>.+?\b(?:{REPORTING}))\s+(?P<body>.+)$", re.I)
-LEADING_RE = re.compile(r"^(?P<prefix>(?:during|at|in|under|after|before|when|while|if|unless)\b[^,]*,\s*)(?P<body>.+\band\b.+)$", re.I)
-LOCAL_NEG_RE = re.compile(r"^(?P<subject>.+?)\s+did\s+not\s+(?P<verb>[A-Za-z][A-Za-z-]*)\b.*?\band\b.+$", re.I)
-GENERIC_BOTH_RE = re.compile(r"^(?P<subject>.+?)\s+both\s+(?P<body>.+\band\b.+)$", re.I)
-TRAILING_RE = re.compile(r"^.+\band\b.+\s+(?:during|at|in|under|after|before|when|while|if|unless)\b[^,]*[.]?$", re.I)
-THRESHOLD_RE = re.compile(r"\b(?:at\s+least|at\s+most|more\s+than|less\s+than|below|above)\s+\d+(?:\.\d+)?(?:\s+[A-Za-z%]+)?\b", re.I)
+MATRIX_RE = re.compile(rf"^(?P<matrix>.+?\b(?:{REPORTING}))\s+(?P<body>.+)$", re.IGNORECASE)
+LEADING_RE = re.compile(r"^(?P<prefix>(?:during|at|in|under|after|before|when|while|if|unless)\b[^,]*,\s*)(?P<body>.+\band\b.+)$", re.IGNORECASE)
+LOCAL_NEG_RE = re.compile(r"^(?P<subject>.+?)\s+did\s+not\s+(?P<verb>[A-Za-z][A-Za-z-]*)\b.*?\band\b.+$", re.IGNORECASE)
+GENERIC_BOTH_RE = re.compile(r"^(?P<subject>.+?)\s+both\s+(?P<body>.+\band\b.+)$", re.IGNORECASE)
+TRAILING_RE = re.compile(r"^.+\band\b.+\s+(?:during|at|in|under|after|before|when|while|if|unless)\b[^,]*[.]?$", re.IGNORECASE)
+THRESHOLD_RE = re.compile(r"\b(?:at\s+least|at\s+most|more\s+than|less\s+than|below|above)\s+\d+(?:\.\d+)?(?:\s+[A-Za-z%]+)?\b", re.IGNORECASE)
 
 
 def norm(text: str) -> str:
