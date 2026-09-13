@@ -1,0 +1,1 @@
+Fresh cases are authored only after target freeze; this marker is replaced atomically by the sealed fresh surface commit.
