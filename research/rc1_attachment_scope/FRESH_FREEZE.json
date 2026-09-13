@@ -1,0 +1,21 @@
+{
+  "experiment": "proposition-authoring-rc1-attachment-scope",
+  "status": "FRESH_SURFACE_FROZEN_BEFORE_TARGET_EXECUTION",
+  "target_freeze_commit": "bd4fca4494b1ffce4a13118fad5a1268990e42db",
+  "fresh_cases_git_blob": "d8f8b9bbb94b278bb3d68b8e3f6d684ec766c186",
+  "fresh_gold_git_blob": "bb0d9d1e8c9ac27861ae3f9f40f9f1dd97dd3d32",
+  "case_count": 24,
+  "class_counts": {
+    "AMBIGUOUS": 9,
+    "CLEAR_REQUIRED": 7,
+    "CLEAR_DIAGNOSTIC": 4,
+    "NOT_NEEDED": 4
+  },
+  "target_output_observed_before_freeze": false,
+  "gold_adjudication": "internal_bounded_adjudication_not_independent_human_consensus",
+  "notes": [
+    "Fresh cases were authored only after the target and qualification apparatus freeze passed hosted verification.",
+    "CLEAR_DIAGNOSTIC cases are intentionally outside the RC1 coverage requirement and preserve known predecessor coverage debt.",
+    "No fresh case or gold may be changed after target execution without a successor experiment."
+  ]
+}
