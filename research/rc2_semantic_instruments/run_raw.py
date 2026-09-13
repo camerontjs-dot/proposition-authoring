@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import Any
 
 from controls import CONTROLS
+
 from proposition_authoring.authority import evaluate_candidate
 from proposition_authoring.backend import FrozenPredecessorBackend
 from proposition_authoring.contract_a import emit_declared
