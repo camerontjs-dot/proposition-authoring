@@ -1,0 +1,15 @@
+{
+  "fresh_freeze_schema": "proposition-authoring-v0-fresh-surface-freeze-1",
+  "scientific_freeze_commit": "91852f905510c1a832dfb8d0a53b02e2e215f419",
+  "fresh_cases_blob": "48bf2d408e1975d61dc88e711b5cb8d295df615d",
+  "fresh_gold_blob": "3c5ea5deb95d5d2501c72bad903034dc2e584ff8",
+  "case_count": 30,
+  "class_counts": {
+    "NOT_NEEDED": 6,
+    "CORE_DECLARED": 8,
+    "ADVANCED_DECLARED": 8,
+    "FAIL_CLOSED": 8
+  },
+  "target_output_observed_before_fresh_freeze": false,
+  "post_freeze_rule": "Fresh cases and gold may not change after target output is observed."
+}
