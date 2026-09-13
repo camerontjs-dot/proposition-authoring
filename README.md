@@ -36,9 +36,9 @@ This is not a universal semantic parser project. The programme prefers explicit 
 ## Navigation
 
 - `docs/RESEARCH_PROGRAM.md` - staged research direction, next experiments, falsifiers, and promotion boundary.
+- `docs/PR_GOVERNANCE.md` - evidence requirements for pull requests.
 - `research/README.md` - experiment layout and evidence conventions.
 - `.github/ISSUE_TEMPLATE/research-experiment.md` - required shape for new research questions.
-- `.github/pull_request_template.md` - required research/evidence fields for PRs.
 
 ## Terminal V0 result
 
