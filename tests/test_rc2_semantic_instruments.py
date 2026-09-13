@@ -15,6 +15,7 @@ def candidate(case_id: str, root: str, children: tuple[str, str]) -> dict:
         "root_id": case_id,
         "root_text": root,
         "context_text": "",
+        "profile_id": "pc-evaluator-rc1-binding-v1",
         "candidate_state": "DECLARED",
         "operator": "all_of",
         "children": [
@@ -70,13 +71,23 @@ class RC2DevelopmentTests(unittest.TestCase):
 
     def test_real_frozen_evaluator_r22_blind_spot_is_caught(self):
         backend = FrozenPredecessorBackend()
-        row = candidate(
-            "r22-dev",
-            "Committee Pine reported both Unit Amber passed and Unit Cobalt failed.",
-            ("Committee Pine reported both Unit Amber passed.", "Unit Cobalt failed."),
+        root = {
+            "root_id": "r22-dev",
+            "root_text": "Committee Pine reported both Unit Amber passed and Unit Cobalt failed.",
+            "context_text": "",
+            "family": "development",
+        }
+        proposals = backend.proposals(root)
+        self.assertEqual(1, len(proposals["P2"]))
+        row = proposals["P2"][0]
+        self.assertEqual(
+            ["Committee Pine reported both Unit Amber passed.", "Unit Cobalt failed."],
+            [child["text"] for child in row["children"]],
         )
         self.assertEqual("ACCEPTABLE_WITHIN_PROFILE", backend.evaluate(row)["disposition"])
-        self.assertEqual("BLOCK", evaluate_candidate(row, backend).disposition)
+        composed = evaluate_candidate(row, backend)
+        self.assertEqual("BLOCK", composed.disposition)
+        self.assertEqual("CONSERVATION_FAIL", composed.reason)
 
 
 if __name__ == "__main__":
