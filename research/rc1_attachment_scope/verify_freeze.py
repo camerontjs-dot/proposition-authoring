@@ -29,12 +29,14 @@ def main() -> None:
         if not path.exists():
             failures.append(f"missing:{row['path']}")
             continue
-        actual_sha = sha256(path)
         actual_blob = git_blob(path)
-        if actual_sha != row["sha256"]:
-            failures.append(f"sha256:{row['path']}:{actual_sha}")
         if actual_blob != row["git_blob"]:
             failures.append(f"git_blob:{row['path']}:{actual_blob}")
+        expected_sha = row.get("sha256")
+        if expected_sha is not None:
+            actual_sha = sha256(path)
+            if actual_sha != expected_sha:
+                failures.append(f"sha256:{row['path']}:{actual_sha}")
     if failures:
         raise SystemExit("freeze verification failed\n" + "\n".join(failures))
     print(f"verified {len(manifest['frozen_files'])} frozen files")
