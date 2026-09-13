@@ -5,7 +5,7 @@ from typing import Any
 from .canonical import bound_object_hash, sha256_text
 from .model import AuthoringRequest, CandidateEvaluation
 
-RECEIPT_SCHEMA = "proposition-authoring-receipt-v0"
+RECEIPT_SCHEMA = "proposition-authoring-receipt-v0-rc1"
 
 
 def build_receipt(
@@ -18,11 +18,20 @@ def build_receipt(
     selected_cluster: str | None,
     selected_candidate_id: str | None,
     contract_a: dict[str, Any] | None,
+    root_scope_findings: list[dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
+    findings = sorted(
+        root_scope_findings or [],
+        key=lambda row: (
+            str(row.get("family", "")),
+            str(row.get("trigger", "")),
+            tuple(str(x) for x in row.get("alternatives", [])),
+        ),
+    )
     value: dict[str, Any] = {
         "schema": RECEIPT_SCHEMA,
-        "apparatus": "proposition-authoring-v0-convergence",
-        "qualification_state": "UNQUALIFIED_CONVERGENCE_CANDIDATE",
+        "apparatus": "proposition-authoring-v0-rc1-attachment-scope",
+        "qualification_state": "UNQUALIFIED_RC1_CANDIDATE",
         "input": {
             "handoff_id": request.handoff_id,
             "producer_id": request.producer_id,
@@ -38,6 +47,7 @@ def build_receipt(
         },
         "state": state,
         "reason": reason,
+        "root_scope_findings": findings,
         "candidate_ledger": [
             {
                 "candidate_id": row.candidate_id,
@@ -59,6 +69,7 @@ def build_receipt(
         "nonclaims": [
             "not production-authorized",
             "not universal semantic parsing",
+            "bounded RC1 scope findings are veto evidence, not proof of global unambiguity",
             "not decomposition truth proof",
             "not retrieval/CAL/Decision-derived authority",
         ],
