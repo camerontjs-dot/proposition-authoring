@@ -1,0 +1,33 @@
+{
+  "experiment": "proposition-authoring-rc1-attachment-scope",
+  "status": "TARGET_FROZEN_BEFORE_FRESH_AUTHORSHIP",
+  "base_main": "a4f018285ffc6d2c5755b2cc02a751799f1511a1",
+  "predecessor_v0_source_commit": "f1b2fe8d59a845c0cdfac80c155b0e1ff44c3a72",
+  "predecessor_v0_source_tree": "954a8e19dabdad24b303523821f5fe8f2ff9aab5",
+  "scientific_source_head": "f83709f469269475a6d5fe918a30780bf9bcf580",
+  "scientific_source_tree": "c22d6e5bc32b88e7e7aa888a137800a18e9b1d0b",
+  "development_research_run": 34784339888,
+  "development_maintained_ci_run": 34784339892,
+  "fresh_cases_present_at_freeze": false,
+  "fresh_gold_present_at_freeze": false,
+  "frozen_files": [
+    {"path": ".github/workflows/research-rc1-attachment-scope.yml", "git_blob": "8e0a981013188471b4bf3f2241b2253ee40f5f56"},
+    {"path": "BOOTSTRAP_AUTHORITY.json", "git_blob": "c0110424c69f7bb27684a41aaed356da96a94173"},
+    {"path": "scripts/fetch_frozen_predecessors.py", "git_blob": "8d15b86fa8aefe458297cdfd29108db9f3e95a4e"},
+    {"path": "src/proposition_authoring/ambiguity.py", "git_blob": "133de6b2a4cfa7fc58d1f0f38a80b1c9ebb0b19d"},
+    {"path": "src/proposition_authoring/backend.py", "git_blob": "bcc03f1d1ec3e78591cd339d3a8600d020faf643"},
+    {"path": "src/proposition_authoring/canonical.py", "git_blob": "8c275c381f6422dfd8ced03a3384628748dd167b"},
+    {"path": "src/proposition_authoring/contract_a.py", "git_blob": "c7997d91146a1a7b3e888c98a9ed5f9610ce3f6e"},
+    {"path": "src/proposition_authoring/engine.py", "git_blob": "d122e70d92708e3bef0af465feb7988abca960fa"},
+    {"path": "src/proposition_authoring/model.py", "git_blob": "f88c4b76752bdb5843748f7c895d9399b2ab2dc1"},
+    {"path": "src/proposition_authoring/profile.py", "git_blob": "c35569b370d2dafab8acebfc67ea003bf06dcb53"},
+    {"path": "src/proposition_authoring/receipt.py", "git_blob": "b1390f284011baf05dd04294618e4490fa192aea"},
+    {"path": "tests/test_convergence_choices.py", "git_blob": "e68c221a0ca8e4db8ecd9be47b7c6fc95f94881d"},
+    {"path": "tests/test_rc1_development_cases.py", "git_blob": "1bf397160da4e08a02e033642513a5849080e610"},
+    {"path": "tests/test_scope_ambiguity.py", "git_blob": "d5ada0d7be83e99b49dfb6a7c1ffbc3eddaba886"},
+    {"path": "research/rc1_attachment_scope/controls.py", "git_blob": "27f1b8a2340832350134a511fe622b48efbf58dc"},
+    {"path": "research/rc1_attachment_scope/run_raw.py", "git_blob": "077e4f5ec8a3f50d6f3d95ee2015be317b562373"},
+    {"path": "research/rc1_attachment_scope/score.py", "git_blob": "16b31dc0f2285194c621df368f552df4717187af"},
+    {"path": "research/rc1_attachment_scope/verify_freeze.py", "git_blob": "e9d516342cde876cdb6241e7361d08dfeba528fa"}
+  ]
+}
