@@ -1,0 +1,59 @@
+{
+  "record_schema": "proposition-authoring-v0-terminal-receipt-1",
+  "governance_disposition": "FALSIFIED",
+  "repository": "camerontjs-dot/proposition-authoring",
+  "base_main": "c62015faa50aa9dccb2162cfc1e5ed0167a77870",
+  "scientific_source_head": "f1b2fe8d59a845c0cdfac80c155b0e1ff44c3a72",
+  "scientific_source_tree": "954a8e19dabdad24b303523821f5fe8f2ff9aab5",
+  "scientific_freeze_commit": "91852f905510c1a832dfb8d0a53b02e2e215f419",
+  "fresh_freeze_commit": "1c2c8d893c6594a8847700f5c4d36de084974d0f",
+  "fresh_cases_git_blob": "48bf2d408e1975d61dc88e711b5cb8d295df615d",
+  "fresh_gold_git_blob": "3c5ea5deb95d5d2501c72bad903034dc2e584ff8",
+  "fresh_cases_sha256": "4cdfefa04263599e928c60c691d52c3b6bbd61385857c1db6339615e9d16b049",
+  "fresh_gold_sha256": "1e533978d0a887dedb606026ec694a0facc8713a4a0f1d35a3f5518ec65c299c",
+  "decisive": {
+    "research_run": 34726859584,
+    "job": 103642383958,
+    "maintained_ci_run": 34726859577,
+    "branch_head": "1c2c8d893c6594a8847700f5c4d36de084974d0f",
+    "pr_merge_checkout": "92f6bb65f3bba47f4069c17cba5de1da7cb060be",
+    "checkout_tree": "61d99feb5416ea89acff8e3ce7d7b78afb144d74",
+    "artifact_id": 10307599346,
+    "artifact_digest": "sha256:92605138238eb3b549ea3200d3a8b32351a4a03db01465f57dd3a7152c3038e8",
+    "raw_a_sha256": "b1abdc45988f89e097aba1321890b5347beb1c02767dcf6997480e028eee73d7",
+    "raw_b_sha256": "b1abdc45988f89e097aba1321890b5347beb1c02767dcf6997480e028eee73d7",
+    "score_sha256": "5b6523afd460e98876539a04c0ecd76a4dc2467060357912ed561449ff549703",
+    "exact_replay": true
+  },
+  "result": {
+    "cases": 30,
+    "correct": 26,
+    "not_needed_correct": "6/6",
+    "core_declared_correct": "7/8",
+    "advanced_declared_correct": "6/8",
+    "fail_closed_correct": "7/8",
+    "safe_authored": "19/22",
+    "safe_false_negatives": 3,
+    "unsafe_authoritative_emissions": 1,
+    "contract_a_objects_validated": 20,
+    "weak_control_discrimination": true,
+    "hard_safety_gate": false,
+    "positive_coverage_gate": false
+  },
+  "decisive_falsifier": {
+    "case_id": "Q29",
+    "family": "attribution_scope_ambiguity",
+    "root_text": "Auditor Pine reported Unit Cedar passed and Unit Birch failed.",
+    "selected_candidate_id": "q29::P2::explicit-clauses",
+    "selected_children": [
+      "Auditor Pine reported Unit Cedar passed.",
+      "Unit Birch failed."
+    ],
+    "contract_a_handoff_sha256": "sha256:816fc3f45794e33de0abf56135ea7adca186655cfbc999ea4dad0818510c7f13"
+  },
+  "adjudication_limitation": "Fresh gold was internally authored/adjudicated for this convergence qualification and was not independently human-adjudicated.",
+  "post_result_semantic_repair": false,
+  "production_authorized": false,
+  "merge_authorized": false,
+  "successor_required": true
+}
