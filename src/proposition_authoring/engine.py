@@ -3,6 +3,7 @@ from __future__ import annotations
 from collections import defaultdict
 from typing import Any
 
+from .ambiguity import analyze_root_scope
 from .backend import FrozenPredecessorBackend, SemanticBackend
 from .canonical import canonical_json, sha256_text
 from .contract_a import emit_declared, emit_failed, emit_not_decomposed
@@ -29,6 +30,7 @@ class AuthoringEngine:
                 selected_cluster=None,
                 selected_candidate_id=None,
                 contract_a=contract_a,
+                root_scope_findings=[],
             )
             return AuthoringResult(
                 state="FAILED",
@@ -43,7 +45,7 @@ class AuthoringEngine:
             "root_id": request.root_id,
             "root_text": request.root_text,
             "context_text": context_text,
-            "family": "v0-runtime",
+            "family": "v0-rc1-runtime",
         }
         proposals = self.backend.proposals(root)
         evaluations: list[CandidateEvaluation] = []
@@ -72,8 +74,29 @@ class AuthoringEngine:
             cluster: sorted(c["case_id"] for c in candidates)
             for cluster, candidates in sorted(cluster_members.items())
         }
+        scope_findings = analyze_root_scope(request.root_text)
 
         if len(cluster_members) == 1:
+            if scope_findings:
+                reason = "MATERIAL_ROOT_SCOPE_AMBIGUITY"
+                receipt = build_receipt(
+                    request,
+                    state="ABSTAINED",
+                    reason=reason,
+                    evaluations=evaluations,
+                    surviving_clusters=surviving,
+                    selected_cluster=None,
+                    selected_candidate_id=None,
+                    contract_a=None,
+                    root_scope_findings=scope_findings,
+                )
+                return AuthoringResult(
+                    state="ABSTAINED",
+                    reason=reason,
+                    receipt=receipt,
+                    evaluations=tuple(evaluations),
+                )
+
             cluster = next(iter(cluster_members))
             representative = min(
                 cluster_members[cluster],
@@ -95,6 +118,7 @@ class AuthoringEngine:
                 selected_cluster=cluster,
                 selected_candidate_id=representative["case_id"],
                 contract_a=contract_a,
+                root_scope_findings=scope_findings,
             )
             return AuthoringResult(
                 state="DECLARED",
@@ -115,6 +139,7 @@ class AuthoringEngine:
                 selected_cluster=None,
                 selected_candidate_id=None,
                 contract_a=None,
+                root_scope_findings=scope_findings,
             )
             return AuthoringResult(
                 state="ABSTAINED",
@@ -126,6 +151,26 @@ class AuthoringEngine:
         status, frame_count, parse_reason = self.backend.root_frame_count(
             request.root_text, context_text
         )
+        if scope_findings:
+            reason = "MATERIAL_ROOT_SCOPE_AMBIGUITY"
+            receipt = build_receipt(
+                request,
+                state="ABSTAINED",
+                reason=reason,
+                evaluations=evaluations,
+                surviving_clusters=surviving,
+                selected_cluster=None,
+                selected_candidate_id=None,
+                contract_a=None,
+                root_scope_findings=scope_findings,
+            )
+            return AuthoringResult(
+                state="ABSTAINED",
+                reason=reason,
+                receipt=receipt,
+                evaluations=tuple(evaluations),
+            )
+
         if status == "ok" and frame_count == 1 and not_needed_profile_allows(request.root_text):
             contract_a = emit_not_decomposed(request)
             receipt = build_receipt(
@@ -137,6 +182,7 @@ class AuthoringEngine:
                 selected_cluster=None,
                 selected_candidate_id=None,
                 contract_a=contract_a,
+                root_scope_findings=scope_findings,
             )
             return AuthoringResult(
                 state="NOT_NEEDED",
@@ -159,6 +205,7 @@ class AuthoringEngine:
             selected_cluster=None,
             selected_candidate_id=None,
             contract_a=None,
+            root_scope_findings=scope_findings,
         )
         return AuthoringResult(
             state="ABSTAINED",
