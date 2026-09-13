@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import hashlib
 import json
 import subprocess
 from pathlib import Path
@@ -17,15 +16,16 @@ def main() -> None:
         if not path.exists():
             failures.append("missing:" + row["path"])
             continue
-        sha256 = hashlib.sha256(path.read_bytes()).hexdigest()
-        blob = subprocess.check_output(["git", "hash-object", str(path.relative_to(ROOT))], cwd=ROOT, text=True).strip()
-        if sha256 != row["sha256"]:
-            failures.append("sha256:" + row["path"])
+        blob = subprocess.check_output(
+            ["git", "hash-object", str(path.relative_to(ROOT))],
+            cwd=ROOT,
+            text=True,
+        ).strip()
         if blob != row["git_blob"]:
-            failures.append("blob:" + row["path"])
+            failures.append("blob:" + row["path"] + ":" + blob)
     if failures:
         raise SystemExit("freeze verification failed\n" + "\n".join(failures))
-    print(f"verified {len(manifest['frozen_files'])} frozen files")
+    print(f"verified {len(manifest['frozen_files'])} exact Git blobs")
 
 
 if __name__ == "__main__":
