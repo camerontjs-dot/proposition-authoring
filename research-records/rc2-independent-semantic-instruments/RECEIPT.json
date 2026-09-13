@@ -1,0 +1,48 @@
+{
+  "schema": "proposition-authoring-research-terminal-receipt-v1",
+  "experiment": "RC2-independent-semantic-instruments",
+  "disposition": "SUPPORTED_FOR_RC3_COVERAGE_TESTING",
+  "base_main": "a4f018285ffc6d2c5755b2cc02a751799f1511a1",
+  "rc1_target_freeze": "bd4fca4494b1ffce4a13118fad5a1268990e42db",
+  "rc1_terminal_evidence": "b3d2b429d21b2d52125492b1f14cadab83e1e84f",
+  "scientific_source_head": "e4a2333f8996358e2bb6f205a15ece856c749707",
+  "target_freeze": "c7565f5e40ef73bef3807fbef724e4a32ac6460f",
+  "decisive_head": "9af7ebc590d8ba317607efd8a9bf8eef5d416bc3",
+  "fresh_cases_git_blob": "8b8481c8f8b1538813a4ee63a251e2d5460be81b",
+  "fresh_gold_git_blob": "d58a38b7913076795a6654de79fc42aa2214cce9",
+  "research_run": 34790568335,
+  "maintained_ci_run": 34790568330,
+  "artifact_id": 10327647140,
+  "artifact_digest": "sha256:fae9841b1b082819afda8733edb8a4f01d4806c4417a464034c8cebf568e801f",
+  "raw_sha256": "6f7e2e75068aee650cd9da9e7fe01858cc3bfa4ed7efe9feaef1922f578ff469",
+  "score_sha256": "860f8675ee4622939bbfac0de4d620a84af6a8a943ac2076c99707db7837bb52",
+  "result": {
+    "cases": 36,
+    "safe": 20,
+    "blocked": 16,
+    "safe_allowed": 18,
+    "unsafe_allowed": 0,
+    "safe_family_count": 9,
+    "exact_correct": 34,
+    "contract_a_valid": 18,
+    "replay_byte_identical": true,
+    "hard_safety_gate": true,
+    "coverage_gate": true,
+    "weak_control_discrimination_gate": true
+  },
+  "controls": {
+    "evaluator_only": {"unsafe_allow": 2, "unsafe_case_ids": ["B01", "B02"], "safe_allow": 18},
+    "conservation_only": {"unsafe_allow": 4, "unsafe_case_ids": ["B09", "B10", "B11", "B12"], "safe_allow": 20},
+    "permissive_any_pass": {"unsafe_allow": 6, "unsafe_case_ids": ["B01", "B02", "B09", "B10", "B11", "B12"], "safe_allow": 20},
+    "lexical_coverage": {"unsafe_allow": 12, "safe_allow": 20}
+  },
+  "safe_false_negatives": ["A17", "A20"],
+  "nonclaims": [
+    "not production-authorized",
+    "not end-to-end proposer coverage",
+    "not universal semantic conservation",
+    "not independent-human gold",
+    "not permission to weaken fail-closed composition",
+    "not Contract A or downstream pipeline promotion"
+  ]
+}
