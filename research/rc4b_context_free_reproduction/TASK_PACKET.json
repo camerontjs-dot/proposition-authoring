@@ -26,14 +26,14 @@
   "claim_type": "context-free independent execution/reconstruction; not independent semantic reimplementation",
   "command_interface": {
     "execute": "python research/rc4b_context_free_reproduction/run_reproduction.py --candidate-dir <provisioned-dir> --cases <cases.jsonl> --output <raw.jsonl>",
-    "provision": "python research/rc4b_context_free_reproduction/provision_candidate.py --packet <packet> --dest <empty-dir> --receipt <receipt.json>",
+    "provision": "python research/rc4b_context_free_reproduction/provision_candidate.py --packet <packet> --repository-root <full-git-checkout> --dest <empty-dir> --receipt <receipt.json>",
     "raw_schema": "one canonical JSON object per case with case_id, pooled_result, aligned P4/P5 proposal projections, prealignment P5 control projection, and receipt_sha256"
   },
   "contamination_stop_rule": "If a required byte cannot be reconstructed from the packet, any pinned identity mismatches, forbidden material is observed before raw-output seal, or the two clean provisions diverge, stop and preserve the deviation. Do not repair semantic code or broaden the aperture.",
   "contract_a_release": "contract-a-v2.0.0",
   "experiment": "rc4b-context-free-reproduction-aligned-p5",
   "freshness_rule": "RC4b fresh cases and hidden gold must not exist until the task packet, provisioner, raw executor, scorer, Contract A validator identity, semantic-authority identities, aligned P5 identity and competence declaration, replay comparator, workflow, and freeze verifier are frozen and hosted freeze verification passes.",
-  "network_policy": "Only immutable raw GitHub URLs mechanically derived from repository, candidate_commit, runtime_files, and the pinned bootstrap script are required by the executor.",
+  "network_policy": "Candidate runtime bytes are reconstructed only with git show from the pinned candidate_commit in the full hosted checkout; the only subsequent network access is the exact pinned bootstrap script for immutable predecessor and Contract A artifacts.",
   "neutral_main": "a4f018285ffc6d2c5755b2cc02a751799f1511a1",
   "objective": "Reconstruct and execute the exact RC4a-aligned bounded Proposition Authoring candidate in clean hosted directories using only this packet and pinned immutable authorities, then emit raw outputs for a separately sealed fresh cohort without semantic repair.",
   "p5_competence": {
