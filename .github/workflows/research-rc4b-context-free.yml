@@ -11,6 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -53,6 +55,7 @@ jobs:
 
           python "$BASE/provision_candidate.py" \
             --packet "$BASE/TASK_PACKET.json" \
+            --repository-root . \
             --dest work/candidate-a \
             --receipt decisive/provision-a.json
           python "$BASE/run_reproduction.py" \
@@ -62,6 +65,7 @@ jobs:
 
           python "$BASE/provision_candidate.py" \
             --packet "$BASE/TASK_PACKET.json" \
+            --repository-root . \
             --dest work/candidate-b \
             --receipt decisive/provision-b.json
           python "$BASE/run_reproduction.py" \
