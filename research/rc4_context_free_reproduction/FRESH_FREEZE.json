@@ -1,0 +1,30 @@
+{
+  "experiment": "proposition-authoring-rc4-context-free-reproduction",
+  "status": "FRESH_SURFACE_SEALED_AFTER_APPARATUS_FREEZE",
+  "base_main": "a4f018285ffc6d2c5755b2cc02a751799f1511a1",
+  "rc3_candidate_commit": "50a943c401f8a09d5bb940472bdad43b54dca5d0",
+  "apparatus_freeze_commit": "f830fdc50cb0a2388cd47da9f7f0e844b803c3e9",
+  "apparatus_verification_run": 34799353466,
+  "fresh_cases_git_blob": "ad8b76ef0375d27d032bba4bc81184606666399a",
+  "fresh_cases_sha256": "ab6c9454a2ef1b40cbbda4ad5a0568e1ff5c4a730fff01d390c3d258a91b9485",
+  "fresh_gold_git_blob": "d25b579525b315b22f12e80601383416d7afbb47",
+  "fresh_gold_sha256": "eff274e69555856bf926c5bde97b58dc98aec3b4ebc72d1e9bf10fbe5a14cec5",
+  "fresh_shape": {
+    "total": 36,
+    "P4_SAFE": 6,
+    "P5_SAFE": 8,
+    "BASELINE_SAFE": 8,
+    "SINGLE": 4,
+    "FAIL_CLOSED": 10
+  },
+  "frozen_files": [
+    {"path": "research/rc4_context_free_reproduction/TASK_PACKET.json", "git_blob": "62a45ef327857d88a53bf8d847a168da5c8f3138"},
+    {"path": "research/rc4_context_free_reproduction/provision_candidate.py", "git_blob": "7296ff90d715eb854e8ad80eaa02f04d44f63bfa"},
+    {"path": "research/rc4_context_free_reproduction/run_reproduction.py", "git_blob": "a104cb0ce206216ead0efe5de31460bdbea2ed03"},
+    {"path": "research/rc4_context_free_reproduction/score.py", "git_blob": "1a31194e8d42c962ee45d13fd464317067f73450"},
+    {"path": "research/rc4_context_free_reproduction/verify_packet_freeze.py", "git_blob": "c798816c033db344fb4dd51efa04633af8766a55"},
+    {"path": "research/rc4_context_free_reproduction/PREREGISTRATION.md", "git_blob": "bf24158cc73a3fe879698296ed4f317003dea05d"},
+    {"path": "tests/test_rc4_packet.py", "git_blob": "7918e980731d3be4b3ccad9577c4342e238dab46"},
+    {"path": ".github/workflows/research-rc4-context-free.yml", "git_blob": "e2fedd2a7dba2575cd477977a236f782efb80c11"}
+  ]
+}

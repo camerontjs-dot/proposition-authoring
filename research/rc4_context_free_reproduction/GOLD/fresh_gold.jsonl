@@ -1,0 +1,36 @@
+{"case_id":"C01","class":"P4_SAFE","expected_state":"DECLARED","allowed_child_sets":[["Archive relay logged alarm bronze.","Archive relay stored incident silver."]]}
+{"case_id":"C02","class":"P4_SAFE","expected_state":"DECLARED","allowed_child_sets":[["Courier Kestrel shipped sample amber.","Courier Kestrel delivered custody ledger."]]}
+{"case_id":"C03","class":"P4_SAFE","expected_state":"DECLARED","allowed_child_sets":[["Technician Willow inspected valve coral.","Technician Willow labeled sample ivory."]]}
+{"case_id":"C04","class":"P4_SAFE","expected_state":"DECLARED","allowed_child_sets":[["Quality team reviewed batch record.","Quality team signed release sheet."]]}
+{"case_id":"C05","class":"P4_SAFE","expected_state":"DECLARED","allowed_child_sets":[["Gateway Lark authenticated session cobalt.","Gateway Lark logged access event."]]}
+{"case_id":"C06","class":"P4_SAFE","expected_state":"DECLARED","allowed_child_sets":[["Warehouse Birch transferred lot jade.","Warehouse Birch stored lot jade."]]}
+{"case_id":"C07","class":"P5_SAFE","expected_state":"DECLARED","allowed_child_sets":[["Panel Cedar reported that Unit Amber passed.","Panel Cedar reported that Unit Cobalt failed."]]}
+{"case_id":"C08","class":"P5_SAFE","expected_state":"DECLARED","allowed_child_sets":[["Board Willow reported that System Jade was active.","Board Willow reported that System Quartz was inactive."]]}
+{"case_id":"C09","class":"P5_SAFE","expected_state":"DECLARED","allowed_child_sets":[["Committee Birch reported that Plan Coral was approved.","Committee Birch reported that Plan Ivory was rejected."]]}
+{"case_id":"C10","class":"P5_SAFE","expected_state":"DECLARED","allowed_child_sets":[["Inspectorate Maple reported that Module Bronze restarted.","Inspectorate Maple reported that Module Silver stopped."]]}
+{"case_id":"C11","class":"P5_SAFE","expected_state":"DECLARED","allowed_child_sets":[["Council Pine reported that Line Teal was compliant.","Council Pine reported that Line Ochre failed."]]}
+{"case_id":"C12","class":"P5_SAFE","expected_state":"DECLARED","allowed_child_sets":[["Team Rowan reported that Unit Onyx was ready.","Team Rowan reported that Unit Pearl failed."]]}
+{"case_id":"C13","class":"P5_SAFE","expected_state":"DECLARED","allowed_child_sets":[["Group Aspen reported that Module Cedar passed.","Group Aspen reported that Module Moss failed."]]}
+{"case_id":"C14","class":"P5_SAFE","expected_state":"DECLARED","allowed_child_sets":[["Board Elm reported that Route Indigo was approved.","Board Elm reported that Route Violet was rejected."]]}
+{"case_id":"C15","class":"BASELINE_SAFE","expected_state":"DECLARED","allowed_child_sets":[["Inspector Granite examined batch ledger.","Inspector Granite signed release form."]]}
+{"case_id":"C16","class":"BASELINE_SAFE","expected_state":"DECLARED","allowed_child_sets":[["Reviewer Flint filed deviation record.","Supervisor Brook approved corrective plan."]]}
+{"case_id":"C17","class":"BASELINE_SAFE","expected_state":"DECLARED","allowed_child_sets":[["Station Larch measured inlet pressure.","Station Sable recorded outlet temperature."]]}
+{"case_id":"C18","class":"BASELINE_SAFE","expected_state":"DECLARED","allowed_child_sets":[["Vendor team transferred lot saffron.","Warehouse team stored lot saffron."]]}
+{"case_id":"C19","class":"BASELINE_SAFE","expected_state":"DECLARED","allowed_child_sets":[["Tank Maroon was below 12 kPa.","Tank Azure was above 34 kPa."]]}
+{"case_id":"C20","class":"BASELINE_SAFE","expected_state":"DECLARED","allowed_child_sets":[["Route Alder was faster than Route Spruce.","Route Clay was slower than Route Stone."]]}
+{"case_id":"C21","class":"BASELINE_SAFE","expected_state":"DECLARED","allowed_child_sets":[["During inspection window, Controller Birch logged alarm crimson.","During inspection window, Controller Birch archived incident report."]]}
+{"case_id":"C22","class":"BASELINE_SAFE","expected_state":"DECLARED","allowed_child_sets":[["At remote depot, Technician Elm inspected valve beta.","At remote depot, Technician Elm labeled sample gamma."]]}
+{"case_id":"C23","class":"SINGLE","expected_state":"NOT_NEEDED","allowed_child_sets":[]}
+{"case_id":"C24","class":"SINGLE","expected_state":"NOT_NEEDED","allowed_child_sets":[]}
+{"case_id":"C25","class":"SINGLE","expected_state":"NOT_NEEDED","allowed_child_sets":[]}
+{"case_id":"C26","class":"SINGLE","expected_state":"NOT_NEEDED","allowed_child_sets":[]}
+{"case_id":"C27","class":"FAIL_CLOSED","expected_state":"ABSTAINED","allowed_child_sets":[]}
+{"case_id":"C28","class":"FAIL_CLOSED","expected_state":"ABSTAINED","allowed_child_sets":[]}
+{"case_id":"C29","class":"FAIL_CLOSED","expected_state":"ABSTAINED","allowed_child_sets":[]}
+{"case_id":"C30","class":"FAIL_CLOSED","expected_state":"ABSTAINED","allowed_child_sets":[]}
+{"case_id":"C31","class":"FAIL_CLOSED","expected_state":"ABSTAINED","allowed_child_sets":[]}
+{"case_id":"C32","class":"FAIL_CLOSED","expected_state":"ABSTAINED","allowed_child_sets":[]}
+{"case_id":"C33","class":"FAIL_CLOSED","expected_state":"ABSTAINED","allowed_child_sets":[]}
+{"case_id":"C34","class":"FAIL_CLOSED","expected_state":"ABSTAINED","allowed_child_sets":[]}
+{"case_id":"C35","class":"FAIL_CLOSED","expected_state":"ABSTAINED","allowed_child_sets":[]}
+{"case_id":"C36","class":"FAIL_CLOSED","expected_state":"ABSTAINED","allowed_child_sets":[]}
