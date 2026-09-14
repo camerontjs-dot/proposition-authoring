@@ -1,0 +1,38 @@
+{
+  "candidate_scientific_source": "f9d0ae9ba81756c51d7f1d433616d699eb9b6fd3",
+  "candidate_target_freeze": "9c76b3d87b4362b79a22c0467a13a48c0a380a16",
+  "experiment": "rc4b-context-free-reproduction-aligned-p5",
+  "family_counts": {
+    "BASELINE_SAFE": 7,
+    "FAIL_CLOSED": 8,
+    "P4_SAFE": 7,
+    "P5_OUT_OF_PROFILE": 4,
+    "P5_SAFE": 14,
+    "SINGLE": 4
+  },
+  "fresh_cases_git_blob": "c367f9fc46c167ee1e191d66d287542c2dca8c0f",
+  "fresh_cases_sha256": "0b8d0faaa9cb18d9418f27ec4aa4190e46bec2abb30e0e94b09b83a1fc9c281a",
+  "fresh_gold_git_blob": "181eb6a6f73c5ef266b2a1c62e52d367f0281167",
+  "fresh_gold_sha256": "166cfbaac811c5147ed479879756a452dfa5af44e6d7527070ada1233b7f5a27",
+  "fresh_surface_total": 44,
+  "frozen_files": [
+    {"git_blob":"b97d72003bd22d168a9dc47f22f4c895a619f074","path":".github/workflows/research-rc4b-context-free.yml"},
+    {"git_blob":"56d4e2f2c74a3f6a85fbfcf22614169543edfb00","path":"research/rc4b_context_free_reproduction/PREREGISTRATION.md"},
+    {"git_blob":"6156d59f0141db32163bd7e38bcdd4548eef2a47","path":"research/rc4b_context_free_reproduction/TASK_PACKET.json"},
+    {"git_blob":"a204045c266c1f96e400587711ab8cc92df3705b","path":"research/rc4b_context_free_reproduction/provision_candidate.py"},
+    {"git_blob":"bc42cf933fd9f544057a41d8f724905fe988d6c9","path":"research/rc4b_context_free_reproduction/run_reproduction.py"},
+    {"git_blob":"ff04ec512d6285902621e90272a7b4c7b05b3fc8","path":"research/rc4b_context_free_reproduction/replay_compare.py"},
+    {"git_blob":"6dde4f13113d7b60c5a770885bcf4793e0928215","path":"research/rc4b_context_free_reproduction/score.py"},
+    {"git_blob":"aa4f1cc09091554c12ab00b752fd927385d68425","path":"research/rc4b_context_free_reproduction/verify_freeze.py"},
+    {"git_blob":"24cb88c30b4a984f194700ce16d615f53b16c677","path":"tests/test_rc4b_packet.py"}
+  ],
+  "hosted_target_freeze_artifact_digest": "sha256:c1a8975ceb903f9c69a1fd5e1b9883dc10db3e96de12829f0f2d29c0d1661086",
+  "hosted_target_freeze_artifact_id": 10332281278,
+  "hosted_target_freeze_job_id": 103850452463,
+  "hosted_target_freeze_run_id": 34803417338,
+  "no_target_output_observed_before_fresh_surface_seal": true,
+  "predecessor_exact_root_reuse": 0,
+  "schema": "rc4b-fresh-freeze-1",
+  "target_freeze_commit": "96c203e1abec02117eb56040149da595f3f8cec7",
+  "target_freeze_verified_before_fresh_authoring": true
+}
