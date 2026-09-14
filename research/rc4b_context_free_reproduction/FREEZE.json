@@ -1,0 +1,30 @@
+{
+  "candidate_scientific_source": "f9d0ae9ba81756c51d7f1d433616d699eb9b6fd3",
+  "candidate_target_freeze": "9c76b3d87b4362b79a22c0467a13a48c0a380a16",
+  "contract_a_validator_git_blob": "42e5f5b3bf38d677445e9d01ea130ba604e53409",
+  "experiment": "rc4b-context-free-reproduction-aligned-p5",
+  "frozen_files": [
+    {"git_blob":"b97d72003bd22d168a9dc47f22f4c895a619f074","path":".github/workflows/research-rc4b-context-free.yml"},
+    {"git_blob":"56d4e2f2c74a3f6a85fbfcf22614169543edfb00","path":"research/rc4b_context_free_reproduction/PREREGISTRATION.md"},
+    {"git_blob":"6156d59f0141db32163bd7e38bcdd4548eef2a47","path":"research/rc4b_context_free_reproduction/TASK_PACKET.json"},
+    {"git_blob":"a204045c266c1f96e400587711ab8cc92df3705b","path":"research/rc4b_context_free_reproduction/provision_candidate.py"},
+    {"git_blob":"bc42cf933fd9f544057a41d8f724905fe988d6c9","path":"research/rc4b_context_free_reproduction/run_reproduction.py"},
+    {"git_blob":"ff04ec512d6285902621e90272a7b4c7b05b3fc8","path":"research/rc4b_context_free_reproduction/replay_compare.py"},
+    {"git_blob":"6dde4f13113d7b60c5a770885bcf4793e0928215","path":"research/rc4b_context_free_reproduction/score.py"},
+    {"git_blob":"aa4f1cc09091554c12ab00b752fd927385d68425","path":"research/rc4b_context_free_reproduction/verify_freeze.py"},
+    {"git_blob":"24cb88c30b4a984f194700ce16d615f53b16c677","path":"tests/test_rc4b_packet.py"}
+  ],
+  "neutral_main": "a4f018285ffc6d2c5755b2cc02a751799f1511a1",
+  "no_fresh_surface_at_target_freeze": true,
+  "p5_competence": ["active","approved","compliant","failed","inactive","passed","ready","restarted","stopped"],
+  "p5_proposer_git_blob": "c099ec1cc2afb347c93695c2732fc3c62b53ef79",
+  "schema": "rc4b-target-freeze-1",
+  "semantic_authority_git_blobs": [
+    "133de6b2a4cfa7fc58d1f0f38a80b1c9ebb0b19d",
+    "1c05f7261171ad5176fbbb19bf164bd10db2b78c",
+    "dbe69e8bde1d9f485f3f16ba7d50f0bd86dff5a1",
+    "345dee65468e886b2016eb8b8335aabf46b50a02",
+    "e675b55559af17d50b65cd6af01ac23b0881bb43"
+  ],
+  "statement": "No RC4b fresh cases or gold existed at target freeze."
+}
