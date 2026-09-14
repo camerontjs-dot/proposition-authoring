@@ -1,0 +1,124 @@
+{
+  "schema": "rc4b-terminal-receipt-1",
+  "governance_disposition": "SUPPORTED FOR PROMOTION",
+  "experiment_classification": "SUPPORTED_FOR_RC5_CONSUMER_CONFORMANCE",
+  "research_issue": 21,
+  "research_pr": 22,
+  "research_pr_merge_authorized": false,
+  "rc5_eligible": true,
+  "lineage": {
+    "neutral_main": "a4f018285ffc6d2c5755b2cc02a751799f1511a1",
+    "rc3_integrated_predecessor": "50a943c401f8a09d5bb940472bdad43b54dca5d0",
+    "rc4_terminal": "c1814952e84bec2f32f8e122c9cde901ed8a9796",
+    "rc4a_scientific_source": "f9d0ae9ba81756c51d7f1d433616d699eb9b6fd3",
+    "rc4a_target_freeze": "9c76b3d87b4362b79a22c0467a13a48c0a380a16",
+    "rc4a_fresh_seal": "805bccc7f1ac338c9c8b463c6441cee5ae1e0a37",
+    "rc4a_terminal": "e218f99bdaa67b242d8a077452cbe5f269498208",
+    "rc4b_target_freeze": "96c203e1abec02117eb56040149da595f3f8cec7",
+    "rc4b_fresh_seal_decisive_head": "e29f824c99a85dfda871c5091c0615af38419631"
+  },
+  "freeze": {
+    "no_rc4b_fresh_cases_or_gold_at_target_freeze": true,
+    "hosted_target_freeze_verified_before_fresh_authoring": true,
+    "no_target_output_observed_before_fresh_surface_seal": true,
+    "fresh_cases_git_blob": "c367f9fc46c167ee1e191d66d287542c2dca8c0f",
+    "fresh_gold_git_blob": "181eb6a6f73c5ef266b2a1c62e52d367f0281167",
+    "fresh_freeze_git_blob": "cf16d71667f3b579dd2f34f14f72764b67a42df5",
+    "predecessor_exact_root_reuse": 0
+  },
+  "hosted_target_freeze": {
+    "run_id": 34803417338,
+    "job_id": 103850452463,
+    "artifact_id": 10332281278,
+    "artifact_digest": "sha256:c1a8975ceb903f9c69a1fd5e1b9883dc10db3e96de12829f0f2d29c0d1661086"
+  },
+  "decisive_execution": {
+    "run_id": 34803657202,
+    "job_id": 103851145236,
+    "artifact_id": 10333075196,
+    "artifact_digest": "sha256:013e77edb5d15a0fc99b4f45498e165a2cdc400e37cea061b8521fde61d5b781"
+  },
+  "metrics": {
+    "total_cases": 44,
+    "safe_total": 36,
+    "safe_correct": 36,
+    "safe_correct_fraction": 1.0,
+    "family_counts": {
+      "P5_SAFE": 14,
+      "P4_SAFE": 7,
+      "BASELINE_SAFE": 7,
+      "SINGLE": 4,
+      "P5_OUT_OF_PROFILE": 4,
+      "FAIL_CLOSED": 8
+    },
+    "family_correct": {
+      "P5_SAFE": 14,
+      "P4_SAFE": 7,
+      "BASELINE_SAFE": 7,
+      "SINGLE": 4,
+      "P5_OUT_OF_PROFILE": 4,
+      "FAIL_CLOSED": 8
+    },
+    "unsafe_authoritative_outcomes": 0,
+    "wrong_safe_authority": 0,
+    "p5_profile_leaks": 0,
+    "processing_failures": 0,
+    "contract_a_emissions": 32,
+    "contract_a_validation_failures": 0,
+    "abstention_contract_leaks": 0,
+    "weak_control_hits": ["RCB33", "RCB34", "RCB35", "RCB36"]
+  },
+  "reproduction": {
+    "two_clean_candidate_trees_identical": true,
+    "provision_receipts_byte_identical": true,
+    "raw_outputs_byte_identical": true,
+    "candidate_tree_sha256": "840a7e7d22824000bad2333b49fef3df58bee1a96e3fd357bc8ec065d51d470a",
+    "raw_a_sha256": "0cd561395d576190e0237f8a12042d0bdeeae996b567af2e54697e7d1546cc05",
+    "raw_b_sha256": "0cd561395d576190e0237f8a12042d0bdeeae996b567af2e54697e7d1546cc05",
+    "provision_a_sha256": "db899d732029ae4ca15d9b339cee8eb7ec260835fd0478adb9a96da82ef8c7cf",
+    "provision_b_sha256": "db899d732029ae4ca15d9b339cee8eb7ec260835fd0478adb9a96da82ef8c7cf",
+    "replay_receipt_sha256": "6ae4c5e3355cd8ed48cc96a8b04de091db872d8b5748373c964fe4c1dd80735d"
+  },
+  "hashes": {
+    "task_packet_sha256": "0e289bbb36273cc23c8c4f234b59c4c3660231b596c6e788066df09fa67e881b",
+    "fresh_cases_sha256": "0b8d0faaa9cb18d9418f27ec4aa4190e46bec2abb30e0e94b09b83a1fc9c281a",
+    "fresh_gold_sha256": "166cfbaac811c5147ed479879756a452dfa5af44e6d7527070ada1233b7f5a27",
+    "score_sha256": "9b42e35662b680dfe87fe8b0c46dcf310c11b736b287e21985d3b86e640867ed"
+  },
+  "contract_boundary": {
+    "release": "contract-a-v2.0.0",
+    "validator_git_blob": "42e5f5b3bf38d677445e9d01ea130ba604e53409",
+    "all_authoritative_emissions_validated": true
+  },
+  "p5_competence": {
+    "construction": "explicit reported that A and B",
+    "embedded_predicates": [
+      "active",
+      "approved",
+      "compliant",
+      "failed",
+      "inactive",
+      "passed",
+      "ready",
+      "restarted",
+      "stopped"
+    ],
+    "rejected_inside_competence": false,
+    "aligned_proposer_git_blob": "c099ec1cc2afb347c93695c2732fc3c62b53ef79",
+    "silent_widening_observed": false
+  },
+  "counterexamples": [],
+  "deviations": [
+    "Before target freeze, local repository transport was changed from direct shell networking to the authenticated GitHub connection because local outbound networking was unavailable and one low-level commit operation was connector-blocked. The frozen hosted apparatus and scientific bytes were established only after this was resolved."
+  ],
+  "apparatus_failures": [],
+  "non_claims": [
+    "No production implementation or production-use authorization.",
+    "No merge, release, tag, or pipeline-insertion authorization.",
+    "No widening of P5 proposer competence or semantic authority.",
+    "No claim of universal semantic correctness.",
+    "No claim of an independent semantic reimplementation by a separate model family.",
+    "No claim that Evidence Bundler RC5 consumer conformance has already passed."
+  ],
+  "next_boundary": "RC5 — Evidence Bundler Contract A consumer conformance"
+}
