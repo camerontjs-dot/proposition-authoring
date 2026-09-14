@@ -1,0 +1,79 @@
+name: Research RC4 Context-Free Reproduction Decisive
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/research-rc4-context-free-decisive.yml"
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Post-seal packet aperture checks
+        run: |
+          python -m unittest \
+            tests.test_rc4_packet.RC4PacketTests.test_packet_is_narrow_and_freshness_safe \
+            tests.test_rc4_packet.RC4PacketTests.test_pre_reveal_execution_code_has_no_gold_access \
+            -v
+      - name: Verify sealed frozen apparatus and fresh surface
+        run: |
+          test -f research/rc4_context_free_reproduction/FREEZE.json
+          test -f research/rc4_context_free_reproduction/FRESH_FREEZE.json
+          python research/rc4_context_free_reproduction/verify_packet_freeze.py \
+            --manifest research/rc4_context_free_reproduction/FRESH_FREEZE.json
+      - name: Execute decisive context-free reproduction
+        run: |
+          set -euo pipefail
+          CASES=research/rc4_context_free_reproduction/fresh_cases.jsonl
+          GOLD=research/rc4_context_free_reproduction/GOLD/fresh_gold.jsonl
+          mkdir -p decisive /tmp/rc4-gold
+          mv "$GOLD" /tmp/rc4-gold/fresh_gold.jsonl
+          test ! -e "$GOLD"
+          python research/rc4_context_free_reproduction/provision_candidate.py \
+            --packet research/rc4_context_free_reproduction/TASK_PACKET.json \
+            --dest work/candidate-a \
+            --receipt decisive/provision-a.json
+          python research/rc4_context_free_reproduction/run_reproduction.py \
+            --candidate-dir work/candidate-a \
+            --cases "$CASES" \
+            --output decisive/raw-a.jsonl
+          python research/rc4_context_free_reproduction/provision_candidate.py \
+            --packet research/rc4_context_free_reproduction/TASK_PACKET.json \
+            --dest work/candidate-b \
+            --receipt decisive/provision-b.json
+          python research/rc4_context_free_reproduction/run_reproduction.py \
+            --candidate-dir work/candidate-b \
+            --cases "$CASES" \
+            --output decisive/raw-b.jsonl
+          cmp decisive/raw-a.jsonl decisive/raw-b.jsonl
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          a=json.loads(Path('decisive/provision-a.json').read_text())
+          b=json.loads(Path('decisive/provision-b.json').read_text())
+          assert a['candidate_tree_sha256']==b['candidate_tree_sha256']
+          print('independent provision tree match', a['candidate_tree_sha256'])
+          PY
+          sha256sum decisive/raw-a.jsonl decisive/raw-b.jsonl decisive/provision-a.json decisive/provision-b.json > decisive/PRE_REVEAL_SHA256SUMS
+          mv /tmp/rc4-gold/fresh_gold.jsonl "$GOLD"
+          python research/rc4_context_free_reproduction/score.py \
+            --raw decisive/raw-a.jsonl \
+            --gold "$GOLD" \
+            --candidate-dir work/candidate-b \
+            --provision-a decisive/provision-a.json \
+            --provision-b decisive/provision-b.json \
+            --output decisive/score.json
+          sha256sum "$CASES" "$GOLD" decisive/raw-a.jsonl decisive/score.json > decisive/SHA256SUMS
+      - name: Upload decisive RC4 evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: proposition-authoring-rc4-decisive-${{ github.run_id }}
+          path: |
+            decisive/
+            research/rc4_context_free_reproduction/FREEZE.json
+            research/rc4_context_free_reproduction/FRESH_FREEZE.json
+          if-no-files-found: ignore
