@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import re
+from collections.abc import Collection
 from typing import Any
 
 PROFILE_ID = "pc-evaluator-rc1-binding-v1"
@@ -26,7 +27,12 @@ P4_VERBS = (
     "transferred",
 )
 REPORTING = ("reported",)
-EMBEDDED_PREDICATES = (
+
+# RC4a competence declaration. These are the P5 embedded predicates/states that the
+# exact frozen RC1 semantic authority can parse and bind in the tested
+# `reported that A and B` profile. RC4 showed that `rejected` had been advertised
+# by P5 even though that authority could not warrant it.
+P5_AUTHORITY_COMPATIBLE_EMBEDDED_PREDICATES = (
     "active",
     "approved",
     "compliant",
@@ -34,9 +40,14 @@ EMBEDDED_PREDICATES = (
     "inactive",
     "passed",
     "ready",
-    "rejected",
     "restarted",
     "stopped",
+)
+
+# Frozen weak-control surface representing the pre-RC4a P5 profile.
+P5_PREALIGNMENT_EMBEDDED_PREDICATES = (
+    *P5_AUTHORITY_COMPATIBLE_EMBEDDED_PREDICATES,
+    "rejected",
 )
 
 _P4_ALT = "|".join(P4_VERBS)
@@ -114,7 +125,7 @@ def proposer_p4(root: dict[str, Any]) -> list[dict[str, Any]]:
     return [_candidate(root, "P4", "shared-subject-fallback", [left, right])]
 
 
-def _embedded_clause_supported(text: str) -> bool:
+def _embedded_clause_supported(text: str, predicates: Collection[str]) -> bool:
     low = _norm(text).lower()
     if any(
         token in f" {low} "
@@ -127,11 +138,12 @@ def _embedded_clause_supported(text: str) -> bool:
     ):
         return False
     tokens = low.split()
-    return len(tokens) >= 2 and any(token in EMBEDDED_PREDICATES for token in tokens)
+    return len(tokens) >= 2 and any(token in predicates for token in tokens)
 
 
-def proposer_p5(root: dict[str, Any]) -> list[dict[str, Any]]:
-    """Expand explicit `reported that A and B` scope onto both children."""
+def _proposer_p5_with_profile(
+    root: dict[str, Any], predicates: Collection[str], *, variant: str
+) -> list[dict[str, Any]]:
     text = _norm(root["root_text"])
     if "," in text or " or " in f" {text.lower()} " or " both " in f" {text.lower()} ":
         return []
@@ -147,17 +159,38 @@ def proposer_p5(root: dict[str, Any]) -> list[dict[str, Any]]:
     )
     if right.lower().startswith("that "):
         right = right[5:].strip()
-    if not (_embedded_clause_supported(left) and _embedded_clause_supported(right)):
+    if not (
+        _embedded_clause_supported(left, predicates)
+        and _embedded_clause_supported(right, predicates)
+    ):
         return []
     matrix = _norm(match.group("matrix"))
     return [
         _candidate(
             root,
             "P5",
-            "explicit-shared-attribution",
+            variant,
             [f"{matrix} that {left}", f"{matrix} that {right}"],
         )
     ]
+
+
+def proposer_p5(root: dict[str, Any]) -> list[dict[str, Any]]:
+    """Expand only authority-compatible explicit `reported that A and B` roots."""
+    return _proposer_p5_with_profile(
+        root,
+        P5_AUTHORITY_COMPATIBLE_EMBEDDED_PREDICATES,
+        variant="explicit-shared-attribution-authority-aligned",
+    )
+
+
+def proposer_p5_prealignment_control(root: dict[str, Any]) -> list[dict[str, Any]]:
+    """Weak control preserving the broader pre-RC4a P5 advertised profile."""
+    return _proposer_p5_with_profile(
+        root,
+        P5_PREALIGNMENT_EMBEDDED_PREDICATES,
+        variant="explicit-shared-attribution-prealignment-control",
+    )
 
 
 NEW_PROPOSERS = {"P4": proposer_p4, "P5": proposer_p5}
