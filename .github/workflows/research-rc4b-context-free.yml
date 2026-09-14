@@ -1,0 +1,108 @@
+name: Research RC4b Context-Free Reproduction
+on:
+  pull_request:
+    paths:
+      - "research/rc4b_context_free_reproduction/**"
+      - "tests/test_rc4b_packet.py"
+      - ".github/workflows/research-rc4b-context-free.yml"
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Packet aperture tests
+        run: python -m unittest tests.test_rc4b_packet -v
+
+      - name: Verify target freeze or sealed fresh freeze
+        run: |
+          set -euo pipefail
+          BASE=research/rc4b_context_free_reproduction
+          test -f "$BASE/FREEZE.json"
+          if [ ! -f "$BASE/fresh_cases.jsonl" ] && [ ! -f "$BASE/GOLD/fresh_gold.jsonl" ]; then
+            python "$BASE/verify_freeze.py" \
+              --manifest "$BASE/FREEZE.json" \
+              --enforce-fresh-absence
+            mkdir -p decisive
+            printf '{"schema":"rc4b-hosted-freeze-verification-1","github_sha":"%s","fresh_surface_absent":true}\n' \
+              "$GITHUB_SHA" > decisive/hosted-freeze-verification.json
+          else
+            test -f "$BASE/FRESH_FREEZE.json"
+            python "$BASE/verify_freeze.py" --manifest "$BASE/FRESH_FREEZE.json"
+          fi
+
+      - name: Execute sealed decisive reproduction if fresh surface exists
+        run: |
+          set -euo pipefail
+          BASE=research/rc4b_context_free_reproduction
+          CASES="$BASE/fresh_cases.jsonl"
+          GOLD="$BASE/GOLD/fresh_gold.jsonl"
+          if [ ! -f "$CASES" ] || [ ! -f "$GOLD" ]; then
+            echo "Hosted target freeze verified; fresh RC4b surface absent."
+            exit 0
+          fi
+
+          rm -rf work decisive/raw-a.jsonl decisive/raw-b.jsonl
+          mkdir -p work decisive /tmp/rc4b-gold
+          mv "$GOLD" /tmp/rc4b-gold/fresh_gold.jsonl
+          test ! -e "$GOLD"
+
+          python "$BASE/provision_candidate.py" \
+            --packet "$BASE/TASK_PACKET.json" \
+            --dest work/candidate-a \
+            --receipt decisive/provision-a.json
+          python "$BASE/run_reproduction.py" \
+            --candidate-dir work/candidate-a \
+            --cases "$CASES" \
+            --output decisive/raw-a.jsonl
+
+          python "$BASE/provision_candidate.py" \
+            --packet "$BASE/TASK_PACKET.json" \
+            --dest work/candidate-b \
+            --receipt decisive/provision-b.json
+          python "$BASE/run_reproduction.py" \
+            --candidate-dir work/candidate-b \
+            --cases "$CASES" \
+            --output decisive/raw-b.jsonl
+
+          python "$BASE/replay_compare.py" \
+            --raw-a decisive/raw-a.jsonl \
+            --raw-b decisive/raw-b.jsonl \
+            --provision-a decisive/provision-a.json \
+            --provision-b decisive/provision-b.json \
+            --output decisive/replay-receipt.json
+
+          sha256sum \
+            decisive/raw-a.jsonl decisive/raw-b.jsonl \
+            decisive/provision-a.json decisive/provision-b.json \
+            decisive/replay-receipt.json > decisive/PRE_REVEAL_SHA256SUMS
+
+          mv /tmp/rc4b-gold/fresh_gold.jsonl "$GOLD"
+
+          python "$BASE/score.py" \
+            --raw decisive/raw-a.jsonl \
+            --gold "$GOLD" \
+            --candidate-dir work/candidate-b \
+            --provision-a decisive/provision-a.json \
+            --provision-b decisive/provision-b.json \
+            --replay-receipt decisive/replay-receipt.json \
+            --output decisive/score.json
+
+          sha256sum \
+            "$CASES" "$GOLD" decisive/raw-a.jsonl decisive/score.json \
+            > decisive/SHA256SUMS
+
+      - name: Upload RC4b evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: proposition-authoring-rc4b-${{ github.run_id }}
+          path: |
+            decisive/
+            research/rc4b_context_free_reproduction/FREEZE.json
+            research/rc4b_context_free_reproduction/FRESH_FREEZE.json
+          if-no-files-found: ignore
