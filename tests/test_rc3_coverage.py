@@ -29,7 +29,7 @@ class ReorderedBackend(CoverageBackend):
         proposals = super().proposals(root)
         return {
             name: list(reversed(proposals[name]))
-            for name in reversed(sorted(proposals))
+            for name in sorted(proposals, reverse=True)
         }
 
 

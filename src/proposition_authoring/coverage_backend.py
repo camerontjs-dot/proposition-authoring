@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Any
+from typing import Any, ClassVar
 
 from .authority import evaluate_candidate
 from .backend import FrozenPredecessorBackend
@@ -12,7 +12,7 @@ from .coverage_proposers import proposer_p4, proposer_p5
 class CoverageBackend:
     """Research-only proposal-arm wrapper over the exact frozen RC2 authority boundary."""
 
-    VALID_ARMS = {"baseline", "p4", "p5", "pooled"}
+    VALID_ARMS: ClassVar[frozenset[str]] = frozenset({"baseline", "p4", "p5", "pooled"})
 
     def __init__(self, arm: str = "pooled", vendor_dir: str | Path = "vendor/frozen") -> None:
         if arm not in self.VALID_ARMS:
