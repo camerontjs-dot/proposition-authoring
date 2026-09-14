@@ -1,0 +1,56 @@
+{
+  "experiment": "proposition-authoring-rc3-safe-coverage-recovery",
+  "governance_disposition": "SUPPORTED FOR PROMOTION",
+  "experiment_classification": "SUPPORTED_FOR_RC4_INDEPENDENT_REPRODUCTION",
+  "base_main": "a4f018285ffc6d2c5755b2cc02a751799f1511a1",
+  "rc2_target_freeze": "c7565f5e40ef73bef3807fbef724e4a32ac6460f",
+  "rc2_terminal_evidence": "3743ba831194108f9413aa57ba33d48970a87b76",
+  "rc3_scientific_source_head": "825ec2a4f590ca9c61431d5d88953825c8f1ea5a",
+  "rc3_target_freeze": "50a943c401f8a09d5bb940472bdad43b54dca5d0",
+  "rc3_decisive_head": "71adeacdaea4c10e061161f64bffb06abbf79e36",
+  "fresh_cases_git_blob": "69d055cdac7b7b8ba332932415e22af8ebfff374",
+  "fresh_gold_git_blob": "4f0abc07abde271bd3b87443167d46e83a9e3ec8",
+  "fresh_freeze_git_blob": "51afe6c8e026dbabb6a03b8879cd6e12830fc74b",
+  "fresh_cases_sha256": "5223e4ed7eb45ff178f3d5c5e4f1840b3d0c9546c109e51725fdd31280c1749a",
+  "fresh_gold_sha256": "946c838d263ee9368636937cdb25f53dc5681aacb3f6dbe1a21fedbf46a81f53",
+  "raw_sha256": "bfaf87efea77fd7e46322dd9c207ec239dbf2bc2ed74e4120742059c897dc123",
+  "score_sha256": "d54f086418f120466b866d565a7eee237e63eaa003c28fba6931466a70783481",
+  "research_run": 34798048858,
+  "maintained_ci_run": 34798048877,
+  "artifact_id": 10329619593,
+  "artifact_digest": "sha256:1e42505a05045c4e88cc83ea5af4ef7723ea2b2fe6fd14617e463bdba3b12797",
+  "replay_byte_identical": true,
+  "metrics": {
+    "fresh_roots": 36,
+    "safe_roots": 26,
+    "fail_closed_roots": 10,
+    "baseline_safe_correct": 12,
+    "baseline_fail_closed_correct": 10,
+    "pooled_safe_correct": 26,
+    "pooled_fail_closed_correct": 10,
+    "pooled_exact_correct": 36,
+    "pooled_unsafe_authority": 0,
+    "pooled_wrong_safe_authority": 0,
+    "safe_gain_over_baseline": 14,
+    "safe_gain_families": [
+      "p4_subject_predicate_collision",
+      "p5_reported_that_shared_attribution"
+    ],
+    "baseline_safe_preservation": 1.0,
+    "pooled_contract_a_emissions": 26,
+    "pooled_contract_a_validation_errors": 0,
+    "weak_control_unsafe_declared_count": 6
+  },
+  "weak_control_unsafe_declared": ["R27", "R28", "R29", "R30", "R34", "R35"],
+  "safe_gain_ids": [
+    "R01", "R02", "R03", "R04", "R05", "R06",
+    "R07", "R08", "R09", "R10", "R11", "R12", "R13", "R14"
+  ],
+  "preserved_limits": [
+    "P5 is qualified only for explicit `reported that` coordination within the frozen authority profile.",
+    "Fresh gold was internally adjudicated.",
+    "Independent context-free reproduction has not yet been performed.",
+    "Evidence Bundler consumer conformance and naturalistic shadow qualification remain future stages."
+  ],
+  "next_authorized_stage": "RC4 context-free independent reproduction only"
+}
