@@ -1,0 +1,22 @@
+{
+  "experiment": "proposition-authoring-rc4-context-free-reproduction",
+  "status": "APPARATUS_FROZEN_BEFORE_FRESH_AUTHORSHIP",
+  "base_main": "a4f018285ffc6d2c5755b2cc02a751799f1511a1",
+  "rc3_candidate_commit": "50a943c401f8a09d5bb940472bdad43b54dca5d0",
+  "rc3_scientific_source_head": "825ec2a4f590ca9c61431d5d88953825c8f1ea5a",
+  "apparatus_source_head": "dcf7c696b966d4a3ce5e225a442aa1b4517883ce",
+  "apparatus_verification_run": 34799324591,
+  "fresh_cases_present_at_freeze": false,
+  "fresh_gold_present_at_freeze": false,
+  "claim_type": "context-free independent execution/reconstruction; not independent semantic reimplementation",
+  "frozen_files": [
+    {"path": "research/rc4_context_free_reproduction/TASK_PACKET.json", "git_blob": "62a45ef327857d88a53bf8d847a168da5c8f3138"},
+    {"path": "research/rc4_context_free_reproduction/provision_candidate.py", "git_blob": "7296ff90d715eb854e8ad80eaa02f04d44f63bfa"},
+    {"path": "research/rc4_context_free_reproduction/run_reproduction.py", "git_blob": "a104cb0ce206216ead0efe5de31460bdbea2ed03"},
+    {"path": "research/rc4_context_free_reproduction/score.py", "git_blob": "1a31194e8d42c962ee45d13fd464317067f73450"},
+    {"path": "research/rc4_context_free_reproduction/verify_packet_freeze.py", "git_blob": "c798816c033db344fb4dd51efa04633af8766a55"},
+    {"path": "research/rc4_context_free_reproduction/PREREGISTRATION.md", "git_blob": "bf24158cc73a3fe879698296ed4f317003dea05d"},
+    {"path": "tests/test_rc4_packet.py", "git_blob": "7918e980731d3be4b3ccad9577c4342e238dab46"},
+    {"path": ".github/workflows/research-rc4-context-free.yml", "git_blob": "e2fedd2a7dba2575cd477977a236f782efb80c11"}
+  ]
+}
