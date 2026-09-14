@@ -116,15 +116,15 @@ class RC3CoverageDevelopmentTests(unittest.TestCase):
         )
 
     def test_p5_generalizes_explicit_shared_attribution(self):
-        text = "Board Maple stated that Unit Bronze passed and Unit Silver failed."
+        text = "Board Maple reported that Unit Bronze passed and Unit Silver failed."
         baseline = self.author("baseline", "p5-generalization", text)
         recovered = self.author("p5", "p5-generalization", text)
         self.assertEqual("ABSTAINED", baseline.state)
         self.assertEqual("DECLARED", recovered.state)
         self.assertEqual(
             {
-                "Board Maple stated that Unit Bronze passed.",
-                "Board Maple stated that Unit Silver failed.",
+                "Board Maple reported that Unit Bronze passed.",
+                "Board Maple reported that Unit Silver failed.",
             },
             set(child_texts(recovered)),
         )
