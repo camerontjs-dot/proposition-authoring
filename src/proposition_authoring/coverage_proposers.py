@@ -25,7 +25,7 @@ P4_VERBS = (
     "stored",
     "transferred",
 )
-REPORTING = ("reported", "stated", "confirmed", "noted", "claimed")
+REPORTING = ("reported",)
 EMBEDDED_PREDICATES = (
     "active",
     "approved",
@@ -88,7 +88,10 @@ def _has_scope_hazard(text: str) -> bool:
         return True
     if any(token in low for token in (" or ", " and/or ", " both ", " did not ", " not ")):
         return True
-    if any(f" {modal} " in low for modal in ("may", "might", "must", "should", "can", "could", "will", "would")):
+    if any(
+        f" {modal} " in low
+        for modal in ("may", "might", "must", "should", "can", "could", "will", "would")
+    ):
         return True
     if any(f" {verb} " in low for verb in REPORTING):
         return True
@@ -113,16 +116,22 @@ def proposer_p4(root: dict[str, Any]) -> list[dict[str, Any]]:
 
 def _embedded_clause_supported(text: str) -> bool:
     low = _norm(text).lower()
-    if any(token in f" {low} " for token in (" or ", " and/or ", " did not ", " not ", " both ")):
+    if any(
+        token in f" {low} "
+        for token in (" or ", " and/or ", " did not ", " not ", " both ")
+    ):
         return False
-    if any(f" {modal} " in f" {low} " for modal in ("may", "might", "must", "should", "can", "could", "will", "would")):
+    if any(
+        f" {modal} " in f" {low} "
+        for modal in ("may", "might", "must", "should", "can", "could", "will", "would")
+    ):
         return False
     tokens = low.split()
     return len(tokens) >= 2 and any(token in EMBEDDED_PREDICATES for token in tokens)
 
 
 def proposer_p5(root: dict[str, Any]) -> list[dict[str, Any]]:
-    """Expand an explicit `reported that A and B` scope onto both children."""
+    """Expand explicit `reported that A and B` scope onto both children."""
     text = _norm(root["root_text"])
     if "," in text or " or " in f" {text.lower()} " or " both " in f" {text.lower()} ":
         return []
@@ -132,7 +141,10 @@ def proposer_p5(root: dict[str, Any]) -> list[dict[str, Any]]:
     body = _norm(match.group("body"))
     if body.lower().count(" and ") != 1:
         return []
-    left, right = (part.strip() for part in re.split(r"\s+and\s+", body, maxsplit=1, flags=re.IGNORECASE))
+    left, right = (
+        part.strip()
+        for part in re.split(r"\s+and\s+", body, maxsplit=1, flags=re.IGNORECASE)
+    )
     if right.lower().startswith("that "):
         right = right[5:].strip()
     if not (_embedded_clause_supported(left) and _embedded_clause_supported(right)):
