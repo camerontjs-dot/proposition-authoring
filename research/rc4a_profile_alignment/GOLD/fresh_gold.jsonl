@@ -1,0 +1,36 @@
+{"aligned_predicate":"active","allowed_child_sets":[["Panel Juniper reported that Unit Amber was active.","Panel Juniper reported that Unit Pearl passed."]],"case_id":"A01","family":"INTERSECTION_SAFE"}
+{"aligned_predicate":"active","allowed_child_sets":[["Council Kestrel reported that Plan Quartz was approved.","Council Kestrel reported that Unit Amber was active."]],"case_id":"A02","family":"INTERSECTION_SAFE"}
+{"aligned_predicate":"approved","allowed_child_sets":[["Board Lumen reported that Plan Birch was approved.","Board Lumen reported that Unit Pearl passed."]],"case_id":"A03","family":"INTERSECTION_SAFE"}
+{"aligned_predicate":"approved","allowed_child_sets":[["Committee Maple reported that Device Quartz was ready.","Committee Maple reported that Plan Birch was approved."]],"case_id":"A04","family":"INTERSECTION_SAFE"}
+{"aligned_predicate":"compliant","allowed_child_sets":[["Team Nimbus reported that Line Cedar was compliant.","Team Nimbus reported that Unit Pearl passed."]],"case_id":"A05","family":"INTERSECTION_SAFE"}
+{"aligned_predicate":"compliant","allowed_child_sets":[["Group Oak reported that Plan Quartz was approved.","Group Oak reported that Line Cedar was compliant."]],"case_id":"A06","family":"INTERSECTION_SAFE"}
+{"aligned_predicate":"failed","allowed_child_sets":[["Panel Quartz reported that Module Dune failed.","Panel Quartz reported that Unit Pearl passed."]],"case_id":"A07","family":"INTERSECTION_SAFE"}
+{"aligned_predicate":"failed","allowed_child_sets":[["Council Rowan reported that Plan Quartz was approved.","Council Rowan reported that Module Dune failed."]],"case_id":"A08","family":"INTERSECTION_SAFE"}
+{"aligned_predicate":"inactive","allowed_child_sets":[["Board Saffron reported that System Elm was inactive.","Board Saffron reported that Unit Pearl passed."]],"case_id":"A09","family":"INTERSECTION_SAFE"}
+{"aligned_predicate":"inactive","allowed_child_sets":[["Committee Teal reported that Plan Quartz was approved.","Committee Teal reported that System Elm was inactive."]],"case_id":"A10","family":"INTERSECTION_SAFE"}
+{"aligned_predicate":"passed","allowed_child_sets":[["Team Umber reported that Unit Flint passed.","Team Umber reported that System Pearl was active."]],"case_id":"A11","family":"INTERSECTION_SAFE"}
+{"aligned_predicate":"passed","allowed_child_sets":[["Group Vale reported that Plan Quartz was approved.","Group Vale reported that Unit Flint passed."]],"case_id":"A12","family":"INTERSECTION_SAFE"}
+{"aligned_predicate":"ready","allowed_child_sets":[["Panel Willow reported that Device Grove was ready.","Panel Willow reported that Unit Pearl passed."]],"case_id":"A13","family":"INTERSECTION_SAFE"}
+{"aligned_predicate":"ready","allowed_child_sets":[["Council Xenia reported that Plan Quartz was approved.","Council Xenia reported that Device Grove was ready."]],"case_id":"A14","family":"INTERSECTION_SAFE"}
+{"aligned_predicate":"restarted","allowed_child_sets":[["Board Yarrow reported that Service Harbor restarted.","Board Yarrow reported that Unit Pearl passed."]],"case_id":"A15","family":"INTERSECTION_SAFE"}
+{"aligned_predicate":"restarted","allowed_child_sets":[["Committee Zephyr reported that Plan Quartz was approved.","Committee Zephyr reported that Service Harbor restarted."]],"case_id":"A16","family":"INTERSECTION_SAFE"}
+{"aligned_predicate":"stopped","allowed_child_sets":[["Team Alder reported that Pump Indigo stopped.","Team Alder reported that Unit Pearl passed."]],"case_id":"A17","family":"INTERSECTION_SAFE"}
+{"aligned_predicate":"stopped","allowed_child_sets":[["Group Bramble reported that Plan Quartz was approved.","Group Bramble reported that Pump Indigo stopped."]],"case_id":"A18","family":"INTERSECTION_SAFE"}
+{"case_id":"A19","family":"PROPOSER_ONLY_BLOCKED"}
+{"case_id":"A20","family":"PROPOSER_ONLY_BLOCKED"}
+{"case_id":"A21","family":"PROPOSER_ONLY_BLOCKED"}
+{"case_id":"A22","family":"PROPOSER_ONLY_BLOCKED"}
+{"case_id":"A23","family":"PROPOSER_ONLY_BLOCKED"}
+{"case_id":"A24","family":"PROPOSER_ONLY_BLOCKED"}
+{"case_id":"A25","family":"AUTHORITY_ONLY_BLOCKED"}
+{"case_id":"A26","family":"AUTHORITY_ONLY_BLOCKED"}
+{"case_id":"A27","family":"AUTHORITY_ONLY_BLOCKED"}
+{"case_id":"A28","family":"AUTHORITY_ONLY_BLOCKED"}
+{"case_id":"A29","family":"AUTHORITY_ONLY_BLOCKED"}
+{"case_id":"A30","family":"AUTHORITY_ONLY_BLOCKED"}
+{"case_id":"A31","family":"FAIL_CLOSED"}
+{"case_id":"A32","family":"FAIL_CLOSED"}
+{"case_id":"A33","family":"FAIL_CLOSED"}
+{"case_id":"A34","family":"FAIL_CLOSED"}
+{"case_id":"A35","family":"FAIL_CLOSED"}
+{"case_id":"A36","family":"FAIL_CLOSED"}
