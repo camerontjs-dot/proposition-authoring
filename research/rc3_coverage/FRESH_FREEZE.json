@@ -1,0 +1,25 @@
+{
+  "experiment": "proposition-authoring-rc3-safe-coverage-recovery",
+  "status": "FRESH_SURFACE_SEALED_POST_TARGET_FREEZE",
+  "target_freeze_commit": "50a943c401f8a09d5bb940472bdad43b54dca5d0",
+  "case_count": 36,
+  "fresh_cases_git_blob": "69d055cdac7b7b8ba332932415e22af8ebfff374",
+  "fresh_gold_git_blob": "4f0abc07abde271bd3b87443167d46e83a9e3ec8",
+  "target_output_observed_before_fresh_freeze": false,
+  "surface_design": {
+    "p4_target": 6,
+    "p5_target": 8,
+    "baseline_safe_controls": 8,
+    "single_proposition_controls": 4,
+    "fail_closed_adversaries": 10
+  },
+  "positive_gate": {
+    "unsafe_authoritative_finalizations": 0,
+    "minimum_safe_gain_over_baseline": 6,
+    "minimum_gain_families": 2,
+    "minimum_baseline_safe_preservation": 0.9,
+    "contract_a_validation": "all authoritative pooled emissions",
+    "replay": "byte-identical",
+    "weak_control_must_fail_at_least_one_fail_closed_case": true
+  }
+}

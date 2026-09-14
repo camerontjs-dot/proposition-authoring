@@ -1,0 +1,36 @@
+{"case_id":"R01","class":"SAFE_DECLARED","family":"p4_subject_predicate_collision","expected_state":"DECLARED","allowed_child_sets":[["Archive relay stored manifest amber.","Archive relay encrypted backup bronze."]]}
+{"case_id":"R02","class":"SAFE_DECLARED","family":"p4_subject_predicate_collision","expected_state":"DECLARED","allowed_child_sets":[["Archive controller logged fault copper.","Archive controller archived incident silver."]]}
+{"case_id":"R03","class":"SAFE_DECLARED","family":"p4_subject_predicate_collision","expected_state":"DECLARED","allowed_child_sets":[["Archive gateway authenticated session jade.","Archive gateway cached token violet."]]}
+{"case_id":"R04","class":"SAFE_DECLARED","family":"p4_subject_predicate_collision","expected_state":"DECLARED","allowed_child_sets":[["Review service filed deviation bronze.","Review service approved plan cobalt."]]}
+{"case_id":"R05","class":"SAFE_DECLARED","family":"p4_subject_predicate_collision","expected_state":"DECLARED","allowed_child_sets":[["Record gateway measured pressure amber.","Record gateway logged reading cedar."]]}
+{"case_id":"R06","class":"SAFE_DECLARED","family":"p4_subject_predicate_collision","expected_state":"DECLARED","allowed_child_sets":[["Log service cached packet birch.","Log service archived trace maple."]]}
+{"case_id":"R07","class":"SAFE_DECLARED","family":"p5_reported_that_shared_attribution","expected_state":"DECLARED","allowed_child_sets":[["Board Cedar reported that Unit Amber passed.","Board Cedar reported that Unit Bronze failed."]]}
+{"case_id":"R08","class":"SAFE_DECLARED","family":"p5_reported_that_shared_attribution","expected_state":"DECLARED","allowed_child_sets":[["Auditor Maple reported that Unit Cobalt passed.","Auditor Maple reported that Unit Silver failed."]]}
+{"case_id":"R09","class":"SAFE_DECLARED","family":"p5_reported_that_shared_attribution","expected_state":"DECLARED","allowed_child_sets":[["Committee Birch reported that Unit Jade failed.","Committee Birch reported that Unit Violet passed."]]}
+{"case_id":"R10","class":"SAFE_DECLARED","family":"p5_reported_that_shared_attribution","expected_state":"DECLARED","allowed_child_sets":[["Reviewer Ash reported that Unit Copper passed.","Reviewer Ash reported that Unit Indigo failed."]]}
+{"case_id":"R11","class":"SAFE_DECLARED","family":"p5_reported_that_shared_attribution","expected_state":"DECLARED","allowed_child_sets":[["Panel Oak reported that Unit Teal failed.","Panel Oak reported that Unit Sienna passed."]]}
+{"case_id":"R12","class":"SAFE_DECLARED","family":"p5_reported_that_shared_attribution","expected_state":"DECLARED","allowed_child_sets":[["Council Pine reported that Unit Umber passed.","Council Pine reported that Unit Quartz failed."]]}
+{"case_id":"R13","class":"SAFE_DECLARED","family":"p5_reported_that_shared_attribution","expected_state":"DECLARED","allowed_child_sets":[["Inspector Elm reported that Unit Scarlet passed.","Inspector Elm reported that Unit Moss failed."]]}
+{"case_id":"R14","class":"SAFE_DECLARED","family":"p5_reported_that_shared_attribution","expected_state":"DECLARED","allowed_child_sets":[["Team Spruce reported that Unit Pearl failed.","Team Spruce reported that Unit Onyx passed."]]}
+{"case_id":"R15","class":"SAFE_DECLARED","family":"baseline_shared_subject","expected_state":"DECLARED","allowed_child_sets":[["Inspector Hazel reviewed dossier copper.","Inspector Hazel signed release amber."]]}
+{"case_id":"R16","class":"SAFE_DECLARED","family":"baseline_shared_subject","expected_state":"DECLARED","allowed_child_sets":[["Gateway Cedar authenticated token bronze.","Gateway Cedar logged access silver."]]}
+{"case_id":"R17","class":"SAFE_DECLARED","family":"baseline_explicit_clauses","expected_state":"DECLARED","allowed_child_sets":[["Reviewer Maple filed deviation jade.","Supervisor Pine approved plan violet."]]}
+{"case_id":"R18","class":"SAFE_DECLARED","family":"baseline_explicit_clauses","expected_state":"DECLARED","allowed_child_sets":[["Station Amber measured inlet pressure.","Station Cobalt recorded outlet temperature."]]}
+{"case_id":"R19","class":"SAFE_DECLARED","family":"baseline_local_modality","expected_state":"DECLARED","allowed_child_sets":[["Module Cedar may restart.","Module Birch must stop."]]}
+{"case_id":"R20","class":"SAFE_DECLARED","family":"baseline_thresholds","expected_state":"DECLARED","allowed_child_sets":[["Tank Bronze was below 12 kPa.","Tank Silver was above 44 kPa."]]}
+{"case_id":"R21","class":"SAFE_DECLARED","family":"baseline_comparison","expected_state":"DECLARED","allowed_child_sets":[["Route Ash was faster than Route Elm.","Route Pine was slower than Route Oak."]]}
+{"case_id":"R22","class":"SAFE_DECLARED","family":"baseline_shared_temporal_scope","expected_state":"DECLARED","allowed_child_sets":[["During calibration window, Controller Moss logged alarm teal.","During calibration window, Controller Moss archived incident pearl."]]}
+{"case_id":"R23","class":"SAFE_NOT_NEEDED","family":"single_transitive","expected_state":"NOT_NEEDED","allowed_child_sets":[]}
+{"case_id":"R24","class":"SAFE_NOT_NEEDED","family":"single_state","expected_state":"NOT_NEEDED","allowed_child_sets":[]}
+{"case_id":"R25","class":"SAFE_NOT_NEEDED","family":"single_modal","expected_state":"NOT_NEEDED","allowed_child_sets":[]}
+{"case_id":"R26","class":"SAFE_NOT_NEEDED","family":"single_threshold","expected_state":"NOT_NEEDED","allowed_child_sets":[]}
+{"case_id":"R27","class":"FAIL_CLOSED","family":"unmarked_attribution_scope","expected_state":"ABSTAINED","allowed_child_sets":[]}
+{"case_id":"R28","class":"FAIL_CLOSED","family":"unmarked_attribution_scope_comma","expected_state":"ABSTAINED","allowed_child_sets":[]}
+{"case_id":"R29","class":"FAIL_CLOSED","family":"connective_scope","expected_state":"ABSTAINED","allowed_child_sets":[]}
+{"case_id":"R30","class":"FAIL_CLOSED","family":"sentential_negation_scope","expected_state":"ABSTAINED","allowed_child_sets":[]}
+{"case_id":"R31","class":"FAIL_CLOSED","family":"disjunction","expected_state":"ABSTAINED","allowed_child_sets":[]}
+{"case_id":"R32","class":"FAIL_CLOSED","family":"negated_object_coordination","expected_state":"ABSTAINED","allowed_child_sets":[]}
+{"case_id":"R33","class":"FAIL_CLOSED","family":"and_or_connective","expected_state":"ABSTAINED","allowed_child_sets":[]}
+{"case_id":"R34","class":"FAIL_CLOSED","family":"unresolved_reference","expected_state":"ABSTAINED","allowed_child_sets":[]}
+{"case_id":"R35","class":"FAIL_CLOSED","family":"trailing_adjunct_scope","expected_state":"ABSTAINED","allowed_child_sets":[]}
+{"case_id":"R36","class":"FAIL_CLOSED","family":"negated_object_coordination","expected_state":"ABSTAINED","allowed_child_sets":[]}
