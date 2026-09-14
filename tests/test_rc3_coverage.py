@@ -78,6 +78,20 @@ class RC3CoverageDevelopmentTests(unittest.TestCase):
             set(child_texts(result)),
         )
 
+    def test_p4_generalizes_predicate_looking_subject_collision(self):
+        text = "Archive node logged alarm bronze and stored incident silver."
+        baseline = self.author("baseline", "p4-generalization", text)
+        recovered = self.author("p4", "p4-generalization", text)
+        self.assertEqual("ABSTAINED", baseline.state)
+        self.assertEqual("DECLARED", recovered.state)
+        self.assertEqual(
+            {
+                "Archive node logged alarm bronze.",
+                "Archive node stored incident silver.",
+            },
+            set(child_texts(recovered)),
+        )
+
     def test_q21_baseline_abstains(self):
         result = self.author(
             "baseline",
@@ -99,6 +113,20 @@ class RC3CoverageDevelopmentTests(unittest.TestCase):
                 "Committee Alder reported that Unit Jade failed.",
             },
             set(child_texts(result)),
+        )
+
+    def test_p5_generalizes_explicit_shared_attribution(self):
+        text = "Board Maple stated that Unit Bronze passed and Unit Silver failed."
+        baseline = self.author("baseline", "p5-generalization", text)
+        recovered = self.author("p5", "p5-generalization", text)
+        self.assertEqual("ABSTAINED", baseline.state)
+        self.assertEqual("DECLARED", recovered.state)
+        self.assertEqual(
+            {
+                "Board Maple stated that Unit Bronze passed.",
+                "Board Maple stated that Unit Silver failed.",
+            },
+            set(child_texts(recovered)),
         )
 
     def test_q18_remains_frozen_authority_limit(self):
