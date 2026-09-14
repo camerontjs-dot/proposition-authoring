@@ -1,0 +1,44 @@
+{"case_id":"RCB01","class":"P5_SAFE","expected_state":"DECLARED","allowed_child_sets":[["Panel Citrine reported that Plan Garnet was approved.","Panel Citrine reported that Line Mica was compliant."]]}
+{"case_id":"RCB02","class":"P5_SAFE","expected_state":"DECLARED","allowed_child_sets":[["Council Driftwood reported that Module Amber failed.","Council Driftwood reported that Unit Cinder passed."]]}
+{"case_id":"RCB03","class":"P5_SAFE","expected_state":"DECLARED","allowed_child_sets":[["Board Fennel reported that Device Lagoon was ready.","Board Fennel reported that System Marble was active."]]}
+{"case_id":"RCB04","class":"P5_SAFE","expected_state":"DECLARED","allowed_child_sets":[["Committee Glacier reported that System Nickel was inactive.","Committee Glacier reported that Plan Ochre was approved."]]}
+{"case_id":"RCB05","class":"P5_SAFE","expected_state":"DECLARED","allowed_child_sets":[["Team Hemlock reported that Service Quartz restarted.","Team Hemlock reported that Pump Russet stopped."]]}
+{"case_id":"RCB06","class":"P5_SAFE","expected_state":"DECLARED","allowed_child_sets":[["Group Ibis reported that Line Sable was compliant.","Group Ibis reported that Module Topaz failed."]]}
+{"case_id":"RCB07","class":"P5_SAFE","expected_state":"DECLARED","allowed_child_sets":[["Panel Jacinth reported that Unit Umber passed.","Panel Jacinth reported that Device Verdant was ready."]]}
+{"case_id":"RCB08","class":"P5_SAFE","expected_state":"DECLARED","allowed_child_sets":[["Council Lattice reported that Pump Willow stopped.","Council Lattice reported that System Xanthic was active."]]}
+{"case_id":"RCB09","class":"P5_SAFE","expected_state":"DECLARED","allowed_child_sets":[["Board Meridian reported that Plan Yarrow was approved.","Board Meridian reported that Service Zephyr restarted."]]}
+{"case_id":"RCB10","class":"P5_SAFE","expected_state":"DECLARED","allowed_child_sets":[["Committee Nacre reported that System Auburn was inactive.","Committee Nacre reported that Line Bronze was compliant."]]}
+{"case_id":"RCB11","class":"P5_SAFE","expected_state":"DECLARED","allowed_child_sets":[["Team Orchid reported that Module Cerulean failed.","Team Orchid reported that Device Dune was ready."]]}
+{"case_id":"RCB12","class":"P5_SAFE","expected_state":"DECLARED","allowed_child_sets":[["Group Plover reported that System Ember was active.","Group Plover reported that Unit Flint passed."]]}
+{"case_id":"RCB13","class":"P5_SAFE","expected_state":"DECLARED","allowed_child_sets":[["Panel Rill reported that Pump Grove stopped.","Panel Rill reported that Plan Harbor was approved."]]}
+{"case_id":"RCB14","class":"P5_SAFE","expected_state":"DECLARED","allowed_child_sets":[["Council Siskin reported that Service Indigo restarted.","Council Siskin reported that System Juniper was inactive."]]}
+{"case_id":"RCB15","class":"P4_SAFE","expected_state":"DECLARED","allowed_child_sets":[["Archive Finch logged alert vermilion.","Archive Finch stored packet slate."]]}
+{"case_id":"RCB16","class":"P4_SAFE","expected_state":"DECLARED","allowed_child_sets":[["Technician Cobalt inspected conduit amber.","Technician Cobalt labeled sample mauve."]]}
+{"case_id":"RCB17","class":"P4_SAFE","expected_state":"DECLARED","allowed_child_sets":[["Ready ledger team reviewed batch violet.","Ready ledger team signed clearance form."]]}
+{"case_id":"RCB18","class":"P4_SAFE","expected_state":"DECLARED","allowed_child_sets":[["Approved relay node authenticated session teal.","Approved relay node recorded access marker."]]}
+{"case_id":"RCB19","class":"P4_SAFE","expected_state":"DECLARED","allowed_child_sets":[["Depot crew transferred lot copper.","Depot crew archived custody record."]]}
+{"case_id":"RCB20","class":"P4_SAFE","expected_state":"DECLARED","allowed_child_sets":[["Courier Mallow delivered sample indigo.","Courier Mallow filed chain record."]]}
+{"case_id":"RCB21","class":"P4_SAFE","expected_state":"DECLARED","allowed_child_sets":[["Compliant monitor group measured inlet flow.","Compliant monitor group logged meter reading."]]}
+{"case_id":"RCB22","class":"BASELINE_SAFE","expected_state":"DECLARED","allowed_child_sets":[["Inspector Marigold examined dossier copper.","Supervisor Cinder approved remedy amber."]]}
+{"case_id":"RCB23","class":"BASELINE_SAFE","expected_state":"DECLARED","allowed_child_sets":[["Station Willow measured intake pressure.","Station Cedar recorded exhaust temperature."]]}
+{"case_id":"RCB24","class":"BASELINE_SAFE","expected_state":"DECLARED","allowed_child_sets":[["Vendor cobalt transferred lot pearl.","Warehouse ochre stored lot pearl."]]}
+{"case_id":"RCB25","class":"BASELINE_SAFE","expected_state":"DECLARED","allowed_child_sets":[["Tank Sienna was below 19 kPa.","Tank Cerulean was above 41 kPa."]]}
+{"case_id":"RCB26","class":"BASELINE_SAFE","expected_state":"DECLARED","allowed_child_sets":[["Route Juniper was faster than Route Hazel.","Route Ember was slower than Route Slate."]]}
+{"case_id":"RCB27","class":"BASELINE_SAFE","expected_state":"DECLARED","allowed_child_sets":[["During audit interval, Controller Opal logged alarm saffron.","During audit interval, Controller Opal archived event report."]]}
+{"case_id":"RCB28","class":"BASELINE_SAFE","expected_state":"DECLARED","allowed_child_sets":[["At coastal depot, Technician Umber inspected valve delta.","At coastal depot, Technician Umber labeled specimen epsilon."]]}
+{"case_id":"RCB29","class":"SINGLE","expected_state":"NOT_NEEDED","allowed_child_sets":[]}
+{"case_id":"RCB30","class":"SINGLE","expected_state":"NOT_NEEDED","allowed_child_sets":[]}
+{"case_id":"RCB31","class":"SINGLE","expected_state":"NOT_NEEDED","allowed_child_sets":[]}
+{"case_id":"RCB32","class":"SINGLE","expected_state":"NOT_NEEDED","allowed_child_sets":[]}
+{"case_id":"RCB33","class":"P5_OUT_OF_PROFILE","expected_state":"ABSTAINED","allowed_child_sets":[]}
+{"case_id":"RCB34","class":"P5_OUT_OF_PROFILE","expected_state":"ABSTAINED","allowed_child_sets":[]}
+{"case_id":"RCB35","class":"P5_OUT_OF_PROFILE","expected_state":"ABSTAINED","allowed_child_sets":[]}
+{"case_id":"RCB36","class":"P5_OUT_OF_PROFILE","expected_state":"ABSTAINED","allowed_child_sets":[]}
+{"case_id":"RCB37","class":"FAIL_CLOSED","expected_state":"ABSTAINED","allowed_child_sets":[]}
+{"case_id":"RCB38","class":"FAIL_CLOSED","expected_state":"ABSTAINED","allowed_child_sets":[]}
+{"case_id":"RCB39","class":"FAIL_CLOSED","expected_state":"ABSTAINED","allowed_child_sets":[]}
+{"case_id":"RCB40","class":"FAIL_CLOSED","expected_state":"ABSTAINED","allowed_child_sets":[]}
+{"case_id":"RCB41","class":"FAIL_CLOSED","expected_state":"ABSTAINED","allowed_child_sets":[]}
+{"case_id":"RCB42","class":"FAIL_CLOSED","expected_state":"ABSTAINED","allowed_child_sets":[]}
+{"case_id":"RCB43","class":"FAIL_CLOSED","expected_state":"ABSTAINED","allowed_child_sets":[]}
+{"case_id":"RCB44","class":"FAIL_CLOSED","expected_state":"ABSTAINED","allowed_child_sets":[]}
