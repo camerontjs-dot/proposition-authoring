@@ -25,6 +25,21 @@ Contract B
         |
         v
 CAL
+        |
+        v
+Contract C
+        |
+        v
+Decision Engine
+        |
+        v
+Contract D
+        |
+        v
+Contract E / Authorization
+        |
+        v
+Execution boundary / verifier
 ```
 
 Both ClaimGate and EvidenceGate operate before Evidence Bundler retrieval.
@@ -53,6 +68,24 @@ Remains responsible for retrieval, candidate generation, selection/retention, an
 
 Remains responsible for proposition-relative semantic judgment. Neither pre-retrieval gate may decide SUPPORTS / REFUTES or equivalent terminal semantic relations.
 
+### Decision Engine / Contract D
+
+Decision remains responsible for turning exact CAL / Contract C state into a bounded policy decision and exact requested effect / operation representation. Upstream evidence authority does not itself confer action authority.
+
+### Contract E / Authorization
+
+Contract E is a downstream operational-authorization boundary, not another epistemic gate.
+
+Its question is approximately:
+
+> Given the exact bound Decision / Contract D request, the exact target and current state, and independently trusted current AuthorityState / jurisdiction, is this exact operation authorized now?
+
+Contract E must not allow ClaimGate or EvidenceGate source-authority labels to bypass CAL or Decision and become direct permission to act.
+
+Upstream authority/provenance may matter only insofar as it is preserved through the exact validated pipeline artifacts and the resulting Decision / target binding. Contract E separately owns currentness, revocation, delegation/jurisdiction, exact subject/target/operation binding, replay resistance, and point-of-use authorization.
+
+Contract E's current research evidence remains separate from this V0 programme and is not production-ready authority.
+
 ## Authority model
 
 The gates should reduce hidden authority inference inside downstream components, but they do not create authority by classification alone.
@@ -60,6 +93,14 @@ The gates should reduce hidden authority inference inside downstream components,
 Authority must be grounded in inspectable task declarations, source identity, provenance, issuer, corpus membership, document/record type, jurisdiction, version/effective date, or another explicit maintained rule.
 
 Unknown authority remains unknown.
+
+Keep three authority classes conceptually separate:
+
+1. **epistemic/context authority** — what the task, claim, source or corpus is allowed to establish;
+2. **decision authority** — what policy consequence follows from exact CAL / Contract C state;
+3. **operational authorization** — whether an exact requested operation on an exact target is permitted now under Contract E / current AuthorityState.
+
+No class automatically confers the next.
 
 ## V0 experiment
 
@@ -92,7 +133,8 @@ The V0 concept weakens if:
 - profiles routinely force guesses where `unknown` should have been emitted;
 - evidence-world characterization collapses into passage-level SUPPORTS/REFUTES judgment;
 - ClaimGate and EvidenceGate duplicate each other's authority instead of exposing distinct claim-side and evidence-side state;
-- shadow fields add no explanatory or predictive value on held-out naturalistic cases.
+- shadow fields add no explanatory or predictive value on held-out naturalistic cases;
+- upstream epistemic authority is treated as direct operational permission, bypassing Decision / Contract D / Contract E.
 
 ## Promotion rule
 
@@ -100,4 +142,4 @@ Do not promote the profiles as a single monolithic authority surface.
 
 If a specific field proves useful and reproducible, qualify that field separately for a specific causal role. Examples might later include verification-world routing, source-aperture constraints, temporal filtering, or CAL family-resolution assistance.
 
-No Contract A/B schema mutation, Evidence Bundler routing change, CAL routing change, or Decision change is authorized by V0.
+No Contract A/B schema mutation, Evidence Bundler routing change, CAL routing change, Decision change, Contract E change, Authorization, or execution is authorized by V0.
