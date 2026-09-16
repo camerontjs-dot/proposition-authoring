@@ -4,9 +4,10 @@ from collections import defaultdict
 from typing import Any
 
 from .ambiguity import analyze_root_scope
-from .backend import FrozenPredecessorBackend, SemanticBackend
+from .backend import SemanticBackend
 from .canonical import canonical_json, sha256_text
 from .contract_a import emit_declared, emit_failed, emit_not_decomposed
+from .coverage_backend import CoverageBackend
 from .model import AuthoringRequest, AuthoringResult, CandidateEvaluation
 from .profile import not_needed_profile_allows
 from .receipt import build_receipt
@@ -14,7 +15,7 @@ from .receipt import build_receipt
 
 class AuthoringEngine:
     def __init__(self, backend: SemanticBackend | None = None) -> None:
-        self.backend = backend or FrozenPredecessorBackend()
+        self.backend = backend or CoverageBackend("pooled")
 
     def author(self, request: AuthoringRequest) -> AuthoringResult:
         try:
