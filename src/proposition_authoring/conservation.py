@@ -5,13 +5,35 @@ from dataclasses import dataclass
 from typing import Literal
 
 Disposition = Literal["PASS", "FAIL", "INDETERMINATE"]
+INSTRUMENT_ID = "surface-scope-conservation-v2"
 REPORTING = "reported|stated|confirmed|noted|claimed|observed|found|said"
 MATRIX_RE = re.compile(rf"^(?P<matrix>.+?\b(?:{REPORTING}))\s+(?P<body>.+)$", re.IGNORECASE)
-LEADING_RE = re.compile(r"^(?P<prefix>(?:during|at|in|under|after|before|when|while|if|unless)\b[^,]*,\s*)(?P<body>.+\band\b.+)$", re.IGNORECASE)
-LOCAL_NEG_RE = re.compile(r"^(?P<subject>.+?)\s+did\s+not\s+(?P<verb>[A-Za-z][A-Za-z-]*)\b.*?\band\b.+$", re.IGNORECASE)
-GENERIC_BOTH_RE = re.compile(r"^(?P<subject>.+?)\s+both\s+(?P<body>.+\band\b.+)$", re.IGNORECASE)
-TRAILING_RE = re.compile(r"^.+\band\b.+\s+(?:during|at|in|under|after|before|when|while|if|unless)\b[^,]*[.]?$", re.IGNORECASE)
-THRESHOLD_RE = re.compile(r"\b(?:at\s+least|at\s+most|more\s+than|less\s+than|below|above)\s+\d+(?:\.\d+)?(?:\s+[A-Za-z%]+)?\b", re.IGNORECASE)
+LEADING_RE = re.compile(
+    r"^(?P<prefix>(?:during|at|in|under|after|before|when|while|if|unless)\b[^,]*,\s*)"
+    r"(?P<body>.+\band\b.+)$",
+    re.IGNORECASE,
+)
+REPEATED_LOCAL_NEG_RE = re.compile(
+    r"^(?P<subject>.+?)\s+did\s+not\s+(?P<verb>[A-Za-z][A-Za-z-]*)\b.+?"
+    r"\band\s+did\s+not\s+(?P=verb)\b.+$",
+    re.IGNORECASE,
+)
+LOCAL_NEG_RE = re.compile(
+    r"^(?P<subject>.+?)\s+did\s+not\s+(?P<verb>[A-Za-z][A-Za-z-]*)\b.*?\band\b.+$",
+    re.IGNORECASE,
+)
+GENERIC_BOTH_RE = re.compile(
+    r"^(?P<subject>.+?)\s+both\s+(?P<body>.+\band\b.+)$", re.IGNORECASE
+)
+TRAILING_RE = re.compile(
+    r"^.+\band\b.+\s+(?:during|at|in|under|after|before|when|while|if|unless)\b[^,]*[.]?$",
+    re.IGNORECASE,
+)
+THRESHOLD_RE = re.compile(
+    r"\b(?:at\s+least|at\s+most|more\s+than|less\s+than|below|above)\s+"
+    r"\d+(?:\.\d+)?(?:\s+[A-Za-z%]+)?\b",
+    re.IGNORECASE,
+)
 
 
 def norm(text: str) -> str:
@@ -26,14 +48,16 @@ class ConservationMeasurement:
 
     def as_dict(self) -> dict[str, object]:
         return {
-            "instrument": "surface-scope-conservation-v1",
+            "instrument": INSTRUMENT_ID,
             "disposition": self.disposition,
             "findings": list(self.findings),
             "families": list(self.families),
         }
 
 
-def audit_candidate(root_text: str, child_texts: tuple[str, ...] | list[str]) -> ConservationMeasurement:
+def audit_candidate(
+    root_text: str, child_texts: tuple[str, ...] | list[str]
+) -> ConservationMeasurement:
     root = norm(root_text)
     children = tuple(norm(x) for x in child_texts)
     findings: list[str] = []
@@ -60,11 +84,21 @@ def audit_candidate(root_text: str, child_texts: tuple[str, ...] | list[str]) ->
     if leading:
         prefix = norm(leading.group("prefix").rstrip(", "))
         families.append("LEADING_SHARED_ADJUNCT")
-        if any(not child.startswith(prefix + ",") and not child.startswith(prefix + " ") for child in children):
+        if any(
+            not child.startswith(prefix + ",") and not child.startswith(prefix + " ")
+            for child in children
+        ):
             findings.append("SHARED_LEADING_ADJUNCT_LOST")
 
+    repeated_local_neg = REPEATED_LOCAL_NEG_RE.match(root)
     local_neg = LOCAL_NEG_RE.match(root)
-    if local_neg:
+    if repeated_local_neg:
+        verb = repeated_local_neg.group("verb").lower()
+        families.append("LOCAL_NEGATION")
+        carrier = re.compile(rf"\bdid\s+not\s+{re.escape(verb)}\b", re.IGNORECASE)
+        if len(children) != 2 or any(len(carrier.findall(child)) != 1 for child in children):
+            findings.append("REPEATED_LOCAL_NEGATION_BINDING_LOST")
+    elif local_neg:
         verb = local_neg.group("verb").lower()
         families.append("LOCAL_NEGATION")
         carriers = [c for c in children if re.search(rf"\b{re.escape(verb)}\b", c)]
@@ -99,4 +133,6 @@ def audit_candidate(root_text: str, child_texts: tuple[str, ...] | list[str]) ->
         disposition = "FAIL"
     else:
         disposition = "PASS"
-    return ConservationMeasurement(disposition, tuple(sorted(set(findings))), tuple(sorted(set(families))))
+    return ConservationMeasurement(
+        disposition, tuple(sorted(set(findings))), tuple(sorted(set(families)))
+    )
