@@ -4,7 +4,7 @@ from dataclasses import dataclass
 from typing import Any
 
 from .ambiguity import analyze_root_scope
-from .conservation import audit_candidate
+from .conservation import INSTRUMENT_ID, audit_candidate
 
 
 @dataclass(frozen=True)
@@ -32,7 +32,12 @@ def evaluate_candidate(candidate: dict[str, Any], backend: Any) -> ComposedAutho
             disposition="BLOCK",
             reason="ROOT_SCOPE_AMBIGUITY",
             evaluator_disposition=None,
-            conservation={"instrument": "surface-scope-conservation-v1", "disposition": "NOT_RUN", "findings": [], "families": []},
+            conservation={
+                "instrument": INSTRUMENT_ID,
+                "disposition": "NOT_RUN",
+                "findings": [],
+                "families": [],
+            },
             root_scope_findings=root_findings,
         )
 
@@ -42,7 +47,25 @@ def evaluate_candidate(candidate: dict[str, Any], backend: Any) -> ComposedAutho
     conservation = audit_candidate(candidate["root_text"], children)
 
     if evaluator_disposition != "ACCEPTABLE_WITHIN_PROFILE":
-        return ComposedAuthorityResult("BLOCK", "FROZEN_EVALUATOR_REJECTED", evaluator_disposition, conservation.as_dict(), ())
+        return ComposedAuthorityResult(
+            "BLOCK",
+            "FROZEN_EVALUATOR_REJECTED",
+            evaluator_disposition,
+            conservation.as_dict(),
+            (),
+        )
     if conservation.disposition != "PASS":
-        return ComposedAuthorityResult("BLOCK", f"CONSERVATION_{conservation.disposition}", evaluator_disposition, conservation.as_dict(), ())
-    return ComposedAuthorityResult("ALLOW", "INDEPENDENT_INSTRUMENTS_PASS", evaluator_disposition, conservation.as_dict(), ())
+        return ComposedAuthorityResult(
+            "BLOCK",
+            f"CONSERVATION_{conservation.disposition}",
+            evaluator_disposition,
+            conservation.as_dict(),
+            (),
+        )
+    return ComposedAuthorityResult(
+        "ALLOW",
+        "INDEPENDENT_INSTRUMENTS_PASS",
+        evaluator_disposition,
+        conservation.as_dict(),
+        (),
+    )
