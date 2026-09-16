@@ -6,7 +6,7 @@ import unittest
 import proposition_authoring.conservation as conservation_module
 from proposition_authoring.authority import evaluate_candidate
 from proposition_authoring.backend import FrozenPredecessorBackend
-from proposition_authoring.conservation import audit_candidate
+from proposition_authoring.conservation import INSTRUMENT_ID, audit_candidate
 
 
 def candidate(case_id: str, root: str, children: tuple[str, str]) -> dict:
@@ -37,6 +37,9 @@ class RC2DevelopmentTests(unittest.TestCase):
         for forbidden in ("from .backend", "importlib", "parse_root", "parse_child"):
             self.assertNotIn(forbidden, source)
 
+    def test_successor_conservation_identity_is_explicit(self):
+        self.assertEqual("surface-scope-conservation-v2", INSTRUMENT_ID)
+
     def test_r22_wrong_candidate_is_rejected(self):
         root = "Committee Pine reported both Unit Amber passed and Unit Cobalt failed."
         children = ("Committee Pine reported both Unit Amber passed.", "Unit Cobalt failed.")
@@ -46,17 +49,58 @@ class RC2DevelopmentTests(unittest.TestCase):
 
     def test_r22_conservative_candidate_passes(self):
         root = "Committee Pine reported both Unit Amber passed and Unit Cobalt failed."
-        children = ("Committee Pine reported Unit Amber passed.", "Committee Pine reported Unit Cobalt failed.")
+        children = (
+            "Committee Pine reported Unit Amber passed.",
+            "Committee Pine reported Unit Cobalt failed.",
+        )
         self.assertEqual("PASS", audit_candidate(root, children).disposition)
 
     def test_q18_local_negation_passes(self):
         root = "Gateway Umber did not authenticate token quartz and logged denial event."
-        children = ("Gateway Umber did not authenticate token quartz.", "Gateway Umber logged denial event.")
+        children = (
+            "Gateway Umber did not authenticate token quartz.",
+            "Gateway Umber logged denial event.",
+        )
         self.assertEqual("PASS", audit_candidate(root, children).disposition)
 
+    def test_f14_explicit_repeated_local_negation_passes(self):
+        root = "Unit Brisk did not cache File C and did not cache File D."
+        children = (
+            "Unit Brisk did not cache File C.",
+            "Unit Brisk did not cache File D.",
+        )
+        result = audit_candidate(root, children)
+        self.assertEqual("PASS", result.disposition)
+        self.assertIn("LOCAL_NEGATION", result.families)
+
+    def test_f14_repeated_local_negation_loss_is_rejected(self):
+        root = "Unit Brisk did not cache File C and did not cache File D."
+        children = (
+            "Unit Brisk did not cache File C.",
+            "Unit Brisk cached File D.",
+        )
+        result = audit_candidate(root, children)
+        self.assertEqual("FAIL", result.disposition)
+        self.assertIn("REPEATED_LOCAL_NEGATION_BINDING_LOST", result.findings)
+
+    def test_single_local_negation_must_not_propagate(self):
+        root = "Gateway Umber did not authenticate token quartz and logged denial event."
+        children = (
+            "Gateway Umber did not authenticate token quartz.",
+            "Gateway Umber did not log denial event.",
+        )
+        result = audit_candidate(root, children)
+        self.assertEqual("FAIL", result.disposition)
+        self.assertIn("LOCAL_NEGATION_OVERDISTRIBUTED", result.findings)
+
     def test_shared_qualifier_loss_is_rejected(self):
-        root = "During validation window, Controller Aspen logged alarm amber and archived incident report."
-        children = ("During validation window, Controller Aspen logged alarm amber.", "Controller Aspen archived incident report.")
+        root = (
+            "During validation window, Controller Aspen logged alarm amber and archived incident report."
+        )
+        children = (
+            "During validation window, Controller Aspen logged alarm amber.",
+            "Controller Aspen archived incident report.",
+        )
         self.assertEqual("FAIL", audit_candidate(root, children).disposition)
 
     def test_q29_is_blocked_before_evaluator(self):
@@ -68,6 +112,7 @@ class RC2DevelopmentTests(unittest.TestCase):
         result = evaluate_candidate(row, ExplodingBackend())
         self.assertEqual("BLOCK", result.disposition)
         self.assertEqual("ROOT_SCOPE_AMBIGUITY", result.reason)
+        self.assertEqual(INSTRUMENT_ID, result.conservation["instrument"])
 
     def test_real_frozen_evaluator_r22_blind_spot_is_caught(self):
         backend = FrozenPredecessorBackend()
