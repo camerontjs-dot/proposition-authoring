@@ -4,17 +4,37 @@ import re
 
 from .canonical import bound_object_hash, sha256_text
 from .model import AuthoringRequest
-from .shadow_models import ClaimProfileV0, TaskMetadata, UNKNOWN
+from .shadow_models import UNKNOWN, ClaimProfileV0, TaskMetadata
 
-_COMPARATIVE = re.compile(r"\b(more|less|higher|lower|greater|fewer|than|compared|versus|vs\.?|exceed(?:s|ed)?)\b", re.I)
-_CAUSAL = re.compile(r"\b(because|caus(?:e|ed|es)|led to|result(?:ed|s)? in|due to)\b", re.I)
-_ATTRIBUTIONAL = re.compile(r"\b(reported|stated|claimed|said|asserted|concluded|observed|confirmed|indicated|showed|found)\b", re.I)
+_COMPARATIVE = re.compile(
+    r"\b(more|less|higher|lower|greater|fewer|than|compared|versus|vs\.?|exceed(?:s|ed)?)\b",
+    re.IGNORECASE,
+)
+_CAUSAL = re.compile(
+    r"\b(because|caus(?:e|ed|es)|led to|result(?:ed|s)? in|due to)\b",
+    re.IGNORECASE,
+)
+_ATTRIBUTIONAL = re.compile(
+    r"\b(reported|stated|claimed|said|asserted|concluded|observed|confirmed|indicated|showed|found)\b",
+    re.IGNORECASE,
+)
 _NUMERIC = re.compile(r"(?:\b\d+(?:\.\d+)?\b|%)")
-_TEMPORAL = re.compile(r"\b(?:19|20)\d{2}\b|\b(as of|before|after|during|since|between|from|until|through)\b", re.I)
-_DEFINITIONAL = re.compile(r"\b(means|defined as|refers to)\b", re.I)
-_EXISTENCE = re.compile(r"\b(exists?|there (?:is|are)|contains?|includes?)\b", re.I)
-_STATUS = re.compile(r"\b(active|inactive|approved|compliant|ready|failed|passed|rejected|revoked|expired|open|closed)\b", re.I)
-_COMPLIANCE = re.compile(r"\b(compliant|compliance|regulation|regulated|requirement|standard)\b", re.I)
+_TEMPORAL = re.compile(
+    r"\b(?:19|20)\d{2}\b|\b(as of|before|after|during|since|between|from|until|through)\b",
+    re.IGNORECASE,
+)
+_DEFINITIONAL = re.compile(r"\b(means|defined as|refers to)\b", re.IGNORECASE)
+_EXISTENCE = re.compile(
+    r"\b(exists?|there (?:is|are)|contains?|includes?)\b", re.IGNORECASE
+)
+_STATUS = re.compile(
+    r"\b(active|inactive|approved|compliant|ready|failed|passed|rejected|revoked|expired|open|closed)\b",
+    re.IGNORECASE,
+)
+_COMPLIANCE = re.compile(
+    r"\b(compliant|compliance|regulation|regulated|requirement|standard)\b",
+    re.IGNORECASE,
+)
 _YEAR = re.compile(r"\b(?:19|20)\d{2}\b")
 
 

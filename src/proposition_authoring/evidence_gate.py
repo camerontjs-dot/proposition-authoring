@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from .canonical import bound_object_hash, sha256_text
 from .model import AuthoringRequest
-from .shadow_models import EvidenceWorldProfileV0, SourceMetadata, TaskMetadata, UNKNOWN
+from .shadow_models import UNKNOWN, EvidenceWorldProfileV0, SourceMetadata, TaskMetadata
 
 _MEDIA_TO_FORM = {
     "application/pdf": "document_text",
