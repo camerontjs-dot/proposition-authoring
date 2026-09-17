@@ -72,7 +72,7 @@ _CATEGORY_PATTERNS: tuple[tuple[ClaimCategory, re.Pattern[str]], ...] = (
     (
         "quantitative",
         re.compile(
-            r"(?:\b\d+(?:\.\d+)?\b|%|\b(rate|count|mean|median|average|variance|standard deviation|percentage|percent)\b)",
+            r"(?:\b(?!19\d{2}\b|20\d{2}\b)\d+(?:\.\d+)?\b|%|\b(rate|count|mean|median|average|variance|standard deviation|percentage|percent)\b)",
             re.IGNORECASE,
         ),
     ),
