@@ -44,7 +44,7 @@ class PairedGatesCapabilityServiceTests(unittest.TestCase):
 
     def test_claim_profile_exposes_complete_v0_surface_with_basis(self) -> None:
         result = PairedGatesCapabilityService().run(
-            self.request(text="Drug A had 20% higher response than Drug B in 2025."),
+            self.request(text="Drug A had a higher response than Drug B in 2025."),
             claim_task=TaskMetadata(
                 domain="healthcare",
                 verification_world="closed",
