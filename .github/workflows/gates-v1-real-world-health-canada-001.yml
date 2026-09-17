@@ -1,0 +1,139 @@
+name: Gate V1 Real World Health Canada 001
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/gates-v1-real-world-health-canada-001.yml"
+  workflow_dispatch:
+
+jobs:
+  run-real-world-case:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact qualified Gate V1 subject
+        uses: actions/checkout@v4
+        with:
+          ref: 341db0b46d5d663a97b4f93e6ac443c467170b8b
+      - name: Verify exact subject
+        run: test "$(git rev-parse HEAD)" = "341db0b46d5d663a97b4f93e6ac443c467170b8b"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Fetch frozen ClaimGate predecessors
+        run: python scripts/fetch_frozen_predecessors.py
+      - name: Install exact subject
+        run: python -m pip install -e .[dev]
+      - name: Freeze real-world Health Canada packet
+        run: |
+          cat > /tmp/health-canada-001.json <<'JSON'
+          {
+            "request": {
+              "handoff_id": "real-health-canada-ozempic-001",
+              "producer_id": "real-world-gate-v1-smoke",
+              "producer_version": "2026-09-17",
+              "work_id": "health-canada-dpd-ozempic-02562618",
+              "root_id": "claim-ozempic-02562618-approved-canada",
+              "root_text": "Ozempic DIN 02562618 is approved in Canada.",
+              "sources": [
+                {
+                  "source_id": "hc-dpd-product-106547",
+                  "media_type": "text/html",
+                  "content": "Health Canada Drug Product Database product information. Current status: Approved. Current status date: 2025-11-04. Product name: OZEMPIC. DIN: 02562618. Company: NOVO NORDISK CANADA INC. Class: Human. Route of administration: Subcutaneous. Active ingredient: SEMAGLUTIDE. Product monograph date: 2026-07-13."
+                },
+                {
+                  "source_id": "hc-dpd-query-context",
+                  "media_type": "text/html",
+                  "content": "Health Canada Drug Product Database online query. The database can be searched by drug identification number, Anatomical Therapeutic Chemical code, company, status, product name, active ingredient, class, route of administration, dosage form, schedule and related product characteristics."
+                }
+              ]
+            },
+            "evidence_task": {
+              "verification_world": "closed",
+              "corpus_scope": "Two frozen Health Canada Drug Product Database pages selected for this bounded Gate V1 smoke run.",
+              "completeness_state": "partial",
+              "known_gaps_state": "declared_some",
+              "known_gaps": [
+                "The product monograph itself is not included.",
+                "Other Ozempic DIN records are not included."
+              ]
+            },
+            "source_metadata": [
+              {
+                "source_id": "hc-dpd-product-106547",
+                "provenance": "Health Canada Drug Product Database product record: https://health-products.canada.ca/dpd-bdpp/info?code=106547&lang=eng",
+                "issuer": "Health Canada",
+                "source_role": "official_regulatory_product_record",
+                "authority_basis": "official Health Canada Drug Product Database record",
+                "document_type": "database_record",
+                "evidence_form": "registry_entry",
+                "temporal_coverage": "current status date 2025-11-04; product monograph dated 2026-07-13",
+                "jurisdictional_coverage": "Canada",
+                "version": "retrieved 2026-09-17",
+                "currency_state": "current_as_retrieved"
+              },
+              {
+                "source_id": "hc-dpd-query-context",
+                "provenance": "Health Canada Drug Product Database query interface: https://health-products.canada.ca/dpd-bdpp/",
+                "issuer": "Health Canada",
+                "source_role": "official_database_context",
+                "authority_basis": "official Health Canada database interface",
+                "document_type": "web_page",
+                "evidence_form": "document_text",
+                "jurisdictional_coverage": "Canada",
+                "version": "retrieved 2026-09-17",
+                "currency_state": "current_as_retrieved"
+              }
+            ]
+          }
+          JSON
+      - name: Run exact Gate V1
+        run: |
+          python scripts/run_gate_v1.py \
+            /tmp/health-canada-001.json \
+            --out-dir /tmp/health-canada-001-out \
+            --implementation-identity 341db0b46d5d663a97b4f93e6ac443c467170b8b
+      - name: Summarize observed outputs
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          root = Path('/tmp/health-canada-001-out')
+          claim = json.loads((root / 'CLAIM-GATE.json').read_text())
+          evidence = json.loads((root / 'EVIDENCE-GATE.json').read_text())
+          receipt = json.loads((root / 'STANDARDIZATION-RECEIPT.json').read_text())
+          summary = {
+              'exact_subject': '341db0b46d5d663a97b4f93e6ac443c467170b8b',
+              'claim_text': claim['claim']['text'],
+              'authoring_state': claim['authoring']['state'],
+              'authoring_reason': claim['authoring']['reason'],
+              'claim_categories': claim['claim']['categories']['values'],
+              'contract_a_binding': claim['contract_a_binding'],
+              'claim_output_sha256': claim['output_sha256'],
+              'evidence_world_id': evidence['evidence_world_id'],
+              'evidence_output_sha256': evidence['output_sha256'],
+              'source_count': evidence['source_count'],
+              'sources': [
+                  {
+                      'source_id': s['source_id'],
+                      'issuer': s['provenance']['issuer'],
+                      'source_role': s['provenance']['source_role'],
+                      'authority_basis': s['provenance']['authority_basis'],
+                      'document_type': s['classification']['document_type'],
+                      'evidence_form': s['classification']['evidence_form'],
+                      'jurisdiction': s['coverage']['jurisdiction'],
+                  }
+                  for s in evidence['sources']
+              ],
+              'corpus': evidence['corpus'],
+              'receipt_sha256': receipt['receipt_sha256'],
+          }
+          (root / 'OBSERVED-SUMMARY.json').write_text(json.dumps(summary, indent=2, sort_keys=True) + '\n')
+          print(json.dumps(summary, indent=2, sort_keys=True))
+          PY
+      - name: Freeze real-world run artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: gates-v1-real-world-health-canada-001
+          path: /tmp/health-canada-001-out/
+          if-no-files-found: error
