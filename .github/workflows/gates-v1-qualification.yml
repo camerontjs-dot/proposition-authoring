@@ -1,0 +1,67 @@
+name: Gate V1 Qualification
+
+on:
+  pull_request:
+    paths:
+      - "src/proposition_authoring/gate_v1.py"
+      - "scripts/run_gate_v1.py"
+      - "tests/test_gate_v1.py"
+      - "docs/GATE_V1_OUTPUT_CONTRACT.md"
+      - "schema/gates/1.0.0/**"
+      - "research/gates_v1/**"
+      - ".github/workflows/gates-v1-qualification.yml"
+  workflow_dispatch:
+
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install
+        run: python -m pip install -e .[dev]
+      - name: Focused V1 tests
+        run: python -m unittest tests.test_gate_v1 -v
+      - name: First canonical execution
+        run: |
+          python scripts/run_gate_v1.py \
+            research/gates_v1/fixtures/representative.json \
+            --out-dir /tmp/gates-v1-a \
+            --implementation-identity "$GITHUB_SHA"
+      - name: Replay canonical execution
+        run: |
+          python scripts/run_gate_v1.py \
+            research/gates_v1/fixtures/representative.json \
+            --out-dir /tmp/gates-v1-b \
+            --implementation-identity "$GITHUB_SHA"
+      - name: Require byte-identical replay
+        run: diff -ru /tmp/gates-v1-a /tmp/gates-v1-b
+      - name: Inspect frozen output shape
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          root = Path('/tmp/gates-v1-a')
+          claim = json.loads((root / 'CLAIM-GATE.json').read_text())
+          evidence = json.loads((root / 'EVIDENCE-GATE.json').read_text())
+          receipt = json.loads((root / 'STANDARDIZATION-RECEIPT.json').read_text())
+
+          assert claim['schema'] == 'claim-gate-output-v1'
+          assert evidence['schema'] == 'evidence-gate-output-v1'
+          assert receipt['schema'] == 'paired-gates-standardization-receipt-v1'
+          assert claim['contract_a_binding']['state'] == 'present'
+          assert evidence['source_count'] == 2
+          assert evidence['corpus']['known_gaps']['state'] == 'declared_some'
+          assert all('content' not in row for row in evidence['sources'])
+          assert claim['authority']['retrieval_authority'] is False
+          assert evidence['authority']['evidence_relation_authority'] is False
+          PY
+      - name: Freeze qualification artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: gates-v1-qualified-output
+          path: /tmp/gates-v1-a/
+          if-no-files-found: error
