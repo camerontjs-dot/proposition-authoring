@@ -67,7 +67,14 @@ def _expected_forms(families: tuple[str, ...]) -> tuple[str, ...]:
     if "attributional" in family_set:
         forms.update({"authoritative_declaration", "document_text"})
     if family_set & {"status_state", "compliance"}:
-        forms.update({"database_record", "registry_entry", "authoritative_declaration"})
+        forms.update(
+            {
+                "authoritative_declaration",
+                "database_record",
+                "document_text",
+                "registry_entry",
+            }
+        )
     if "existence" in family_set:
         forms.update({"database_record", "registry_entry", "document_text"})
     if "definitional" in family_set:
