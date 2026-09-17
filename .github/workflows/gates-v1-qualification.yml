@@ -15,8 +15,14 @@ on:
 jobs:
   qualify:
     runs-on: ubuntu-latest
+    env:
+      SUBJECT_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - name: Verify exact qualification subject
+        run: test "$(git rev-parse HEAD)" = "$SUBJECT_SHA"
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
@@ -31,19 +37,20 @@ jobs:
           python scripts/run_gate_v1.py \
             research/gates_v1/fixtures/representative.json \
             --out-dir /tmp/gates-v1-a \
-            --implementation-identity "$GITHUB_SHA"
+            --implementation-identity "$SUBJECT_SHA"
       - name: Replay canonical execution
         run: |
           python scripts/run_gate_v1.py \
             research/gates_v1/fixtures/representative.json \
             --out-dir /tmp/gates-v1-b \
-            --implementation-identity "$GITHUB_SHA"
+            --implementation-identity "$SUBJECT_SHA"
       - name: Require byte-identical replay
         run: diff -ru /tmp/gates-v1-a /tmp/gates-v1-b
       - name: Inspect frozen output shape
         run: |
           python - <<'PY'
           import json
+          import os
           from pathlib import Path
 
           root = Path('/tmp/gates-v1-a')
@@ -54,6 +61,9 @@ jobs:
           assert claim['schema'] == 'claim-gate-output-v1'
           assert evidence['schema'] == 'evidence-gate-output-v1'
           assert receipt['schema'] == 'paired-gates-standardization-receipt-v1'
+          assert claim['implementation_identity'] == os.environ['SUBJECT_SHA']
+          assert evidence['implementation_identity'] == os.environ['SUBJECT_SHA']
+          assert claim['claim']['categories']['values'] == ['status', 'temporal']
           assert claim['contract_a_binding']['state'] == 'present'
           assert evidence['source_count'] == 2
           assert evidence['corpus']['known_gaps']['state'] == 'declared_some'
