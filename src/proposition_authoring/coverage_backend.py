@@ -6,6 +6,7 @@ from typing import Any, ClassVar
 from .authority import evaluate_candidate
 from .backend import FrozenPredecessorBackend
 from .canonical import canonical_json, sha256_text
+from .comparative_root import is_bounded_atomic_comparative
 from .coverage_proposers import proposer_p4, proposer_p5
 
 
@@ -31,7 +32,12 @@ class CoverageBackend:
         return out
 
     def root_frame_count(self, root_text: str, context_text: str) -> tuple[str, int, str]:
-        return self.base.root_frame_count(root_text, context_text)
+        status, frame_count, reason = self.base.root_frame_count(root_text, context_text)
+        if status == "ok":
+            return status, frame_count, reason
+        if is_bounded_atomic_comparative(root_text, context_text):
+            return "ok", 1, "BOUNDED_ATOMIC_COMPARATIVE"
+        return status, frame_count, reason
 
     def evaluate(self, candidate: dict[str, Any]) -> dict[str, Any]:
         composed = evaluate_candidate(candidate, self.base)
