@@ -1,0 +1,53 @@
+name: Research Paired Gates Field Pressure Sweep
+
+on:
+  pull_request:
+    paths:
+      - "research/paired_gates_field_pressure_sweep_v0/**"
+      - "scripts/evaluate_paired_gates_field_pressure_sweep.py"
+      - ".github/workflows/research-paired-gates-field-pressure-sweep.yml"
+  workflow_dispatch:
+
+jobs:
+  field-sweep:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python scripts/fetch_frozen_predecessors.py
+      - run: python -m pip install -e .[dev]
+      - run: python -m ruff check scripts/evaluate_paired_gates_field_pressure_sweep.py
+      - name: Execute frozen field sweep twice
+        run: |
+          mkdir -p build/field-sweep/run1 build/field-sweep/run2
+          python scripts/evaluate_paired_gates_field_pressure_sweep.py \
+            --json-out build/field-sweep/run1/RESULT.json \
+            --markdown-out build/field-sweep/run1/RESULT.md
+          python scripts/evaluate_paired_gates_field_pressure_sweep.py \
+            --json-out build/field-sweep/run2/RESULT.json \
+            --markdown-out build/field-sweep/run2/RESULT.md
+      - name: Deterministic replay
+        run: |
+          cmp build/field-sweep/run1/RESULT.json build/field-sweep/run2/RESULT.json
+          cmp build/field-sweep/run1/RESULT.md build/field-sweep/run2/RESULT.md
+      - name: Apparatus shape
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          result = json.loads(Path('build/field-sweep/run1/RESULT.json').read_text())
+          assert result['field_count'] == 41
+          assert result['case_count'] == 118
+          assert sum(result['summary'].values()) == 41
+          assert result['authority_effect'] == 'NONE_ALL_FIELDS_REMAIN_IMPLEMENTED_SHADOW'
+          fields = {row['field_id'] for row in result['field_results']}
+          assert len(fields) == 41
+          print(json.dumps(result['summary'], sort_keys=True))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: paired-gates-field-pressure-sweep-v0
+          path: build/field-sweep/run1/
+          if-no-files-found: error
