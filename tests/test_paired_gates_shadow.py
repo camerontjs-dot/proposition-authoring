@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import unittest
+from pathlib import Path
 
 from proposition_authoring.claim_profile import build_claim_profile
 from proposition_authoring.engine import AuthoringEngine
@@ -9,6 +10,9 @@ from proposition_authoring.evidence_gate import build_evidence_world_profile
 from proposition_authoring.model import AuthoringRequest, SourceRepresentation
 from proposition_authoring.preflight import compare_profiles, run_paired_preflight
 from proposition_authoring.shadow_models import SourceMetadata, TaskMetadata
+
+ROOT = Path(__file__).resolve().parents[1]
+FIXTURES = ROOT / "integration" / "claimgate_v1_candidate" / "fixtures"
 
 
 class PairedGatesShadowTests(unittest.TestCase):
@@ -25,6 +29,19 @@ class PairedGatesShadowTests(unittest.TestCase):
             sources=sources or (),
         )
 
+    def fixture_request(self, name: str) -> AuthoringRequest:
+        raw = json.loads((FIXTURES / f"{name}.json").read_text(encoding="utf-8"))
+        return AuthoringRequest(
+            handoff_id=raw["handoff_id"],
+            producer_id=raw["producer_id"],
+            producer_version=raw["producer_version"],
+            work_id=raw["work_id"],
+            root_id=raw["root_id"],
+            root_text=raw["root_text"],
+            sources=tuple(SourceRepresentation(**row) for row in raw.get("sources", [])),
+            context_source_id=raw.get("context_source_id"),
+        )
+
     def test_shadow_wrapper_does_not_change_authoring_result(self) -> None:
         request = self.request()
         direct = AuthoringEngine().author(request)
@@ -33,6 +50,26 @@ class PairedGatesShadowTests(unittest.TestCase):
         self.assertEqual(shadow.authoring.reason, direct.reason)
         self.assertEqual(shadow.authoring.contract_a, direct.contract_a)
         self.assertEqual(shadow.authoring.receipt, direct.receipt)
+
+    def test_profiles_emit_for_all_frozen_front_door_states(self) -> None:
+        expected = {
+            "declared": "DECLARED",
+            "not_needed": "NOT_NEEDED",
+            "abstained": "ABSTAINED",
+        }
+        for fixture, state in expected.items():
+            with self.subTest(fixture=fixture):
+                request = self.fixture_request(fixture)
+                direct = AuthoringEngine().author(request)
+                shadow = run_paired_preflight(request)
+                self.assertEqual(direct.state, state)
+                self.assertEqual(shadow.authoring.state, state)
+                self.assertEqual(shadow.authoring.contract_a, direct.contract_a)
+                self.assertEqual(shadow.authoring.receipt, direct.receipt)
+                self.assertTrue(shadow.claim_profile["profile_sha256"].startswith("sha256:"))
+                self.assertTrue(
+                    shadow.evidence_world_profile["profile_sha256"].startswith("sha256:")
+                )
 
     def test_claim_profile_characterizes_without_authoring_authority(self) -> None:
         request = AuthoringRequest(
@@ -85,14 +122,34 @@ class PairedGatesShadowTests(unittest.TestCase):
         )
         self.assertEqual(first, second)
 
-    def test_evidence_content_mutation_changes_profile_identity(self) -> None:
-        first = build_evidence_world_profile(
-            self.request((SourceRepresentation("s", "text/plain", "alpha"),))
+    def test_source_content_and_provenance_mutations_change_identity(self) -> None:
+        request = self.request((SourceRepresentation("s", "text/plain", "alpha"),))
+        baseline = build_evidence_world_profile(
+            request,
+            source_metadata=(SourceMetadata("s", provenance="issuer-a"),),
         )
-        second = build_evidence_world_profile(
-            self.request((SourceRepresentation("s", "text/plain", "changed"),))
+        content_changed = build_evidence_world_profile(
+            self.request((SourceRepresentation("s", "text/plain", "changed"),)),
+            source_metadata=(SourceMetadata("s", provenance="issuer-a"),),
         )
-        self.assertNotEqual(first["profile_sha256"], second["profile_sha256"])
+        provenance_changed = build_evidence_world_profile(
+            request,
+            source_metadata=(SourceMetadata("s", provenance="issuer-b"),),
+        )
+        self.assertNotEqual(
+            baseline["profile_sha256"], content_changed["profile_sha256"]
+        )
+        self.assertNotEqual(
+            baseline["profile_sha256"], provenance_changed["profile_sha256"]
+        )
+
+    def test_media_type_parameters_are_mechanically_normalized(self) -> None:
+        world = build_evidence_world_profile(
+            self.request(
+                (SourceRepresentation("s", "text/plain; charset=utf-8", "alpha"),)
+            )
+        )
+        self.assertEqual(world["source_inventory"][0]["evidence_form"], "document_text")
 
     def test_unknowns_are_not_forced(self) -> None:
         request = self.request(
@@ -105,6 +162,18 @@ class PairedGatesShadowTests(unittest.TestCase):
         self.assertEqual(claim["jurisdiction"], "unknown")
         self.assertEqual(world["verification_world"], "unknown")
         self.assertEqual(world["source_inventory"][0]["evidence_form"], "unknown")
+
+    def test_replay_is_deterministic(self) -> None:
+        request = self.fixture_request("not_needed")
+        first = run_paired_preflight(request)
+        second = run_paired_preflight(request)
+        self.assertEqual(first.authoring.receipt, second.authoring.receipt)
+        self.assertEqual(first.claim_profile, second.claim_profile)
+        self.assertEqual(first.claim_profile_receipt, second.claim_profile_receipt)
+        self.assertEqual(first.evidence_world_profile, second.evidence_world_profile)
+        self.assertEqual(first.evidence_world_receipt, second.evidence_world_receipt)
+        self.assertEqual(first.compatibility, second.compatibility)
+        self.assertEqual(first.compatibility_receipt, second.compatibility_receipt)
 
     def test_preflight_is_observational_only(self) -> None:
         claim = {
@@ -120,9 +189,7 @@ class PairedGatesShadowTests(unittest.TestCase):
             "verification_world": "closed",
         }
         result = compare_profiles(claim, world)
-        states = {
-            row["field"]: row["state"] for row in result["observations"]
-        }
+        states = {row["field"]: row["state"] for row in result["observations"]}
         self.assertEqual(states["evidence_forms"], "partial")
         self.assertEqual(states["temporal_scope"], "match")
         self.assertEqual(states["jurisdiction"], "match")

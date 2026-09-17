@@ -22,7 +22,8 @@ def _metadata_index(rows: tuple[SourceMetadata, ...]) -> dict[str, SourceMetadat
 def _effective_form(media_type: str, declared: str) -> str:
     if declared != UNKNOWN:
         return declared
-    return _MEDIA_TO_FORM.get(media_type.lower(), UNKNOWN)
+    normalized = media_type.split(";", 1)[0].strip().lower()
+    return _MEDIA_TO_FORM.get(normalized, UNKNOWN)
 
 
 def build_evidence_world_profile(
