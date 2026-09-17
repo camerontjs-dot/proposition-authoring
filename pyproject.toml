@@ -14,6 +14,7 @@ dev = ["pytest>=8", "ruff>=0.12"]
 
 [project.scripts]
 proposition-authoring = "proposition_authoring.cli:main"
+paired-gates-shadow = "proposition_authoring.shadow_cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
