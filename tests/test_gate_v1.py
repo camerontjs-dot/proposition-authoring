@@ -35,11 +35,27 @@ class GateV1Tests(unittest.TestCase):
         )
 
     def test_categories_are_finite_and_standard_deviation_is_not_compliance(self) -> None:
-        self.assertEqual(classify_claim_v1("Women had a higher rate than Men."), ("comparative", "quantitative"))
-        self.assertEqual(classify_claim_v1("The standard deviation was 4.2."), ("quantitative",))
-        self.assertIn("attribution", classify_claim_v1("According to Agency A, the device was active."))
+        self.assertEqual(
+            classify_claim_v1("Women had a higher rate than Men."),
+            ("comparative", "quantitative"),
+        )
+        self.assertEqual(
+            classify_claim_v1("The standard deviation was 4.2."),
+            ("quantitative",),
+        )
+        self.assertEqual(
+            classify_claim_v1("Valve Cerulean was inactive in 2025."),
+            ("status", "temporal"),
+        )
+        self.assertIn(
+            "attribution",
+            classify_claim_v1("According to Agency A, the device was active."),
+        )
         self.assertIn("status", classify_claim_v1("The licence was approved."))
-        self.assertIn("compliance", classify_claim_v1("The system complied with the regulation."))
+        self.assertIn(
+            "compliance",
+            classify_claim_v1("The system complied with the regulation."),
+        )
         self.assertEqual(classify_claim_v1("Blue widgets exist."), ("existence",))
         self.assertEqual(classify_claim_v1("Widget cobalt is blue."), ("other",))
 
@@ -52,7 +68,10 @@ class GateV1Tests(unittest.TestCase):
         self.assertEqual(result.authoring.contract_a, direct.contract_a)
         self.assertEqual(result.authoring.receipt, direct.receipt)
         self.assertEqual(result.claim_gate["claim"]["text"], request.root_text)
-        self.assertEqual(result.claim_gate["claim"]["text_sha256"], direct.contract_a["root_proposition"]["text_sha256"])
+        self.assertEqual(
+            result.claim_gate["claim"]["text_sha256"],
+            direct.contract_a["root_proposition"]["text_sha256"],
+        )
         self.assertEqual(result.claim_gate["contract_a_binding"]["state"], "present")
         self.assertEqual(
             result.claim_gate["contract_a_binding"]["handoff_sha256"],
@@ -65,9 +84,18 @@ class GateV1Tests(unittest.TestCase):
         )
         result = standardize_gates_v1(request)
         self.assertEqual(result.authoring.state, "ABSTAINED")
-        self.assertEqual(result.claim_gate["contract_a_binding"], {"state": "absent", "handoff_sha256": None})
-        self.assertEqual(result.claim_gate["lineage"]["decomposition"]["state"], "unresolved")
-        self.assertIn("attribution", result.claim_gate["claim"]["categories"]["values"])
+        self.assertEqual(
+            result.claim_gate["contract_a_binding"],
+            {"state": "absent", "handoff_sha256": None},
+        )
+        self.assertEqual(
+            result.claim_gate["lineage"]["decomposition"]["state"],
+            "unresolved",
+        )
+        self.assertIn(
+            "attribution",
+            result.claim_gate["claim"]["categories"]["values"],
+        )
         validate_claim_gate_output_v1(result.claim_gate)
 
     def test_evidence_gate_is_source_order_invariant_and_omits_raw_content(self) -> None:
@@ -108,9 +136,18 @@ class GateV1Tests(unittest.TestCase):
         self.assertEqual(first, second)
         self.assertEqual(first["source_count"], 2)
         self.assertEqual(first["sources"][0]["source_id"], "s1")
-        self.assertEqual(first["sources"][0]["provenance"]["issuer"]["value"], "Agency A")
-        self.assertEqual(first["sources"][0]["classification"]["document_type"]["value"], "pdf_document")
-        self.assertEqual(first["sources"][1]["classification"]["evidence_form"]["value"], "database_record")
+        self.assertEqual(
+            first["sources"][0]["provenance"]["issuer"]["value"],
+            "Agency A",
+        )
+        self.assertEqual(
+            first["sources"][0]["classification"]["document_type"]["value"],
+            "pdf_document",
+        )
+        self.assertEqual(
+            first["sources"][1]["classification"]["evidence_form"]["value"],
+            "database_record",
+        )
         self.assertEqual(first["corpus"]["known_gaps"]["state"], "declared_some")
         self.assertNotIn("content", first["sources"][0])
         validate_evidence_gate_output_v1(first)
@@ -121,7 +158,10 @@ class GateV1Tests(unittest.TestCase):
         row = output["sources"][0]
         self.assertEqual(row["provenance"]["issuer"]["state"], "unknown")
         self.assertIsNone(row["provenance"]["issuer"]["value"])
-        self.assertEqual(row["classification"]["document_type"]["state"], "unknown")
+        self.assertEqual(
+            row["classification"]["document_type"]["state"],
+            "unknown",
+        )
         self.assertEqual(output["corpus"]["known_gaps"]["state"], "unknown")
 
     def test_gap_declaration_distinguishes_unknown_none_and_some(self) -> None:
@@ -149,12 +189,19 @@ class GateV1Tests(unittest.TestCase):
 
     def test_evidence_content_mutation_changes_world_and_output_identity(self) -> None:
         original = build_evidence_gate_output_v1(
-            self.request(sources=(SourceRepresentation("s1", "text/plain", "alpha"),))
+            self.request(
+                sources=(SourceRepresentation("s1", "text/plain", "alpha"),)
+            )
         )
         mutated = build_evidence_gate_output_v1(
-            self.request(sources=(SourceRepresentation("s1", "text/plain", "beta"),))
+            self.request(
+                sources=(SourceRepresentation("s1", "text/plain", "beta"),)
+            )
         )
-        self.assertNotEqual(original["evidence_world_id"], mutated["evidence_world_id"])
+        self.assertNotEqual(
+            original["evidence_world_id"],
+            mutated["evidence_world_id"],
+        )
         self.assertNotEqual(original["output_sha256"], mutated["output_sha256"])
 
     def test_standardization_replay_is_deterministic(self) -> None:
@@ -166,7 +213,9 @@ class GateV1Tests(unittest.TestCase):
                 corpus_scope="packet",
                 known_gaps_state="declared_none",
             ),
-            "source_metadata": (SourceMetadataV1("s1", provenance="supplied record"),),
+            "source_metadata": (
+                SourceMetadataV1("s1", provenance="supplied record"),
+            ),
             "implementation_identity": "test-head",
         }
         first = standardize_gates_v1(request, **kwargs)
