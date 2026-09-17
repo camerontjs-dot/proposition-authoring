@@ -1,0 +1,106 @@
+name: Gate V1 Real World Health Canada 001 Control
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/gates-v1-real-world-health-canada-001-control.yml"
+  workflow_dispatch:
+
+jobs:
+  run-control:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: 341db0b46d5d663a97b4f93e6ac443c467170b8b
+      - name: Verify exact subject
+        run: test "$(git rev-parse HEAD)" = "341db0b46d5d663a97b4f93e6ac443c467170b8b"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python scripts/fetch_frozen_predecessors.py
+      - run: python -m pip install -e .[dev]
+      - name: Freeze DIN-removal control packet
+        run: |
+          cat > /tmp/control.json <<'JSON'
+          {
+            "request": {
+              "handoff_id": "real-health-canada-ozempic-001-control",
+              "producer_id": "real-world-gate-v1-smoke",
+              "producer_version": "2026-09-17",
+              "work_id": "health-canada-dpd-ozempic-control",
+              "root_id": "claim-ozempic-approved-canada-control",
+              "root_text": "Ozempic is approved in Canada.",
+              "sources": [
+                {
+                  "source_id": "hc-dpd-product-106547",
+                  "media_type": "text/html",
+                  "content": "Health Canada Drug Product Database product information. Current status: Approved. Current status date: 2025-11-04. Product name: OZEMPIC. DIN: 02562618. Company: NOVO NORDISK CANADA INC. Class: Human. Route of administration: Subcutaneous. Active ingredient: SEMAGLUTIDE. Product monograph date: 2026-07-13."
+                },
+                {
+                  "source_id": "hc-dpd-query-context",
+                  "media_type": "text/html",
+                  "content": "Health Canada Drug Product Database online query. The database can be searched by drug identification number, Anatomical Therapeutic Chemical code, company, status, product name, active ingredient, class, route of administration, dosage form, schedule and related product characteristics."
+                }
+              ]
+            },
+            "evidence_task": {
+              "verification_world": "closed",
+              "corpus_scope": "Two frozen Health Canada Drug Product Database pages selected for this bounded Gate V1 smoke run.",
+              "completeness_state": "partial",
+              "known_gaps_state": "declared_some",
+              "known_gaps": ["The product monograph itself is not included.", "Other Ozempic DIN records are not included."]
+            },
+            "source_metadata": [
+              {
+                "source_id": "hc-dpd-product-106547",
+                "provenance": "Health Canada Drug Product Database product record: https://health-products.canada.ca/dpd-bdpp/info?code=106547&lang=eng",
+                "issuer": "Health Canada",
+                "source_role": "official_regulatory_product_record",
+                "authority_basis": "official Health Canada Drug Product Database record",
+                "document_type": "database_record",
+                "evidence_form": "registry_entry",
+                "temporal_coverage": "current status date 2025-11-04; product monograph dated 2026-07-13",
+                "jurisdictional_coverage": "Canada",
+                "version": "retrieved 2026-09-17",
+                "currency_state": "current_as_retrieved"
+              },
+              {
+                "source_id": "hc-dpd-query-context",
+                "provenance": "Health Canada Drug Product Database query interface: https://health-products.canada.ca/dpd-bdpp/",
+                "issuer": "Health Canada",
+                "source_role": "official_database_context",
+                "authority_basis": "official Health Canada database interface",
+                "document_type": "web_page",
+                "evidence_form": "document_text",
+                "jurisdictional_coverage": "Canada",
+                "version": "retrieved 2026-09-17",
+                "currency_state": "current_as_retrieved"
+              }
+            ]
+          }
+          JSON
+      - name: Run exact Gate V1 control
+        run: |
+          python scripts/run_gate_v1.py /tmp/control.json --out-dir /tmp/control-out --implementation-identity 341db0b46d5d663a97b4f93e6ac443c467170b8b
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('/tmp/control-out')
+          claim=json.loads((p/'CLAIM-GATE.json').read_text())
+          evidence=json.loads((p/'EVIDENCE-GATE.json').read_text())
+          summary={
+            'claim_text': claim['claim']['text'],
+            'claim_categories': claim['claim']['categories']['values'],
+            'authoring_state': claim['authoring']['state'],
+            'contract_a_binding': claim['contract_a_binding'],
+            'evidence_world_id': evidence['evidence_world_id'],
+            'evidence_output_sha256': evidence['output_sha256']
+          }
+          (p/'CONTROL-SUMMARY.json').write_text(json.dumps(summary,indent=2,sort_keys=True)+'\n')
+          print(json.dumps(summary,indent=2,sort_keys=True))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gates-v1-real-world-health-canada-001-control
+          path: /tmp/control-out/
