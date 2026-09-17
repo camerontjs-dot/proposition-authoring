@@ -4,8 +4,8 @@ import argparse
 import json
 from pathlib import Path
 
+from .capability_service import PairedGatesCapabilityService
 from .cli import load_request
-from .preflight import run_paired_preflight
 from .shadow_models import SourceMetadata, TaskMetadata
 
 
@@ -23,7 +23,13 @@ def _task(raw: dict | None) -> TaskMetadata:
 
 
 def _source_metadata(raw: list[dict] | None) -> tuple[SourceMetadata, ...]:
-    return tuple(SourceMetadata(**row) for row in (raw or []))
+    rows: list[SourceMetadata] = []
+    for source in raw or []:
+        normalized = dict(source)
+        normalized["supersedes"] = tuple(normalized.get("supersedes", []))
+        normalized["conflicts_with"] = tuple(normalized.get("conflicts_with", []))
+        rows.append(SourceMetadata(**normalized))
+    return tuple(rows)
 
 
 def _write(path: Path, value: dict) -> None:
@@ -37,13 +43,15 @@ def main() -> None:
     parser = argparse.ArgumentParser(prog="paired-gates-shadow")
     parser.add_argument("request")
     parser.add_argument("--out", required=True)
+    parser.add_argument("--implementation-identity", default="runtime")
     args = parser.parse_args()
 
     request_path = Path(args.request)
     raw = json.loads(request_path.read_text(encoding="utf-8"))
     shadow = raw.get("shadow", {})
     request = load_request(request_path)
-    result = run_paired_preflight(
+    service = PairedGatesCapabilityService(args.implementation_identity)
+    result = service.run(
         request,
         claim_task=_task(shadow.get("claim")),
         evidence_task=_task(shadow.get("evidence_world")),
@@ -61,6 +69,7 @@ def main() -> None:
     _write(out / "EVIDENCE-WORLD-RECEIPT.json", result.evidence_world_receipt)
     _write(out / "PREFLIGHT-COMPATIBILITY.json", result.compatibility)
     _write(out / "PREFLIGHT-COMPATIBILITY-RECEIPT.json", result.compatibility_receipt)
+    _write(out / "FEATURE-REGISTRY.json", result.feature_registry)
 
     print(result.authoring.state)
     print(result.authoring.reason)
