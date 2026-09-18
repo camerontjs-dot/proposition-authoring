@@ -129,13 +129,15 @@ class GateV1RC3Tests(unittest.TestCase):
             self.request(sources=self.evidence("text/plain")),
             source_metadata=self.metadata(),
         )
+        html_product = next(row for row in html["sources"] if row["source_id"] == "hc-product")
+        plain_product = next(row for row in plain["sources"] if row["source_id"] == "hc-product")
         self.assertEqual(
-            html["sources"][0]["content_sha256"],
-            plain["sources"][0]["content_sha256"],
+            html_product["content_sha256"],
+            plain_product["content_sha256"],
         )
         self.assertNotEqual(
-            html["sources"][0]["representation_id"],
-            plain["sources"][0]["representation_id"],
+            html_product["representation_id"],
+            plain_product["representation_id"],
         )
         self.assertNotEqual(html["evidence_world_id"], plain["evidence_world_id"])
 
