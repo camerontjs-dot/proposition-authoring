@@ -16,32 +16,70 @@
     "output_sha256"
   ],
   "properties": {
-    "schema": {"const": "claim-gate-output-v1"},
-    "version": {"const": "1.0.0"},
-    "implementation_identity": {"type": "string", "minLength": 1},
+    "schema": {
+      "const": "claim-gate-output-v1"
+    },
+    "version": {
+      "const": "1.0.0"
+    },
+    "implementation_identity": {
+      "type": "string",
+      "minLength": 1
+    },
     "authoring": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["state", "reason"],
+      "required": [
+        "state",
+        "reason"
+      ],
       "properties": {
-        "state": {"enum": ["NOT_NEEDED", "DECLARED", "ABSTAINED", "FAILED"]},
-        "reason": {"type": "string", "minLength": 1}
+        "state": {
+          "enum": [
+            "NOT_NEEDED",
+            "DECLARED",
+            "ABSTAINED",
+            "FAILED"
+          ]
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        }
       }
     },
     "claim": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["proposition_id", "text", "text_sha256", "categories"],
+      "required": [
+        "proposition_id",
+        "text",
+        "text_sha256",
+        "categories"
+      ],
       "properties": {
-        "proposition_id": {"type": "string", "minLength": 1},
-        "text": {"type": "string"},
-        "text_sha256": {"$ref": "#/$defs/sha256"},
+        "proposition_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "text": {
+          "type": "string"
+        },
+        "text_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
         "categories": {
           "type": "object",
           "additionalProperties": false,
-          "required": ["state", "values", "basis"],
+          "required": [
+            "state",
+            "values",
+            "basis"
+          ],
           "properties": {
-            "state": {"const": "known"},
+            "state": {
+              "const": "known"
+            },
             "values": {
               "type": "array",
               "minItems": 1,
@@ -61,7 +99,9 @@
                 ]
               }
             },
-            "basis": {"$ref": "#/$defs/basisWithoutSource"}
+            "basis": {
+              "$ref": "#/$defs/basisWithoutSource"
+            }
           }
         }
       }
@@ -69,40 +109,94 @@
     "lineage": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["handoff_id", "producer_id", "producer_version", "work_id", "decomposition"],
+      "required": [
+        "handoff_id",
+        "producer_id",
+        "producer_version",
+        "work_id",
+        "decomposition"
+      ],
       "properties": {
-        "handoff_id": {"type": "string", "minLength": 1},
-        "producer_id": {"type": "string", "minLength": 1},
-        "producer_version": {"type": "string", "minLength": 1},
-        "work_id": {"type": "string", "minLength": 1},
+        "handoff_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "producer_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "producer_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "work_id": {
+          "type": "string",
+          "minLength": 1
+        },
         "decomposition": {
           "oneOf": [
             {
               "type": "object",
               "additionalProperties": false,
-              "required": ["state"],
-              "properties": {"state": {"enum": ["not_decomposed", "failed"]}}
+              "required": [
+                "state"
+              ],
+              "properties": {
+                "state": {
+                  "enum": [
+                    "not_decomposed",
+                    "failed"
+                  ]
+                }
+              }
             },
             {
               "type": "object",
               "additionalProperties": false,
-              "required": ["state", "decomposition_id", "operator", "children"],
+              "required": [
+                "state",
+                "decomposition_id",
+                "operator",
+                "children"
+              ],
               "properties": {
-                "state": {"const": "declared"},
-                "decomposition_id": {"type": "string", "minLength": 1},
-                "operator": {"const": "all_of"},
+                "state": {
+                  "const": "declared"
+                },
+                "decomposition_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "operator": {
+                  "const": "all_of"
+                },
                 "children": {
                   "type": "array",
                   "minItems": 2,
                   "items": {
                     "type": "object",
                     "additionalProperties": false,
-                    "required": ["proposition_id", "text", "text_sha256", "sequence"],
+                    "required": [
+                      "proposition_id",
+                      "text",
+                      "text_sha256",
+                      "sequence"
+                    ],
                     "properties": {
-                      "proposition_id": {"type": "string", "minLength": 1},
-                      "text": {"type": "string"},
-                      "text_sha256": {"$ref": "#/$defs/sha256"},
-                      "sequence": {"type": "integer", "minimum": 1}
+                      "proposition_id": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "text": {
+                        "type": "string"
+                      },
+                      "text_sha256": {
+                        "$ref": "#/$defs/sha256"
+                      },
+                      "sequence": {
+                        "type": "integer",
+                        "minimum": 1
+                      }
                     }
                   }
                 }
@@ -111,10 +205,17 @@
             {
               "type": "object",
               "additionalProperties": false,
-              "required": ["state", "basis"],
+              "required": [
+                "state",
+                "basis"
+              ],
               "properties": {
-                "state": {"const": "unresolved"},
-                "basis": {"$ref": "#/$defs/basisWithoutSource"}
+                "state": {
+                  "const": "unresolved"
+                },
+                "basis": {
+                  "$ref": "#/$defs/basisWithoutSource"
+                }
               }
             }
           ]
@@ -126,19 +227,33 @@
         {
           "type": "object",
           "additionalProperties": false,
-          "required": ["state", "handoff_sha256"],
+          "required": [
+            "state",
+            "handoff_sha256"
+          ],
           "properties": {
-            "state": {"const": "present"},
-            "handoff_sha256": {"$ref": "#/$defs/sha256"}
+            "state": {
+              "const": "present"
+            },
+            "handoff_sha256": {
+              "$ref": "#/$defs/sha256"
+            }
           }
         },
         {
           "type": "object",
           "additionalProperties": false,
-          "required": ["state", "handoff_sha256"],
+          "required": [
+            "state",
+            "handoff_sha256"
+          ],
           "properties": {
-            "state": {"const": "absent"},
-            "handoff_sha256": {"type": "null"}
+            "state": {
+              "const": "absent"
+            },
+            "handoff_sha256": {
+              "type": "null"
+            }
           }
         }
       ]
@@ -156,26 +271,54 @@
         "authorization_authority"
       ],
       "properties": {
-        "standardizes_claim_identity": {"const": true},
-        "standardizes_claim_category": {"const": true},
-        "standardizes_decomposition_lineage": {"const": true},
-        "retrieval_authority": {"const": false},
-        "evidence_relation_authority": {"const": false},
-        "decision_authority": {"const": false},
-        "authorization_authority": {"const": false}
+        "standardizes_claim_identity": {
+          "const": true
+        },
+        "standardizes_claim_category": {
+          "const": true
+        },
+        "standardizes_decomposition_lineage": {
+          "const": true
+        },
+        "retrieval_authority": {
+          "const": false
+        },
+        "evidence_relation_authority": {
+          "const": false
+        },
+        "decision_authority": {
+          "const": false
+        },
+        "authorization_authority": {
+          "const": false
+        }
       }
     },
-    "output_sha256": {"$ref": "#/$defs/sha256"}
+    "output_sha256": {
+      "$ref": "#/$defs/sha256"
+    }
   },
   "$defs": {
-    "sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "sha256": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
     "basisWithoutSource": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["kind", "detail"],
+      "required": [
+        "kind",
+        "detail"
+      ],
       "properties": {
-        "kind": {"type": "string", "minLength": 1},
-        "detail": {"type": "string", "minLength": 1}
+        "kind": {
+          "type": "string",
+          "minLength": 1
+        },
+        "detail": {
+          "type": "string",
+          "minLength": 1
+        }
       }
     }
   }
