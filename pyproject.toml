@@ -7,7 +7,7 @@ name = "proposition-authoring"
 version = "0.0.0"
 description = "Research-stage proposition authoring apparatus for the CAL Pipeline"
 requires-python = ">=3.11"
-dependencies = []
+dependencies = ["jsonschema>=4.26"]
 
 [project.optional-dependencies]
 dev = ["pytest>=8", "ruff>=0.12"]
