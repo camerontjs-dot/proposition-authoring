@@ -127,13 +127,19 @@ class GateV1RC3Tests(unittest.TestCase):
             source_metadata=self.metadata(),
             implementation_identity="a" * 40,
         )
+        first_product = next(
+            row for row in first.evidence_gate["sources"] if row["source_id"] == "hc-product"
+        )
+        second_product = next(
+            row for row in second.evidence_gate["sources"] if row["source_id"] == "hc-product"
+        )
         self.assertEqual(
-            first.evidence_gate["sources"][0]["content_sha256"],
-            second.evidence_gate["sources"][0]["content_sha256"],
+            first_product["content_sha256"],
+            second_product["content_sha256"],
         )
         self.assertNotEqual(
-            first.evidence_gate["sources"][0]["representation_id"],
-            second.evidence_gate["sources"][0]["representation_id"],
+            first_product["representation_id"],
+            second_product["representation_id"],
         )
         self.assertNotEqual(
             first.evidence_gate["evidence_world_id"],
