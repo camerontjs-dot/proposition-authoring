@@ -12,7 +12,15 @@ from jsonschema.exceptions import ValidationError as JsonSchemaValidationError
 
 from .canonical import bound_object_hash, canonical_json, sha256_bytes, sha256_text
 from .engine import AuthoringEngine
-from .gate_v1 import UNKNOWN, EvidenceTaskV1, GateV1Error, SourceMetadataV1, build_claim_gate_output_v1, build_evidence_gate_output_v1, classify_claim_v1
+from .gate_v1 import (
+    UNKNOWN,
+    EvidenceTaskV1,
+    GateV1Error,
+    SourceMetadataV1,
+    build_claim_gate_output_v1,
+    build_evidence_gate_output_v1,
+    classify_claim_v1,
+)
 from .model import AuthoringRequest, AuthoringResult
 
 GATE_V1_RC3_VERSION = "1.0.0-rc.3"
