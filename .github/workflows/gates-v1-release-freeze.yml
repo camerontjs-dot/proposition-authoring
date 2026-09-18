@@ -76,6 +76,10 @@ jobs:
               assert src == dst, f"1.0.0 schema drift: {name}"
               print("verified", name)
           PY
+      - name: Fetch frozen predecessors
+        run: python scripts/fetch_frozen_predecessors.py
+      - name: Install release tree
+        run: python -m pip install -e .[dev]
       - name: Verify version metadata
         run: |
           python - <<'PY'
@@ -86,10 +90,6 @@ jobs:
           print("package", proposition_authoring.__version__)
           print("wire", GATE_V1_RC3_VERSION)
           PY
-      - name: Fetch frozen predecessors
-        run: python scripts/fetch_frozen_predecessors.py
-      - name: Install release tree
-        run: python -m pip install -e .[dev]
       - name: Run focused V1 tests
         run: |
           python -m ruff check src/proposition_authoring/gate_v1_rc3.py tests/test_gate_v1_rc3.py research/gates_v1_rc3/pressure_replay.py
