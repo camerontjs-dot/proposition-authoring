@@ -207,11 +207,15 @@ def run_identity() -> Any:
         evidence()[1],
     )
     changed = standard(request(sources=media_sources))
+    base_product = next(
+        row for row in base.evidence_gate["sources"] if row["source_id"] == "hc-product"
+    )
+    changed_product = next(
+        row for row in changed.evidence_gate["sources"] if row["source_id"] == "hc-product"
+    )
     record("ID-07", "evidence_identity",
-           base.evidence_gate["sources"][0]["content_sha256"]
-           == changed.evidence_gate["sources"][0]["content_sha256"]
-           and base.evidence_gate["sources"][0]["representation_id"]
-           != changed.evidence_gate["sources"][0]["representation_id"]
+           base_product["content_sha256"] == changed_product["content_sha256"]
+           and base_product["representation_id"] != changed_product["representation_id"]
            and base.evidence_gate["evidence_world_id"]
            != changed.evidence_gate["evidence_world_id"],
            "Media type is representation identity in V1.")
