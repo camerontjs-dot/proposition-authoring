@@ -68,6 +68,13 @@ _MEASUREMENT_RE = re.compile(
 )
 
 
+_COMPARATIVE_MAGNITUDE_RE = re.compile(
+    r"(?:\\b\\d+(?:\\.\\d+)?\\s+(?:higher|lower|greater|less|more|fewer)\\b|"
+    r"\\b(?:higher|lower|greater|less|more|fewer)\\s+by\\s+\\d+(?:\\.\\d+)?\\b)",
+    re.IGNORECASE,
+)
+
+
 @dataclass(frozen=True)
 class SourceMetadataV1RC3:
     source_id: str
