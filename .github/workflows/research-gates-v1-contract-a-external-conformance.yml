@@ -1,0 +1,180 @@
+name: Research - Gate V1.0.0 External Contract A Conformance
+
+on:
+  push:
+    branches:
+      - research/gates-v1-1-0-0-contract-a-external-conformance-20260917
+    paths:
+      - "research/gates_v1_contract_a_external_conformance_rc0/**"
+      - ".github/workflows/research-gates-v1-contract-a-external-conformance.yml"
+  workflow_dispatch:
+
+jobs:
+  conformance:
+    runs-on: ubuntu-latest
+    env:
+      SUBJECT_SHA: c0da10e2e3b9aada5f66af9859cf27964fd3c5fc
+      CONTRACT_A_SHA: 529c92b49a34d5c610618551a8737f019f9fa332
+    steps:
+      - name: Checkout exact Gate V1.0.0 subject
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ env.SUBJECT_SHA }}
+          path: subject
+          fetch-depth: 1
+
+      - name: Verify exact subject
+        run: test "$(git -C subject rev-parse HEAD)" = "$SUBJECT_SHA"
+
+      - name: Checkout exact released Contract A 2.0.0 validator
+        uses: actions/checkout@v4
+        with:
+          repository: camerontjs-dot/apparatus-contracts
+          ref: ${{ env.CONTRACT_A_SHA }}
+          path: contracts
+          fetch-depth: 1
+
+      - name: Verify exact Contract A authority
+        run: test "$(git -C contracts rev-parse HEAD)" = "$CONTRACT_A_SHA"
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install exact Gate subject
+        working-directory: subject
+        run: |
+          python scripts/fetch_frozen_predecessors.py
+          python -m pip install -e .[dev]
+
+      - name: Run unmodified Health Canada specimen
+        working-directory: subject
+        run: |
+          python scripts/run_gate_v1_rc3.py             research/gates_v1_rc3/health-canada-001.json             --out-dir /tmp/primary             --implementation-identity "$SUBJECT_SHA"
+          python scripts/verify_gate_bundle_v1_rc3.py             --claim-gate /tmp/primary/CLAIM-GATE.json             --evidence-gate /tmp/primary/EVIDENCE-GATE.json             --receipt /tmp/primary/STANDARDIZATION-RECEIPT.json             --contract-a /tmp/primary/CONTRACT-A.json
+
+      - name: Apply released Contract A validator to primary
+        run: |
+          PYTHONPATH=contracts python - <<'PY'
+          import json
+          from pathlib import Path
+          from validators.contract_a import ContractAValidationError, validate_candidate
+
+          path = Path("/tmp/primary/CONTRACT-A.json")
+          obj = json.loads(path.read_text())
+          result = {
+              "subject": "primary",
+              "released_contract_a_accepted": None,
+              "error_type": None,
+              "error": None,
+          }
+          try:
+              validate_candidate(obj)
+          except ContractAValidationError as exc:
+              result["released_contract_a_accepted"] = False
+              result["error_type"] = type(exc).__name__
+              result["error"] = str(exc)
+          else:
+              result["released_contract_a_accepted"] = True
+          Path("/tmp/primary-external-validation.json").write_text(
+              json.dumps(result, indent=2, sort_keys=True) + "\n"
+          )
+          print(json.dumps(result, indent=2, sort_keys=True))
+          PY
+
+      - name: Build media-representation control
+        working-directory: subject
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          src = Path("research/gates_v1_rc3/health-canada-001.json")
+          packet = json.loads(src.read_text())
+          for row in packet["request"]["sources"]:
+              row["media_type"] = "text/plain; charset=utf-8"
+          packet["request"]["handoff_id"] += "-contract-a-media-control"
+          packet["request"]["work_id"] += "-contract-a-media-control"
+          Path("/tmp/control-packet.json").write_text(
+              json.dumps(packet, indent=2, sort_keys=True) + "\n"
+          )
+          PY
+          python scripts/run_gate_v1_rc3.py             /tmp/control-packet.json             --out-dir /tmp/control             --implementation-identity "$SUBJECT_SHA"
+
+      - name: Apply released Contract A validator to control
+        run: |
+          PYTHONPATH=contracts python - <<'PY'
+          import json
+          from pathlib import Path
+          from validators.contract_a import ContractAValidationError, validate_candidate
+
+          path = Path("/tmp/control/CONTRACT-A.json")
+          obj = json.loads(path.read_text())
+          result = {
+              "subject": "control",
+              "released_contract_a_accepted": None,
+              "error_type": None,
+              "error": None,
+          }
+          try:
+              validate_candidate(obj)
+          except ContractAValidationError as exc:
+              result["released_contract_a_accepted"] = False
+              result["error_type"] = type(exc).__name__
+              result["error"] = str(exc)
+          else:
+              result["released_contract_a_accepted"] = True
+          Path("/tmp/control-external-validation.json").write_text(
+              json.dumps(result, indent=2, sort_keys=True) + "\n"
+          )
+          print(json.dumps(result, indent=2, sort_keys=True))
+          PY
+
+      - name: Classify result against preregistration
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          primary = json.loads(Path("/tmp/primary-external-validation.json").read_text())
+          control = json.loads(Path("/tmp/control-external-validation.json").read_text())
+
+          if (
+              primary["released_contract_a_accepted"] is False
+              and control["released_contract_a_accepted"] is True
+              and "media_type" in (primary["error"] or "")
+          ):
+              disposition = "FALSIFIED_GATE_V1_RELEASED_CONTRACT_A_PRODUCER_CONFORMANCE"
+          elif primary["released_contract_a_accepted"] is True:
+              disposition = "NOT_REPRODUCED"
+          else:
+              disposition = "INCONCLUSIVE_APPARATUS"
+
+          result = {
+              "schema": "gate-v1-contract-a-external-conformance-rc0-result",
+              "gate_subject_sha": "c0da10e2e3b9aada5f66af9859cf27964fd3c5fc",
+              "released_contract_a_authority_sha": "529c92b49a34d5c610618551a8737f019f9fa332",
+              "primary": primary,
+              "control": control,
+              "disposition": disposition,
+          }
+          Path("/tmp/RESULT.json").write_text(
+              json.dumps(result, indent=2, sort_keys=True) + "\n"
+          )
+          print(json.dumps(result, indent=2, sort_keys=True))
+
+          if disposition == "INCONCLUSIVE_APPARATUS":
+              raise SystemExit(2)
+          PY
+
+      - name: Freeze evidence artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: gate-v1-contract-a-external-conformance-rc0
+          path: |
+            /tmp/RESULT.json
+            /tmp/primary-external-validation.json
+            /tmp/control-external-validation.json
+            /tmp/primary/
+            /tmp/control/
+            /tmp/control-packet.json
+          if-no-files-found: error
