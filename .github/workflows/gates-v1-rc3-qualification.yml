@@ -1,0 +1,142 @@
+name: Gate V1 RC3 Qualification
+
+on:
+  pull_request:
+    paths:
+      - "src/proposition_authoring/gate_v1_rc3.py"
+      - "scripts/run_gate_v1_rc3.py"
+      - "tests/test_gate_v1_rc3.py"
+      - "schema/gates/1.0.0-rc.3/**"
+      - "docs/GATE_V1_RC3_OUTPUT_CONTRACT.md"
+      - "research/gates_v1_rc3/**"
+      - "research/gates_v1_rc3_surface_pressure/**"
+      - "pyproject.toml"
+      - ".github/workflows/gates-v1-rc3-qualification.yml"
+
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact PR head
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Verify exact PR head
+        run: test "$(git rev-parse HEAD)" = "${{ github.event.pull_request.head.sha }}"
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Fetch frozen predecessors
+        run: python scripts/fetch_frozen_predecessors.py
+
+      - name: Install
+        run: python -m pip install -e .[dev]
+
+      - name: Static checks
+        run: |
+          python -m ruff check \
+            src/proposition_authoring/gate_v1_rc3.py \
+            scripts/run_gate_v1_rc3.py \
+            tests/test_gate_v1_rc3.py \
+            research/gates_v1_rc3_surface_pressure/pressure_test.py
+
+      - name: RC3 successor tests
+        run: python -m unittest discover -s tests -p 'test_gate_v1_rc3.py' -v
+
+      - name: Run 44-case predecessor pressure matrix twice
+        env:
+          GATE_SUBJECT: ${{ github.event.pull_request.head.sha }}
+        run: |
+          python research/gates_v1_rc3_surface_pressure/pressure_test.py
+          cp -r pressure-result /tmp/pressure-first
+          rm -rf pressure-result
+          python research/gates_v1_rc3_surface_pressure/pressure_test.py
+          diff -ru /tmp/pressure-first pressure-result
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          result=json.loads(Path('pressure-result/RESULT.json').read_text())
+          assert result['case_count'] == 44, result['case_count']
+          assert result['counts']['FALSIFIED_SURFACE'] == 0, result['counts']
+          assert result['counts']['SUPPORTED_SURFACE'] == 44, result['counts']
+          assert result['subject']
+          print(json.dumps(result['counts'], indent=2, sort_keys=True))
+          PY
+
+      - name: Run real Health Canada case twice
+        run: |
+          python scripts/run_gate_v1_rc3.py \
+            research/gates_v1_rc3/health-canada-001.json \
+            --out-dir /tmp/health-primary \
+            --implementation-identity "$(git rev-parse HEAD)"
+          python scripts/run_gate_v1_rc3.py \
+            research/gates_v1_rc3/health-canada-001.json \
+            --out-dir /tmp/health-replay \
+            --implementation-identity "$(git rev-parse HEAD)"
+          diff -ru /tmp/health-primary /tmp/health-replay
+
+      - name: Run claim-only control over identical evidence world
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          packet=json.loads(Path('research/gates_v1_rc3/health-canada-001.json').read_text())
+          packet['request']['handoff_id']='real-health-canada-ozempic-001-rc3-control'
+          packet['request']['work_id']='health-canada-dpd-ozempic-control'
+          packet['request']['root_id']='claim-ozempic-approved-canada-control'
+          packet['request']['root_text']='Ozempic is approved in Canada.'
+          Path('/tmp/health-control.json').write_text(
+              json.dumps(packet, indent=2, sort_keys=True) + '\n'
+          )
+          PY
+          python scripts/run_gate_v1_rc3.py \
+            /tmp/health-control.json \
+            --out-dir /tmp/health-control \
+            --implementation-identity "$(git rev-parse HEAD)"
+
+      - name: Assert real-world V1 boundaries
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          primary=Path('/tmp/health-primary')
+          control=Path('/tmp/health-control')
+          claim=json.loads((primary/'CLAIM-GATE.json').read_text())
+          evidence=json.loads((primary/'EVIDENCE-GATE.json').read_text())
+          evidence_control=json.loads((control/'EVIDENCE-GATE.json').read_text())
+          verified=json.loads((primary/'BUNDLE-VERIFICATION.json').read_text())
+
+          assert claim['claim']['categories']['values'] == ['status']
+          assert evidence == evidence_control
+          assert verified['state'] == 'VERIFIED'
+          assert 'root_id' not in evidence
+          for source in evidence['sources']:
+              assert source['representation_id'].startswith('sha256:')
+          origin=evidence['sources'][0]['provenance']['source_origin']
+          assert origin['state'] == 'known'
+          assert origin['origin_type'] == 'official_database'
+          assert origin['locator']['kind'] == 'web_uri'
+          basis=evidence['sources'][0]['provenance']['source_authority_basis']
+          assert basis['kind'] == 'official_issuer'
+          assert (primary/'CLAIM-GATE-INPUT.json').exists()
+          assert (primary/'EVIDENCE-GATE-INPUT.json').exists()
+          print(json.dumps({
+              'claim_categories': claim['claim']['categories']['values'],
+              'evidence_world_id': evidence['evidence_world_id'],
+              'bundle_state': verified['state'],
+          }, indent=2, sort_keys=True))
+          PY
+
+      - name: Upload RC3 qualification artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: gates-v1-rc3-qualification
+          path: |
+            pressure-result/
+            /tmp/health-primary/
+            /tmp/health-control/
+          if-no-files-found: error
