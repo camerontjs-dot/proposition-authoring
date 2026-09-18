@@ -1,0 +1,53 @@
+{
+  "schema": "claimgate-v1-integration-candidate-1",
+  "product_name": "ClaimGate",
+  "repository": "camerontjs-dot/proposition-authoring",
+  "technical_package_name": "proposition-authoring",
+  "status": "FROZEN_FOR_LOCAL_QUALIFICATION",
+  "semantic_subject": {
+    "scientific_source": "f9d0ae9ba81756c51d7f1d433616d699eb9b6fd3",
+    "target_freeze": "9c76b3d87b4362b79a22c0467a13a48c0a380a16",
+    "runtime_files_must_remain_byte_identical_to_scientific_source": true
+  },
+  "qualification_lineage": {
+    "rc4b_terminal_record": "809b2534ffb34efa31c13975da55e65770460b99",
+    "rc4b_pr": 22,
+    "experiment_classification": "SUPPORTED_FOR_RC5_CONSUMER_CONFORMANCE"
+  },
+  "contract_a": {
+    "public_version": "2.0.0",
+    "wire_token": "contract-a-wire-candidate-rc2",
+    "authority_repository": "camerontjs-dot/apparatus-contracts",
+    "release_identity": "contract-a-v2.0.0"
+  },
+  "downstream_evidence_bundler": {
+    "repository": "camerontjs-dot/evidence-bundler",
+    "draft_pr": 79,
+    "tested_subject": "8e1e15a96308d20be24b0bd0f0a4d554b0f020cc",
+    "frozen_receipt_head": "4e1f6fe00e7c350b28f52bfea14f1f8988847884",
+    "integration_profile": "eb-v1-integration-10x3-rc0"
+  },
+  "claim_profile": {
+    "status": "SHADOW_ONLY_NON_CAUSAL",
+    "spec": "integration/claimgate_v1_candidate/CLAIM_PROFILE_V0.md",
+    "may_change_contract_a": false,
+    "may_change_authoring_authority": false,
+    "may_route_retrieval": false,
+    "may_select_cal_semantics": false,
+    "may_change_decision_engine_behavior": false
+  },
+  "local_qualification": {
+    "status": "NOT_YET_EXECUTED",
+    "runbook": "integration/claimgate_v1_candidate/LOCAL_QUALIFICATION.md"
+  },
+  "nonclaims": [
+    "production readiness",
+    "universal semantic parsing",
+    "safe automatic authoring outside the qualified profile",
+    "claim-profile classification accuracy",
+    "claim-profile causal routing authority",
+    "Evidence Bundler retrieval quality or completeness",
+    "CAL semantic correctness",
+    "Decision Engine correctness"
+  ]
+}
