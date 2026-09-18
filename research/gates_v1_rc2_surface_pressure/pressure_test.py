@@ -2,16 +2,17 @@ from __future__ import annotations
 
 import copy
 import json
-from dataclasses import dataclass, asdict
+from collections.abc import Callable
+from dataclasses import asdict, dataclass
 from pathlib import Path
-from typing import Any, Callable
+from typing import Any
 
 from jsonschema import Draft202012Validator, ValidationError
 
+import proposition_authoring.gate_v1_rc2 as rc2
 from proposition_authoring.canonical import bound_object_hash
 from proposition_authoring.engine import AuthoringEngine
 from proposition_authoring.gate_v1 import EvidenceTaskV1, GateV1Error
-import proposition_authoring.gate_v1_rc2 as rc2
 from proposition_authoring.gate_v1_rc2 import (
     SourceMetadataV1RC2,
     build_evidence_gate_output_v1_rc2,
