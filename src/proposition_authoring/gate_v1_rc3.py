@@ -142,6 +142,7 @@ def _is_quantitative(text: str) -> bool:
         _QUANTITATIVE_KEYWORD_RE.search(text)
         or _EXPLICIT_COUNT_RE.search(text)
         or _MEASUREMENT_RE.search(text)
+        or _COMPARATIVE_MAGNITUDE_RE.search(text)
     )
 
 
