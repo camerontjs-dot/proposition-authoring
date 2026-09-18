@@ -52,6 +52,8 @@ jobs:
           assert result['authority_effect'] == 'NONE_PRESSURE_TEST_ONLY'
           print(json.dumps(result['counts'], indent=2, sort_keys=True))
           PY
+      - name: Surface scientific result
+        run: cat pressure-result/RESULT.md
       - name: Upload pressure artifact
         uses: actions/upload-artifact@v4
         with:
