@@ -61,7 +61,7 @@ _QUANT_SIGNAL_RE = re.compile(
     re.IGNORECASE,
 )
 _CARDINALITY_RE = re.compile(
-    r"\b\d+(?:\.\d+)?\s+(?:records?|cases?|items?|patients?|events?|failures?|errors?|samples?|documents?|units?|occurrences?|incidents?|observations?|responses?|participants?)\b",
+    r"\b\d+(?:\.\d+)?(?:\s+[A-Za-z][A-Za-z-]*){0,3}\s+(?:records?|cases?|items?|patients?|events?|failures?|errors?|samples?|documents?|units?|occurrences?|incidents?|observations?|responses?|participants?)\b",
     re.IGNORECASE,
 )
 _MEASUREMENT_RE = re.compile(
