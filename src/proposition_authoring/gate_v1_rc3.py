@@ -23,7 +23,7 @@ from .gate_v1 import (
 )
 from .model import AuthoringRequest, AuthoringResult
 
-GATE_V1_RC3_VERSION = "1.0.0-rc.3"
+GATE_V1_RC3_VERSION = "1.0.0"
 CLAIM_GATE_SCHEMA = "claim-gate-output-v1"
 EVIDENCE_GATE_SCHEMA = "evidence-gate-output-v1"
 STANDARDIZATION_RECEIPT_SCHEMA = "paired-gates-standardization-receipt-v1"
