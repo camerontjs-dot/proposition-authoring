@@ -107,7 +107,7 @@ class GateV1RC3Tests(unittest.TestCase):
             ("quantitative",),
         )
         self.assertEqual(
-            classify_claim_v1_rc3("The temperature was 25 C."),
+            classify_claim_v1_rc3("The temperature was 25 °C."),
             ("quantitative",),
         )
         self.assertEqual(
