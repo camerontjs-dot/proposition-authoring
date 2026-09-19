@@ -17,7 +17,7 @@ jobs:
       BASE_TREE: 4ea9d0fa5ab9d926e0bf960da2103be8c202d400
       PREDECESSOR_SHA: c0da10e2e3b9aada5f66af9859cf27964fd3c5fc
       CONTRACT_A_SHA: 529c92b49a34d5c610618551a8737f019f9fa332
-      EB_SHA: 5b8677ff51b039c2704ce29ee9c8e08bd02e95ca
+      EB_SHA: 62a9b9612240197e983a3458d750629ff5fb3082
       FIXED_IDENTITY: gate-v1-slice-1-qualification
 
     steps:
@@ -37,7 +37,10 @@ jobs:
               ".github/workflows/promotion-gate-v1-slice-1.yml",
               "docs/promotion/GATE_V1_SLICE_1_20260919.md",
               "docs/promotion/GATE_V1_SLICE_1_MANIFEST.json",
+              "pyproject.toml",
               "scripts/run_gate_production_slice_v1.py",
+              "src/proposition_authoring/production_cli.py",
+              "tests/test_production_cli.py",
               "src/proposition_authoring/production_slice.py",
               "tests/test_production_slice.py",
           }
@@ -52,8 +55,11 @@ jobs:
           unexpected = sorted(changed - allowed)
           missing = sorted(
               {
+                  "pyproject.toml",
                   "scripts/run_gate_production_slice_v1.py",
+                  "src/proposition_authoring/production_cli.py",
                   "src/proposition_authoring/production_slice.py",
+                  "tests/test_production_cli.py",
                   "tests/test_production_slice.py",
               }
               - changed
@@ -108,6 +114,8 @@ jobs:
       - name: Verify downstream consumer runtime pins
         run: |
           test "$(git -C eb rev-parse HEAD)" = "$EB_SHA"
+          test "$(git -C eb rev-parse HEAD:pyproject.toml)" = a62f7d5970b218427ed1768db6365c77eac09647
+          test "$(git -C eb rev-parse HEAD:src/evidence_bundler/production_v1/cli.py)" = 95f0b6cb545a5cd35b65c41dac256f0ca542fa73
           test "$(git -C eb rev-parse HEAD:scripts/run_v1_integration_candidate.py)" = d756f98ad410a2491be89bb73bbb9c7963724e50
           test "$(git -C eb rev-parse HEAD:src/evidence_bundler/v1/contract_a.py)" = 5799750389b1fbe8ec2da58af371242c161f6e13
           test "$(git -C eb rev-parse HEAD:src/evidence_bundler/v1/builder.py)" = b64416c222c03b5ce472275d86f801beff7e7380
@@ -167,6 +175,11 @@ jobs:
               --out-dir "/tmp/candidate-$label" \
               --implementation-identity "$FIXED_IDENTITY"
             diff -ru "/tmp/predecessor-$label" "/tmp/candidate-$label"
+            proposition-authoring-v1 \
+              "/tmp/$label.json" \
+              --out-dir "/tmp/installed-$label" \
+              --implementation-identity "$FIXED_IDENTITY"
+            diff -ru "/tmp/candidate-$label" "/tmp/installed-$label"
           done
 
       - name: Require exact released Contract A acceptance
@@ -193,6 +206,11 @@ jobs:
             --out-dir /tmp/candidate-html-replay \
             --implementation-identity "$FIXED_IDENTITY"
           diff -ru /tmp/candidate-html /tmp/candidate-html-replay
+          proposition-authoring-v1 \
+            research/gates_v1_rc3/health-canada-001.json \
+            --out-dir /tmp/installed-html \
+            --implementation-identity "$FIXED_IDENTITY"
+          diff -ru /tmp/candidate-html /tmp/installed-html
           test ! -e /tmp/candidate-html/CONTRACT-A.json
           python - <<'PY'
           import json
@@ -215,10 +233,9 @@ jobs:
 
       - name: Require exact EB next-consumer acceptance
         run: |
-          (cd eb && PYTHONPATH=src python scripts/run_v1_integration_candidate.py \
-            /tmp/candidate-plain/CONTRACT-A.json \
-            --compatibility-carrier config/eb_v1_slice/contract_b_compatibility_carrier.json \
-            --out-dir /tmp/eb-valid)
+          evidence-bundler-v1 run \
+            /tmp/installed-plain/CONTRACT-A.json \
+            --out-dir /tmp/eb-valid
           test -f /tmp/eb-valid/native_eb_v1_package.json
           test -f /tmp/eb-valid/projection_receipt.json
           test -d /tmp/eb-valid/contract_b
@@ -231,13 +248,10 @@ jobs:
             --implementation-identity "$FIXED_IDENTITY")
           test -f /tmp/predecessor-html/CONTRACT-A.json
           set +e
-          (
-            cd eb
-            PYTHONPATH=src python scripts/run_v1_integration_candidate.py \
-              /tmp/predecessor-html/CONTRACT-A.json \
-              --compatibility-carrier config/eb_v1_slice/contract_b_compatibility_carrier.json \
-              --out-dir /tmp/eb-hostile
-          ) >/tmp/eb-hostile.stdout 2>/tmp/eb-hostile.stderr
+          evidence-bundler-v1 run \
+            /tmp/predecessor-html/CONTRACT-A.json \
+            --out-dir /tmp/eb-hostile \
+            >/tmp/eb-hostile.stdout 2>/tmp/eb-hostile.stderr
           rc=$?
           set -e
           test "$rc" -ne 0
@@ -264,6 +278,8 @@ jobs:
               "deterministic_replay": True,
               "eb_valid_path": "ACCEPTED",
               "hostile_predecessor_contract_a": "REJECTED",
+              "installed_gate_cli": "BYTE_IDENTICAL_TO_QUALIFIED_SCRIPT",
+              "installed_eb_cli": "ACCEPTED_VALID_REJECTED_HOSTILE",
               "disposition": "QUALIFIED_FOR_LOCAL_PIPELINE_RUNS",
           }
           Path("/tmp/RESULT.json").write_text(
@@ -281,7 +297,10 @@ jobs:
             candidate-plain \
             predecessor-markdown \
             candidate-markdown \
+            installed-plain \
+            installed-markdown \
             candidate-html \
+            installed-html \
             candidate-html-replay \
             eb-valid \
             predecessor-html
