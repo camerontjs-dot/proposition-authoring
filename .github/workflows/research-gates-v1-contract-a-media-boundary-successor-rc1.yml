@@ -59,13 +59,14 @@ jobs:
         run: python scripts/fetch_frozen_predecessors.py
 
       - name: Reproduce known-defective predecessor
+        working-directory: predecessor
         run: |
-          PYTHONPATH=predecessor/src python predecessor/scripts/run_gate_v1_rc3.py \
-            predecessor/research/gates_v1_rc3/health-canada-001.json \
+          PYTHONPATH=src python scripts/run_gate_v1_rc3.py \
+            research/gates_v1_rc3/health-canada-001.json \
             --out-dir /tmp/predecessor-html \
             --implementation-identity "$FIXED_IDENTITY"
           test -f /tmp/predecessor-html/CONTRACT-A.json
-          PYTHONPATH=predecessor/src python predecessor/scripts/verify_gate_bundle_v1_rc3.py \
+          PYTHONPATH=src python scripts/verify_gate_bundle_v1_rc3.py \
             --claim-gate /tmp/predecessor-html/CLAIM-GATE.json \
             --evidence-gate /tmp/predecessor-html/EVIDENCE-GATE.json \
             --receipt /tmp/predecessor-html/STANDARDIZATION-RECEIPT.json \
@@ -92,13 +93,14 @@ jobs:
           PY
 
       - name: Run successor on unchanged HTML representation
+        working-directory: candidate
         run: |
-          PYTHONPATH=candidate/src python candidate/scripts/run_gate_production_slice_v1.py \
-            candidate/research/gates_v1_rc3/health-canada-001.json \
+          PYTHONPATH=src python scripts/run_gate_production_slice_v1.py \
+            research/gates_v1_rc3/health-canada-001.json \
             --out-dir /tmp/candidate-html \
             --implementation-identity "$FIXED_IDENTITY"
           test ! -e /tmp/candidate-html/CONTRACT-A.json
-          PYTHONPATH=candidate/src python candidate/scripts/verify_gate_bundle_v1_rc3.py \
+          PYTHONPATH=src python scripts/verify_gate_bundle_v1_rc3.py \
             --claim-gate /tmp/candidate-html/CLAIM-GATE.json \
             --evidence-gate /tmp/candidate-html/EVIDENCE-GATE.json \
             --receipt /tmp/candidate-html/STANDARDIZATION-RECEIPT.json
@@ -156,14 +158,14 @@ jobs:
       - name: Require valid-path byte identity and external acceptance
         run: |
           for label in plain markdown; do
-            PYTHONPATH=predecessor/src python predecessor/scripts/run_gate_v1_rc3.py \
+            (cd predecessor && PYTHONPATH=src python scripts/run_gate_v1_rc3.py \
               "/tmp/$label.json" \
               --out-dir "/tmp/predecessor-$label" \
-              --implementation-identity "$FIXED_IDENTITY"
-            PYTHONPATH=candidate/src python candidate/scripts/run_gate_production_slice_v1.py \
+              --implementation-identity "$FIXED_IDENTITY")
+            (cd candidate && PYTHONPATH=src python scripts/run_gate_production_slice_v1.py \
               "/tmp/$label.json" \
               --out-dir "/tmp/candidate-$label" \
-              --implementation-identity "$FIXED_IDENTITY"
+              --implementation-identity "$FIXED_IDENTITY")
             diff -ru "/tmp/predecessor-$label" "/tmp/candidate-$label"
           done
           PYTHONPATH=contracts python - <<'PY'
@@ -179,9 +181,10 @@ jobs:
           PY
 
       - name: Require deterministic successor replay
+        working-directory: candidate
         run: |
-          PYTHONPATH=candidate/src python candidate/scripts/run_gate_production_slice_v1.py \
-            candidate/research/gates_v1_rc3/health-canada-001.json \
+          PYTHONPATH=src python scripts/run_gate_production_slice_v1.py \
+            research/gates_v1_rc3/health-canada-001.json \
             --out-dir /tmp/candidate-html-replay \
             --implementation-identity "$FIXED_IDENTITY"
           diff -ru /tmp/candidate-html /tmp/candidate-html-replay
