@@ -181,6 +181,17 @@ jobs:
           print(json.dumps(result, indent=2, sort_keys=True))
           PY
 
+      - name: Archive conformance evidence for portable upload
+        if: always()
+        run: |
+          tar -C /tmp -czf /tmp/gate-eb-conformance-trees.tar.gz \
+            predecessor-plain \
+            candidate-plain \
+            eb-predecessor \
+            eb-candidate \
+            candidate-html \
+            predecessor-html
+
       - name: Upload conformance evidence
         if: always()
         uses: actions/upload-artifact@v4
@@ -189,12 +200,7 @@ jobs:
           path: |
             /tmp/RESULT.json
             /tmp/plain-packet.json
-            /tmp/predecessor-plain/
-            /tmp/candidate-plain/
-            /tmp/eb-predecessor/
-            /tmp/eb-candidate/
-            /tmp/candidate-html/
-            /tmp/predecessor-html/
+            /tmp/gate-eb-conformance-trees.tar.gz
             /tmp/eb-hostile.stdout
             /tmp/eb-hostile.stderr
-          if-no-files-found: warn
+          if-no-files-found: error
