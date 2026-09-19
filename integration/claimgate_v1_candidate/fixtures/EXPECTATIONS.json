@@ -1,0 +1,32 @@
+{
+  "schema": "claimgate-v1-smoke-expectations-1",
+  "cases": [
+    {
+      "fixture": "declared.json",
+      "expected_authoring_state": "DECLARED",
+      "expected_contract_a": true,
+      "expected_decomposition_state": "declared",
+      "expected_operator": "all_of",
+      "expected_children": [
+        "Panel Citrine reported that Plan Garnet was approved.",
+        "Panel Citrine reported that Line Mica was compliant."
+      ],
+      "eb_should_run": true
+    },
+    {
+      "fixture": "not_needed.json",
+      "expected_authoring_state": "NOT_NEEDED",
+      "expected_contract_a": true,
+      "expected_decomposition_state": "not_decomposed",
+      "expected_children": [],
+      "eb_should_run": true
+    },
+    {
+      "fixture": "abstained.json",
+      "expected_authoring_state": "ABSTAINED",
+      "expected_contract_a": false,
+      "expected_children": [],
+      "eb_should_run": false
+    }
+  ]
+}
