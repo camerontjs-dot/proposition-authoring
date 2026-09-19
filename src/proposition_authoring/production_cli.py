@@ -2,8 +2,8 @@ from __future__ import annotations
 
 import argparse
 import json
-from pathlib import Path
 from collections.abc import Sequence
+from pathlib import Path
 
 from proposition_authoring.canonical import canonical_json
 from proposition_authoring.gate_v1 import EvidenceTaskV1
