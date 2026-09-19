@@ -1,0 +1,200 @@
+name: Research - Gate V1 Slice to EB V1 Consumer Conformance
+
+on:
+  push:
+    branches:
+      - fix/gate-v1-contract-a-media-boundary-rc1-20260918
+  pull_request:
+    branches:
+      - promotion/main-converge-v1.0.0-20260917
+  workflow_dispatch:
+
+jobs:
+  conformance:
+    runs-on: ubuntu-latest
+    env:
+      GATE_CANDIDATE_SHA: c3d04eadfc74c6614836533c24476252e3dd74f6
+      GATE_PREDECESSOR_SHA: c0da10e2e3b9aada5f66af9859cf27964fd3c5fc
+      EB_CONSUMER_SHA: e8fe42b8f58099885a5530665e9047be5f531b6a
+      EB_CARRIER_BLOB: ddb16cd58baed833adfc4e81d7aef3745a5900f3
+      FIXED_IDENTITY: gate-v1-eb-consumer-conformance-rc0
+
+    steps:
+      - name: Checkout workflow record
+        uses: actions/checkout@v4
+        with:
+          path: record
+          fetch-depth: 1
+
+      - name: Checkout exact Gate successor
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ env.GATE_CANDIDATE_SHA }}
+          path: gate
+          fetch-depth: 1
+
+      - name: Checkout exact Gate predecessor
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ env.GATE_PREDECESSOR_SHA }}
+          path: predecessor
+          fetch-depth: 1
+
+      - name: Checkout exact Evidence Bundler consumer
+        uses: actions/checkout@v4
+        with:
+          repository: camerontjs-dot/evidence-bundler
+          ref: ${{ env.EB_CONSUMER_SHA }}
+          path: eb
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Verify exact subjects
+        run: |
+          test "$(git -C gate rev-parse HEAD)" = "$GATE_CANDIDATE_SHA"
+          test "$(git -C predecessor rev-parse HEAD)" = "$GATE_PREDECESSOR_SHA"
+          test "$(git -C eb rev-parse HEAD)" = "$EB_CONSUMER_SHA"
+          test "$(git -C eb rev-parse HEAD:config/eb_v1_slice/contract_b_compatibility_carrier.json)" = "$EB_CARRIER_BLOB"
+
+      - name: Prepare exact runtimes
+        run: |
+          (cd gate && python scripts/fetch_frozen_predecessors.py)
+          (cd predecessor && python scripts/fetch_frozen_predecessors.py)
+          python -m pip install -e ./gate
+          python -m pip install -e ./eb
+
+      - name: Build exact valid-path packet
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          source = json.loads(
+              Path("gate/research/gates_v1_rc3/health-canada-001.json").read_text()
+          )
+          for row in source["request"]["sources"]:
+              row["media_type"] = "text/plain; charset=utf-8"
+          source["request"]["handoff_id"] += "-eb-consumer"
+          source["request"]["work_id"] += "-eb-consumer"
+          Path("/tmp/plain-packet.json").write_text(
+              json.dumps(source, indent=2, sort_keys=True) + "\n"
+          )
+          PY
+
+      - name: Require valid Gate path byte identity
+        run: |
+          (cd predecessor && PYTHONPATH=src python scripts/run_gate_v1_rc3.py \
+            /tmp/plain-packet.json \
+            --out-dir /tmp/predecessor-plain \
+            --implementation-identity "$FIXED_IDENTITY")
+          (cd gate && PYTHONPATH=src python scripts/run_gate_production_slice_v1.py \
+            /tmp/plain-packet.json \
+            --out-dir /tmp/candidate-plain \
+            --implementation-identity "$FIXED_IDENTITY")
+          diff -ru /tmp/predecessor-plain /tmp/candidate-plain
+          test -f /tmp/candidate-plain/CONTRACT-A.json
+
+      - name: Run exact EB consumer on predecessor and successor valid outputs
+        run: |
+          (cd eb && PYTHONPATH=src python scripts/run_v1_integration_candidate.py \
+            /tmp/predecessor-plain/CONTRACT-A.json \
+            --compatibility-carrier config/eb_v1_slice/contract_b_compatibility_carrier.json \
+            --out-dir /tmp/eb-predecessor)
+          (cd eb && PYTHONPATH=src python scripts/run_v1_integration_candidate.py \
+            /tmp/candidate-plain/CONTRACT-A.json \
+            --compatibility-carrier config/eb_v1_slice/contract_b_compatibility_carrier.json \
+            --out-dir /tmp/eb-candidate)
+          diff -ru /tmp/eb-predecessor /tmp/eb-candidate
+          test -f /tmp/eb-candidate/native_eb_v1_package.json
+          test -f /tmp/eb-candidate/projection_receipt.json
+          test -d /tmp/eb-candidate/contract_b
+
+      - name: Require unsupported Gate path to stop before EB
+        run: |
+          (cd gate && PYTHONPATH=src python scripts/run_gate_production_slice_v1.py \
+            research/gates_v1_rc3/health-canada-001.json \
+            --out-dir /tmp/candidate-html \
+            --implementation-identity "$FIXED_IDENTITY")
+          test ! -e /tmp/candidate-html/CONTRACT-A.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          claim = json.loads(Path("/tmp/candidate-html/CLAIM-GATE.json").read_text())
+          receipt = json.loads(Path("/tmp/candidate-html/STANDARDIZATION-RECEIPT.json").read_text())
+          evidence = json.loads(Path("/tmp/candidate-html/EVIDENCE-GATE.json").read_text())
+
+          assert claim["authoring"] == {
+              "state": "FAILED",
+              "reason": "CONTRACT_A_SOURCE_REPRESENTATION_UNSUPPORTED",
+          }
+          assert claim["contract_a_binding"]["state"] == "absent"
+          assert receipt["downstream_authority"]["evidence_bundler_may_consume_contract_a"] is False
+          assert any(row["media_type"] == "text/html" for row in evidence["sources"])
+          PY
+          test ! -e /tmp/eb-from-candidate-html
+
+      - name: Require EB to reject hostile predecessor HTML Contract A
+        run: |
+          (cd predecessor && PYTHONPATH=src python scripts/run_gate_v1_rc3.py \
+            research/gates_v1_rc3/health-canada-001.json \
+            --out-dir /tmp/predecessor-html \
+            --implementation-identity "$FIXED_IDENTITY")
+          test -f /tmp/predecessor-html/CONTRACT-A.json
+          set +e
+          (
+            cd eb
+            PYTHONPATH=src python scripts/run_v1_integration_candidate.py \
+              /tmp/predecessor-html/CONTRACT-A.json \
+              --compatibility-carrier config/eb_v1_slice/contract_b_compatibility_carrier.json \
+              --out-dir /tmp/eb-hostile
+          ) >/tmp/eb-hostile.stdout 2>/tmp/eb-hostile.stderr
+          rc=$?
+          set -e
+          test "$rc" -ne 0
+          test ! -e /tmp/eb-hostile/native_eb_v1_package.json
+          grep -q "media_type" /tmp/eb-hostile.stderr
+
+      - name: Freeze conformance result
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          result = {
+              "schema": "gate-v1-slice-eb-v1-consumer-conformance-rc0-result",
+              "gate_candidate_sha": "c3d04eadfc74c6614836533c24476252e3dd74f6",
+              "gate_predecessor_sha": "c0da10e2e3b9aada5f66af9859cf27964fd3c5fc",
+              "eb_consumer_sha": "e8fe42b8f58099885a5530665e9047be5f531b6a",
+              "valid_gate_path": "BYTE_IDENTICAL",
+              "valid_eb_path": "BYTE_IDENTICAL",
+              "unsupported_candidate_path": "STOPPED_BEFORE_EB",
+              "hostile_predecessor_contract_a": "REJECTED_BY_EB",
+              "disposition": "SUPPORTED FOR PROMOTION",
+          }
+          Path("/tmp/RESULT.json").write_text(
+              json.dumps(result, indent=2, sort_keys=True) + "\n"
+          )
+          print(json.dumps(result, indent=2, sort_keys=True))
+          PY
+
+      - name: Upload conformance evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gate-v1-slice-eb-v1-consumer-conformance-rc0
+          path: |
+            /tmp/RESULT.json
+            /tmp/plain-packet.json
+            /tmp/predecessor-plain/
+            /tmp/candidate-plain/
+            /tmp/eb-predecessor/
+            /tmp/eb-candidate/
+            /tmp/candidate-html/
+            /tmp/predecessor-html/
+            /tmp/eb-hostile.stdout
+            /tmp/eb-hostile.stderr
+          if-no-files-found: warn
