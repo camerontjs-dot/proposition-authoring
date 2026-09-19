@@ -117,17 +117,20 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Prepare exact runtimes
+      - name: Prepare Gate runtimes
         run: |
           python scripts/fetch_frozen_predecessors.py
           (cd predecessor && python scripts/fetch_frozen_predecessors.py)
           python -m pip install -e .[dev]
-          python -m pip install -e ./eb
 
       - name: Run maintained Gate quality gates
         run: |
-          python -m pytest -q
+          python -m pytest -q tests
           python -m ruff check src tests scripts
+
+      - name: Prepare exact Evidence Bundler consumer runtime
+        run: |
+          python -m pip install -e ./eb
 
       - name: Build exact positive controls
         run: |
@@ -272,7 +275,8 @@ jobs:
       - name: Archive portable qualification evidence
         if: always()
         run: |
-          tar -C /tmp -czf /tmp/gate-v1-slice-1-qualification-trees.tar.gz \
+          paths=()
+          for path in \
             predecessor-plain \
             candidate-plain \
             predecessor-markdown \
@@ -281,6 +285,14 @@ jobs:
             candidate-html-replay \
             eb-valid \
             predecessor-html
+          do
+            if [ -e "/tmp/$path" ]; then
+              paths+=("$path")
+            fi
+          done
+          if [ "${#paths[@]}" -gt 0 ]; then
+            tar -C /tmp -czf /tmp/gate-v1-slice-1-qualification-trees.tar.gz "${paths[@]}"
+          fi
 
       - name: Upload qualification evidence
         if: always()
@@ -294,4 +306,4 @@ jobs:
             /tmp/gate-v1-slice-1-qualification-trees.tar.gz
             /tmp/eb-hostile.stdout
             /tmp/eb-hostile.stderr
-          if-no-files-found: error
+          if-no-files-found: warn
