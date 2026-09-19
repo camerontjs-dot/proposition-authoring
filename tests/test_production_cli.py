@@ -8,7 +8,6 @@ import tempfile
 import unittest
 from pathlib import Path
 
-
 ROOT = Path(__file__).resolve().parents[1]
 FIXTURE = ROOT / "research" / "gates_v1_rc3" / "health-canada-001.json"
 
