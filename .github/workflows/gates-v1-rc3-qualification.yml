@@ -1,0 +1,129 @@
+name: Gate V1 RC3 Blueprint Qualification
+
+on:
+  pull_request:
+    paths:
+      - "src/proposition_authoring/gate_v1_rc3.py"
+      - "scripts/run_gate_v1_rc3.py"
+      - "scripts/verify_gate_bundle_v1_rc3.py"
+      - "tests/test_gate_v1_rc3.py"
+      - "schema/gates/1.0.0-rc.3/**"
+      - "docs/GATE_V1_RC3_BLUEPRINT.md"
+      - "research/gates_v1_rc3/**"
+      - "pyproject.toml"
+      - ".github/workflows/gates-v1-rc3-qualification.yml"
+
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact PR head
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - name: Verify exact PR head
+        run: test "$(git rev-parse HEAD)" = "${{ github.event.pull_request.head.sha }}"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Fetch frozen predecessors
+        run: python scripts/fetch_frozen_predecessors.py
+      - name: Install
+        run: python -m pip install -e .[dev]
+      - name: Static and focused tests
+        run: |
+          python -m ruff check \
+            src/proposition_authoring/gate_v1_rc3.py \
+            scripts/run_gate_v1_rc3.py \
+            scripts/verify_gate_bundle_v1_rc3.py \
+            tests/test_gate_v1_rc3.py \
+            research/gates_v1_rc3/pressure_replay.py
+          python -m unittest discover -s tests -p 'test_gate_v1_rc3.py' -v
+      - name: Replay inherited 44-case pressure matrix twice
+        run: |
+          python research/gates_v1_rc3/pressure_replay.py
+          cp -r pressure-result /tmp/pressure-first
+          rm -rf pressure-result
+          python research/gates_v1_rc3/pressure_replay.py
+          diff -ru /tmp/pressure-first pressure-result
+      - name: Run real Health Canada specimen
+        run: |
+          python scripts/run_gate_v1_rc3.py \
+            research/gates_v1_rc3/health-canada-001.json \
+            --out-dir /tmp/primary \
+            --implementation-identity "$(git rev-parse HEAD)"
+      - name: Run claim-only control over identical evidence world
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path('research/gates_v1_rc3/health-canada-001.json').read_text())
+          p['request']['handoff_id']='real-health-canada-ozempic-001-rc3-control'
+          p['request']['work_id']='health-canada-dpd-ozempic-control'
+          p['request']['root_id']='claim-ozempic-approved-canada-control'
+          p['request']['root_text']='Ozempic is approved in Canada.'
+          Path('/tmp/control.json').write_text(json.dumps(p, indent=2, sort_keys=True)+'\n')
+          PY
+          python scripts/run_gate_v1_rc3.py \
+            /tmp/control.json \
+            --out-dir /tmp/control \
+            --implementation-identity "$(git rev-parse HEAD)"
+      - name: Verify real-world boundary invariants
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          a=Path('/tmp/primary'); b=Path('/tmp/control')
+          ca=json.loads((a/'CLAIM-GATE.json').read_text())
+          ea=json.loads((a/'EVIDENCE-GATE.json').read_text())
+          eb=json.loads((b/'EVIDENCE-GATE.json').read_text())
+          ra=json.loads((a/'STANDARDIZATION-RECEIPT.json').read_text())
+          rb=json.loads((b/'STANDARDIZATION-RECEIPT.json').read_text())
+          assert ca['claim']['categories']['values'] == ['status']
+          assert ea == eb
+          assert ra['root_id'] != rb['root_id']
+          assert ra['evidence_world_id'] == rb['evidence_world_id']
+          assert all('representation_id' in row for row in ea['sources'])
+          assert ea['sources'][0]['provenance']['source_origin']['locator']['kind'] == 'web_uri'
+          print(json.dumps({
+            'categories': ca['claim']['categories']['values'],
+            'evidence_world_id': ea['evidence_world_id'],
+            'representations': [s['representation_id'] for s in ea['sources']],
+          }, indent=2, sort_keys=True))
+          PY
+      - name: Independent consumer verifies primary bundle
+        run: |
+          python scripts/verify_gate_bundle_v1_rc3.py \
+            --claim-gate /tmp/primary/CLAIM-GATE.json \
+            --evidence-gate /tmp/primary/EVIDENCE-GATE.json \
+            --receipt /tmp/primary/STANDARDIZATION-RECEIPT.json \
+            --contract-a /tmp/primary/CONTRACT-A.json
+      - name: Independent consumer rejects substituted receipt
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from proposition_authoring.canonical import bound_object_hash
+          p=Path('/tmp/primary/STANDARDIZATION-RECEIPT.json')
+          value=json.loads(p.read_text())
+          value['evidence_world_id']='sha256:'+'0'*64
+          value['receipt_sha256']=bound_object_hash(value, 'receipt_sha256')
+          Path('/tmp/bad-receipt.json').write_text(json.dumps(value, sort_keys=True)+'\n')
+          PY
+          if python scripts/verify_gate_bundle_v1_rc3.py \
+            --claim-gate /tmp/primary/CLAIM-GATE.json \
+            --evidence-gate /tmp/primary/EVIDENCE-GATE.json \
+            --receipt /tmp/bad-receipt.json \
+            --contract-a /tmp/primary/CONTRACT-A.json; then
+            echo "substituted receipt unexpectedly verified" >&2
+            exit 1
+          fi
+      - name: Freeze qualification artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: gates-v1-rc3-blueprint-qualification
+          path: |
+            /tmp/primary/
+            /tmp/control/
+            pressure-result/
+          if-no-files-found: error

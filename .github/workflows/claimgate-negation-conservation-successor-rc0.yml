@@ -1,0 +1,385 @@
+name: ClaimGate repeated-negation conservation successor RC0
+
+on:
+  pull_request:
+    paths:
+      - "src/proposition_authoring/conservation.py"
+      - "src/proposition_authoring/authority.py"
+      - "tests/test_rc2_semantic_instruments.py"
+      - "integration/claimgate_v1_negation_conservation_successor_rc0/**"
+      - ".github/workflows/claimgate-negation-conservation-successor-rc0.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Checkout exact RC4b authority
+        uses: actions/checkout@v4
+        with:
+          repository: camerontjs-dot/proposition-authoring
+          ref: 809b2534ffb34efa31c13975da55e65770460b99
+          path: authority/rc4b
+
+      - name: Checkout released Contract A 2.0 authority
+        uses: actions/checkout@v4
+        with:
+          repository: camerontjs-dot/apparatus-contracts
+          ref: 529c92b49a34d5c610618551a8737f019f9fa332
+          path: authority/apparatus-a
+
+      - name: Checkout exact Evidence Bundler consumer
+        uses: actions/checkout@v4
+        with:
+          repository: camerontjs-dot/evidence-bundler
+          ref: 4e1f6fe00e7c350b28f52bfea14f1f8988847884
+          path: authority/eb
+
+      - name: Install ClaimGate successor
+        run: |
+          set -euo pipefail
+          python -m venv .venv
+          .venv/bin/python -m pip install --upgrade pip
+          .venv/bin/python -m pip install -e '.[dev]'
+          .venv/bin/python scripts/fetch_frozen_predecessors.py
+          .venv/bin/python -m pip check
+
+      - name: Install exact Evidence Bundler consumer
+        run: |
+          set -euo pipefail
+          python -m venv .venv-eb
+          .venv-eb/bin/python -m pip install --upgrade pip
+          .venv-eb/bin/python -m pip install 'click>=8.1,<9' 'pdfminer.six>=20231228,<20270000' 'pydantic>=2.6,<3' 'pypdf>=4,<7' 'PyYAML>=6,<7' 'rank-bm25>=0.2.2,<0.3'
+          .venv-eb/bin/python -m pip install -e authority/eb --no-deps
+
+      - name: Verify exact authorities and bounded successor diff
+        run: |
+          set -euo pipefail
+          test "$(git -C authority/rc4b rev-parse HEAD)" = "809b2534ffb34efa31c13975da55e65770460b99"
+          test "$(git -C authority/apparatus-a rev-parse HEAD)" = "529c92b49a34d5c610618551a8737f019f9fa332"
+          test "$(git -C authority/eb rev-parse HEAD)" = "4e1f6fe00e7c350b28f52bfea14f1f8988847884"
+          test "$(git hash-object src/proposition_authoring/engine.py)" = "42ce4798e960a2f48afa7ab90147cac4fdf5799b"
+          git diff --name-only 53411a8e8f24b2c057d9b5f736c068ab71423233..HEAD > /tmp/successor-files.txt
+          cat /tmp/successor-files.txt
+          .venv/bin/python - <<'PY'
+          from pathlib import Path
+          changed = set(Path('/tmp/successor-files.txt').read_text().splitlines())
+          runtime = {p for p in changed if p.startswith('src/')}
+          assert runtime == {
+              'src/proposition_authoring/authority.py',
+              'src/proposition_authoring/conservation.py',
+          }, runtime
+          forbidden = {
+              'src/proposition_authoring/engine.py',
+              'src/proposition_authoring/coverage_backend.py',
+              'src/proposition_authoring/coverage_proposers.py',
+              'src/proposition_authoring/backend.py',
+              'src/proposition_authoring/ambiguity.py',
+              'src/proposition_authoring/profile.py',
+              'src/proposition_authoring/contract_a.py',
+          }
+          assert not (changed & forbidden), changed & forbidden
+          print('BOUNDED_SUCCESSOR_DIFF_PASS')
+          PY
+
+      - name: Maintained ClaimGate regressions and static gates
+        run: |
+          set -euo pipefail
+          .venv/bin/python -m pytest -q tests
+          .venv/bin/ruff check src tests scripts integration
+          .venv/bin/python -m compileall -q src tests scripts integration
+          .venv/bin/python -m pip check
+
+      - name: Freeze exact predecessor 24-case observations and F14 recovery
+        run: |
+          set -euo pipefail
+          mkdir -p build
+          .venv/bin/python - <<'PY'
+          import importlib.util
+          import json
+          import sys
+          from pathlib import Path
+
+          from proposition_authoring.engine import AuthoringEngine
+          from proposition_authoring.model import AuthoringRequest, SourceRepresentation
+
+          vendor = Path('vendor/frozen')
+          roots = {
+              row['root_id']: row
+              for row in (
+                  json.loads(line)
+                  for line in (vendor/'predecessor_fresh_roots.jsonl').read_text().splitlines()
+                  if line.strip()
+              )
+          }
+          gold = {
+              row['root_id']: row
+              for row in (
+                  json.loads(line)
+                  for line in (vendor/'predecessor_fresh_gold.jsonl').read_text().splitlines()
+                  if line.strip()
+              )
+          }
+          spec = importlib.util.spec_from_file_location('claim_gate_a_validator', vendor/'contract_a_rc2.py')
+          assert spec is not None and spec.loader is not None
+          validator = importlib.util.module_from_spec(spec)
+          sys.modules[spec.name] = validator
+          spec.loader.exec_module(validator)
+
+          expected_false_negatives = {'F18','F19','F20'}
+          observations = []
+          declared = abstained = 0
+          engine = AuthoringEngine()
+          for root_id in sorted(roots):
+              row = roots[root_id]
+              sources = ()
+              context_source_id = None
+              if row.get('context_text'):
+                  context_source_id = f'context::{root_id}'
+                  sources = (SourceRepresentation(
+                      source_id=context_source_id,
+                      media_type='text/plain; charset=utf-8',
+                      content=row['context_text'],
+                  ),)
+              result = engine.author(AuthoringRequest(
+                  handoff_id=f'predecessor-successor::{root_id}',
+                  producer_id='proposition-authoring',
+                  producer_version='claimgate-v1-negation-successor-rc0',
+                  work_id=f'predecessor::{root_id}',
+                  root_id=root_id,
+                  root_text=row['root_text'],
+                  sources=sources,
+                  context_source_id=context_source_id,
+              ))
+              expected_abstain = gold[root_id]['expected'] == 'FAIL_CLOSED' or root_id in expected_false_negatives
+              if expected_abstain:
+                  assert result.state == 'ABSTAINED', (root_id, result.state, result.reason)
+                  assert result.contract_a is None
+                  abstained += 1
+                  children = []
+              else:
+                  assert result.state == 'DECLARED', (root_id, result.state, result.reason)
+                  assert result.contract_a is not None
+                  validator.validate_candidate(result.contract_a)
+                  children = [c['text'] for c in result.contract_a['decomposition']['children']]
+                  assert children in gold[root_id]['allowed_child_sets'], (root_id, children)
+                  declared += 1
+              observations.append({
+                  'root_id': root_id,
+                  'state': result.state,
+                  'reason': result.reason,
+                  'children': children,
+              })
+          assert declared == 19, declared
+          assert abstained == 5, abstained
+          f14 = next(x for x in observations if x['root_id'] == 'F14')
+          assert f14['state'] == 'DECLARED'
+          assert f14['children'] == [
+              'Unit Brisk did not cache File C.',
+              'Unit Brisk did not cache File D.',
+          ], f14
+          out = {
+              'schema': 'claimgate-predecessor-24-successor-rc0',
+              'declared': declared,
+              'abstained': abstained,
+              'f14_recovered': True,
+              'observations': observations,
+          }
+          Path('build/predecessor-24-result.json').write_text(json.dumps(out, sort_keys=True, indent=2)+'\n')
+          print('PREDECESSOR_24_AND_F14_PASS')
+          PY
+
+      - name: Exact 44-case RC4b successor preservation
+        run: |
+          set -euo pipefail
+          .venv/bin/python integration/claimgate_v1_default_pooled_successor_rc0/compare_default_to_rc4b.py \
+            --cases authority/rc4b/research/rc4b_context_free_reproduction/fresh_cases.jsonl \
+            --gold authority/rc4b/research/rc4b_context_free_reproduction/GOLD/fresh_gold.jsonl \
+            --out build/rc4b-successor-preservation.json
+
+      - name: Execute frozen public CLI smoke twice
+        run: |
+          set -euo pipefail
+          BASE=integration/claimgate_v1_candidate/fixtures
+          rm -rf build/smoke
+          for run in run1 run2; do
+            for name in declared not_needed abstained; do
+              mkdir -p "build/smoke/$name/$run"
+              .venv/bin/proposition-authoring author \
+                "$BASE/$name.json" \
+                --receipt "build/smoke/$name/$run/receipt.json" \
+                --contract-a "build/smoke/$name/$run/contract_a.json" \
+                > "build/smoke/$name/$run/stdout.txt"
+            done
+          done
+          .venv/bin/python - <<'PY'
+          import json
+          from pathlib import Path
+          base = Path('build/smoke')
+          expectations = json.loads(Path('integration/claimgate_v1_candidate/fixtures/EXPECTATIONS.json').read_text())
+          by_fixture = {row['fixture']: row for row in expectations['cases']}
+          for name in ('declared','not_needed','abstained'):
+              exp = by_fixture[f'{name}.json']
+              for run in ('run1','run2'):
+                  root = base / name / run
+                  receipt = json.loads((root/'receipt.json').read_text())
+                  assert receipt['state'] == exp['expected_authoring_state'], (name, run, receipt['state'])
+                  a_path = root/'contract_a.json'
+                  assert a_path.exists() is exp['expected_contract_a'], (name, run, a_path.exists())
+                  if name == 'declared':
+                      value = json.loads(a_path.read_text())
+                      assert value['decomposition']['state'] == 'declared'
+                      assert value['decomposition']['operator'] == 'all_of'
+                      assert [c['text'] for c in value['decomposition']['children']] == exp['expected_children']
+                  elif name == 'not_needed':
+                      value = json.loads(a_path.read_text())
+                      assert value['decomposition']['state'] == 'not_decomposed'
+          for name in ('declared','not_needed','abstained'):
+              assert (base/name/'run1'/'receipt.json').read_bytes() == (base/name/'run2'/'receipt.json').read_bytes()
+              if name != 'abstained':
+                  assert (base/name/'run1'/'contract_a.json').read_bytes() == (base/name/'run2'/'contract_a.json').read_bytes()
+          print('PUBLIC_CLI_SMOKE_AND_REPLAY_PASS')
+          PY
+
+      - name: External Contract A validation and hostile controls
+        run: |
+          set -euo pipefail
+          .venv/bin/python authority/apparatus-a/validators/contract_a_rc2.py build/smoke/declared/run1/contract_a.json
+          .venv/bin/python authority/apparatus-a/validators/contract_a_rc2.py build/smoke/not_needed/run1/contract_a.json
+          mkdir -p build/tamper
+          .venv/bin/python - <<'PY'
+          import copy, json
+          from pathlib import Path
+          source = json.loads(Path('build/smoke/declared/run1/contract_a.json').read_text())
+          mutations = {}
+          value = copy.deepcopy(source); value['root_proposition']['text'] += ' tampered'; mutations['stale-root'] = value
+          value = copy.deepcopy(source); value['decomposition']['children'][0]['text'] += ' tampered'; mutations['stale-child'] = value
+          value = copy.deepcopy(source); value['handoff_sha256'] = 'sha256:' + '0'*64; mutations['bad-handoff-hash'] = value
+          value = copy.deepcopy(source); value['decomposition']['operator'] = 'any_of'; mutations['bad-operator'] = value
+          value = copy.deepcopy(source); value['decomposition']['children'] = value['decomposition']['children'][:1]; mutations['removed-child'] = value
+          root = Path('build/tamper')
+          for name, obj in mutations.items():
+              (root/f'{name}.json').write_text(json.dumps(obj, sort_keys=True, indent=2)+'\n')
+          PY
+          for name in stale-root stale-child bad-handoff-hash bad-operator removed-child; do
+            if .venv/bin/python authority/apparatus-a/validators/contract_a_rc2.py "build/tamper/$name.json" >"build/tamper/$name.stdout" 2>"build/tamper/$name.stderr"; then
+              echo "UNEXPECTED_VALID_TAMPER=$name"
+              exit 1
+            fi
+          done
+          echo CONTRACT_A_GATE_PASS
+
+      - name: Exact frozen EB consumer conformance and replay
+        run: |
+          set -euo pipefail
+          EB=authority/eb
+          RUNNER="$EB/scripts/run_v1_integration_candidate.py"
+          CARRIER="$EB/research/eb_v1_integration_candidate/contract_b_compatibility_carrier.json"
+          rm -rf build/eb
+          for name in declared not_needed; do
+            for run in run1 run2; do
+              .venv-eb/bin/python "$RUNNER" \
+                "build/smoke/$name/run1/contract_a.json" \
+                --compatibility-carrier "$CARRIER" \
+                --out-dir "build/eb/$name/$run"
+            done
+          done
+          .venv/bin/python - <<'PY'
+          import hashlib
+          from pathlib import Path
+          def hashes(root):
+              return {
+                  p.relative_to(root).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
+                  for p in sorted(root.rglob('*')) if p.is_file()
+              }
+          for name in ('declared','not_needed'):
+              a = Path('build/eb')/name/'run1'
+              b = Path('build/eb')/name/'run2'
+              assert hashes(a) == hashes(b), name
+          print('EB_REPLAY_PASS')
+          PY
+          for name in stale-root stale-child; do
+            if .venv-eb/bin/python "$RUNNER" \
+              "build/tamper/$name.json" \
+              --compatibility-carrier "$CARRIER" \
+              --out-dir "build/eb/tamper-$name" \
+              >"build/eb/tamper-$name.stdout" 2>"build/eb/tamper-$name.stderr"; then
+              echo "EB_UNEXPECTEDLY_ACCEPTED_TAMPER=$name"
+              exit 1
+            fi
+          done
+          echo EB_CONSUMER_CONFORMANCE_PASS
+
+      - name: Write successor qualification receipt
+        run: |
+          set -euo pipefail
+          .venv/bin/python - <<'PY'
+          import hashlib, json, platform, subprocess
+          from pathlib import Path
+          def sha(path):
+              return 'sha256:' + hashlib.sha256(Path(path).read_bytes()).hexdigest()
+          receipt = {
+              'schema': 'claimgate-v1-negation-conservation-successor-rc0-receipt-v1',
+              'classification': 'SUPPORTED_CLAIMGATE_V1_NEGATION_CONSERVATION_SUCCESSOR_FOR_LOCAL_RC5',
+              'subject_head': subprocess.check_output(['git','rev-parse','HEAD'], text=True).strip(),
+              'preregistration_commit': '022d52189f05b8257e6b56276760d38cb7bb9383',
+              'predecessor_pr26_head': '53411a8e8f24b2c057d9b5f736c068ab71423233',
+              'engine_blob_preserved': '42ce4798e960a2f48afa7ab90147cac4fdf5799b',
+              'conservation_instrument': 'surface-scope-conservation-v2',
+              'rc4b_authority': '809b2534ffb34efa31c13975da55e65770460b99',
+              'contract_a_release_commit': '529c92b49a34d5c610618551a8737f019f9fa332',
+              'eb_consumer_head': '4e1f6fe00e7c350b28f52bfea14f1f8988847884',
+              'predecessor_24': json.loads(Path('build/predecessor-24-result.json').read_text()),
+              'rc4b_44': json.loads(Path('build/rc4b-successor-preservation.json').read_text()),
+              'f14_recovered': True,
+              'cli_smoke': {'declared':'DECLARED','not_needed':'NOT_NEEDED','abstained':'ABSTAINED'},
+              'external_contract_a_validation': 'pass',
+              'contract_a_hostile_controls': ['stale-root','stale-child','bad-handoff-hash','bad-operator','removed-child'],
+              'eb_consumer_conformance': 'pass',
+              'eb_tamper_rejections': ['stale-root','stale-child'],
+              'cli_replay': 'byte-identical',
+              'eb_replay': 'byte-identical',
+              'python': platform.python_version(),
+              'artifacts': {
+                  'predecessor_24_sha256': sha('build/predecessor-24-result.json'),
+                  'rc4b_44_sha256': sha('build/rc4b-successor-preservation.json'),
+                  'declared_contract_a_sha256': sha('build/smoke/declared/run1/contract_a.json'),
+                  'not_needed_contract_a_sha256': sha('build/smoke/not_needed/run1/contract_a.json'),
+              },
+              'nonclaims': [
+                  'no merge authorization',
+                  'no release',
+                  'no universal negation parsing',
+                  'no semantic widening beyond preregistered repeated-negation distinction',
+                  'no production use',
+              ],
+          }
+          Path('build/QUALIFICATION_RECEIPT_RC0.json').write_text(json.dumps(receipt, sort_keys=True, indent=2)+'\n')
+          print(receipt['classification'])
+          PY
+
+      - name: Upload successor evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: claimgate-negation-conservation-successor-rc0
+          path: |
+            build/QUALIFICATION_RECEIPT_RC0.json
+            build/predecessor-24-result.json
+            build/rc4b-successor-preservation.json
+            build/smoke/
+            build/tamper/
+            build/eb/
+          if-no-files-found: warn

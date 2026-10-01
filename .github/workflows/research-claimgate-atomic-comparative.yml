@@ -1,0 +1,30 @@
+name: Research ClaimGate Atomic Comparative
+on:
+  pull_request:
+    paths:
+      - "research/claimgate_atomic_comparative_v0/**"
+      - "scripts/evaluate_claimgate_atomic_comparative.py"
+      - "src/proposition_authoring/backend.py"
+      - "src/proposition_authoring/coverage_backend.py"
+      - "src/proposition_authoring/engine.py"
+      - "src/proposition_authoring/profile.py"
+      - ".github/workflows/research-claimgate-atomic-comparative.yml"
+  workflow_dispatch:
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python scripts/fetch_frozen_predecessors.py
+      - run: python -m pip install -e .[dev]
+      - run: python -m ruff check src tests scripts
+      - run: python scripts/evaluate_claimgate_atomic_comparative.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: claimgate-atomic-comparative-v0
+          path: artifacts/claimgate-atomic-comparative-v0/
+          if-no-files-found: error

@@ -4,9 +4,9 @@ Research apparatus for bounded proposition/decomposition authoring upstream of C
 
 ## Current status
 
-The standalone apparatus boundary is the current architecture decision. The first frozen convergence candidate, V0, was terminally **FALSIFIED** on one preregistered attribution-scope ambiguity. Its research record is preserved in closed Draft PR #2 and issue #1.
+ClaimGate + EvidenceGate V1.0.0 is the frozen standardization compatibility surface. It standardizes proposition identity/lineage and supplied evidence-world identity/provenance without acquiring retrieval, CAL-semantic, Decision, or Authorization authority.
 
-`main` intentionally contains research infrastructure, programme governance, and durable navigation only. Falsified experimental implementations do not become the default implementation by accumulation.
+The V1 promotion lineage preserves the earlier research record, including the terminally falsified V0 candidate and the RC2 surface falsification that motivated the qualified RC3 successor. See `docs/GATE_V1_1_0_0.md` and `CHANGELOG.md` for the stable V1 boundary and evidence lineage.
 
 ## Responsibility boundary
 

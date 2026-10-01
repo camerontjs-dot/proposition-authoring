@@ -1,0 +1,70 @@
+{
+  "schema": "claim-profile-evidence-taxonomy-gold-v0",
+  "authorship_note": "Frozen research gold authored independently of ClaimProfileV0 expected_evidence_forms implementation. Compatibility labels express task-appropriate evidence-form coverage only; they do not establish source authority, factual support, or sufficiency.",
+  "cases": [
+    {
+      "case_id": "COMP-001-MEASUREMENT",
+      "family": "comparative",
+      "claim": "Women had a higher rate than Men.",
+      "evidence_forms": ["measurement"],
+      "expected_compatibility": "partial",
+      "rationale": "A measurement can directly bear on the comparison, but the current descriptive vocabulary may also expect a document representation."
+    },
+    {
+      "case_id": "COMP-002-MEASUREMENT-DOCUMENT",
+      "family": "comparative",
+      "claim": "Group A had a lower rate than Group B.",
+      "evidence_forms": ["measurement", "document_text"],
+      "expected_compatibility": "match",
+      "rationale": "The supplied world contains both quantitative measurement and documentary representation of the comparative result."
+    },
+    {
+      "case_id": "COMP-003-REGISTRY-ONLY",
+      "family": "comparative",
+      "claim": "Version 2 had greater latency than Version 1.",
+      "evidence_forms": ["registry_entry"],
+      "expected_compatibility": "mismatch",
+      "rationale": "A registry entry alone is not an ordinary evidence form for the magnitude comparison absent measurement or a document reporting it."
+    },
+    {
+      "case_id": "COMP-004-DOCUMENT-RESULT",
+      "family": "comparative",
+      "claim": "The treatment arm had fewer events than the control arm.",
+      "evidence_forms": ["document_text"],
+      "expected_compatibility": "partial",
+      "rationale": "A document reporting the comparative result can be relevant even when raw measurements are absent; the form coverage is incomplete, not wholly mismatched."
+    },
+    {
+      "case_id": "STATUS-001-INSPECTION-DOCUMENT",
+      "family": "status_state",
+      "claim": "Valve Cerulean was inactive.",
+      "evidence_forms": ["document_text"],
+      "expected_compatibility": "partial",
+      "rationale": "An inspection record can directly document equipment state; document evidence must not be treated as categorically irrelevant to status claims."
+    },
+    {
+      "case_id": "STATUS-002-REGISTRY",
+      "family": "status_state",
+      "claim": "License Orion was active.",
+      "evidence_forms": ["registry_entry"],
+      "expected_compatibility": "partial",
+      "rationale": "An authoritative registry is an ordinary evidence form for license status, though the descriptive mapping may name additional possible forms."
+    },
+    {
+      "case_id": "STATUS-003-DATABASE-DOCUMENT",
+      "family": "status_state",
+      "claim": "System Atlas was ready.",
+      "evidence_forms": ["database_record", "document_text"],
+      "expected_compatibility": "partial",
+      "rationale": "Operational status may be recorded in structured state plus an inspection or release document; the combination should not be treated as no-match."
+    },
+    {
+      "case_id": "STATUS-004-MEASUREMENT-ONLY",
+      "family": "status_state",
+      "claim": "Valve Indigo was inactive.",
+      "evidence_forms": ["measurement"],
+      "expected_compatibility": "mismatch",
+      "rationale": "A bare measurement form does not by itself identify the asserted operational status in this bounded form-level test."
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "schema": "claimgate-atomic-comparative-gold-v0",
+  "authorship_note": "Frozen before any comparative root-frame implementation change. Expected authoring states are the research hypothesis under test, not outputs copied from the current parser.",
+  "cases": [
+    {
+      "case_id": "AC-POS-001-A1A",
+      "claim": "Women had a higher rate than Men.",
+      "expected_state": "NOT_NEEDED",
+      "expected_reason": "BOUNDED_ROOT_IS_SINGLE_PROPOSITION",
+      "class": "positive"
+    },
+    {
+      "case_id": "AC-POS-002-LOWER-RATE",
+      "claim": "Group A had a lower rate than Group B.",
+      "expected_state": "NOT_NEEDED",
+      "expected_reason": "BOUNDED_ROOT_IS_SINGLE_PROPOSITION",
+      "class": "positive"
+    },
+    {
+      "case_id": "AC-POS-003-FEWER-EVENTS",
+      "claim": "The treatment arm had fewer events than the control arm.",
+      "expected_state": "NOT_NEEDED",
+      "expected_reason": "BOUNDED_ROOT_IS_SINGLE_PROPOSITION",
+      "class": "positive"
+    },
+    {
+      "case_id": "AC-POS-004-GREATER-LATENCY",
+      "claim": "Version 2 had greater latency than Version 1.",
+      "expected_state": "NOT_NEEDED",
+      "expected_reason": "BOUNDED_ROOT_IS_SINGLE_PROPOSITION",
+      "class": "positive"
+    },
+    {
+      "case_id": "AC-NEG-001-DOUBLE-COMPARISON",
+      "claim": "Women had a higher rate than Men and lower mortality than Children.",
+      "expected_state": "ABSTAINED",
+      "class": "hard_negative",
+      "falsifier": "must not collapse two comparisons into one atomic proposition"
+    },
+    {
+      "case_id": "AC-NEG-002-SCOPE-ADJUNCT",
+      "claim": "Women had a higher rate than Men, according to the report, in 2024.",
+      "expected_state": "ABSTAINED",
+      "class": "hard_negative",
+      "falsifier": "must not silently decide attachment or report scope"
+    },
+    {
+      "case_id": "AC-NEG-003-NEGATED",
+      "claim": "Women did not have a higher rate than Men.",
+      "expected_state": "ABSTAINED",
+      "class": "hard_negative",
+      "falsifier": "negation must be represented or the root must abstain"
+    },
+    {
+      "case_id": "AC-NEG-004-MISSING-TARGET",
+      "claim": "Women had a higher rate.",
+      "expected_state": "ABSTAINED",
+      "class": "hard_negative",
+      "falsifier": "missing comparator target must not gain authority"
+    },
+    {
+      "case_id": "AC-NEG-005-COORDINATED-SUBJECT",
+      "claim": "Women and Men had a higher rate than Children.",
+      "expected_state": "ABSTAINED",
+      "class": "hard_negative",
+      "falsifier": "coordination must be handled explicitly rather than flattened"
+    }
+  ]
+}

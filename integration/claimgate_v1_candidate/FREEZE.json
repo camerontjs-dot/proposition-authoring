@@ -1,0 +1,23 @@
+{
+  "schema": "claimgate-v1-integration-freeze-1",
+  "status": "CLAIMGATE_V1_INTEGRATION_CANDIDATE_FROZEN_FOR_LOCAL_QUALIFICATION",
+  "product_name": "ClaimGate",
+  "repository": "camerontjs-dot/proposition-authoring",
+  "branch": "integration/claimgate-v1-candidate-20260915",
+  "semantic_source": "f9d0ae9ba81756c51d7f1d433616d699eb9b6fd3",
+  "semantic_target_freeze": "9c76b3d87b4362b79a22c0467a13a48c0a380a16",
+  "integration_package_commit": "5c07ae6b6111722ccb8288b10ed3b813ff918f11",
+  "runtime_drift_from_semantic_source": false,
+  "runtime_drift_basis": "compare f9d0ae9b..5c07ae6b shows only research freeze and integration packaging files; no runtime or maintained test files changed",
+  "contract_a": {
+    "version": "2.0.0",
+    "wire_token": "contract-a-wire-candidate-rc2"
+  },
+  "downstream_evidence_bundler": {
+    "tested_subject": "8e1e15a96308d20be24b0bd0f0a4d554b0f020cc",
+    "frozen_receipt_head": "4e1f6fe00e7c350b28f52bfea14f1f8988847884"
+  },
+  "local_qualification": "NOT_YET_EXECUTED",
+  "claim_profile": "SHADOW_ONLY_NON_CAUSAL",
+  "authorization": "local installation and qualification only; no merge, tag, release, semantic widening, or production use"
+}
