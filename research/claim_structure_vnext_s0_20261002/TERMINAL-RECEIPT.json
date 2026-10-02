@@ -1,0 +1,81 @@
+{
+  "S1": "NOT_RUN",
+  "S2": "NOT_RUN",
+  "S3": "NOT_RUN",
+  "S4": "NOT_RUN",
+  "S5": "NOT_RUN",
+  "S6": "NOT_RUN",
+  "authority_emissions_observed": 0,
+  "bounded_target": "Initial annotation/review packet; not a falsification of every broad-discovery architecture.",
+  "class_agreement": {
+    "denominator": 24,
+    "not_semantic_correctness": true,
+    "numerator": 23
+  },
+  "counterexamples": [
+    {
+      "basis": "Rate/direction under one predication has understood content but unsettled atomic/composite annotation grain under the frozen rule.",
+      "id": "T02"
+    },
+    {
+      "basis": "Both reviewers preserve local/shared future temporal scope alternatives and nested conjunction/disjunction; case cannot be forced into a determinate non-all_of stratum.",
+      "id": "T22"
+    }
+  ],
+  "counts_by_reviewer": [
+    {
+      "ALL_OF": 6,
+      "AMBIGUOUS": 7,
+      "ATOMIC": 6,
+      "NON_ALL_OF": 5
+    },
+    {
+      "ALL_OF": 6,
+      "AMBIGUOUS": 7,
+      "ATOMIC": 5,
+      "NON_ALL_OF": 5,
+      "UNRESOLVED_REVIEW": 1
+    }
+  ],
+  "disposition": "FALSIFIED_EVALUATION_SURFACE",
+  "gold_disposition": "NO_ADJUDICATED_DECISIVE_GOLD",
+  "isolation_limitations": [
+    "No-history tasks still inherited background developer memory summary.",
+    "No OS-enforced file aperture.",
+    "Exact reviewer provider/model not authoritatively exposed; UNKNOWN."
+  ],
+  "local_original_metadata_sha256": {
+    "s0-blind-review": "7504515bbb305f685ebd4593c36ecec8da9368eed625120b935a99c02bda364d",
+    "s0-second-review": "9432807bf4a8fe581ba83f263e0e1ccc9d1c56f24ba6b60de79f21fc218495b0"
+  },
+  "protected_states": {
+    "RC0": "INCONCLUSIVE",
+    "RC1": "BLOCKED_INSUFFICIENT_REVIEW_STRATUM"
+  },
+  "review_artifacts": {
+    "reviews/reviewer-1-metadata.json": "cfdc67b9a4c0fabca5ef560fe68d1ddec364e59c07cddc12e79a735d15ef10bf",
+    "reviews/reviewer-1.jsonl": "757615ec8998d9e6f19c617102c517a0015bd6cf0c5123de1cbf4c7b8ccca265",
+    "reviews/reviewer-2-metadata.json": "6ec58db3ef56d440eaad6a169a68a0f369c5e46570e23f18b8997922c7bfaee9",
+    "reviews/reviewer-2.jsonl": "65e89456b856ad5887b6a4e0b6ecb80ce1bec14131f3d636aca2f41447e6d37b"
+  },
+  "review_protocol_successor_commit": "4e05207457471ae9291c7a456e66341accb362ca",
+  "safety_measurement": "NOT_RUN",
+  "schema": "s0-r0-r1-terminal-receipt",
+  "smallest_justified_successor": "S0-R2: prospective maximal-predication annotation grain plus cold no-history transport review, with fresh public diagnostic roots and separately constructed controls.",
+  "source_selection_limitations": [
+    "Only 12 of 24 roots are pre-existing public roots; 12 are explicitly synthetic controls.",
+    "Only one public root was reviewed as ambiguous; public difficult minimal-pair coverage is insufficient for issue-60 S0 capability admission."
+  ],
+  "stage": "S0",
+  "subject_input_commit": "fee72103a4d471d80b8f78a596ef6b91873d2fbc",
+  "subject_input_tree": "0340ade07a15070275bd8ce1ddcff08f56087d58",
+  "unresolved_class_disagreements": [
+    {
+      "family": "annotation grain, not proven semantic ambiguity",
+      "id": "T02",
+      "reviewer_1": "ATOMIC",
+      "reviewer_2": "UNRESOLVED_REVIEW"
+    }
+  ],
+  "unsafe_authority_count": null
+}

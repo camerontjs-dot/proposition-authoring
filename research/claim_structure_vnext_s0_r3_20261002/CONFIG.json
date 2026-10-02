@@ -1,0 +1,79 @@
+{
+  "allow_retries": false,
+  "cells": [
+    "original_schema",
+    "json_only",
+    "reversed_class_enum"
+  ],
+  "guaranteed_determinism": false,
+  "isolation": "one fresh /api/generate request per root; no returned context reused; no memory/filesystem/tool inputs; weights retain pretraining knowledge",
+  "keep_alive": "2m",
+  "models": [
+    {
+      "capabilities": [
+        "completion",
+        "vision"
+      ],
+      "details": {
+        "context_length": 131072,
+        "embedding_length": 3840,
+        "families": [
+          "gemma3"
+        ],
+        "family": "gemma3",
+        "format": "gguf",
+        "parameter_size": "12.2B",
+        "parent_model": "",
+        "quantization_level": "Q4_K_M"
+      },
+      "digest": "f4031aab637d1ffa37b42570452ae0e4fad0314754d17ded67322e4b95836f8a",
+      "name": "gemma3:12b",
+      "size": 8149190253
+    },
+    {
+      "capabilities": [
+        "completion",
+        "vision",
+        "tools",
+        "thinking"
+      ],
+      "details": {
+        "context_length": 262144,
+        "embedding_length": 4096,
+        "families": [
+          "qwen35"
+        ],
+        "family": "qwen35",
+        "format": "gguf",
+        "parameter_size": "9.7B",
+        "parent_model": "",
+        "quantization_level": "Q4_K_M"
+      },
+      "digest": "6488c96fa5faab64bb65cbd30d4289e20e6130ef535a93ef9a49f42eda893ea7",
+      "name": "qwen3.5:9b",
+      "size": 6594474711
+    }
+  ],
+  "num_models": 2,
+  "options": {
+    "num_ctx": 8192,
+    "num_predict": 1536,
+    "num_thread": 4,
+    "seed": 58,
+    "temperature": 0
+  },
+  "provider": "local_ollama",
+  "question": "Does constrained-format/class-enum presentation alter a review annotation under identical prompt, root and settings?",
+  "replay_ids": [],
+  "reuse_predecessor_raw_baseline": true,
+  "row_order": [
+    "C01",
+    "C03",
+    "C04"
+  ],
+  "runtime_version": "0.34.4",
+  "schema": "s0-review-config-r2",
+  "stream": false,
+  "think": false,
+  "timeout_seconds": 180
+}

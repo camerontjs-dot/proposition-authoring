@@ -1,0 +1,1 @@
+{"alternatives": [], "basis": "Preserve all asserted content.", "children": ["Ada told Bea that she had signed the report."], "class": "AMBIGUOUS", "confidence": "low", "id": "C06", "operator": "AMBIGUOUS", "scoped_obligations": ["The antecedent of 'that' is ambiguous between Ada and Bea."], "unresolved": false}

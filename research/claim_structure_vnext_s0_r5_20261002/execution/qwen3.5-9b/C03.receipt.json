@@ -1,0 +1,29 @@
+{
+  "annotation_sha256": "2d9df90e7f4e492d207938d0ea0dad4f25e3c39093c33422724e273c5f67f825",
+  "elapsed_seconds": 11.867,
+  "expected_witness": {
+    "derived_class": "AMBIGUOUS",
+    "location_scope_alternatives": [
+      {
+        "first_event": "UNSPECIFIED",
+        "second_event": "Ontario"
+      },
+      {
+        "first_event": "Ontario",
+        "second_event": "Ontario"
+      }
+    ],
+    "operator": "all_of",
+    "predication_count": 2
+  },
+  "id": "C03",
+  "model": "qwen3.5:9b",
+  "operator": "all_of",
+  "request_sha256": "076285576331d7b70024d329ca9faf8ab375f68a68ff9489b2924691222353aa",
+  "response_sha256": "67f0e7d4c2727dadada921c79183f65d18ccb20a23d7acd7d6dcce9716c79690",
+  "status": "VALID_OUTPUT",
+  "witness_correct": false,
+  "witness_errors": [
+    "SCOPE_BINDING_SET_MISMATCH"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "C03": {
+    "derived_class": "AMBIGUOUS",
+    "location_scope_alternatives": [
+      {
+        "first_event": "UNSPECIFIED",
+        "second_event": "Ontario"
+      },
+      {
+        "first_event": "Ontario",
+        "second_event": "Ontario"
+      }
+    ],
+    "operator": "all_of",
+    "predication_count": 2
+  },
+  "C04": {
+    "derived_class": "NON_ALL_OF",
+    "location_scope_alternatives": [
+      {
+        "first_event": "UNSPECIFIED",
+        "second_event": "UNSPECIFIED"
+      }
+    ],
+    "operator": "any_of",
+    "predication_count": 2
+  }
+}

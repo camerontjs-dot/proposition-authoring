@@ -1,0 +1,9 @@
+{
+  "AMBIGUOUS_requires_two_alternatives": true,
+  "classes": {
+    "C01": "ATOMIC",
+    "C03": "AMBIGUOUS",
+    "C04": "NON_ALL_OF"
+  },
+  "selected_children_require_attached_qualifiers": true
+}

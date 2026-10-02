@@ -1,0 +1,177 @@
+{
+  "artifact_sha256": {
+    "gemma3-12b/C03.annotation.json": "2d9df90e7f4e492d207938d0ea0dad4f25e3c39093c33422724e273c5f67f825",
+    "gemma3-12b/C03.receipt.json": "a0e07de9b48d3c7d6affeefc625ed0aa05d4130b4cf4805ff18150c01dcef4cf",
+    "gemma3-12b/C03.request.json": "252a4638251ff207138a4e1e642d03746a7347d3d3e4ec7be20ab606d00451d6",
+    "gemma3-12b/C03.response.json": "84aa9dbda296609bd18f556ee8299f006e025a58df33725b99f949a1ed791641",
+    "gemma3-12b/C04.annotation.json": "831b1864659bc8ab8b6832d97d20140fd8b1e0d28856ebdb181505888a3b764d",
+    "gemma3-12b/C04.receipt.json": "e9f1a53b2ede299f7f46bbafc6c1ff0c5d6d631b420d831a74141ae290ba8c1c",
+    "gemma3-12b/C04.request.json": "01198fb37e60496c349452c6ee4577d5517a6a50e8bb31bf83182e8d4d3c6cf7",
+    "gemma3-12b/C04.response.json": "def7e61404200a7230a5552a51b16aee5d6ee697b2d4bb220b34b6f6d654b9e0",
+    "qwen3.5-9b/C03.annotation.json": "2d9df90e7f4e492d207938d0ea0dad4f25e3c39093c33422724e273c5f67f825",
+    "qwen3.5-9b/C03.receipt.json": "0eeaeac50407be6cec43f81dcdfc6aa328f3b4247439a6c0488522a9e889ef1d",
+    "qwen3.5-9b/C03.request.json": "076285576331d7b70024d329ca9faf8ab375f68a68ff9489b2924691222353aa",
+    "qwen3.5-9b/C03.response.json": "67f0e7d4c2727dadada921c79183f65d18ccb20a23d7acd7d6dcce9716c79690",
+    "qwen3.5-9b/C04.annotation.json": "f0f07b4af9979f19768d22b2537b8bfe79ff4cd0f1ba53295f1753fe762b94e3",
+    "qwen3.5-9b/C04.receipt.json": "681c95f4c3debaca2a5ecfd311f58791b4e00c4191efe3ed4492020517fa230b",
+    "qwen3.5-9b/C04.request.json": "66cd2856c8200357b1dd01c5f29fd2becd168f0c0e8f0f7d920d4504c348226c",
+    "qwen3.5-9b/C04.response.json": "4d1ceaeec89d9e2d0abd9b68711b8dddb9a9dc26a365e3eea48f57eabee77c9f"
+  },
+  "calls": [
+    {
+      "annotation_sha256": "2d9df90e7f4e492d207938d0ea0dad4f25e3c39093c33422724e273c5f67f825",
+      "elapsed_seconds": 11.867,
+      "expected_witness": {
+        "derived_class": "AMBIGUOUS",
+        "location_scope_alternatives": [
+          {
+            "first_event": "UNSPECIFIED",
+            "second_event": "Ontario"
+          },
+          {
+            "first_event": "Ontario",
+            "second_event": "Ontario"
+          }
+        ],
+        "operator": "all_of",
+        "predication_count": 2
+      },
+      "id": "C03",
+      "model": "qwen3.5:9b",
+      "operator": "all_of",
+      "request_sha256": "076285576331d7b70024d329ca9faf8ab375f68a68ff9489b2924691222353aa",
+      "response_sha256": "67f0e7d4c2727dadada921c79183f65d18ccb20a23d7acd7d6dcce9716c79690",
+      "status": "VALID_OUTPUT",
+      "witness_correct": false,
+      "witness_errors": [
+        "SCOPE_BINDING_SET_MISMATCH"
+      ]
+    },
+    {
+      "annotation_sha256": "f0f07b4af9979f19768d22b2537b8bfe79ff4cd0f1ba53295f1753fe762b94e3",
+      "elapsed_seconds": 6.814,
+      "expected_witness": {
+        "derived_class": "NON_ALL_OF",
+        "location_scope_alternatives": [
+          {
+            "first_event": "UNSPECIFIED",
+            "second_event": "UNSPECIFIED"
+          }
+        ],
+        "operator": "any_of",
+        "predication_count": 2
+      },
+      "id": "C04",
+      "model": "qwen3.5:9b",
+      "operator": "any_of",
+      "request_sha256": "66cd2856c8200357b1dd01c5f29fd2becd168f0c0e8f0f7d920d4504c348226c",
+      "response_sha256": "4d1ceaeec89d9e2d0abd9b68711b8dddb9a9dc26a365e3eea48f57eabee77c9f",
+      "status": "VALID_OUTPUT",
+      "witness_correct": true,
+      "witness_errors": []
+    },
+    {
+      "annotation_sha256": "2d9df90e7f4e492d207938d0ea0dad4f25e3c39093c33422724e273c5f67f825",
+      "elapsed_seconds": 18.584,
+      "expected_witness": {
+        "derived_class": "AMBIGUOUS",
+        "location_scope_alternatives": [
+          {
+            "first_event": "UNSPECIFIED",
+            "second_event": "Ontario"
+          },
+          {
+            "first_event": "Ontario",
+            "second_event": "Ontario"
+          }
+        ],
+        "operator": "all_of",
+        "predication_count": 2
+      },
+      "id": "C03",
+      "model": "gemma3:12b",
+      "operator": "all_of",
+      "request_sha256": "252a4638251ff207138a4e1e642d03746a7347d3d3e4ec7be20ab606d00451d6",
+      "response_sha256": "84aa9dbda296609bd18f556ee8299f006e025a58df33725b99f949a1ed791641",
+      "status": "VALID_OUTPUT",
+      "witness_correct": false,
+      "witness_errors": [
+        "SCOPE_BINDING_SET_MISMATCH"
+      ]
+    },
+    {
+      "annotation_sha256": "831b1864659bc8ab8b6832d97d20140fd8b1e0d28856ebdb181505888a3b764d",
+      "elapsed_seconds": 10.623,
+      "expected_witness": {
+        "derived_class": "NON_ALL_OF",
+        "location_scope_alternatives": [
+          {
+            "first_event": "UNSPECIFIED",
+            "second_event": "UNSPECIFIED"
+          }
+        ],
+        "operator": "any_of",
+        "predication_count": 2
+      },
+      "id": "C04",
+      "model": "gemma3:12b",
+      "operator": "any_of",
+      "request_sha256": "01198fb37e60496c349452c6ee4577d5517a6a50e8bb31bf83182e8d4d3c6cf7",
+      "response_sha256": "def7e61404200a7230a5552a51b16aee5d6ee697b2d4bb220b34b6f6d654b9e0",
+      "status": "VALID_OUTPUT",
+      "witness_correct": true,
+      "witness_errors": []
+    }
+  ],
+  "guaranteed_determinism": false,
+  "input_freeze_sha256": "e6f24760775a02f5acf85b5a7bd2d6ce1006d9f4061ad83810a5ee3ec0c56cba",
+  "models": [
+    {
+      "capabilities": [
+        "completion",
+        "vision",
+        "tools",
+        "thinking"
+      ],
+      "details": {
+        "context_length": 262144,
+        "embedding_length": 4096,
+        "families": [
+          "qwen35"
+        ],
+        "family": "qwen35",
+        "format": "gguf",
+        "parameter_size": "9.7B",
+        "parent_model": "",
+        "quantization_level": "Q4_K_M"
+      },
+      "digest": "6488c96fa5faab64bb65cbd30d4289e20e6130ef535a93ef9a49f42eda893ea7",
+      "name": "qwen3.5:9b",
+      "size": 6594474711
+    },
+    {
+      "capabilities": [
+        "completion",
+        "vision"
+      ],
+      "details": {
+        "context_length": 131072,
+        "embedding_length": 3840,
+        "families": [
+          "gemma3"
+        ],
+        "family": "gemma3",
+        "format": "gguf",
+        "parameter_size": "12.2B",
+        "parent_model": "",
+        "quantization_level": "Q4_K_M"
+      },
+      "digest": "f4031aab637d1ffa37b42570452ae0e4fad0314754d17ded67322e4b95836f8a",
+      "name": "gemma3:12b",
+      "size": 8149190253
+    }
+  ],
+  "runtime_version": "0.34.4",
+  "schema": "s0-witness-execution-r5",
+  "subject_commit": "fe88b6d0d030f4642415a06adbf5c11b5dbd0200"
+}

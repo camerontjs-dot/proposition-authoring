@@ -1,0 +1,18 @@
+{
+  "schema": "discovery-comparison-config-v1",
+  "provider": "Ollama local loopback",
+  "model": "qwen3.5:9b",
+  "digest": "6488c96fa5faab64bb65cbd30d4289e20e6130ef535a93ef9a49f42eda893ea7",
+  "runtime_version": "0.34.4",
+  "format": "json",
+  "think": false,
+  "stream": false,
+  "options": {"temperature": 0, "seed": 58, "num_ctx": 8192, "num_predict": 1536, "num_thread": 4},
+  "keep_alive": "5m",
+  "timeout_seconds": 120,
+  "replay_ids": ["T05", "T08", "T13", "T23"],
+  "sensitivity_ids": ["T05", "T08", "T13", "T23"],
+  "sensitivity_factor": "move the exact instructions from before to after input JSON",
+  "determinism_promise": false,
+  "authority": "proposal only"
+}

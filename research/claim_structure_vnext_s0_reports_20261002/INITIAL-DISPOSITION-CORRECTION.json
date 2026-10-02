@@ -1,0 +1,13 @@
+{
+  "basis": "Initial terminal receipt used the later programme/issue-60 admission vocabulary. Keep that artifact unchanged and separate its programme assessment from the initial preregistered scientific disposition. No review is relabeled or rerun.",
+  "correct_initial_scientific_disposition": "INCONCLUSIVE_REVIEW",
+  "initial_preregistered_allowed_dispositions": [
+    "FROZEN_WORKING_ORACLE",
+    "INCONCLUSIVE_REVIEW",
+    "FAILED"
+  ],
+  "preserved_receipt": "research/claim_structure_vnext_s0_20261002/TERMINAL-RECEIPT.json",
+  "preserved_receipt_sha256": "49cb05293d822ee1a2938ab8753db054a7cc46058480ffee4208b63e46f3e387",
+  "programme_issue_60_admission_disposition": "FALSIFIED_EVALUATION_SURFACE",
+  "schema": "s0-initial-disposition-namespace-correction"
+}

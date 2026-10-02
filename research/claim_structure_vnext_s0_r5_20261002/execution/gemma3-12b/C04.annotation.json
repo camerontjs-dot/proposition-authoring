@@ -1,0 +1,1 @@
+{"id": "C04", "location_scope_alternatives": [{"first_event": "UNSPECIFIED", "second_event": "UNSPECIFIED"}], "operator": "any_of", "predications": ["is open", "is running"]}

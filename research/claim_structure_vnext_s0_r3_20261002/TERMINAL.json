@@ -1,0 +1,17 @@
+{
+  "disposition": "FALSIFIED_COLD_MODEL_ORACLE",
+  "execution_sha256": "18291a6c6f4e51432f6fedad3ef8747839b12ec7fb2b9eab01e17a66168cf688",
+  "independent_reproduction": "NOT_RUN",
+  "limits": [
+    "No class change in enum reversal; JSON-only timed out; format-causal attribution UNKNOWN; qwen baseline absent.",
+    "APPARATUS-FAILURE.json wrapper interpretation is rejected; WRAPPER-CORRECTION.json and actual EXECUTION.json govern."
+  ],
+  "production_authority": "NOT_RUN",
+  "protected_states": {
+    "RC0": "INCONCLUSIVE",
+    "RC1": "BLOCKED_INSUFFICIENT_REVIEW_STRATUM"
+  },
+  "schema": "s0-stage-terminal",
+  "stage": "S0-R3",
+  "subject_commit": "9e48c8663dbb9b5dad10a0f3aac40359ddf2ff36"
+}

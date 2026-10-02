@@ -1,0 +1,95 @@
+{
+  "actual_model": "UNKNOWN",
+  "actual_provider": "UNKNOWN",
+  "authorized_writes": [
+    "<local-custody>/s0-blind-review.jsonl",
+    "<local-custody>/s0-blind-review-meta.json"
+  ],
+  "class_counts": {
+    "ALL_OF": 6,
+    "AMBIGUOUS": 7,
+    "ATOMIC": 6,
+    "NON_ALL_OF": 5,
+    "UNRESOLVED_REVIEW": 0
+  },
+  "deterministic_semantic_truth": false,
+  "development_history_read": false,
+  "development_transcript_supplied": false,
+  "evaluator": "agent_llm",
+  "exposure_deviations": [
+    "Strict guideline-and-targeted-only contextual blindness is not satisfied because generic instructions and the developer-preloaded memory summary were already present. This is disclosed exposure, not a claim of fully context-free independence."
+  ],
+  "fact_check_performed": false,
+  "first_pass_only": true,
+  "guideline_ambiguities_and_interpretations": [
+    {
+      "disposition": "AMBIGUOUS, moderate confidence; both age-scope structures retained.",
+      "id": "T16",
+      "issue": "Explicit leading shared modifier is not syntactically defined. I apply it to overtly shared fronted clause-level adjuncts; old inside the coordinated subject remains an adjective-attachment ambiguity."
+    },
+    {
+      "disposition": "ATOMIC, moderate confidence; every original qualifier retained.",
+      "id": "T02",
+      "issue": "The boundary between event qualification and additional property assertion requires semantic judgment. Slowly and direction are treated as qualifiers of the one spinning relation."
+    },
+    {
+      "disposition": "ALL_OF, moderate confidence; the coordinated Phobos comparison supplies the baseline while the original comparative expression is preserved.",
+      "id": "T08",
+      "issue": "The second comparison has an elided baseline and the phrase times farther is not numerically reformulated."
+    }
+  ],
+  "human_annotation": false,
+  "id_order_used_to_infer_labels": false,
+  "implementation_read": false,
+  "input_freeze_commit_supplied": "fee72103a4d471d80b8f78a596ef6b91873d2fbc",
+  "input_freeze_commit_verification": "NOT_RUN: Git inspection is outside the authorized two-file read aperture.",
+  "inputs": [
+    {
+      "bytes": 3211,
+      "path": "<local-custody>/research-repo/research/claim_structure_vnext_s0_20261002/ANNOTATION.md",
+      "sha256": "c87e8f2873a5dc144acc11e5fe2f56b6c8c6f77c76ad56f5fc8d52b2226d6989"
+    },
+    {
+      "all_root_sha256_match": true,
+      "bytes": 12171,
+      "path": "<local-custody>/research-repo/research/claim_structure_vnext_s0_20261002/targeted.jsonl",
+      "sha256": "8aa01866f86572b87633e2b68cbd19af0f1c2434a53956b3e214cde01ccd0cef",
+      "supplied_sha256_match": true
+    }
+  ],
+  "intended_class_counts_used": false,
+  "isolation_description": "Instruction-scoped read aperture on a shared host with unrestricted tools, not an OS-enforced clean room. No development transcript was supplied or sought.",
+  "limitations": [
+    "Semantic decisions are model judgments over only root text and supplied authorized context; source provenance locators were treated only as custody information.",
+    "The supplied freeze commit was not independently verified, and actual selected model/provider identity remains UNKNOWN.",
+    "Preloaded background exposure limits a strict independent-oracle qualification claim even though no implementation or development transcript was read.",
+    "AMBIGUOUS cases preserve alternative structures and cannot support a unique semantic decomposition without an additional authorized scope decision."
+  ],
+  "material_ambiguity_plus_non_flat_representation": [
+    "T22"
+  ],
+  "memory_files_read": false,
+  "mutation_answers_read": false,
+  "neighboring_records_read": false,
+  "os_enforced_isolation": false,
+  "other_agents_outputs_read": false,
+  "preloaded_background_exposure": [
+    "System and developer operating instructions, tool descriptions, skill catalog, and MainFrame user AGENTS contract and environment context were already visible before the two-file review.",
+    "A developer-preloaded MEMORY_SUMMARY was visible. It contained high-level previous MainFrame research and qualification context, including ClaimGate, CAL, Evidence Bundler, Contract E, and other projects. No memory file was opened; this background was not used to choose semantic labels.",
+    "Parent task instructions supplied the two paths, freeze commit, targeted hash, output destinations, and requested reporting. A later parent coordination message stated that no proposer had been executed; that assertion was not verified or used to label roots."
+  ],
+  "preloaded_model_description": "Developer instructions describe a Codex agent based on GPT-6; exact selected model and provider provenance are not exposed.",
+  "proposer_outputs_read": false,
+  "reads_performed": [
+    "<local-custody>/research-repo/research/claim_structure_vnext_s0_20261002/ANNOTATION.md",
+    "<local-custody>/research-repo/research/claim_structure_vnext_s0_20261002/targeted.jsonl"
+  ],
+  "reroll_or_tuning_after_review": false,
+  "review_date_from_environment": "2026-10-02",
+  "review_file_sha256": "757615ec8998d9e6f19c617102c517a0015bd6cf0c5123de1cbf4c7b8ccca265",
+  "review_status": "FIRST_REVIEW_PRESERVED",
+  "row_count": 24,
+  "semantic_authority": "working agent_llm semantic oracle; not human or deterministic semantic truth",
+  "source_urls_fetched": false,
+  "unresolved_items": []
+}

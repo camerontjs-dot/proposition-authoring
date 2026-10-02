@@ -1,0 +1,13 @@
+{
+  "annotation_sha256": "02eaf11e58c71172a946da979983b0c70f03698072dcf0bedd6c8e81e8c783a0",
+  "class": "AMBIGUOUS",
+  "done_reason": "stop",
+  "elapsed_seconds": 34.398,
+  "id": "U11",
+  "model": "gemma3:12b",
+  "raw_response_sha256": "6e2516806ac6445995a7ffd8fbcd55d3d363d84744e71e3a745542cf3c9292f7",
+  "replay": false,
+  "request_sha256": "bb0803e7db665257e843c313f90f691f0e56c39a8bd66262be4bb1b23a66fcee",
+  "response_content_sha256": "957b7470fd62317b4c9f9a7c1c1cc87a08922cf61ef056da0990d53f928ec01d",
+  "status": "VALID_OUTPUT"
+}

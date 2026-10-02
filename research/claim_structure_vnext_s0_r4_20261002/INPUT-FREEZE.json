@@ -1,0 +1,16 @@
+{
+  "base_commit": "9e48c8663dbb9b5dad10a0f3aac40359ddf2ff36",
+  "evidence_aperture": "Prior R2/R3 outputs justify this successor; only fixed synthetic controls are reused; no Gate/proposer output exists.",
+  "schema": "s0-r4-input-freeze",
+  "sha256": {
+    "CONFIG.json": "184b36476cc27f3e68f0c14ce098aba856ab85e873feec3c9be3ecd9f57cc009",
+    "CONTROL-EXPECTATIONS.json": "44186ec1ef5e083da316fc8a050c6d7b8af04435339a54fe067ca7475f91294d",
+    "LIVE-AUTHORITY.json": "a6f5865106cbc1a5b4064310a49192fbb0ce1b6eb102496b3b6fdc434c3ad31e",
+    "PREREGISTRATION.md": "9327b2d27efd1b9d9bbcf427e54b9e4bbe7c1bf842c1234a8aaeea0f467965cf",
+    "PROMPT.txt": "802593b7d298e948cb1fb8a28eefbcdcd7a4f36e49d2c1967b1067e3bf4d0516",
+    "PROVIDER-IDENTITY.json": "4fe0da5e95e17d2808ec6acfac8d1fabb3d4c044224383fe89ae07d6548dae2a",
+    "SCHEMA.json": "bf26780bc647adcee8b09a020ebcc8dfdb844e03b34dc65f6e09a6a9bd7a0922",
+    "controls.jsonl": "7339769618a24f3b1a8f53b410cd8e0c218a97f55bf200f02ee690b79c8d3f8d",
+    "run_closed.py": "7b12a969d5804a55a09e1287b3cdb65ffa0fae7d8a67f7f07feaa1996a327c4a"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "all_selected_unchanged": true,
+  "artifacts": [
+    {
+      "after": "f563d0befc0c6d1c866d69c4d6aeb8e1ffceac897452df89f773f035e088815f",
+      "artifact": "REPORT.md",
+      "before": "f563d0befc0c6d1c866d69c4d6aeb8e1ffceac897452df89f773f035e088815f",
+      "experiment": "RC0",
+      "unchanged": true
+    },
+    {
+      "after": "3f51b01c64f4939397466c9ada0b644bccb636e86b3832c2fbc0588157ad15a2",
+      "artifact": "RECEIPT.json",
+      "before": "3f51b01c64f4939397466c9ada0b644bccb636e86b3832c2fbc0588157ad15a2",
+      "experiment": "RC0",
+      "unchanged": true
+    },
+    {
+      "after": "2f241c62d53166f6f0a0f35e3c4a6f61a655769220eab6c777df960d1edd3662",
+      "artifact": "CUSTODY-MANIFEST.json",
+      "before": "2f241c62d53166f6f0a0f35e3c4a6f61a655769220eab6c777df960d1edd3662",
+      "experiment": "RC0",
+      "unchanged": true
+    },
+    {
+      "after": "84474a1f86cc16560d9ea60669b4a6c2a6b59f28e4aa56d845d72a9f46e60354",
+      "artifact": "SEAL.json",
+      "before": "84474a1f86cc16560d9ea60669b4a6c2a6b59f28e4aa56d845d72a9f46e60354",
+      "experiment": "RC0",
+      "unchanged": true
+    },
+    {
+      "after": "cbbb032cccbf3e75d4cd01e3c16748abbb66b7ed84596c63d104ed27f90819ce",
+      "artifact": "REPORT.md",
+      "before": "cbbb032cccbf3e75d4cd01e3c16748abbb66b7ed84596c63d104ed27f90819ce",
+      "experiment": "RC1",
+      "unchanged": true
+    },
+    {
+      "after": "1193c03d56d6f05e991fa1b6f12fc158c06ec2fd59f5b7b13f6e29f50ba76726",
+      "artifact": "RECEIPT.json",
+      "before": "1193c03d56d6f05e991fa1b6f12fc158c06ec2fd59f5b7b13f6e29f50ba76726",
+      "experiment": "RC1",
+      "unchanged": true
+    },
+    {
+      "after": "40ffe379ad0ce2fc6a3875a4df82bf1e4a6e5036d14e8094863a51e4501dbb47",
+      "artifact": "CUSTODY-MANIFEST.json",
+      "before": "40ffe379ad0ce2fc6a3875a4df82bf1e4a6e5036d14e8094863a51e4501dbb47",
+      "experiment": "RC1",
+      "unchanged": true
+    },
+    {
+      "after": "b7711dfa645ce3bec3cbe9aa22f32116e0ad2cca27af5397c1dc81066b2e3cdd",
+      "artifact": "SEAL.json",
+      "before": "b7711dfa645ce3bec3cbe9aa22f32116e0ad2cca27af5397c1dc81066b2e3cdd",
+      "experiment": "RC1",
+      "unchanged": true
+    }
+  ],
+  "checked_at_utc": "2026-10-02T15:34:09.568071+00:00",
+  "schema": "protected-selected-receipts-check",
+  "scope": "Four named custody/report artifacts per historical run; no assertion of a complete-directory rehash."
+}

@@ -1,0 +1,17 @@
+{
+  "evidence_aperture": "R2 outputs inform this separately frozen diagnostic; no S1 output exists or informs gold.",
+  "predecessor_freeze_commit": "172738433e770ed96f949da2dcc0b4743f87af5f",
+  "schema": "s0-r3-input-freeze",
+  "sha256": {
+    "ANNOTATION.md": "6c45d2c4dc2abcfe07837539b4638b8077dc5d291d0e25bb0e949ea8b8d1423f",
+    "CONFIG.json": "be006ea956719a06414254d0ae82ca959d01c0cde588d9f10e088bd328422909",
+    "CONTROL-EXPECTATIONS.json": "560a5158070a09e65880e5528eb9ea7522ce3e1cc7aadd9247c4c7045bce8645",
+    "LIVE-AUTHORITY.json": "a676da7c4e8e99473c541fe4ec4744285545c6350ece72bf8a75eac1713cf98b",
+    "PREREGISTRATION.md": "12907bc11df71c49e7ffd97dacd5508fc609bd4bba5b06486c58aae716ca6cba",
+    "PROMPT.txt": "54fe5544b5bd35fd26747708b8e7374641de16a52ec28053fe6e2f0797d1259d",
+    "SCHEMA-REVERSED.json": "7997ed4304800792643c2b328df71b2e331502237b768dc9dd18a6072121a051",
+    "SCHEMA.json": "f1836158307c55e04b62f1ea815d84b22aacc729f03f6b158b4b989dc5228041",
+    "controls.jsonl": "5d18da0ae15e635c7f371069035d21c8ba6c823005b596d8e6fca4fc1fdc4c17",
+    "run_format.py": "9d347b1582ed148c52841a35edf668a52650bb62452aac0745cfe28cdc70292b"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "elapsed_seconds": 180.018,
+  "error": "timed out",
+  "error_type": "TimeoutError",
+  "expected_class": "ATOMIC",
+  "format": "json_only",
+  "id": "C01",
+  "model": "gemma3:12b",
+  "request_sha256": "ebb87cd657e88a0600c1569b43505477d70d05121627dda272726faf4b725201",
+  "status": "FAILED"
+}

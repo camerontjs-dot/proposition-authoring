@@ -1,0 +1,9 @@
+{"model": "gemma3:12b", "id": "C01", "format": "original_schema", "status": "VALID_OUTPUT", "judged_class": "AMBIGUOUS", "class_correct": false, "consistency_errors": ["AMBIGUITY_WITHOUT_TWO_UNSELECTED_READINGS"], "elapsed_seconds": 0.003}
+{"model": "gemma3:12b", "id": "C01", "format": "json_only", "status": "FAILED", "judged_class": null, "class_correct": null, "consistency_errors": null, "elapsed_seconds": 180.018}
+{"model": "gemma3:12b", "id": "C01", "format": "reversed_class_enum", "status": "VALID_OUTPUT", "judged_class": "AMBIGUOUS", "class_correct": false, "consistency_errors": ["AMBIGUITY_WITHOUT_TWO_UNSELECTED_READINGS"], "elapsed_seconds": 31.535}
+{"model": "gemma3:12b", "id": "C03", "format": "original_schema", "status": "VALID_OUTPUT", "judged_class": "ALL_OF", "class_correct": false, "consistency_errors": [], "elapsed_seconds": 0.014}
+{"model": "gemma3:12b", "id": "C03", "format": "json_only", "status": "FAILED", "judged_class": null, "class_correct": null, "consistency_errors": null, "elapsed_seconds": 180.065}
+{"model": "gemma3:12b", "id": "C03", "format": "reversed_class_enum", "status": "VALID_OUTPUT", "judged_class": "ALL_OF", "class_correct": false, "consistency_errors": [], "elapsed_seconds": 30.98}
+{"model": "gemma3:12b", "id": "C04", "format": "original_schema", "status": "VALID_OUTPUT", "judged_class": "NON_ALL_OF", "class_correct": true, "consistency_errors": [], "elapsed_seconds": 0.01}
+{"model": "gemma3:12b", "id": "C04", "format": "json_only", "status": "FAILED", "judged_class": null, "class_correct": null, "consistency_errors": null, "elapsed_seconds": 180.028}
+{"model": "gemma3:12b", "id": "C04", "format": "reversed_class_enum", "status": "VALID_OUTPUT", "judged_class": "NON_ALL_OF", "class_correct": true, "consistency_errors": [], "elapsed_seconds": 55.107}

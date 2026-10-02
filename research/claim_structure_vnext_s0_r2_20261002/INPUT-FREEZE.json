@@ -1,0 +1,18 @@
+{
+  "base_commit": "4e05207457471ae9291c7a456e66341accb362ca",
+  "condition": "Commit this inventory and all scientific inputs before the first request; preserve every failed or unfavorable output.",
+  "decisive_S1": "NOT_AUTHORIZED_BY_THIS_DIAGNOSTIC",
+  "predecessor_terminal": "FALSIFIED_EVALUATION_SURFACE",
+  "schema": "s0-r2-input-freeze",
+  "sha256": {
+    "ANNOTATION.md": "6c45d2c4dc2abcfe07837539b4638b8077dc5d291d0e25bb0e949ea8b8d1423f",
+    "CONFIG.json": "434efab916c973195fcc60546c689ef8e23b8c064bae449528b71881c6465f5e",
+    "CONTROL-EXPECTATIONS.json": "1ff58820c3bdbca8849cf8934250863f198d37f230f52239cce1362b88d6a74e",
+    "LIVE-AUTHORITY.json": "d7545cc1bb56e5d61886eba8258fc405299778cc4f3d2f5ee9147bcaa47082c4",
+    "PREREGISTRATION.md": "4e6fa406e588a840db9bc606ab11570b1e8963da7c750a4480eaf3410fada3d0",
+    "PROMPT.txt": "54fe5544b5bd35fd26747708b8e7374641de16a52ec28053fe6e2f0797d1259d",
+    "SCHEMA.json": "f1836158307c55e04b62f1ea815d84b22aacc729f03f6b158b4b989dc5228041",
+    "run_review.py": "18af5b9f43ec9702a81d80ff8b20d3eaf4ba9fb884d109282d32108dab511161",
+    "targeted.jsonl": "8ed23a22857d29c3b93609bc3d95b0f46972eca9fae1ed6d1fb57414d3c5aec8"
+  }
+}

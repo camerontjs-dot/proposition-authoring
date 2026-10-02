@@ -1,0 +1,754 @@
+{
+  "S1": "NOT_RUN",
+  "S2": "NOT_RUN",
+  "S3": "NOT_RUN",
+  "S4": "NOT_RUN",
+  "S5": "NOT_RUN",
+  "S6": "NOT_RUN",
+  "alternate_explanations_live": [
+    "Structured-decoder or prompt/interface behavior rather than lack of internal semantic knowledge.",
+    "Thinking-enabled settings, larger/different models or other trained instruments may behave differently.",
+    "Explicit role/obligation representation and independent admissibility checks may resolve interface failures.",
+    "Different public source selection and qualified independent review remain untested."
+  ],
+  "ambiguity": {
+    "observed_S0_failure": "C03 mislabeled or incompletely witnessed; R5 both models agree on same unsupported qualifier-dropping alternative.",
+    "shadow_authority_results": "NOT_RUN"
+  },
+  "atomic_coverage": null,
+  "authority_emissions_observed": 0,
+  "base_commit": "1a25c4eabffead034187f97573dc53f9e9be1b6a",
+  "bounded_architecture_disposition": "FALSIFIED_LOCAL_S0_ORACLE_ARCHITECTURE",
+  "bounded_inference": "Raw local model class/readings or typed witnesses, even with model agreement and schema validity, cannot serve as sufficient independent decisive gold under these exact profiles.",
+  "branch": "research/structure-vnext-s0-s2-20261002",
+  "composite_authority_coverage": null,
+  "composite_discovery_coverage": null,
+  "corpora": {
+    "gold": {
+      "adjudicated_gold_sha256": null,
+      "initial_blind_review_sha256": {
+        "reviewer-1.jsonl": "757615ec8998d9e6f19c617102c517a0015bd6cf0c5123de1cbf4c7b8ccca265",
+        "reviewer-2.jsonl": "65e89456b856ad5887b6a4e0b6ecb80ce1bec14131f3d636aca2f41447e6d37b"
+      },
+      "review_authority_limits": [
+        "Initial no-history tasks inherited preloaded memory summary.",
+        "Initial reviewer model/provider not authoritatively exposed.",
+        "Cold local model profiles fail constructed semantic controls."
+      ],
+      "status": "NO_QUALIFIED_DECISIVE_GOLD"
+    },
+    "initial_targeted": {
+      "pre_existing_public": 12,
+      "qualification": "FALSIFIED_EVALUATION_SURFACE",
+      "rows": 24,
+      "sha256": "8aa01866f86572b87633e2b68cbd19af0f1c2434a53956b3e214cde01ccd0cef",
+      "synthetic_controls": 12
+    },
+    "mutation_suite": {
+      "execution": "NOT_RUN_S2",
+      "hard_hostile": 20,
+      "rows": 28,
+      "semantic_preserving_or_valid_controls": 8,
+      "sha256": "ed5133ef7bd68e387fe533ace247ea41de6800102093c451914dd2508299e59b"
+    },
+    "naturalistic": {
+      "definition_sha256": "cbc476c6113782d7ad71f0081e93d4d813883b7ccbf10a4b94a0e8d69661cea1",
+      "population_selected": "NOT_RUN",
+      "prevalence": "NOT_RUN"
+    },
+    "r2_targeted": {
+      "fresh_pre_existing_public": 12,
+      "public_replay_anchors": 2,
+      "qualification": "DIAGNOSTIC_ONLY",
+      "rows": 20,
+      "sha256": "8ed23a22857d29c3b93609bc3d95b0f46972eca9fae1ed6d1fb57414d3c5aec8",
+      "synthetic_controls": 6
+    }
+  },
+  "coverage_limitations": [
+    "Independent decisive S0 review/gold admission failed.",
+    "Initial public corpus lacks complete difficult minimal-pair/family coverage.",
+    "R2 qwen semantic output absent after transport failure; R3 qwen format comparison NOT_RUN."
+  ],
+  "current_stage": "S0-R5",
+  "deviations": [
+    "Initial reviewer background-memory exposure.",
+    "Provider interruption during R2; spontaneous shared-endpoint return before R3.",
+    "R3 wrapper prematurely labeled preflight failure; preserved and rejected by content-bound WRAPPER-CORRECTION.json.",
+    "R3 comparison incomplete and nondeterminism/lifecycle confounded.",
+    "Control construction is synthetic and does not estimate naturalistic prevalence.",
+    "Initial terminal artifact used programme admission vocabulary outside its initial preregistered disposition enum; namespace correction preserves original and assigns initial scientific INCONCLUSIVE_REVIEW."
+  ],
+  "evidence_pr": 62,
+  "final_disposition": "FALSIFIED_EVALUATION_SURFACE",
+  "hard_falsifiers": {
+    "clear_composite_labeled_atomic": {
+      "S0_analogue": "R4 qwen C02",
+      "S3_status": "NOT_RUN"
+    },
+    "confidence_overrides_semantic_objection": {
+      "S0_analogue": null,
+      "S3_status": "NOT_RUN"
+    },
+    "coverage_failure_mislabeled_ambiguity": {
+      "S0_analogue": "R2 unsupported/inconsistent AMBIGUOUS without readings; no S3 coverage result",
+      "S3_status": "NOT_RUN"
+    },
+    "downstream_results_change_structure": {
+      "S0_analogue": null,
+      "S3_status": "NOT_RUN"
+    },
+    "duplicate_candidate_count_changes_authority": {
+      "S0_analogue": null,
+      "S3_status": "NOT_RUN"
+    },
+    "hard_semantic_mutation_accepted": {
+      "S0_analogue": null,
+      "S3_status": "NOT_RUN"
+    },
+    "known_ambiguity_silently_resolved": {
+      "S0_analogue": "R4 C03 both models",
+      "S3_status": "NOT_RUN"
+    },
+    "majority_vote_grants_authority": {
+      "S0_analogue": "R5 models agree on same invalid scope witness; no vote or authority executed",
+      "S3_status": "NOT_RUN"
+    },
+    "proposal_order_changes_authority": {
+      "S0_analogue": null,
+      "S3_status": "NOT_RUN"
+    },
+    "unsafe_structure_shadow_authority": {
+      "S0_analogue": null,
+      "S3_status": "NOT_RUN"
+    },
+    "unsupported_operator_flattened_all_of": {
+      "S0_analogue": "R4 gemma C04 changes or to and",
+      "S3_status": "NOT_RUN"
+    }
+  },
+  "initial_stage_disposition": "INCONCLUSIVE_REVIEW",
+  "observed_evidence": [
+    "R2 gemma control class match 4/6 with 10 initial-row consistency failures; 21 valid outputs / 23 transport failures across both reviewers including replay.",
+    "R3 original/reversed-enum control class match 1/3 each; JSON-only three timeouts.",
+    "R4 all eight outputs valid JSON; each model class match 2/4.",
+    "R5 all four outputs valid JSON; both models miss required scope assignment and add a no-Ontario alternative.",
+    "R5 gemma C04 loses subjects despite matching typed components."
+  ],
+  "owned_provider_status": "STOPPED; port 11435 has no listener; shared app preserved",
+  "per_class_results": {
+    "R4_synthetic_control_classes": [
+      {
+        "class_correct": 2,
+        "model": "gemma3:12b",
+        "per_expected_class": {
+          "ALL_OF": {
+            "class_correct": true,
+            "id": "C02"
+          },
+          "AMBIGUOUS": {
+            "class_correct": false,
+            "id": "C03"
+          },
+          "ATOMIC": {
+            "class_correct": true,
+            "id": "C01"
+          },
+          "NON_ALL_OF": {
+            "class_correct": false,
+            "id": "C04"
+          }
+        },
+        "planned_controls": 4,
+        "valid_outputs": 4
+      },
+      {
+        "class_correct": 2,
+        "model": "qwen3.5:9b",
+        "per_expected_class": {
+          "ALL_OF": {
+            "class_correct": false,
+            "id": "C02"
+          },
+          "AMBIGUOUS": {
+            "class_correct": false,
+            "id": "C03"
+          },
+          "ATOMIC": {
+            "class_correct": true,
+            "id": "C01"
+          },
+          "NON_ALL_OF": {
+            "class_correct": true,
+            "id": "C04"
+          }
+        },
+        "planned_controls": 4,
+        "valid_outputs": 4
+      }
+    ],
+    "S1_to_S6_results": "NOT_RUN",
+    "public_targeted_semantic_accuracy": "NOT_MEASURED_NO_QUALIFIED_GOLD"
+  },
+  "preserved_counterexample_trace_sha256": "7bbd90179d45f224b54651d6760ad7b65a1d4c1ed6657f7c2d27b9549df9a225",
+  "production_release": "NOT_CREATED",
+  "programme_issue": 58,
+  "proposer_identities": {
+    "A": {
+      "generation": "NOT_RUN",
+      "lanes": "P1-P5",
+      "subject": "89ca88c7f0a661601f7eb798b6759667fa20ab3f"
+    },
+    "B": {
+      "generation": "NOT_RUN",
+      "preparation_config_sha256": "6c83be9c75aaf31448ad587ba9cf1c918555c864a7e9d567309cf2504c71a8db",
+      "preparation_prompt_sha256": "c6b193ae5db2acea83c58f349377e2fcb69f3f87c5debe73b4ae103496fd169f"
+    },
+    "C": {
+      "generation": "NOT_RUN",
+      "model_bundle_sha256": "3ce8a87c51e8b3e863ca67538de095b62735db6b1e67703826b3d0784dd9fe77",
+      "package": "spaCy 3.8.7 / en_core_web_sm 3.8.0"
+    },
+    "D": {
+      "pooling": "NOT_RUN",
+      "voting": "NOT_IMPLEMENTED"
+    }
+  },
+  "protected_selected_hash_check": true,
+  "protected_states": {
+    "RC0": "INCONCLUSIVE",
+    "RC1": "BLOCKED_INSUFFICIENT_REVIEW_STRATUM",
+    "V1": "89ca88c7f0a661601f7eb798b6759667fa20ab3f"
+  },
+  "provider_models_prompts_configs": {
+    "R2": {
+      "allow_retries": false,
+      "guaranteed_determinism": false,
+      "isolation": "one fresh /api/generate request per root; no returned context reused; no memory/filesystem/tool inputs; weights retain pretraining knowledge",
+      "keep_alive": "2m",
+      "models": [
+        {
+          "capabilities": [
+            "completion",
+            "vision"
+          ],
+          "details": {
+            "context_length": 131072,
+            "embedding_length": 3840,
+            "families": [
+              "gemma3"
+            ],
+            "family": "gemma3",
+            "format": "gguf",
+            "parameter_size": "12.2B",
+            "parent_model": "",
+            "quantization_level": "Q4_K_M"
+          },
+          "digest": "f4031aab637d1ffa37b42570452ae0e4fad0314754d17ded67322e4b95836f8a",
+          "name": "gemma3:12b",
+          "size": 8149190253
+        },
+        {
+          "capabilities": [
+            "completion",
+            "vision",
+            "tools",
+            "thinking"
+          ],
+          "details": {
+            "context_length": 262144,
+            "embedding_length": 4096,
+            "families": [
+              "qwen35"
+            ],
+            "family": "qwen35",
+            "format": "gguf",
+            "parameter_size": "9.7B",
+            "parent_model": "",
+            "quantization_level": "Q4_K_M"
+          },
+          "digest": "6488c96fa5faab64bb65cbd30d4289e20e6130ef535a93ef9a49f42eda893ea7",
+          "name": "qwen3.5:9b",
+          "size": 6594474711
+        }
+      ],
+      "options": {
+        "num_ctx": 8192,
+        "num_predict": 1536,
+        "num_thread": 4,
+        "seed": 58,
+        "temperature": 0
+      },
+      "provider": "local_ollama",
+      "replay_ids": [
+        "R01",
+        "C03"
+      ],
+      "row_order": [
+        "U01",
+        "U02",
+        "U03",
+        "U04",
+        "U05",
+        "U06",
+        "U07",
+        "U08",
+        "U09",
+        "U10",
+        "U11",
+        "U12",
+        "R01",
+        "R02",
+        "C01",
+        "C02",
+        "C03",
+        "C04",
+        "C05",
+        "C06"
+      ],
+      "runtime_version": "0.34.4",
+      "schema": "s0-review-config-r2",
+      "stream": false,
+      "think": false,
+      "timeout_seconds": 180
+    },
+    "R3": {
+      "allow_retries": false,
+      "cells": [
+        "original_schema",
+        "json_only",
+        "reversed_class_enum"
+      ],
+      "guaranteed_determinism": false,
+      "isolation": "one fresh /api/generate request per root; no returned context reused; no memory/filesystem/tool inputs; weights retain pretraining knowledge",
+      "keep_alive": "2m",
+      "models": [
+        {
+          "capabilities": [
+            "completion",
+            "vision"
+          ],
+          "details": {
+            "context_length": 131072,
+            "embedding_length": 3840,
+            "families": [
+              "gemma3"
+            ],
+            "family": "gemma3",
+            "format": "gguf",
+            "parameter_size": "12.2B",
+            "parent_model": "",
+            "quantization_level": "Q4_K_M"
+          },
+          "digest": "f4031aab637d1ffa37b42570452ae0e4fad0314754d17ded67322e4b95836f8a",
+          "name": "gemma3:12b",
+          "size": 8149190253
+        },
+        {
+          "capabilities": [
+            "completion",
+            "vision",
+            "tools",
+            "thinking"
+          ],
+          "details": {
+            "context_length": 262144,
+            "embedding_length": 4096,
+            "families": [
+              "qwen35"
+            ],
+            "family": "qwen35",
+            "format": "gguf",
+            "parameter_size": "9.7B",
+            "parent_model": "",
+            "quantization_level": "Q4_K_M"
+          },
+          "digest": "6488c96fa5faab64bb65cbd30d4289e20e6130ef535a93ef9a49f42eda893ea7",
+          "name": "qwen3.5:9b",
+          "size": 6594474711
+        }
+      ],
+      "num_models": 2,
+      "options": {
+        "num_ctx": 8192,
+        "num_predict": 1536,
+        "num_thread": 4,
+        "seed": 58,
+        "temperature": 0
+      },
+      "provider": "local_ollama",
+      "question": "Does constrained-format/class-enum presentation alter a review annotation under identical prompt, root and settings?",
+      "replay_ids": [],
+      "reuse_predecessor_raw_baseline": true,
+      "row_order": [
+        "C01",
+        "C03",
+        "C04"
+      ],
+      "runtime_version": "0.34.4",
+      "schema": "s0-review-config-r2",
+      "stream": false,
+      "think": false,
+      "timeout_seconds": 180
+    },
+    "R4": {
+      "allow_retries": false,
+      "formats": [
+        "closed_schema"
+      ],
+      "guaranteed_determinism": false,
+      "isolation": "One fresh generate request per control with only rules, complete output contract, root and authorized context; no prior response/context reused.",
+      "keep_alive": "1m",
+      "models": [
+        {
+          "capabilities": [
+            "completion",
+            "vision",
+            "tools",
+            "thinking"
+          ],
+          "details": {
+            "context_length": 262144,
+            "embedding_length": 4096,
+            "families": [
+              "qwen35"
+            ],
+            "family": "qwen35",
+            "format": "gguf",
+            "parameter_size": "9.7B",
+            "parent_model": "",
+            "quantization_level": "Q4_K_M"
+          },
+          "digest": "6488c96fa5faab64bb65cbd30d4289e20e6130ef535a93ef9a49f42eda893ea7",
+          "name": "qwen3.5:9b",
+          "size": 6594474711
+        },
+        {
+          "capabilities": [
+            "completion",
+            "vision"
+          ],
+          "details": {
+            "context_length": 131072,
+            "embedding_length": 3840,
+            "families": [
+              "gemma3"
+            ],
+            "family": "gemma3",
+            "format": "gguf",
+            "parameter_size": "12.2B",
+            "parent_model": "",
+            "quantization_level": "Q4_K_M"
+          },
+          "digest": "f4031aab637d1ffa37b42570452ae0e4fad0314754d17ded67322e4b95836f8a",
+          "name": "gemma3:12b",
+          "size": 8149190253
+        }
+      ],
+      "options": {
+        "num_ctx": 4096,
+        "num_predict": 384,
+        "num_thread": 4,
+        "seed": 58,
+        "temperature": 0
+      },
+      "provider": "task_owned_local_ollama",
+      "provider_base_url": "http://127.0.0.1:11435",
+      "replay_ids": [],
+      "row_order": [
+        "C01",
+        "C02",
+        "C03",
+        "C04"
+      ],
+      "runtime_version": "0.34.4",
+      "schema": "s0-closed-contract-config-r4",
+      "server_environment": {
+        "OLLAMA_HOST": "127.0.0.1:11435",
+        "OLLAMA_MAX_LOADED_MODELS": "1",
+        "OLLAMA_NOPRUNE": "1",
+        "OLLAMA_NO_CLOUD": "1",
+        "OLLAMA_NUM_PARALLEL": "1"
+      },
+      "stream": false,
+      "think": false,
+      "timeout_seconds": 120
+    },
+    "R5": {
+      "allow_retries": false,
+      "formats": [
+        "closed_schema"
+      ],
+      "guaranteed_determinism": false,
+      "isolation": "Fresh witness-only root/context requests, no prior outputs or scalar class/gold available to runtime.",
+      "keep_alive": "1m",
+      "models": [
+        {
+          "capabilities": [
+            "completion",
+            "vision",
+            "tools",
+            "thinking"
+          ],
+          "details": {
+            "context_length": 262144,
+            "embedding_length": 4096,
+            "families": [
+              "qwen35"
+            ],
+            "family": "qwen35",
+            "format": "gguf",
+            "parameter_size": "9.7B",
+            "parent_model": "",
+            "quantization_level": "Q4_K_M"
+          },
+          "digest": "6488c96fa5faab64bb65cbd30d4289e20e6130ef535a93ef9a49f42eda893ea7",
+          "name": "qwen3.5:9b",
+          "size": 6594474711
+        },
+        {
+          "capabilities": [
+            "completion",
+            "vision"
+          ],
+          "details": {
+            "context_length": 131072,
+            "embedding_length": 3840,
+            "families": [
+              "gemma3"
+            ],
+            "family": "gemma3",
+            "format": "gguf",
+            "parameter_size": "12.2B",
+            "parent_model": "",
+            "quantization_level": "Q4_K_M"
+          },
+          "digest": "f4031aab637d1ffa37b42570452ae0e4fad0314754d17ded67322e4b95836f8a",
+          "name": "gemma3:12b",
+          "size": 8149190253
+        }
+      ],
+      "options": {
+        "num_ctx": 4096,
+        "num_predict": 512,
+        "num_thread": 4,
+        "seed": 58,
+        "temperature": 0
+      },
+      "provider": "task_owned_local_ollama",
+      "provider_base_url": "http://127.0.0.1:11435",
+      "replay_ids": [],
+      "row_order": [
+        "C03",
+        "C04"
+      ],
+      "runtime_version": "0.34.4",
+      "schema": "s0-witness-probe-config-r5",
+      "server_environment": {
+        "OLLAMA_HOST": "127.0.0.1:11435",
+        "OLLAMA_MAX_LOADED_MODELS": "1",
+        "OLLAMA_NOPRUNE": "1",
+        "OLLAMA_NO_CLOUD": "1",
+        "OLLAMA_NUM_PARALLEL": "1"
+      },
+      "stream": false,
+      "think": false,
+      "timeout_seconds": 150
+    }
+  },
+  "qualification_scope": "Exact local cold-model working-oracle profiles and their scalar/witness interfaces. Broad discovery and composed shadow authority were not tested or universally falsified.",
+  "recorded_at_utc": "2026-10-02T16:24:11.838674+00:00",
+  "replay": {
+    "R2_gemma_R01": {
+      "canonical_annotation_identical": false,
+      "exact_request_bytes_identical": true,
+      "original_class": "AMBIGUOUS",
+      "replay_class": "ALL_OF",
+      "request_sha256": "6e25761a1cf4602c89ccbf8dc9da9608ccce72322f7c538b991f5dea8ba5a18e"
+    },
+    "R2_other_replay": "FAILED_TRANSPORT_NOT_MEASURED",
+    "format_causal_attribution": "UNKNOWN",
+    "provider_guaranteed_determinism": false
+  },
+  "repository": "camerontjs-dot/proposition-authoring",
+  "representation_limitations": [
+    "R5 strings permit subjectless predicate fragments; typed operator/count/scope match does not carry every semantic role.",
+    "Contract A remains all_of-only; S3 representation handling NOT_RUN."
+  ],
+  "schema": "claim-structure-programme-bounded-negative-terminal",
+  "scientific_subjects": {
+    "S0_INPUT": {
+      "code_blobs": {},
+      "commit": "fee72103a4d471d80b8f78a596ef6b91873d2fbc",
+      "input_freeze_sha256": "89e15f4735a44b0e5aadb0aa4778700dfc34492c53443e6d585949b85486b67e",
+      "scientific_input_sha256": {
+        "ANNOTATION.md": "c87e8f2873a5dc144acc11e5fe2f56b6c8c6f77c76ad56f5fc8d52b2226d6989",
+        "LIVE-AUTHORITY.json": "a14bb0890137dfc5916865e61adbd545152ea40b039b0efdaba739d06286639e",
+        "NATURALISTIC-DEFINITION.md": "cbc476c6113782d7ad71f0081e93d4d813883b7ccbf10a4b94a0e8d69661cea1",
+        "PREREGISTRATION.md": "d91175cc331330c4921dd2bf30ba6f645f404786165fcfd4569d9c4cd1f3d44e",
+        "SELECTOR.json": "c67dc2d8ebe23a154ff3070c91035949188f945bbbb7592d40e4fa69c6ba1a65",
+        "mutations.jsonl": "ed5133ef7bd68e387fe533ace247ea41de6800102093c451914dd2508299e59b",
+        "targeted.jsonl": "8aa01866f86572b87633e2b68cbd19af0f1c2434a53956b3e214cde01ccd0cef"
+      },
+      "tree": "0340ade07a15070275bd8ce1ddcff08f56087d58"
+    },
+    "S0_R2": {
+      "code_blobs": {
+        "run_review.py": "9b77808a46645fef4ead516aac64179764725080"
+      },
+      "commit": "172738433e770ed96f949da2dcc0b4743f87af5f",
+      "execution_sha256": "38353d5e95b515c4c4b6bdf0bee52eba85814760fc9642df5845078368d83d3c",
+      "input_freeze_sha256": "7d5667c0de9b891b69f0edf71a551415da23a46415db6c60931fbcc130c40a65",
+      "scientific_input_sha256": {
+        "ANNOTATION.md": "6c45d2c4dc2abcfe07837539b4638b8077dc5d291d0e25bb0e949ea8b8d1423f",
+        "CONFIG.json": "434efab916c973195fcc60546c689ef8e23b8c064bae449528b71881c6465f5e",
+        "CONTROL-EXPECTATIONS.json": "1ff58820c3bdbca8849cf8934250863f198d37f230f52239cce1362b88d6a74e",
+        "LIVE-AUTHORITY.json": "d7545cc1bb56e5d61886eba8258fc405299778cc4f3d2f5ee9147bcaa47082c4",
+        "PREREGISTRATION.md": "4e6fa406e588a840db9bc606ab11570b1e8963da7c750a4480eaf3410fada3d0",
+        "PROMPT.txt": "54fe5544b5bd35fd26747708b8e7374641de16a52ec28053fe6e2f0797d1259d",
+        "SCHEMA.json": "f1836158307c55e04b62f1ea815d84b22aacc729f03f6b158b4b989dc5228041",
+        "run_review.py": "18af5b9f43ec9702a81d80ff8b20d3eaf4ba9fb884d109282d32108dab511161",
+        "targeted.jsonl": "8ed23a22857d29c3b93609bc3d95b0f46972eca9fae1ed6d1fb57414d3c5aec8"
+      },
+      "tree": "85ec892491d588ee7cb95d89fa3e50016208f66e"
+    },
+    "S0_R3": {
+      "code_blobs": {
+        "run_format.py": "c4992e08e553fbe38b222a2946474238dc4fdaa6"
+      },
+      "commit": "9e48c8663dbb9b5dad10a0f3aac40359ddf2ff36",
+      "execution_sha256": "18291a6c6f4e51432f6fedad3ef8747839b12ec7fb2b9eab01e17a66168cf688",
+      "input_freeze_sha256": "dea52abcdef24f497cb668dcc4f9d8a188e4c65a776075c3d0820109651b450f",
+      "scientific_input_sha256": {
+        "ANNOTATION.md": "6c45d2c4dc2abcfe07837539b4638b8077dc5d291d0e25bb0e949ea8b8d1423f",
+        "CONFIG.json": "be006ea956719a06414254d0ae82ca959d01c0cde588d9f10e088bd328422909",
+        "CONTROL-EXPECTATIONS.json": "560a5158070a09e65880e5528eb9ea7522ce3e1cc7aadd9247c4c7045bce8645",
+        "LIVE-AUTHORITY.json": "a676da7c4e8e99473c541fe4ec4744285545c6350ece72bf8a75eac1713cf98b",
+        "PREREGISTRATION.md": "12907bc11df71c49e7ffd97dacd5508fc609bd4bba5b06486c58aae716ca6cba",
+        "PROMPT.txt": "54fe5544b5bd35fd26747708b8e7374641de16a52ec28053fe6e2f0797d1259d",
+        "SCHEMA-REVERSED.json": "7997ed4304800792643c2b328df71b2e331502237b768dc9dd18a6072121a051",
+        "SCHEMA.json": "f1836158307c55e04b62f1ea815d84b22aacc729f03f6b158b4b989dc5228041",
+        "controls.jsonl": "5d18da0ae15e635c7f371069035d21c8ba6c823005b596d8e6fca4fc1fdc4c17",
+        "run_format.py": "9d347b1582ed148c52841a35edf668a52650bb62452aac0745cfe28cdc70292b"
+      },
+      "tree": "3d5cc0472f4c4bbc4618d9b6243ae050abb8d051"
+    },
+    "S0_R4": {
+      "code_blobs": {
+        "run_closed.py": "c759c22d0042793606c7d8fe13a266365cfe60ad"
+      },
+      "commit": "33d0e9977cdca78817323ca9b2ae1c922a16a94f",
+      "execution_sha256": "8da637a6ef5c0d09bdceb9b741323d9014c131a0f3c78d1a86b0cc5f291467f8",
+      "input_freeze_sha256": "c84c3996abb3f89ff9d4ee45180a9b1d81c84849335dd85dbfd8b7050e7bea67",
+      "scientific_input_sha256": {
+        "CONFIG.json": "184b36476cc27f3e68f0c14ce098aba856ab85e873feec3c9be3ecd9f57cc009",
+        "CONTROL-EXPECTATIONS.json": "44186ec1ef5e083da316fc8a050c6d7b8af04435339a54fe067ca7475f91294d",
+        "LIVE-AUTHORITY.json": "a6f5865106cbc1a5b4064310a49192fbb0ce1b6eb102496b3b6fdc434c3ad31e",
+        "PREREGISTRATION.md": "9327b2d27efd1b9d9bbcf427e54b9e4bbe7c1bf842c1234a8aaeea0f467965cf",
+        "PROMPT.txt": "802593b7d298e948cb1fb8a28eefbcdcd7a4f36e49d2c1967b1067e3bf4d0516",
+        "PROVIDER-IDENTITY.json": "4fe0da5e95e17d2808ec6acfac8d1fabb3d4c044224383fe89ae07d6548dae2a",
+        "SCHEMA.json": "bf26780bc647adcee8b09a020ebcc8dfdb844e03b34dc65f6e09a6a9bd7a0922",
+        "controls.jsonl": "7339769618a24f3b1a8f53b410cd8e0c218a97f55bf200f02ee690b79c8d3f8d",
+        "run_closed.py": "7b12a969d5804a55a09e1287b3cdb65ffa0fae7d8a67f7f07feaa1996a327c4a"
+      },
+      "tree": "5168392cdd82eb095c7d7ca06be5b183b67ff162"
+    },
+    "S0_R5": {
+      "code_blobs": {
+        "run_witness.py": "ee4062fef179fd4108776d2425876433dc4680f0"
+      },
+      "commit": "fe88b6d0d030f4642415a06adbf5c11b5dbd0200",
+      "execution_sha256": "073a8a1a5ef9352bc826828a4a7f70fc9e003a2a9384a16e6e723ab3bfefaf5b",
+      "input_freeze_sha256": "e6f24760775a02f5acf85b5a7bd2d6ce1006d9f4061ad83810a5ee3ec0c56cba",
+      "scientific_input_sha256": {
+        "CONFIG.json": "ac5a9b8fba3f9b9827e65946e11e208e05e81145c56981c4349f07897b018869",
+        "CONTROL-EXPECTATIONS.json": "3da6bf0e195aa1bd9e33275576f178dd0da45e9ddae97516c7530cbec78d8902",
+        "LIVE-AUTHORITY.json": "08b721be83bb1f164cd415962927cf0d13fc9f5d342e770bac5b3f3415d8f837",
+        "PREREGISTRATION.md": "c0eec193a2463d82dab42d362a82730025a97d9c80d3339dacad527241af4e7b",
+        "PROMPT.txt": "c6ee3a2c67e6711f2c4ab8ac247754a1c3eac131c4633bf8f984998019818df6",
+        "PROVIDER-IDENTITY.json": "4fe0da5e95e17d2808ec6acfac8d1fabb3d4c044224383fe89ae07d6548dae2a",
+        "SCHEMA.json": "763f7398fab6858ba1aa846ab5bb8a5aa3f437686b6dde886b737dbb5ffe37c4",
+        "controls.jsonl": "e6b5edb47276d12dfc397952cdfd24caa1d414813bb17e99e422445b09e38438",
+        "run_witness.py": "cf9358ac544047098b7af8132355bf783ee7a900f7ecd8d0ade92d909ec92af3"
+      },
+      "tree": "7d077c92dc6c35f5f45dd9391e25e41742348f73"
+    }
+  },
+  "smallest_justified_successor_hypothesis": "Source-bound independently reviewed scope/obligation certificates with explicit predicate-role bindings and completeness assurance; model proposals remain zero-authority.",
+  "smallest_next_action": "Establish and freeze that distinct oracle/assurance packet with fresh reviewed public minimal pairs before a new decisive S0/S1 run. Do not relabel/retry any preserved packet or promote raw model agreement.",
+  "terminal_kind": "BOUNDED_NEGATIVE_BRANCH_WITH_SMALLER_SUCCESSOR_HYPOTHESIS",
+  "unsafe_authority_count": null,
+  "unsafe_authority_measurement": "NOT_RUN",
+  "validation_boundary": "CI/lint establish mechanical integrity; semantic qualification failed.",
+  "verifier_identities": {
+    "S0_control_comparison": "run_witness.py operator/count/scope-component comparison; not complete semantic authority",
+    "S0_semantic_content_inspection": "coordinator_agent_llm, content-bound raw references in CONTENT-FINDINGS.json",
+    "S2_instrument_execution": "NOT_RUN",
+    "frozen_semantic_evaluator_sha256": "1091169da8e960cdf93242ee4c629c7a1a814009c8f80554f4a190f5b3fe989d",
+    "frozen_v1_code": {
+      "ambiguity.py": "133de6b2a4cfa7fc58d1f0f38a80b1c9ebb0b19d",
+      "authority.py": "428186f9586242f75acf9d6ed3973c7a197364d4",
+      "backend.py": "bcc03f1d1ec3e78591cd339d3a8600d020faf643",
+      "conservation.py": "fcd655759504807c281695f7eebf5ed3bb3a602c",
+      "coverage_backend.py": "5bb9f99d2da5b4b57375c3332ca65cb8d7aa62d6",
+      "coverage_proposers.py": "c099ec1cc2afb347c93695c2732fc3c62b53ef79",
+      "engine.py": "42ce4798e960a2f48afa7ab90147cac4fdf5799b"
+    },
+    "nli": {
+      "execution": "NOT_RUN",
+      "repository": "cross-encoder/nli-deberta-v3-small",
+      "revision": "fa2804872c3b4bd748f38c0185cc85775361e735",
+      "weights_sha256": "ebc79588dd73ccfb6a3f6078519cfbf512c5305384c5ea1845bc71cd32216e86"
+    }
+  },
+  "workflow_runs": [
+    {
+      "conclusion": "success",
+      "head_sha": "fe88b6d0d030f4642415a06adbf5c11b5dbd0200",
+      "html_url": "https://github.com/camerontjs-dot/proposition-authoring/actions/runs/37031269253",
+      "id": 37031269253,
+      "name": "CI",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "head_sha": "33d0e9977cdca78817323ca9b2ae1c922a16a94f",
+      "html_url": "https://github.com/camerontjs-dot/proposition-authoring/actions/runs/37030099440",
+      "id": 37030099440,
+      "name": "CI",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "head_sha": "9e48c8663dbb9b5dad10a0f3aac40359ddf2ff36",
+      "html_url": "https://github.com/camerontjs-dot/proposition-authoring/actions/runs/37027325697",
+      "id": 37027325697,
+      "name": "CI",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "head_sha": "172738433e770ed96f949da2dcc0b4743f87af5f",
+      "html_url": "https://github.com/camerontjs-dot/proposition-authoring/actions/runs/37026390170",
+      "id": 37026390170,
+      "name": "CI",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "head_sha": "11b7a7a2f7da73cd2adba0047013ac2c18c4976e",
+      "html_url": "https://github.com/camerontjs-dot/proposition-authoring/actions/runs/37023180351",
+      "id": 37023180351,
+      "name": "CI",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "head_sha": "fee72103a4d471d80b8f78a596ef6b91873d2fbc",
+      "html_url": "https://github.com/camerontjs-dot/proposition-authoring/actions/runs/37023104352",
+      "id": 37023104352,
+      "name": "CI",
+      "status": "completed"
+    }
+  ]
+}

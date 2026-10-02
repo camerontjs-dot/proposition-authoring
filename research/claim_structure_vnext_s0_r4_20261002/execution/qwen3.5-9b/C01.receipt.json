@@ -1,0 +1,13 @@
+{
+  "annotation_sha256": "c1b45fee6580706427ffbd1f7bb050b3c7be1190acdd2563297a30bad619101b",
+  "class_correct": true,
+  "consistency_errors": [],
+  "elapsed_seconds": 26.701,
+  "expected_class": "ATOMIC",
+  "id": "C01",
+  "judged_class": "ATOMIC",
+  "model": "qwen3.5:9b",
+  "request_sha256": "c1fbd6c2e473794c7cefc91384a75deb130d757885408c83c87de1aabc4792aa",
+  "response_sha256": "c2e1e363d245987385b460d030ec1a4c63d2d0202f0af90e2a3ebcb320b0a8af",
+  "status": "VALID_OUTPUT"
+}

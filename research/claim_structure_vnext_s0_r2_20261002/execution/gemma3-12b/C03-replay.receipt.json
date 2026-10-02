@@ -1,0 +1,10 @@
+{
+  "elapsed_seconds": 9.588,
+  "error": "Remote end closed connection without response",
+  "error_type": "RemoteDisconnected",
+  "id": "C03",
+  "model": "gemma3:12b",
+  "replay": true,
+  "request_sha256": "1064be9726cc9cfdc3177cd4aa09399405418d86f580ad8635ddee0ea4727aeb",
+  "status": "FAILED"
+}

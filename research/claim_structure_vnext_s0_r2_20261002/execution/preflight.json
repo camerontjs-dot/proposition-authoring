@@ -1,0 +1,58 @@
+{
+  "calls": [],
+  "failures": [],
+  "guaranteed_determinism": false,
+  "input_freeze_sha256": "7d5667c0de9b891b69f0edf71a551415da23a46415db6c60931fbcc130c40a65",
+  "models": [
+    {
+      "capabilities": [
+        "completion",
+        "vision"
+      ],
+      "details": {
+        "context_length": 131072,
+        "embedding_length": 3840,
+        "families": [
+          "gemma3"
+        ],
+        "family": "gemma3",
+        "format": "gguf",
+        "parameter_size": "12.2B",
+        "parent_model": "",
+        "quantization_level": "Q4_K_M"
+      },
+      "digest": "f4031aab637d1ffa37b42570452ae0e4fad0314754d17ded67322e4b95836f8a",
+      "name": "gemma3:12b",
+      "size": 8149190253
+    },
+    {
+      "capabilities": [
+        "completion",
+        "vision",
+        "tools",
+        "thinking"
+      ],
+      "details": {
+        "context_length": 262144,
+        "embedding_length": 4096,
+        "families": [
+          "qwen35"
+        ],
+        "family": "qwen35",
+        "format": "gguf",
+        "parameter_size": "9.7B",
+        "parent_model": "",
+        "quantization_level": "Q4_K_M"
+      },
+      "digest": "6488c96fa5faab64bb65cbd30d4289e20e6130ef535a93ef9a49f42eda893ea7",
+      "name": "qwen3.5:9b",
+      "size": 6594474711
+    }
+  ],
+  "provider": "local_ollama",
+  "runtime": {
+    "version": "0.34.4"
+  },
+  "schema": "s0-cold-review-execution-r2",
+  "subject_commit": "172738433e770ed96f949da2dcc0b4743f87af5f"
+}

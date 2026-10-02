@@ -1,0 +1,22 @@
+{
+  "limits": [
+    "R2 outputs remain immutable.",
+    "R3 baseline comparisons span a provider lifecycle interruption.",
+    "Same-format R2 replay changed R01 class; format differences cannot alone establish causal format effect."
+  ],
+  "observed_at_utc": "2026-10-02T15:41:59.161204+00:00",
+  "r2_semantic_calls": {
+    "gemma3_12b": "21 valid outputs; final replay failed transport",
+    "qwen3_5_9b": "No inference output; 22 transport failures"
+  },
+  "r3_state": "RUNNING_ORIGINAL_FROZEN_PROTOCOL",
+  "r4": "NOT_FROZEN_NOT_RUN",
+  "schema": "provider-lifecycle-observation",
+  "sequence": [
+    "Shared endpoint returned connection refused and no Ollama process was observed after R2 completed.",
+    "CLI version/help inspection occurred.",
+    "Shared endpoint had returned before frozen R3 preflight; R3 subsequently launched its exact original comparison.",
+    "A task-owned server at port 11435 was started for a contemplated separately frozen apparatus successor, remained inference-idle, and was stopped through its owned PTY."
+  ],
+  "shared_provider_return_cause": "UNKNOWN"
+}

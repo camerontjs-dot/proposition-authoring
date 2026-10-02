@@ -1,0 +1,15 @@
+{
+  "base_commit": "33d0e9977cdca78817323ca9b2ae1c922a16a94f",
+  "schema": "s0-r5-input-freeze",
+  "sha256": {
+    "CONFIG.json": "ac5a9b8fba3f9b9827e65946e11e208e05e81145c56981c4349f07897b018869",
+    "CONTROL-EXPECTATIONS.json": "3da6bf0e195aa1bd9e33275576f178dd0da45e9ddae97516c7530cbec78d8902",
+    "LIVE-AUTHORITY.json": "08b721be83bb1f164cd415962927cf0d13fc9f5d342e770bac5b3f3415d8f837",
+    "PREREGISTRATION.md": "c0eec193a2463d82dab42d362a82730025a97d9c80d3339dacad527241af4e7b",
+    "PROMPT.txt": "c6ee3a2c67e6711f2c4ab8ac247754a1c3eac131c4633bf8f984998019818df6",
+    "PROVIDER-IDENTITY.json": "4fe0da5e95e17d2808ec6acfac8d1fabb3d4c044224383fe89ae07d6548dae2a",
+    "SCHEMA.json": "763f7398fab6858ba1aa846ab5bb8a5aa3f437686b6dde886b737dbb5ffe37c4",
+    "controls.jsonl": "e6b5edb47276d12dfc397952cdfd24caa1d414813bb17e99e422445b09e38438",
+    "run_witness.py": "cf9358ac544047098b7af8132355bf783ee7a900f7ecd8d0ade92d909ec92af3"
+  }
+}

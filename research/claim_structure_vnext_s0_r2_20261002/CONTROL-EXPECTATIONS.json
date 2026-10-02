@@ -1,0 +1,11 @@
+{
+  "basis": "Independent construction of adversarial controls before reviewer inference; never supplied to reviewers.",
+  "classes": {
+    "C01": "ATOMIC",
+    "C02": "ALL_OF",
+    "C03": "AMBIGUOUS",
+    "C04": "NON_ALL_OF",
+    "C05": "NON_ALL_OF",
+    "C06": "AMBIGUOUS"
+  }
+}

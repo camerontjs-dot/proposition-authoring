@@ -1,0 +1,25 @@
+{
+  "main": {
+    "commit": "96efd44e9d6d2325b9bccc6d6ebdcdad9c8411b1",
+    "tree": "3f346227ebd5bc0e5f86fe3b5b77b2abf355f55c"
+  },
+  "programme": {
+    "head": "1a25c4eabffead034187f97573dc53f9e9be1b6a",
+    "base": "96efd44e9d6d2325b9bccc6d6ebdcdad9c8411b1",
+    "draft": true,
+    "state": "open"
+  },
+  "issue": {
+    "number": 58,
+    "state": "open",
+    "body_sha256": "f9ede054d2aa16492cdc9ff836bbebf9f44a22af5decd8b5c6442e8df99d1f5a"
+  },
+  "freeze": {
+    "ref": "refs/heads/freeze/claim-structure-vnext-program-rc0-20261002",
+    "object": {
+      "sha": "1a25c4eabffead034187f97573dc53f9e9be1b6a",
+      "type": "commit",
+      "url": "https://api.github.com/repos/camerontjs-dot/proposition-authoring/git/commits/1a25c4eabffead034187f97573dc53f9e9be1b6a"
+    }
+  }
+}
