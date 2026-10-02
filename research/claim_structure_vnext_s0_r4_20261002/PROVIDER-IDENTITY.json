@@ -1,0 +1,23 @@
+{
+  "cloud_features": false,
+  "command": "ollama serve",
+  "executable_sha256": "bba8b79eac84ab092b9568978c1116e6c950eda588961b14d8608ac683a2af0b",
+  "loopback": "127.0.0.1:11435",
+  "max_loaded_models": 1,
+  "model_digests": {
+    "gemma3:12b": "f4031aab637d1ffa37b42570452ae0e4fad0314754d17ded67322e4b95836f8a",
+    "qwen3.5:9b": "6488c96fa5faab64bb65cbd30d4289e20e6130ef535a93ef9a49f42eda893ea7"
+  },
+  "owned_session_id": 51075,
+  "provider": "task_owned_local_ollama",
+  "pruning": false,
+  "runtime_version": "0.34.4",
+  "schema": "research-provider-identity",
+  "server_environment": {
+    "OLLAMA_HOST": "127.0.0.1:11435",
+    "OLLAMA_MAX_LOADED_MODELS": "1",
+    "OLLAMA_NOPRUNE": "1",
+    "OLLAMA_NO_CLOUD": "1",
+    "OLLAMA_NUM_PARALLEL": "1"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "class": {
+      "enum": [
+        "ATOMIC",
+        "ALL_OF",
+        "AMBIGUOUS",
+        "NON_ALL_OF",
+        "UNRESOLVED_REVIEW"
+      ],
+      "type": "string"
+    },
+    "first_reading": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string"
+    },
+    "second_reading": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "class",
+    "first_reading",
+    "second_reading"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,9 @@
+{
+  "classes": {
+    "C01": "ATOMIC",
+    "C02": "ALL_OF",
+    "C03": "AMBIGUOUS",
+    "C04": "NON_ALL_OF"
+  },
+  "source": "Exact previously frozen constructed controls; not fresh public decisive cases."
+}
