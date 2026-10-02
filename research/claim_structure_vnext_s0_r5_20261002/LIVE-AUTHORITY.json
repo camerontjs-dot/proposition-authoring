@@ -1,0 +1,8 @@
+{
+  "S1": "NOT_RUN",
+  "checked_at_utc": "2026-10-02T16:03:05.475934+00:00",
+  "main": "96efd44e9d6d2325b9bccc6d6ebdcdad9c8411b1",
+  "programme_freeze_commit": "1a25c4eabffead034187f97573dc53f9e9be1b6a",
+  "programme_pr_59_head": "1a25c4eabffead034187f97573dc53f9e9be1b6a",
+  "r4_execution_sha256": "8da637a6ef5c0d09bdceb9b741323d9014c131a0f3c78d1a86b0cc5f291467f8"
+}

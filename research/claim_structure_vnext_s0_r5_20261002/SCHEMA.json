@@ -1,0 +1,57 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "location_scope_alternatives": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "first_event": {
+            "enum": [
+              "Ontario",
+              "UNSPECIFIED"
+            ],
+            "type": "string"
+          },
+          "second_event": {
+            "enum": [
+              "Ontario",
+              "UNSPECIFIED"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "first_event",
+          "second_event"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "operator": {
+      "enum": [
+        "atomic",
+        "all_of",
+        "any_of",
+        "unresolved"
+      ],
+      "type": "string"
+    },
+    "predications": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "id",
+    "operator",
+    "predications",
+    "location_scope_alternatives"
+  ],
+  "type": "object"
+}

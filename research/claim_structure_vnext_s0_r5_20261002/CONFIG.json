@@ -1,0 +1,81 @@
+{
+  "allow_retries": false,
+  "formats": [
+    "closed_schema"
+  ],
+  "guaranteed_determinism": false,
+  "isolation": "Fresh witness-only root/context requests, no prior outputs or scalar class/gold available to runtime.",
+  "keep_alive": "1m",
+  "models": [
+    {
+      "capabilities": [
+        "completion",
+        "vision",
+        "tools",
+        "thinking"
+      ],
+      "details": {
+        "context_length": 262144,
+        "embedding_length": 4096,
+        "families": [
+          "qwen35"
+        ],
+        "family": "qwen35",
+        "format": "gguf",
+        "parameter_size": "9.7B",
+        "parent_model": "",
+        "quantization_level": "Q4_K_M"
+      },
+      "digest": "6488c96fa5faab64bb65cbd30d4289e20e6130ef535a93ef9a49f42eda893ea7",
+      "name": "qwen3.5:9b",
+      "size": 6594474711
+    },
+    {
+      "capabilities": [
+        "completion",
+        "vision"
+      ],
+      "details": {
+        "context_length": 131072,
+        "embedding_length": 3840,
+        "families": [
+          "gemma3"
+        ],
+        "family": "gemma3",
+        "format": "gguf",
+        "parameter_size": "12.2B",
+        "parent_model": "",
+        "quantization_level": "Q4_K_M"
+      },
+      "digest": "f4031aab637d1ffa37b42570452ae0e4fad0314754d17ded67322e4b95836f8a",
+      "name": "gemma3:12b",
+      "size": 8149190253
+    }
+  ],
+  "options": {
+    "num_ctx": 4096,
+    "num_predict": 512,
+    "num_thread": 4,
+    "seed": 58,
+    "temperature": 0
+  },
+  "provider": "task_owned_local_ollama",
+  "provider_base_url": "http://127.0.0.1:11435",
+  "replay_ids": [],
+  "row_order": [
+    "C03",
+    "C04"
+  ],
+  "runtime_version": "0.34.4",
+  "schema": "s0-witness-probe-config-r5",
+  "server_environment": {
+    "OLLAMA_HOST": "127.0.0.1:11435",
+    "OLLAMA_MAX_LOADED_MODELS": "1",
+    "OLLAMA_NOPRUNE": "1",
+    "OLLAMA_NO_CLOUD": "1",
+    "OLLAMA_NUM_PARALLEL": "1"
+  },
+  "stream": false,
+  "think": false,
+  "timeout_seconds": 150
+}
