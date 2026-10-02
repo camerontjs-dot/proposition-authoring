@@ -1,0 +1,62 @@
+{
+  "schema": "claim-gate-structure-successor-program-v1",
+  "issue": 58,
+  "created": "2026-10-02",
+  "frozen_v1_control": {
+    "repository": "camerontjs-dot/proposition-authoring",
+    "commit": "89ca88c7f0a661601f7eb798b6759667fa20ab3f"
+  },
+  "authority": {
+    "proposal_is_authority": false,
+    "downstream_outcomes_may_select_structure": false,
+    "majority_vote_may_grant_authority": false,
+    "model_confidence_may_grant_authority": false
+  },
+  "research_states": [
+    "ATOMIC",
+    "ALL_OF",
+    "ANY_OF",
+    "IF_THEN",
+    "SCOPED",
+    "OTHER",
+    "AMBIGUOUS",
+    "COVERAGE_LIMITATION",
+    "REPRESENTATION_UNSUPPORTED",
+    "FAILED"
+  ],
+  "stages": [
+    {
+      "id": "S0",
+      "name": "target-and-corpus-freeze"
+    },
+    {
+      "id": "S1",
+      "name": "broad-discovery-comparison"
+    },
+    {
+      "id": "S2",
+      "name": "authority-instrument-qualification"
+    },
+    {
+      "id": "S3",
+      "name": "composed-shadow-authority"
+    },
+    {
+      "id": "S4",
+      "name": "context-free-reproduction"
+    },
+    {
+      "id": "S5",
+      "name": "naturalistic-shadow"
+    },
+    {
+      "id": "S6",
+      "name": "smallest-justified-promotion"
+    }
+  ],
+  "promotion_boundary": {
+    "frozen_v1_must_remain_unchanged": true,
+    "new_contract_authority_requires_separate_governance": true,
+    "research_success_is_not_release_authorization": true
+  }
+}
