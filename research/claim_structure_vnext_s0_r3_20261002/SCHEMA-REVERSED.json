@@ -1,0 +1,85 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "alternatives": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "children": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "operator": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "operator",
+          "children",
+          "scope"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "basis": {
+      "type": "string"
+    },
+    "children": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "class": {
+      "enum": [
+        "UNRESOLVED_REVIEW",
+        "NON_ALL_OF",
+        "AMBIGUOUS",
+        "ALL_OF",
+        "ATOMIC"
+      ],
+      "type": "string"
+    },
+    "confidence": {
+      "enum": [
+        "high",
+        "moderate",
+        "low"
+      ],
+      "type": "string"
+    },
+    "id": {
+      "type": "string"
+    },
+    "operator": {
+      "type": "string"
+    },
+    "scoped_obligations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "unresolved": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "id",
+    "class",
+    "operator",
+    "children",
+    "scoped_obligations",
+    "alternatives",
+    "basis",
+    "confidence",
+    "unresolved"
+  ],
+  "type": "object"
+}
