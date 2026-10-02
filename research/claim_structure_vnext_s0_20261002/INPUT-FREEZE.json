@@ -1,0 +1,54 @@
+{
+  "adversarial_controls": 12,
+  "allowed_dispositions": [
+    "FROZEN_WORKING_ORACLE",
+    "INCONCLUSIVE_REVIEW",
+    "FAILED"
+  ],
+  "base_commit": "1a25c4eabffead034187f97573dc53f9e9be1b6a",
+  "base_tree": "beb4c6001fe9929414082f0caa69374adc66b40d",
+  "corpus_n": 24,
+  "evaluator": "agent_llm; separate no-development-history review pending",
+  "frozen_v1": {
+    "code_blobs": {
+      "ambiguity.py": "133de6b2a4cfa7fc58d1f0f38a80b1c9ebb0b19d",
+      "authority.py": "428186f9586242f75acf9d6ed3973c7a197364d4",
+      "backend.py": "bcc03f1d1ec3e78591cd339d3a8600d020faf643",
+      "conservation.py": "fcd655759504807c281695f7eebf5ed3bb3a602c",
+      "coverage_backend.py": "5bb9f99d2da5b4b57375c3332ca65cb8d7aa62d6",
+      "coverage_proposers.py": "c099ec1cc2afb347c93695c2732fc3c62b53ef79",
+      "engine.py": "42ce4798e960a2f48afa7ab90147cac4fdf5799b"
+    },
+    "commit": "89ca88c7f0a661601f7eb798b6759667fa20ab3f",
+    "tree": "50a4a2f9bc694aa71f1943637e63afad1e6ee883"
+  },
+  "input_hashes": {
+    "ANNOTATION.md": "c87e8f2873a5dc144acc11e5fe2f56b6c8c6f77c76ad56f5fc8d52b2226d6989",
+    "LIVE-AUTHORITY.json": "a14bb0890137dfc5916865e61adbd545152ea40b039b0efdaba739d06286639e",
+    "NATURALISTIC-DEFINITION.md": "cbc476c6113782d7ad71f0081e93d4d813883b7ccbf10a4b94a0e8d69661cea1",
+    "PREREGISTRATION.md": "d91175cc331330c4921dd2bf30ba6f645f404786165fcfd4569d9c4cd1f3d44e",
+    "SELECTOR.json": "c67dc2d8ebe23a154ff3070c91035949188f945bbbb7592d40e4fa69c6ba1a65",
+    "mutations.jsonl": "ed5133ef7bd68e387fe533ace247ea41de6800102093c451914dd2508299e59b",
+    "targeted.jsonl": "8aa01866f86572b87633e2b68cbd19af0f1c2434a53956b3e214cde01ccd0cef"
+  },
+  "mutation_suite": {
+    "hard": 20,
+    "n": 28,
+    "valid": 8
+  },
+  "non_claims": [
+    "naturalistic prevalence",
+    "human gold",
+    "production promotion",
+    "universal language correctness"
+  ],
+  "protected_predecessors": {
+    "RC0": "INCONCLUSIVE",
+    "RC1": "BLOCKED_INSUFFICIENT_REVIEW_STRATUM"
+  },
+  "public_claims": 12,
+  "schema": "claim-structure-s0-input-freeze-v1",
+  "stage": "S0",
+  "state": "designed",
+  "subject": "new evaluation surface, no successor runtime"
+}

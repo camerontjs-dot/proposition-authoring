@@ -1,0 +1,33 @@
+{
+  "schema": "targeted-selector-v1",
+  "mode": "owner selected semantic families before Gate/proposer execution; exact spans for public claims",
+  "ordered_ids": [
+    "T01",
+    "T02",
+    "T03",
+    "T04",
+    "T05",
+    "T06",
+    "T07",
+    "T08",
+    "T09",
+    "T10",
+    "T11",
+    "T12",
+    "T13",
+    "T14",
+    "T15",
+    "T16",
+    "T17",
+    "T18",
+    "T19",
+    "T20",
+    "T21",
+    "T22",
+    "T23",
+    "T24"
+  ],
+  "exclusions": "no RC0/RC1 cases, Gate-derived selection, or later substitutions",
+  "stop": "all selected IDs must retain one review result; unresolved review is preserved and blocks positive qualification",
+  "naturalistic_selector": "separate later S5 source manifest; no capability class balancing"
+}
