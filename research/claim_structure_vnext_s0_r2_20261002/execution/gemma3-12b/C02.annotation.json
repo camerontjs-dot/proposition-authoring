@@ -1,0 +1,1 @@
+{"alternatives": [], "basis": "Preserve all asserted content.", "children": ["Ada measured 12 kPa", "Bea recorded 4 kg"], "class": "ALL_OF", "confidence": "low", "id": "C02", "operator": "AND", "scoped_obligations": ["Ada's measurement occurred in Ontario during 2024.", "Bea's recording occurred in Ontario during 2024."], "unresolved": false}

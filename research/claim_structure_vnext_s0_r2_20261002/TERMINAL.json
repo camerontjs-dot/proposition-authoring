@@ -1,0 +1,16 @@
+{
+  "disposition": "FALSIFIED_COLD_REVIEW_ORACLE",
+  "execution_sha256": "38353d5e95b515c4c4b6bdf0bee52eba85814760fc9642df5845078368d83d3c",
+  "independent_reproduction": "NOT_RUN",
+  "limits": [
+    "Later partial transport failure; qwen3.5 semantic review NOT_RUN."
+  ],
+  "production_authority": "NOT_RUN",
+  "protected_states": {
+    "RC0": "INCONCLUSIVE",
+    "RC1": "BLOCKED_INSUFFICIENT_REVIEW_STRATUM"
+  },
+  "schema": "s0-stage-terminal",
+  "stage": "S0-R2",
+  "subject_commit": "172738433e770ed96f949da2dcc0b4743f87af5f"
+}

@@ -1,0 +1,10 @@
+{
+  "elapsed_seconds": 0.001,
+  "error": "<urlopen error [Errno 61] Connection refused>",
+  "error_type": "URLError",
+  "id": "C02",
+  "model": "qwen3.5:9b",
+  "replay": false,
+  "request_sha256": "a04cd0fa214adf54fe81d19772fd7f2cbf16586b57d9959d1d5644513a8ac352",
+  "status": "FAILED"
+}

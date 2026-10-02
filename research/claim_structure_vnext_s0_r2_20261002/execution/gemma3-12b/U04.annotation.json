@@ -1,0 +1,1 @@
+{"alternatives": [], "basis": "The root asserts the composition and visibility of Jupiter's rings.", "children": ["The rings are composed of small, dark particles", "they are difficult to see", "except when backlit by the Sun"], "class": "ALL_OF", "confidence": "low", "id": "U04", "operator": "AND", "scoped_obligations": [], "unresolved": false}

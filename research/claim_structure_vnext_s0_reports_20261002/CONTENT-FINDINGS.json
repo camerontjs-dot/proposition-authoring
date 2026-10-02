@@ -1,0 +1,75 @@
+{
+  "findings": [
+    {
+      "annotation_sha256": "6cf5b26413819f2da5f45bcaa5aff153b1228c445b982000f518d16c704d26e3",
+      "assurance": "Direct comparison against prospective synthetic control and frozen rule; not human review or universal semantic truth.",
+      "basis": "Two independent measured/recorded events are labeled ATOMIC despite the frozen ALL_OF rule.",
+      "control": "C02",
+      "evaluator": "coordinator_agent_llm",
+      "finding": "CLEAR_COMPOSITE_LABELED_ATOMIC",
+      "model": "qwen3.5-9b",
+      "stage": "r4"
+    },
+    {
+      "annotation_sha256": "452cc6117454216a83c47a2b8d3be6307473360cdece2b91a3823348b306f1d6",
+      "assurance": "Direct comparison against prospective synthetic control and frozen rule; not human review or universal semantic truth.",
+      "basis": "Shared Ontario scope is selected; the required local-only reading is missing.",
+      "control": "C03",
+      "evaluator": "coordinator_agent_llm",
+      "finding": "KNOWN_SCOPE_ALTERNATIVE_SILENTLY_SELECTED",
+      "model": "qwen3.5-9b",
+      "stage": "r4"
+    },
+    {
+      "annotation_sha256": "1f6d9731ffb685b142375c217fd956f06ff632123ab22b05194f4e4dc5e26ca5",
+      "assurance": "Direct comparison against prospective synthetic control and frozen rule; not human review or universal semantic truth.",
+      "basis": "Only the original ambiguous wording is returned under ALL_OF; no competing scope reading is supplied.",
+      "control": "C03",
+      "evaluator": "coordinator_agent_llm",
+      "finding": "KNOWN_AMBIGUITY_LABELED_ALL_OF",
+      "model": "gemma3-12b",
+      "stage": "r4"
+    },
+    {
+      "annotation_sha256": "bd06cc869cf196c33df09d7b3315939d36a9a70bd19ad6c904f70c62e906f92d",
+      "assurance": "Direct comparison against prospective synthetic control and frozen rule; not human review or universal semantic truth.",
+      "basis": "The reading changes the root disjunction to conjunction.",
+      "control": "C04",
+      "evaluator": "coordinator_agent_llm",
+      "finding": "OR_CHANGED_TO_AND",
+      "model": "gemma3-12b",
+      "stage": "r4"
+    },
+    {
+      "annotation_sha256": "2d9df90e7f4e492d207938d0ea0dad4f25e3c39093c33422724e273c5f67f825",
+      "assurance": "Direct comparison against prospective synthetic control and frozen rule; not human review or universal semantic truth.",
+      "basis": "The first binding assignment drops Ontario from both events; the valid first=UNSPECIFIED,second=Ontario reading is omitted.",
+      "control": "C03",
+      "evaluator": "coordinator_agent_llm",
+      "finding": "ROOT_QUALIFIER_DROPPED_AND_VALID_ALTERNATIVE_OMITTED",
+      "model": "qwen3.5-9b",
+      "stage": "r5"
+    },
+    {
+      "annotation_sha256": "2d9df90e7f4e492d207938d0ea0dad4f25e3c39093c33422724e273c5f67f825",
+      "assurance": "Direct comparison against prospective synthetic control and frozen rule; not human review or universal semantic truth.",
+      "basis": "The same invalid no-Ontario assignment and missing local-only reading occur; agreement is not authority.",
+      "control": "C03",
+      "evaluator": "coordinator_agent_llm",
+      "finding": "ROOT_QUALIFIER_DROPPED_AND_VALID_ALTERNATIVE_OMITTED",
+      "model": "gemma3-12b",
+      "stage": "r5"
+    },
+    {
+      "annotation_sha256": "831b1864659bc8ab8b6832d97d20140fd8b1e0d28856ebdb181505888a3b764d",
+      "assurance": "Direct comparison against prospective synthetic control and frozen rule; not human review or universal semantic truth.",
+      "basis": "Predications are is open and is running without the valve/pump subjects. Operator/count/location-component match does not establish complete semantic preservation.",
+      "control": "C04",
+      "evaluator": "coordinator_agent_llm",
+      "finding": "SUBJECT_ROLES_LOST_DESPITE_COMPONENT_MATCH",
+      "model": "gemma3-12b",
+      "stage": "r5"
+    }
+  ],
+  "schema": "s0-coordinator-content-inspection"
+}

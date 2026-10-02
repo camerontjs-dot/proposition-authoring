@@ -1,0 +1,22 @@
+{
+  "canonical_s0_freeze": "NOT_FOUND_404",
+  "checked_at_utc": "2026-10-02T16:13:34.619459+00:00",
+  "evidence_pr_62": "DRAFT",
+  "frozen_v1_pr_54_head": "89ca88c7f0a661601f7eb798b6759667fa20ab3f",
+  "frozen_v1_tree": "50a4a2f9bc694aa71f1943637e63afad1e6ee883",
+  "main": "96efd44e9d6d2325b9bccc6d6ebdcdad9c8411b1",
+  "programme_freeze_commit": "1a25c4eabffead034187f97573dc53f9e9be1b6a",
+  "programme_issue_58_state": "OPEN",
+  "programme_pr_59_head": "1a25c4eabffead034187f97573dc53f9e9be1b6a",
+  "repository": "camerontjs-dot/proposition-authoring",
+  "schema": "final-live-authority",
+  "v1_code_blobs": {
+    "ambiguity.py": "133de6b2a4cfa7fc58d1f0f38a80b1c9ebb0b19d",
+    "authority.py": "428186f9586242f75acf9d6ed3973c7a197364d4",
+    "backend.py": "bcc03f1d1ec3e78591cd339d3a8600d020faf643",
+    "conservation.py": "fcd655759504807c281695f7eebf5ed3bb3a602c",
+    "coverage_backend.py": "5bb9f99d2da5b4b57375c3332ca65cb8d7aa62d6",
+    "coverage_proposers.py": "c099ec1cc2afb347c93695c2732fc3c62b53ef79",
+    "engine.py": "42ce4798e960a2f48afa7ab90147cac4fdf5799b"
+  }
+}

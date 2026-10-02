@@ -1,0 +1,17 @@
+{
+  "actual_cells": 12,
+  "authoritative_execution_sha256": "18291a6c6f4e51432f6fedad3ef8747839b12ec7fb2b9eab01e17a66168cf688",
+  "basis": "Wrapper hard-coded a persistent-preflight-failure interpretation before waiting for the subprocess. Actual return code is 0 and EXECUTION.json contains measured cells. Preserve the invalid wrapper unchanged, exclude its interpretation from evidence authority.",
+  "disposition": "SUPERSEDES_INVALID_WRAPPER_INTERPRETATION",
+  "format_causal_attribution": "UNKNOWN_MODEL_VARIABILITY_AND_LIFECYCLE_CONFOUND",
+  "format_cells_executed_for": "gemma3:12b",
+  "invalid_wrapper_artifact": "APPARATUS-FAILURE.json",
+  "invalid_wrapper_sha256": "d5f51bcd74b77e026708fcbb5922f4ab1f8f7ef450c6bcd683ced397110e7a2e",
+  "qwen_semantic_cells": "NOT_RUN_FAILED_PREDECESSOR_BASELINE",
+  "schema": "s0-r3-wrapper-receipt-correction",
+  "status_counts": {
+    "FAILED": 3,
+    "FAILED_PREDECESSOR": 3,
+    "VALID_OUTPUT": 6
+  }
+}

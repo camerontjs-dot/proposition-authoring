@@ -1,0 +1,995 @@
+{
+  "artifact_identities": {
+    "r2_config_sha256": "434efab916c973195fcc60546c689ef8e23b8c064bae449528b71881c6465f5e",
+    "r2_corpus_sha256": "8ed23a22857d29c3b93609bc3d95b0f46972eca9fae1ed6d1fb57414d3c5aec8",
+    "r2_execution_sha256": "38353d5e95b515c4c4b6bdf0bee52eba85814760fc9642df5845078368d83d3c",
+    "r2_prompt_sha256": "54fe5544b5bd35fd26747708b8e7374641de16a52ec28053fe6e2f0797d1259d",
+    "r3_config_sha256": "be006ea956719a06414254d0ae82ca959d01c0cde588d9f10e088bd328422909",
+    "r3_execution_sha256": "18291a6c6f4e51432f6fedad3ef8747839b12ec7fb2b9eab01e17a66168cf688",
+    "r3_prompt_sha256": "54fe5544b5bd35fd26747708b8e7374641de16a52ec28053fe6e2f0797d1259d",
+    "r4_execution_sha256": "8da637a6ef5c0d09bdceb9b741323d9014c131a0f3c78d1a86b0cc5f291467f8",
+    "r5_execution_sha256": "073a8a1a5ef9352bc826828a4a7f70fc9e003a2a9384a16e6e723ab3bfefaf5b"
+  },
+  "basis": "Physical raw request/response cache. Constructed-control class expectations were frozen before inference. Class correctness does not establish content correctness.",
+  "format_class_changes": [
+    {
+      "altered_class": null,
+      "altered_format": "json_only",
+      "class_changed": null,
+      "id": "C01",
+      "model": "gemma3:12b",
+      "original_class": "AMBIGUOUS"
+    },
+    {
+      "altered_class": "AMBIGUOUS",
+      "altered_format": "reversed_class_enum",
+      "class_changed": false,
+      "id": "C01",
+      "model": "gemma3:12b",
+      "original_class": "AMBIGUOUS"
+    },
+    {
+      "altered_class": null,
+      "altered_format": "json_only",
+      "class_changed": null,
+      "id": "C03",
+      "model": "gemma3:12b",
+      "original_class": "ALL_OF"
+    },
+    {
+      "altered_class": "ALL_OF",
+      "altered_format": "reversed_class_enum",
+      "class_changed": false,
+      "id": "C03",
+      "model": "gemma3:12b",
+      "original_class": "ALL_OF"
+    },
+    {
+      "altered_class": null,
+      "altered_format": "json_only",
+      "class_changed": null,
+      "id": "C04",
+      "model": "gemma3:12b",
+      "original_class": "NON_ALL_OF"
+    },
+    {
+      "altered_class": "NON_ALL_OF",
+      "altered_format": "reversed_class_enum",
+      "class_changed": false,
+      "id": "C04",
+      "model": "gemma3:12b",
+      "original_class": "NON_ALL_OF"
+    },
+    {
+      "altered_class": null,
+      "altered_format": "json_only",
+      "class_changed": null,
+      "id": "C01",
+      "model": "qwen3.5:9b",
+      "original_class": null
+    },
+    {
+      "altered_class": null,
+      "altered_format": "reversed_class_enum",
+      "class_changed": null,
+      "id": "C01",
+      "model": "qwen3.5:9b",
+      "original_class": null
+    },
+    {
+      "altered_class": null,
+      "altered_format": "json_only",
+      "class_changed": null,
+      "id": "C03",
+      "model": "qwen3.5:9b",
+      "original_class": null
+    },
+    {
+      "altered_class": null,
+      "altered_format": "reversed_class_enum",
+      "class_changed": null,
+      "id": "C03",
+      "model": "qwen3.5:9b",
+      "original_class": null
+    },
+    {
+      "altered_class": null,
+      "altered_format": "json_only",
+      "class_changed": null,
+      "id": "C04",
+      "model": "qwen3.5:9b",
+      "original_class": null
+    },
+    {
+      "altered_class": null,
+      "altered_format": "reversed_class_enum",
+      "class_changed": null,
+      "id": "C04",
+      "model": "qwen3.5:9b",
+      "original_class": null
+    }
+  ],
+  "proposer_or_shadow_authority_metrics": "NOT_RUN",
+  "public_semantic_accuracy": "NOT_MEASURED_NO_QUALIFIED_GOLD",
+  "r2": [
+    {
+      "control_class_correct": 4,
+      "control_results_by_expected_class": {
+        "ALL_OF": {
+          "class_correct": 1,
+          "planned_controls": 1,
+          "valid_outputs": 1
+        },
+        "AMBIGUOUS": {
+          "class_correct": 1,
+          "planned_controls": 2,
+          "valid_outputs": 2
+        },
+        "ATOMIC": {
+          "class_correct": 0,
+          "planned_controls": 1,
+          "valid_outputs": 1
+        },
+        "NON_ALL_OF": {
+          "class_correct": 2,
+          "planned_controls": 2,
+          "valid_outputs": 2
+        }
+      },
+      "internal_consistency_failures": 10,
+      "judged_class_counts_by_group": {
+        "public_pre_existing": {
+          "ALL_OF": 6,
+          "AMBIGUOUS": 5,
+          "NON_ALL_OF": 1
+        },
+        "public_replay_anchor": {
+          "ALL_OF": 1,
+          "AMBIGUOUS": 1
+        },
+        "synthetic_adversarial_control": {
+          "ALL_OF": 2,
+          "AMBIGUOUS": 2,
+          "NON_ALL_OF": 2
+        }
+      },
+      "model": "gemma3-12b",
+      "planned_controls": 6,
+      "replay": [
+        {
+          "canonical_annotation_identical": false,
+          "id": "R01",
+          "status": "MEASURED"
+        },
+        {
+          "canonical_annotation_identical": null,
+          "id": "C03",
+          "status": "FAILED_OR_NOT_RUN"
+        }
+      ],
+      "rows": [
+        {
+          "annotation_sha256": "596d2092183caf2d0a8bef78238bdca88647867baa9f13959b8d7a013e388c7d",
+          "consistency_errors": [
+            "AMBIGUITY_WITHOUT_TWO_UNSELECTED_READINGS"
+          ],
+          "group": "public_pre_existing",
+          "id": "U01",
+          "judged_class": "AMBIGUOUS",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "annotation_sha256": "5e559e8b4daab32972a2d2aa4d751d14a11430609c61ae91bcfdd60a9e277785",
+          "consistency_errors": [
+            "AMBIGUITY_WITHOUT_TWO_UNSELECTED_READINGS"
+          ],
+          "group": "public_pre_existing",
+          "id": "U02",
+          "judged_class": "AMBIGUOUS",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "annotation_sha256": "81f66ba37970909408cbaf63e134c11c9e3fb5f3fb179ddb9419b6e18bcf14c3",
+          "consistency_errors": [
+            "AMBIGUITY_WITHOUT_TWO_UNSELECTED_READINGS"
+          ],
+          "group": "public_pre_existing",
+          "id": "U03",
+          "judged_class": "AMBIGUOUS",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "annotation_sha256": "e6893214f3f6fb7a6eaaa9520baf23cb545b922b0d0eb5fc5347b72c11145e38",
+          "consistency_errors": [],
+          "group": "public_pre_existing",
+          "id": "U04",
+          "judged_class": "ALL_OF",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "annotation_sha256": "2c343d3281d19eeea33806744a7001f3060c227dd46f23b9eafd554a81f36594",
+          "consistency_errors": [],
+          "group": "public_pre_existing",
+          "id": "U05",
+          "judged_class": "ALL_OF",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "annotation_sha256": "e434c4da69a91ae216de5e08d3e9ed500b302bca5b709e78f495ee496bed6330",
+          "consistency_errors": [],
+          "group": "public_pre_existing",
+          "id": "U06",
+          "judged_class": "ALL_OF",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "annotation_sha256": "0405fc44275792d19cd0c67aa9dfff3d0390f6a0ff044ed8338196ae9f3076da",
+          "consistency_errors": [],
+          "group": "public_pre_existing",
+          "id": "U07",
+          "judged_class": "ALL_OF",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "annotation_sha256": "6c539cbaa474b847c04551169511ce4f0b8dd3fa5b577221209927de470a1c80",
+          "consistency_errors": [
+            "AMBIGUITY_WITHOUT_TWO_UNSELECTED_READINGS"
+          ],
+          "group": "public_pre_existing",
+          "id": "U08",
+          "judged_class": "AMBIGUOUS",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "annotation_sha256": "7044fe8c0f51edf7b34b10a2ca0555b6dbc06610d524d95d7dd72d996f033f08",
+          "consistency_errors": [
+            "ALL_OF_WITHOUT_TWO_CHILDREN"
+          ],
+          "group": "public_pre_existing",
+          "id": "U09",
+          "judged_class": "ALL_OF",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "annotation_sha256": "245fe072524c33e7069432d32545c9ed1845beb156713ecaf04146bf32510f41",
+          "consistency_errors": [],
+          "group": "public_pre_existing",
+          "id": "U10",
+          "judged_class": "NON_ALL_OF",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "annotation_sha256": "02eaf11e58c71172a946da979983b0c70f03698072dcf0bedd6c8e81e8c783a0",
+          "consistency_errors": [
+            "AMBIGUITY_WITHOUT_TWO_UNSELECTED_READINGS"
+          ],
+          "group": "public_pre_existing",
+          "id": "U11",
+          "judged_class": "AMBIGUOUS",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "annotation_sha256": "66a6463ff71a80b56be00603afc6ac9dedcce79c84bb772c73715cbdb7d1e4b5",
+          "consistency_errors": [],
+          "group": "public_pre_existing",
+          "id": "U12",
+          "judged_class": "ALL_OF",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "annotation_sha256": "e51fd7715c7547ca9b1d8d391034ee9b3e1cae94f13e47f7d82736ed6a9858fa",
+          "consistency_errors": [
+            "AMBIGUITY_WITHOUT_TWO_UNSELECTED_READINGS"
+          ],
+          "group": "public_replay_anchor",
+          "id": "R01",
+          "judged_class": "AMBIGUOUS",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "annotation_sha256": "b6e6df26206d19fc783126d1a45e2fd3b1809fad0a483f22a8e63d13ccfd9604",
+          "consistency_errors": [
+            "ALL_OF_WITHOUT_TWO_CHILDREN"
+          ],
+          "group": "public_replay_anchor",
+          "id": "R02",
+          "judged_class": "ALL_OF",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "annotation_sha256": "42d660e4412a12bbe67afadc44a80307b88cb5f064bffb192207f3086373acef",
+          "class_correct": false,
+          "consistency_errors": [
+            "AMBIGUITY_WITHOUT_TWO_UNSELECTED_READINGS"
+          ],
+          "expected_class": "ATOMIC",
+          "group": "synthetic_adversarial_control",
+          "id": "C01",
+          "judged_class": "AMBIGUOUS",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "annotation_sha256": "c13b7470c35ee21ae4fac498c14880a9ff966cba7ec20fd94ca1ef1eafb415bb",
+          "class_correct": true,
+          "consistency_errors": [],
+          "expected_class": "ALL_OF",
+          "group": "synthetic_adversarial_control",
+          "id": "C02",
+          "judged_class": "ALL_OF",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "annotation_sha256": "45b2d182e2e00c09fb27511318040b1ef4b7e40c2f65aee4900a656f84d53b92",
+          "class_correct": false,
+          "consistency_errors": [],
+          "expected_class": "AMBIGUOUS",
+          "group": "synthetic_adversarial_control",
+          "id": "C03",
+          "judged_class": "ALL_OF",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "annotation_sha256": "2a2b4bfb7a71c40540a8a29678883757c92d346ca4307095ddb4347c01a51afc",
+          "class_correct": true,
+          "consistency_errors": [],
+          "expected_class": "NON_ALL_OF",
+          "group": "synthetic_adversarial_control",
+          "id": "C04",
+          "judged_class": "NON_ALL_OF",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "annotation_sha256": "7c04b0e8bdb83858e8a432aff9218ce0ae0ad5dd0062cb7f470159ddd6acb821",
+          "class_correct": true,
+          "consistency_errors": [],
+          "expected_class": "NON_ALL_OF",
+          "group": "synthetic_adversarial_control",
+          "id": "C05",
+          "judged_class": "NON_ALL_OF",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "annotation_sha256": "d0a99d9a67c469c8aa5344a5ce4c51ef135ef1bfeaac8f5d549e895bb078889b",
+          "class_correct": true,
+          "consistency_errors": [
+            "AMBIGUITY_WITHOUT_TWO_UNSELECTED_READINGS"
+          ],
+          "expected_class": "AMBIGUOUS",
+          "group": "synthetic_adversarial_control",
+          "id": "C06",
+          "judged_class": "AMBIGUOUS",
+          "status": "VALID_OUTPUT"
+        }
+      ]
+    },
+    {
+      "control_class_correct": null,
+      "control_results_by_expected_class": {
+        "ALL_OF": {
+          "class_correct": null,
+          "planned_controls": 1,
+          "valid_outputs": 0
+        },
+        "AMBIGUOUS": {
+          "class_correct": null,
+          "planned_controls": 2,
+          "valid_outputs": 0
+        },
+        "ATOMIC": {
+          "class_correct": null,
+          "planned_controls": 1,
+          "valid_outputs": 0
+        },
+        "NON_ALL_OF": {
+          "class_correct": null,
+          "planned_controls": 2,
+          "valid_outputs": 0
+        }
+      },
+      "internal_consistency_failures": 0,
+      "judged_class_counts_by_group": {
+        "public_pre_existing": {},
+        "public_replay_anchor": {},
+        "synthetic_adversarial_control": {}
+      },
+      "model": "qwen3.5-9b",
+      "planned_controls": 6,
+      "replay": [
+        {
+          "canonical_annotation_identical": null,
+          "id": "R01",
+          "status": "FAILED_OR_NOT_RUN"
+        },
+        {
+          "canonical_annotation_identical": null,
+          "id": "C03",
+          "status": "FAILED_OR_NOT_RUN"
+        }
+      ],
+      "rows": [
+        {
+          "group": "public_pre_existing",
+          "id": "U01",
+          "status": "FAILED"
+        },
+        {
+          "group": "public_pre_existing",
+          "id": "U02",
+          "status": "FAILED"
+        },
+        {
+          "group": "public_pre_existing",
+          "id": "U03",
+          "status": "FAILED"
+        },
+        {
+          "group": "public_pre_existing",
+          "id": "U04",
+          "status": "FAILED"
+        },
+        {
+          "group": "public_pre_existing",
+          "id": "U05",
+          "status": "FAILED"
+        },
+        {
+          "group": "public_pre_existing",
+          "id": "U06",
+          "status": "FAILED"
+        },
+        {
+          "group": "public_pre_existing",
+          "id": "U07",
+          "status": "FAILED"
+        },
+        {
+          "group": "public_pre_existing",
+          "id": "U08",
+          "status": "FAILED"
+        },
+        {
+          "group": "public_pre_existing",
+          "id": "U09",
+          "status": "FAILED"
+        },
+        {
+          "group": "public_pre_existing",
+          "id": "U10",
+          "status": "FAILED"
+        },
+        {
+          "group": "public_pre_existing",
+          "id": "U11",
+          "status": "FAILED"
+        },
+        {
+          "group": "public_pre_existing",
+          "id": "U12",
+          "status": "FAILED"
+        },
+        {
+          "group": "public_replay_anchor",
+          "id": "R01",
+          "status": "FAILED"
+        },
+        {
+          "group": "public_replay_anchor",
+          "id": "R02",
+          "status": "FAILED"
+        },
+        {
+          "group": "synthetic_adversarial_control",
+          "id": "C01",
+          "status": "FAILED"
+        },
+        {
+          "group": "synthetic_adversarial_control",
+          "id": "C02",
+          "status": "FAILED"
+        },
+        {
+          "group": "synthetic_adversarial_control",
+          "id": "C03",
+          "status": "FAILED"
+        },
+        {
+          "group": "synthetic_adversarial_control",
+          "id": "C04",
+          "status": "FAILED"
+        },
+        {
+          "group": "synthetic_adversarial_control",
+          "id": "C05",
+          "status": "FAILED"
+        },
+        {
+          "group": "synthetic_adversarial_control",
+          "id": "C06",
+          "status": "FAILED"
+        }
+      ]
+    }
+  ],
+  "r3": [
+    {
+      "cells": [
+        {
+          "annotation_sha256": "42d660e4412a12bbe67afadc44a80307b88cb5f064bffb192207f3086373acef",
+          "class_correct": false,
+          "consistency_errors": [
+            "AMBIGUITY_WITHOUT_TWO_UNSELECTED_READINGS"
+          ],
+          "elapsed_seconds": 0.003,
+          "expected_class": "ATOMIC",
+          "format": "original_schema",
+          "id": "C01",
+          "judged_class": "AMBIGUOUS",
+          "model": "gemma3:12b",
+          "request_sha256": "96f1be204f29a951990afa0808b24149fc92235d3b3b5a205330d68da84550df",
+          "response_sha256": "1edba4afcac369ba1d099b85f1ebed5cbeabf6a9a5b66d6fb7ec699ff830144e",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "annotation_sha256": "45b2d182e2e00c09fb27511318040b1ef4b7e40c2f65aee4900a656f84d53b92",
+          "class_correct": false,
+          "consistency_errors": [],
+          "elapsed_seconds": 0.014,
+          "expected_class": "AMBIGUOUS",
+          "format": "original_schema",
+          "id": "C03",
+          "judged_class": "ALL_OF",
+          "model": "gemma3:12b",
+          "request_sha256": "1064be9726cc9cfdc3177cd4aa09399405418d86f580ad8635ddee0ea4727aeb",
+          "response_sha256": "7fe1e5d6bfa5168663d199e05fb33044e3160728393bc8437fd4dcb33ab8d57e",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "annotation_sha256": "2a2b4bfb7a71c40540a8a29678883757c92d346ca4307095ddb4347c01a51afc",
+          "class_correct": true,
+          "consistency_errors": [],
+          "elapsed_seconds": 0.01,
+          "expected_class": "NON_ALL_OF",
+          "format": "original_schema",
+          "id": "C04",
+          "judged_class": "NON_ALL_OF",
+          "model": "gemma3:12b",
+          "request_sha256": "dac28ce4f2ab98556140cc96d49965ab9122ebcafe2175cb288f5499ce054dc9",
+          "response_sha256": "5776301366426384825ac461a18fb41cbd57100ba6a292600abc8c862a67998c",
+          "status": "VALID_OUTPUT"
+        }
+      ],
+      "class_correct": 1,
+      "format": "original_schema",
+      "internal_consistency_failures": 1,
+      "model": "gemma3:12b",
+      "planned_controls": 3,
+      "valid_outputs": 3
+    },
+    {
+      "cells": [
+        {
+          "elapsed_seconds": 180.018,
+          "error": "timed out",
+          "error_type": "TimeoutError",
+          "expected_class": "ATOMIC",
+          "format": "json_only",
+          "id": "C01",
+          "model": "gemma3:12b",
+          "request_sha256": "ebb87cd657e88a0600c1569b43505477d70d05121627dda272726faf4b725201",
+          "status": "FAILED"
+        },
+        {
+          "elapsed_seconds": 180.065,
+          "error": "timed out",
+          "error_type": "TimeoutError",
+          "expected_class": "AMBIGUOUS",
+          "format": "json_only",
+          "id": "C03",
+          "model": "gemma3:12b",
+          "request_sha256": "d99ca7ea73354be923908704a0c66e103e023d3f5039580c466f65cd40e1bf2b",
+          "status": "FAILED"
+        },
+        {
+          "elapsed_seconds": 180.028,
+          "error": "timed out",
+          "error_type": "TimeoutError",
+          "expected_class": "NON_ALL_OF",
+          "format": "json_only",
+          "id": "C04",
+          "model": "gemma3:12b",
+          "request_sha256": "d3504a7adfd7176610d80017d8fc4507f74e7556238341e54455664eebda0284",
+          "status": "FAILED"
+        }
+      ],
+      "class_correct": null,
+      "format": "json_only",
+      "internal_consistency_failures": 0,
+      "model": "gemma3:12b",
+      "planned_controls": 3,
+      "valid_outputs": 0
+    },
+    {
+      "cells": [
+        {
+          "annotation_sha256": "42d660e4412a12bbe67afadc44a80307b88cb5f064bffb192207f3086373acef",
+          "class_correct": false,
+          "consistency_errors": [
+            "AMBIGUITY_WITHOUT_TWO_UNSELECTED_READINGS"
+          ],
+          "elapsed_seconds": 31.535,
+          "expected_class": "ATOMIC",
+          "format": "reversed_class_enum",
+          "id": "C01",
+          "judged_class": "AMBIGUOUS",
+          "model": "gemma3:12b",
+          "request_sha256": "fee145fb237966d40e4ddf9fbdd50162d06fd66a80eb011cfcc7883e0485c86a",
+          "response_sha256": "2fbd741390a88770b48f3cfedbc0f0858c1c9750ecb6e6c7c585080e540f6d47",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "annotation_sha256": "45b2d182e2e00c09fb27511318040b1ef4b7e40c2f65aee4900a656f84d53b92",
+          "class_correct": false,
+          "consistency_errors": [],
+          "elapsed_seconds": 30.98,
+          "expected_class": "AMBIGUOUS",
+          "format": "reversed_class_enum",
+          "id": "C03",
+          "judged_class": "ALL_OF",
+          "model": "gemma3:12b",
+          "request_sha256": "967c9f267a4ec1df16519cd8a17061d0868ac0c536c759bf50fdab8fb3b16761",
+          "response_sha256": "9194d5142fb545f81722f7519b3348a1cf84469d61c194f80e2384cb74d81d44",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "annotation_sha256": "2a2b4bfb7a71c40540a8a29678883757c92d346ca4307095ddb4347c01a51afc",
+          "class_correct": true,
+          "consistency_errors": [],
+          "elapsed_seconds": 55.107,
+          "expected_class": "NON_ALL_OF",
+          "format": "reversed_class_enum",
+          "id": "C04",
+          "judged_class": "NON_ALL_OF",
+          "model": "gemma3:12b",
+          "request_sha256": "573c070774b4c3aa76cb07ea419c2581b2535b1867fc7351ee9a21363db1e5a4",
+          "response_sha256": "67be312b623c7d8f56beec6bc9145a249ead765f2951991bda550c665a4bcd28",
+          "status": "VALID_OUTPUT"
+        }
+      ],
+      "class_correct": 1,
+      "format": "reversed_class_enum",
+      "internal_consistency_failures": 1,
+      "model": "gemma3:12b",
+      "planned_controls": 3,
+      "valid_outputs": 3
+    },
+    {
+      "cells": [
+        {
+          "format": "original_schema",
+          "id": "C01",
+          "model": "qwen3.5:9b",
+          "status": "FAILED_PREDECESSOR"
+        },
+        {
+          "format": "original_schema",
+          "id": "C03",
+          "model": "qwen3.5:9b",
+          "status": "FAILED_PREDECESSOR"
+        },
+        {
+          "format": "original_schema",
+          "id": "C04",
+          "model": "qwen3.5:9b",
+          "status": "FAILED_PREDECESSOR"
+        }
+      ],
+      "class_correct": null,
+      "format": "original_schema",
+      "internal_consistency_failures": 0,
+      "model": "qwen3.5:9b",
+      "planned_controls": 3,
+      "valid_outputs": 0
+    },
+    {
+      "cells": [],
+      "class_correct": null,
+      "format": "json_only",
+      "internal_consistency_failures": 0,
+      "model": "qwen3.5:9b",
+      "planned_controls": 3,
+      "valid_outputs": 0
+    },
+    {
+      "cells": [],
+      "class_correct": null,
+      "format": "reversed_class_enum",
+      "internal_consistency_failures": 0,
+      "model": "qwen3.5:9b",
+      "planned_controls": 3,
+      "valid_outputs": 0
+    }
+  ],
+  "r4": [
+    {
+      "calls": [
+        {
+          "annotation_sha256": "49015466db67641a6ad0ba08307b03494595fc5c16cf73193911aba379baf219",
+          "class_correct": true,
+          "consistency_errors": [],
+          "elapsed_seconds": 38.986,
+          "expected_class": "ATOMIC",
+          "id": "C01",
+          "judged_class": "ATOMIC",
+          "model": "gemma3:12b",
+          "request_sha256": "1a395b3cc6d78f27594fa0a5b51800a79cd386b862ae1ec972f318808c03e7e3",
+          "response_sha256": "9a5f7a99ea52541835d4a22e6e33a7e12eb6bd034153887e8ca218ac0e049092",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "annotation_sha256": "c2f26e67687ebcecd63f72b963bd9e5d8371353ceb62fbfcf3a93fa6094c3e63",
+          "class_correct": true,
+          "consistency_errors": [],
+          "elapsed_seconds": 27.716,
+          "expected_class": "ALL_OF",
+          "id": "C02",
+          "judged_class": "ALL_OF",
+          "model": "gemma3:12b",
+          "request_sha256": "5483aebb3f10ded93cc0ee8eb513412abd57b2851664cfe47e859a6f7cc4a81e",
+          "response_sha256": "5444d1a0aaba000959f5a8c424fe15d68500d5172105d383912e42150f975c8d",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "annotation_sha256": "1f6d9731ffb685b142375c217fd956f06ff632123ab22b05194f4e4dc5e26ca5",
+          "class_correct": false,
+          "consistency_errors": [],
+          "elapsed_seconds": 27.72,
+          "expected_class": "AMBIGUOUS",
+          "id": "C03",
+          "judged_class": "ALL_OF",
+          "model": "gemma3:12b",
+          "request_sha256": "bd73bb70f527a537f7649f2b0dde2fcc8379d5a6ad2c9d2f5d95ac2f515c623a",
+          "response_sha256": "c25e4408faf638b3b0cdaec4eac4461195482701b6ec3cfe215b41dff7b66224",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "annotation_sha256": "bd06cc869cf196c33df09d7b3315939d36a9a70bd19ad6c904f70c62e906f92d",
+          "class_correct": false,
+          "consistency_errors": [],
+          "elapsed_seconds": 26.064,
+          "expected_class": "NON_ALL_OF",
+          "id": "C04",
+          "judged_class": "ALL_OF",
+          "model": "gemma3:12b",
+          "request_sha256": "12216f2ffce6c565592181313aefdb54c7f5e19516e9e839bf03f2e00b9c4834",
+          "response_sha256": "6ad983bdf9550b915e0319f0e1943a3365834410eda034fd719364370a1393ff",
+          "status": "VALID_OUTPUT"
+        }
+      ],
+      "class_correct": 2,
+      "model": "gemma3:12b",
+      "per_expected_class": {
+        "ALL_OF": {
+          "class_correct": true,
+          "id": "C02"
+        },
+        "AMBIGUOUS": {
+          "class_correct": false,
+          "id": "C03"
+        },
+        "ATOMIC": {
+          "class_correct": true,
+          "id": "C01"
+        },
+        "NON_ALL_OF": {
+          "class_correct": false,
+          "id": "C04"
+        }
+      },
+      "planned_controls": 4,
+      "valid_outputs": 4
+    },
+    {
+      "calls": [
+        {
+          "annotation_sha256": "c1b45fee6580706427ffbd1f7bb050b3c7be1190acdd2563297a30bad619101b",
+          "class_correct": true,
+          "consistency_errors": [],
+          "elapsed_seconds": 26.701,
+          "expected_class": "ATOMIC",
+          "id": "C01",
+          "judged_class": "ATOMIC",
+          "model": "qwen3.5:9b",
+          "request_sha256": "c1fbd6c2e473794c7cefc91384a75deb130d757885408c83c87de1aabc4792aa",
+          "response_sha256": "c2e1e363d245987385b460d030ec1a4c63d2d0202f0af90e2a3ebcb320b0a8af",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "annotation_sha256": "6cf5b26413819f2da5f45bcaa5aff153b1228c445b982000f518d16c704d26e3",
+          "class_correct": false,
+          "consistency_errors": [],
+          "elapsed_seconds": 18.636,
+          "expected_class": "ALL_OF",
+          "id": "C02",
+          "judged_class": "ATOMIC",
+          "model": "qwen3.5:9b",
+          "request_sha256": "2b04401ac2178f5e8bc9efa241ac2e9d1a065e6c0b0c700c395a7c850124a51d",
+          "response_sha256": "90874564032bfc425c0d4dda025ddd13c45c266a0bd12f821396ef0d19069669",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "annotation_sha256": "452cc6117454216a83c47a2b8d3be6307473360cdece2b91a3823348b306f1d6",
+          "class_correct": false,
+          "consistency_errors": [],
+          "elapsed_seconds": 17.768,
+          "expected_class": "AMBIGUOUS",
+          "id": "C03",
+          "judged_class": "ALL_OF",
+          "model": "qwen3.5:9b",
+          "request_sha256": "e3c6ce583b4b405f79e94508dd4c7d8b131280d22a2d240a0ebc1d9e2a8ec80f",
+          "response_sha256": "cabb00bdc01ab9b8fa49ffc6231f0c31a3d52a2b7f606de8bca16818f355a474",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "annotation_sha256": "ef61126c2c8eede9efadac515dc6fd4c0b7d00ab77843ce374b688f6a68e6bf6",
+          "class_correct": true,
+          "consistency_errors": [],
+          "elapsed_seconds": 17.036,
+          "expected_class": "NON_ALL_OF",
+          "id": "C04",
+          "judged_class": "NON_ALL_OF",
+          "model": "qwen3.5:9b",
+          "request_sha256": "2f546ffb1802391c167d1599d5b5a77eab87437b37bbc893210dd3292d8740a3",
+          "response_sha256": "d0d43d27c4b8c0399366c45a7681d5c162b8745f591c8d4103e9eb89cb617d6f",
+          "status": "VALID_OUTPUT"
+        }
+      ],
+      "class_correct": 2,
+      "model": "qwen3.5:9b",
+      "per_expected_class": {
+        "ALL_OF": {
+          "class_correct": false,
+          "id": "C02"
+        },
+        "AMBIGUOUS": {
+          "class_correct": false,
+          "id": "C03"
+        },
+        "ATOMIC": {
+          "class_correct": true,
+          "id": "C01"
+        },
+        "NON_ALL_OF": {
+          "class_correct": true,
+          "id": "C04"
+        }
+      },
+      "planned_controls": 4,
+      "valid_outputs": 4
+    }
+  ],
+  "r5": [
+    {
+      "calls": [
+        {
+          "annotation_sha256": "2d9df90e7f4e492d207938d0ea0dad4f25e3c39093c33422724e273c5f67f825",
+          "elapsed_seconds": 18.584,
+          "expected_witness": {
+            "derived_class": "AMBIGUOUS",
+            "location_scope_alternatives": [
+              {
+                "first_event": "UNSPECIFIED",
+                "second_event": "Ontario"
+              },
+              {
+                "first_event": "Ontario",
+                "second_event": "Ontario"
+              }
+            ],
+            "operator": "all_of",
+            "predication_count": 2
+          },
+          "id": "C03",
+          "model": "gemma3:12b",
+          "operator": "all_of",
+          "request_sha256": "252a4638251ff207138a4e1e642d03746a7347d3d3e4ec7be20ab606d00451d6",
+          "response_sha256": "84aa9dbda296609bd18f556ee8299f006e025a58df33725b99f949a1ed791641",
+          "status": "VALID_OUTPUT",
+          "witness_correct": false,
+          "witness_errors": [
+            "SCOPE_BINDING_SET_MISMATCH"
+          ]
+        },
+        {
+          "annotation_sha256": "831b1864659bc8ab8b6832d97d20140fd8b1e0d28856ebdb181505888a3b764d",
+          "elapsed_seconds": 10.623,
+          "expected_witness": {
+            "derived_class": "NON_ALL_OF",
+            "location_scope_alternatives": [
+              {
+                "first_event": "UNSPECIFIED",
+                "second_event": "UNSPECIFIED"
+              }
+            ],
+            "operator": "any_of",
+            "predication_count": 2
+          },
+          "id": "C04",
+          "model": "gemma3:12b",
+          "operator": "any_of",
+          "request_sha256": "01198fb37e60496c349452c6ee4577d5517a6a50e8bb31bf83182e8d4d3c6cf7",
+          "response_sha256": "def7e61404200a7230a5552a51b16aee5d6ee697b2d4bb220b34b6f6d654b9e0",
+          "status": "VALID_OUTPUT",
+          "witness_correct": true,
+          "witness_errors": []
+        }
+      ],
+      "model": "gemma3:12b",
+      "planned_controls": 2,
+      "semantic_qualification": "NOT_ESTABLISHED_BY_COMPONENT_MATCH",
+      "typed_component_match": 1,
+      "valid_outputs": 2
+    },
+    {
+      "calls": [
+        {
+          "annotation_sha256": "2d9df90e7f4e492d207938d0ea0dad4f25e3c39093c33422724e273c5f67f825",
+          "elapsed_seconds": 11.867,
+          "expected_witness": {
+            "derived_class": "AMBIGUOUS",
+            "location_scope_alternatives": [
+              {
+                "first_event": "UNSPECIFIED",
+                "second_event": "Ontario"
+              },
+              {
+                "first_event": "Ontario",
+                "second_event": "Ontario"
+              }
+            ],
+            "operator": "all_of",
+            "predication_count": 2
+          },
+          "id": "C03",
+          "model": "qwen3.5:9b",
+          "operator": "all_of",
+          "request_sha256": "076285576331d7b70024d329ca9faf8ab375f68a68ff9489b2924691222353aa",
+          "response_sha256": "67f0e7d4c2727dadada921c79183f65d18ccb20a23d7acd7d6dcce9716c79690",
+          "status": "VALID_OUTPUT",
+          "witness_correct": false,
+          "witness_errors": [
+            "SCOPE_BINDING_SET_MISMATCH"
+          ]
+        },
+        {
+          "annotation_sha256": "f0f07b4af9979f19768d22b2537b8bfe79ff4cd0f1ba53295f1753fe762b94e3",
+          "elapsed_seconds": 6.814,
+          "expected_witness": {
+            "derived_class": "NON_ALL_OF",
+            "location_scope_alternatives": [
+              {
+                "first_event": "UNSPECIFIED",
+                "second_event": "UNSPECIFIED"
+              }
+            ],
+            "operator": "any_of",
+            "predication_count": 2
+          },
+          "id": "C04",
+          "model": "qwen3.5:9b",
+          "operator": "any_of",
+          "request_sha256": "66cd2856c8200357b1dd01c5f29fd2becd168f0c0e8f0f7d920d4504c348226c",
+          "response_sha256": "4d1ceaeec89d9e2d0abd9b68711b8dddb9a9dc26a365e3eea48f57eabee77c9f",
+          "status": "VALID_OUTPUT",
+          "witness_correct": true,
+          "witness_errors": []
+        }
+      ],
+      "model": "qwen3.5:9b",
+      "planned_controls": 2,
+      "semantic_qualification": "NOT_ESTABLISHED_BY_COMPONENT_MATCH",
+      "typed_component_match": 1,
+      "valid_outputs": 2
+    }
+  ],
+  "schema": "s0-review-measurement-summary"
+}

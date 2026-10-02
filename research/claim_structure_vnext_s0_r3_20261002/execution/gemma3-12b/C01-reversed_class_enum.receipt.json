@@ -1,0 +1,16 @@
+{
+  "annotation_sha256": "42d660e4412a12bbe67afadc44a80307b88cb5f064bffb192207f3086373acef",
+  "class_correct": false,
+  "consistency_errors": [
+    "AMBIGUITY_WITHOUT_TWO_UNSELECTED_READINGS"
+  ],
+  "elapsed_seconds": 31.535,
+  "expected_class": "ATOMIC",
+  "format": "reversed_class_enum",
+  "id": "C01",
+  "judged_class": "AMBIGUOUS",
+  "model": "gemma3:12b",
+  "request_sha256": "fee145fb237966d40e4ddf9fbdd50162d06fd66a80eb011cfcc7883e0485c86a",
+  "response_sha256": "2fbd741390a88770b48f3cfedbc0f0858c1c9750ecb6e6c7c585080e540f6d47",
+  "status": "VALID_OUTPUT"
+}

@@ -1,0 +1,14 @@
+{
+  "annotation_sha256": "2a2b4bfb7a71c40540a8a29678883757c92d346ca4307095ddb4347c01a51afc",
+  "class_correct": true,
+  "consistency_errors": [],
+  "elapsed_seconds": 55.107,
+  "expected_class": "NON_ALL_OF",
+  "format": "reversed_class_enum",
+  "id": "C04",
+  "judged_class": "NON_ALL_OF",
+  "model": "gemma3:12b",
+  "request_sha256": "573c070774b4c3aa76cb07ea419c2581b2535b1867fc7351ee9a21363db1e5a4",
+  "response_sha256": "67be312b623c7d8f56beec6bc9145a249ead765f2951991bda550c665a4bcd28",
+  "status": "VALID_OUTPUT"
+}

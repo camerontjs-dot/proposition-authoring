@@ -1,0 +1,13 @@
+{
+  "annotation_sha256": "452cc6117454216a83c47a2b8d3be6307473360cdece2b91a3823348b306f1d6",
+  "class_correct": false,
+  "consistency_errors": [],
+  "elapsed_seconds": 17.768,
+  "expected_class": "AMBIGUOUS",
+  "id": "C03",
+  "judged_class": "ALL_OF",
+  "model": "qwen3.5:9b",
+  "request_sha256": "e3c6ce583b4b405f79e94508dd4c7d8b131280d22a2d240a0ebc1d9e2a8ec80f",
+  "response_sha256": "cabb00bdc01ab9b8fa49ffc6231f0c31a3d52a2b7f606de8bca16818f355a474",
+  "status": "VALID_OUTPUT"
+}

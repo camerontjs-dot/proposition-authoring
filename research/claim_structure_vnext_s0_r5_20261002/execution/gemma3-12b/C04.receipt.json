@@ -1,0 +1,23 @@
+{
+  "annotation_sha256": "831b1864659bc8ab8b6832d97d20140fd8b1e0d28856ebdb181505888a3b764d",
+  "elapsed_seconds": 10.623,
+  "expected_witness": {
+    "derived_class": "NON_ALL_OF",
+    "location_scope_alternatives": [
+      {
+        "first_event": "UNSPECIFIED",
+        "second_event": "UNSPECIFIED"
+      }
+    ],
+    "operator": "any_of",
+    "predication_count": 2
+  },
+  "id": "C04",
+  "model": "gemma3:12b",
+  "operator": "any_of",
+  "request_sha256": "01198fb37e60496c349452c6ee4577d5517a6a50e8bb31bf83182e8d4d3c6cf7",
+  "response_sha256": "def7e61404200a7230a5552a51b16aee5d6ee697b2d4bb220b34b6f6d654b9e0",
+  "status": "VALID_OUTPUT",
+  "witness_correct": true,
+  "witness_errors": []
+}

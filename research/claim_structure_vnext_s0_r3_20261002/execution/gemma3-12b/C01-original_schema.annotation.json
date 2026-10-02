@@ -1,0 +1,1 @@
+{"alternatives": [], "basis": "The root asserts a measurement of pressure by Ada, at a specific location and time.", "children": ["Ada measured 12 kPa in Ontario during 2024."], "class": "AMBIGUOUS", "confidence": "low", "id": "C01", "operator": "AMBIGUOUS", "scoped_obligations": [], "unresolved": false}

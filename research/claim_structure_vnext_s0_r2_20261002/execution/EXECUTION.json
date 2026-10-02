@@ -1,0 +1,811 @@
+{
+  "artifact_sha256": {
+    "gemma3-12b/C01.annotation.json": "42d660e4412a12bbe67afadc44a80307b88cb5f064bffb192207f3086373acef",
+    "gemma3-12b/C01.receipt.json": "5763aa309a184ea918078cb6efcff469806d16804fc580f741d5b447905c2161",
+    "gemma3-12b/C01.request.json": "96f1be204f29a951990afa0808b24149fc92235d3b3b5a205330d68da84550df",
+    "gemma3-12b/C01.response.json": "1edba4afcac369ba1d099b85f1ebed5cbeabf6a9a5b66d6fb7ec699ff830144e",
+    "gemma3-12b/C02.annotation.json": "c13b7470c35ee21ae4fac498c14880a9ff966cba7ec20fd94ca1ef1eafb415bb",
+    "gemma3-12b/C02.receipt.json": "dd35eb2d95dc7184164ec1b2ceb64052e75ca8a40689b2f323d558b5ea7b62cd",
+    "gemma3-12b/C02.request.json": "7e87d98f05932b448d42837410308a68565f8fa7d4acba6a072172930249fe61",
+    "gemma3-12b/C02.response.json": "60d654e6413442d6c34f1a2ce91ed8ef611203c7fd957fa113b87b683d03c848",
+    "gemma3-12b/C03-replay.receipt.json": "5f7cf405bf16906cc91db495c16f0b4042a7aee61f771ccfd300487eed310060",
+    "gemma3-12b/C03-replay.request.json": "1064be9726cc9cfdc3177cd4aa09399405418d86f580ad8635ddee0ea4727aeb",
+    "gemma3-12b/C03.annotation.json": "45b2d182e2e00c09fb27511318040b1ef4b7e40c2f65aee4900a656f84d53b92",
+    "gemma3-12b/C03.receipt.json": "a9a63611bedcebb4c2ac2ddd54777fe4b6103a5288030788abfad3efa8ab3ad3",
+    "gemma3-12b/C03.request.json": "1064be9726cc9cfdc3177cd4aa09399405418d86f580ad8635ddee0ea4727aeb",
+    "gemma3-12b/C03.response.json": "7fe1e5d6bfa5168663d199e05fb33044e3160728393bc8437fd4dcb33ab8d57e",
+    "gemma3-12b/C04.annotation.json": "2a2b4bfb7a71c40540a8a29678883757c92d346ca4307095ddb4347c01a51afc",
+    "gemma3-12b/C04.receipt.json": "6d1315111ff9b190c55029c8e82c57e2fa2681e94d1f2b24135cb0f5fadd6795",
+    "gemma3-12b/C04.request.json": "dac28ce4f2ab98556140cc96d49965ab9122ebcafe2175cb288f5499ce054dc9",
+    "gemma3-12b/C04.response.json": "5776301366426384825ac461a18fb41cbd57100ba6a292600abc8c862a67998c",
+    "gemma3-12b/C05.annotation.json": "7c04b0e8bdb83858e8a432aff9218ce0ae0ad5dd0062cb7f470159ddd6acb821",
+    "gemma3-12b/C05.receipt.json": "277404f11e9ea1ad42b4bdaf38c18d24045ca29e7e09d5c9081ae70a38f1f5e5",
+    "gemma3-12b/C05.request.json": "0c04c13a9e5756a54d379f2559524d3495b02d8655d81abc2f03086a041d117f",
+    "gemma3-12b/C05.response.json": "1f22331c572064ec5ad18b7a78783ce638bdfc5fc6e3d2410b04a765ac78e6ba",
+    "gemma3-12b/C06.annotation.json": "d0a99d9a67c469c8aa5344a5ce4c51ef135ef1bfeaac8f5d549e895bb078889b",
+    "gemma3-12b/C06.receipt.json": "3f02d9a1e8c6a0f810951e21cc47bb081d16628775a54a5cdd89cb0afe0f4e24",
+    "gemma3-12b/C06.request.json": "06a597757462e9f395cee5c75d146aae0a54f2943b3724509621de2de4bbb1ce",
+    "gemma3-12b/C06.response.json": "7b002beb99bb5430230849af996a8d1c9d6225a8c168b1a86a0fa6038ba2bec9",
+    "gemma3-12b/R01-replay.annotation.json": "0da70d9f76839f47bb9a22e148d6a660cdb3a1f9a0ffe4d20aee53d72e499f27",
+    "gemma3-12b/R01-replay.receipt.json": "4d444c4948dbbfdfca0e37a519a0fd75c03a9f235292057305d378d26d92ae27",
+    "gemma3-12b/R01-replay.request.json": "6e25761a1cf4602c89ccbf8dc9da9608ccce72322f7c538b991f5dea8ba5a18e",
+    "gemma3-12b/R01-replay.response.json": "e220dabea19e62adddeee671f74986d28b0e2ae2cdc44565ee95077a11a4ac86",
+    "gemma3-12b/R01.annotation.json": "e51fd7715c7547ca9b1d8d391034ee9b3e1cae94f13e47f7d82736ed6a9858fa",
+    "gemma3-12b/R01.receipt.json": "1dbeb2d51f24b40d702ce0a44023d8ce759b664ad0ead4a52af96276bd9b3e02",
+    "gemma3-12b/R01.request.json": "6e25761a1cf4602c89ccbf8dc9da9608ccce72322f7c538b991f5dea8ba5a18e",
+    "gemma3-12b/R01.response.json": "d9956e51edc6fd32c82843b4358a9c8bd6bc0a0b7658acf6b7761dfca609fe85",
+    "gemma3-12b/R02.annotation.json": "b6e6df26206d19fc783126d1a45e2fd3b1809fad0a483f22a8e63d13ccfd9604",
+    "gemma3-12b/R02.receipt.json": "f5369323a069f5786b914f746dbb8f7ce4625218a5f9936a3aab4fcfa9cfd739",
+    "gemma3-12b/R02.request.json": "e52568e6046465b9835aa728c1dc9bfbf7acfd953f92b18423005b9dc7e82ffb",
+    "gemma3-12b/R02.response.json": "3767ea26835340501c8a1df23608a6fd0f82e82d89a87de357e1b716287cdcda",
+    "gemma3-12b/U01.annotation.json": "596d2092183caf2d0a8bef78238bdca88647867baa9f13959b8d7a013e388c7d",
+    "gemma3-12b/U01.receipt.json": "b9541221e7a5f2393d06b6641c59660a900cd157a12fe5025f6b2f1d544ad310",
+    "gemma3-12b/U01.request.json": "e57c71c6c0a7b2aecbbe15be4349389ee1c7f3303e05071708da3caf1f63745f",
+    "gemma3-12b/U01.response.json": "f4b2d2a00e34a348b8b704dd6f69473ee092884d88c31b2529eb1d7c3c819d73",
+    "gemma3-12b/U02.annotation.json": "5e559e8b4daab32972a2d2aa4d751d14a11430609c61ae91bcfdd60a9e277785",
+    "gemma3-12b/U02.receipt.json": "f359f4c9fec7d0a28c7b772b1ee0c0e19cf76b8e09df7543ce18570082aad78b",
+    "gemma3-12b/U02.request.json": "6164ff4c51ea38eb86935438b1df10e2418eab093f6d68d95297f5b78fc4146d",
+    "gemma3-12b/U02.response.json": "986e6035cfebb5988c428fb32a24d27b8bfbb6fbfc1bca827ebce3f6fb98c3d1",
+    "gemma3-12b/U03.annotation.json": "81f66ba37970909408cbaf63e134c11c9e3fb5f3fb179ddb9419b6e18bcf14c3",
+    "gemma3-12b/U03.receipt.json": "db5e7f73a315f34c88e71dd4ce4d9bd939d1dc6448635d0e5cb93980f37fbfe8",
+    "gemma3-12b/U03.request.json": "4755491a7ae9c6b2662062c9f4143bd082da4017db2dfcc8af3ae52bcf87a3c8",
+    "gemma3-12b/U03.response.json": "5cfd7e8c5c9dfbf6fb8058e1f47679bff10c2892e31ba27b999bd667b8bf1dac",
+    "gemma3-12b/U04.annotation.json": "e6893214f3f6fb7a6eaaa9520baf23cb545b922b0d0eb5fc5347b72c11145e38",
+    "gemma3-12b/U04.receipt.json": "5d19433dda54d4414999e85e6c269fdee32222a482956b3b8bc63c9ffed5817f",
+    "gemma3-12b/U04.request.json": "234242d67f239c7342c8c240e674d46ce85800cfb96f6a587ebf653f6b47b7b6",
+    "gemma3-12b/U04.response.json": "db9a2fc28bbb009508a3183941dc746de1e4c4d2164362a68cce9f3a99284313",
+    "gemma3-12b/U05.annotation.json": "2c343d3281d19eeea33806744a7001f3060c227dd46f23b9eafd554a81f36594",
+    "gemma3-12b/U05.receipt.json": "df35ae663591a9cdf32e7338cdb929ef09670d2d1e4364b0bb1e854a03720733",
+    "gemma3-12b/U05.request.json": "0d1c3371e6eafc47ccd6837fbb6c601f129a9b9178bb1543fe100cdb57463f22",
+    "gemma3-12b/U05.response.json": "51117af788cf558d093645c5d6a9cd356fa980f8a50ab54b8f9607fe0060b8f6",
+    "gemma3-12b/U06.annotation.json": "e434c4da69a91ae216de5e08d3e9ed500b302bca5b709e78f495ee496bed6330",
+    "gemma3-12b/U06.receipt.json": "5c1e7c45d0d42c76a5815ac5385937ca0bd9b962a41ee2311f47cbe7b7f37f6b",
+    "gemma3-12b/U06.request.json": "fe1f1352122f22fae4e33282083dc79cc724194dd57f1a0d6456ea3375a02e3e",
+    "gemma3-12b/U06.response.json": "c4bbd19ebf629005e3170eb06340c628bf660c0204a3e3c375e8924a9bf3231a",
+    "gemma3-12b/U07.annotation.json": "0405fc44275792d19cd0c67aa9dfff3d0390f6a0ff044ed8338196ae9f3076da",
+    "gemma3-12b/U07.receipt.json": "15bfcc915920abcbc51832b009ad5ef3d8cc933e8d377ecdd2200233ceefccf2",
+    "gemma3-12b/U07.request.json": "860b677d75dabdcf4d3c5742ced0259abbe330d0696e5098c5ca0ef5b8251c74",
+    "gemma3-12b/U07.response.json": "d5e2acda2e63fdc6f4ee8b1d13f388ba3315ed8f9f4b8de4b4d55a2fc1f7dc1c",
+    "gemma3-12b/U08.annotation.json": "6c539cbaa474b847c04551169511ce4f0b8dd3fa5b577221209927de470a1c80",
+    "gemma3-12b/U08.receipt.json": "da6306328729453dd699e47ac87fbc51408d90dd6ef0373ab71fa125c30044ab",
+    "gemma3-12b/U08.request.json": "3c39a683471527aa171b130b707f191ba6fdc7c8db2c1a88192c7db84a333ebd",
+    "gemma3-12b/U08.response.json": "eb5b362caf3773ecd447f3b61284a1b58f5138055f59d94138e54c9a9339c87a",
+    "gemma3-12b/U09.annotation.json": "7044fe8c0f51edf7b34b10a2ca0555b6dbc06610d524d95d7dd72d996f033f08",
+    "gemma3-12b/U09.receipt.json": "5be02f698464d763443e026a5af22c49165d786162d03afcfa9f2b93310ee768",
+    "gemma3-12b/U09.request.json": "6f086fdabeb024f42f1560f5580153326e720bdd9e2cce0154506fd29bb993e1",
+    "gemma3-12b/U09.response.json": "2c8f8ce4b2df97b192b8eabb834bc2538b5d1b2b113868ac1ea9e0a8c7e643b5",
+    "gemma3-12b/U10.annotation.json": "245fe072524c33e7069432d32545c9ed1845beb156713ecaf04146bf32510f41",
+    "gemma3-12b/U10.receipt.json": "f481fcf55e84cb7cad9589ecf356280f6ae4f88b920b6ed30a4f67df259f8755",
+    "gemma3-12b/U10.request.json": "220424e5ac43cd8c60e1934b5797c803feccf5f9b424c3df44f2e09da46357e5",
+    "gemma3-12b/U10.response.json": "0441ec348dd258663b9d62eca9a1e0b515adb42c62fbba4d8f79f5504a31b78b",
+    "gemma3-12b/U11.annotation.json": "02eaf11e58c71172a946da979983b0c70f03698072dcf0bedd6c8e81e8c783a0",
+    "gemma3-12b/U11.receipt.json": "e237733efa6e4d74b912c42004dd9467e3a6740b895ab82f2189c92adcdaceb4",
+    "gemma3-12b/U11.request.json": "bb0803e7db665257e843c313f90f691f0e56c39a8bd66262be4bb1b23a66fcee",
+    "gemma3-12b/U11.response.json": "6e2516806ac6445995a7ffd8fbcd55d3d363d84744e71e3a745542cf3c9292f7",
+    "gemma3-12b/U12.annotation.json": "66a6463ff71a80b56be00603afc6ac9dedcce79c84bb772c73715cbdb7d1e4b5",
+    "gemma3-12b/U12.receipt.json": "6502f580d68f4056825bdd39a7f4b18c0aaaae4ae618ca7007c228bfd23361fc",
+    "gemma3-12b/U12.request.json": "fe4721aa2a007b9f95c79be88d2323897b70c78e452bbf181ded57bdaf7c6684",
+    "gemma3-12b/U12.response.json": "e207ee5d02e09e816be1af3f6a5ae243ed63b5ba3a0c410ad29be2ba46998232",
+    "preflight.json": "f25718c18b286fe4eb65ae8f8beffb7c684c7f3e63a5de69bafc68a6dea6bb8f",
+    "qwen3.5-9b/C01.receipt.json": "0ce7d3b02bd83f5552005c2d8b30a52175bfebc9dae577ef8723fb9b22fb0961",
+    "qwen3.5-9b/C01.request.json": "d7c03575370c035568b50f80a2c87537a6e55fe68f14b1a151fe7e437b0c2f80",
+    "qwen3.5-9b/C02.receipt.json": "ca7262d309b2762119acaec84562d202786b05611b0ea4cc6f826131638498c7",
+    "qwen3.5-9b/C02.request.json": "a04cd0fa214adf54fe81d19772fd7f2cbf16586b57d9959d1d5644513a8ac352",
+    "qwen3.5-9b/C03-replay.receipt.json": "4978a6a1bcb78465c0f98e3e1f867e51c4b4d1895c72afee9e4b330181ed7e87",
+    "qwen3.5-9b/C03-replay.request.json": "2424c3a5cce363be0ec952cc73b1601bee19aef83a0ccdcd804179d494f3493c",
+    "qwen3.5-9b/C03.receipt.json": "9c81c1b8873cbd97c57309436a176d644906878c4f6b031af0767d866a298e1a",
+    "qwen3.5-9b/C03.request.json": "2424c3a5cce363be0ec952cc73b1601bee19aef83a0ccdcd804179d494f3493c",
+    "qwen3.5-9b/C04.receipt.json": "bee547d1e7c44d227f101cd2f3057e0993e1e3727c1dca7c5ae1d3609ac524e0",
+    "qwen3.5-9b/C04.request.json": "ba034520c53fae22127d67af983da1b50a0fbf459743df542ab40ae2bef5d405",
+    "qwen3.5-9b/C05.receipt.json": "446af5641e903932fe56dccc6d343dfd43b18f18b963d192790f1b9d29c49378",
+    "qwen3.5-9b/C05.request.json": "0f0576800ffbe91927195234e8ac09067c9536f2c872fc86106ef8aa5fb4bbd5",
+    "qwen3.5-9b/C06.receipt.json": "c1c6580b7d66d8ef2a60f677c78e6c56d9d9aaa744088c7efa8d49d5ec40b543",
+    "qwen3.5-9b/C06.request.json": "bc16fb08b97e864230c16e6a15c7f331caf3e1a9fa14fcea9a4d01b5ca6d15ab",
+    "qwen3.5-9b/R01-replay.receipt.json": "14713f3826618121d1621fac671e3347bead606f07d9a93b55a2e068156eac03",
+    "qwen3.5-9b/R01-replay.request.json": "8d299d09087c0501bc330f08f6229406f854b7ab482396d0097abcbc14498dd2",
+    "qwen3.5-9b/R01.receipt.json": "4c28ade49fcc5966b571eb5238cad4bc831fd6c5f8a6525c305713aba0d58273",
+    "qwen3.5-9b/R01.request.json": "8d299d09087c0501bc330f08f6229406f854b7ab482396d0097abcbc14498dd2",
+    "qwen3.5-9b/R02.receipt.json": "d91c19639bf9abc595139755b4493c4acedb1bf2189b75f9ba75b6489091d9f2",
+    "qwen3.5-9b/R02.request.json": "370d7449ce225ffa41dc00a7ca8a35fe835a25a8d96d3731108deed0e5531c47",
+    "qwen3.5-9b/U01.receipt.json": "c0401c437ebb8713ad49c2bb8b7a83bc64b12811fa567185297b72b7fbb70c36",
+    "qwen3.5-9b/U01.request.json": "55a2c4d7708b18c46a99ee22ee692181e3fbe190b25b3bb5e8facb4b52a11258",
+    "qwen3.5-9b/U02.receipt.json": "e6753b1dcf1de7dd6e6404efa3ff547ff447c98b2e7822444fac208bf3dec721",
+    "qwen3.5-9b/U02.request.json": "9e630bcf6104e1e6f387055ecd558c1e73b74c68ebf24ef989bde87c344fcaae",
+    "qwen3.5-9b/U03.receipt.json": "59641193e07f20f21fee2b53f669693e082af7fd5a08ab1ea285626ab2392d11",
+    "qwen3.5-9b/U03.request.json": "1358b308bad736e4133e73e102483bccf308cef89171289f165c10f6ff9ef0e4",
+    "qwen3.5-9b/U04.receipt.json": "c63152e62bb79c7e9f3cb74e45e6d3aaaf43bef253a340a7e3cba425fa96bdbb",
+    "qwen3.5-9b/U04.request.json": "14de83f5a2349c3f571be07602a17fd2e5e9e866dd623f764c65a5f323e7fd63",
+    "qwen3.5-9b/U05.receipt.json": "f6eec876d3b86b22a37a8a0cc17bf45cbab1141ffdbfb9e231b96e9e72061499",
+    "qwen3.5-9b/U05.request.json": "6698f3f25181e502d96c5c1fc5f90f54f63742d6339cb23ec57c8e65474fa9e5",
+    "qwen3.5-9b/U06.receipt.json": "36fc8e411415a2d97a2f47e3c113f91df04805a73e7607aed863b0b8bcc0a18c",
+    "qwen3.5-9b/U06.request.json": "2662c08a3cd57595373ab54d1acc0cd139ccc250ac4b9d7d358b4c6eeddd6bda",
+    "qwen3.5-9b/U07.receipt.json": "f9eeec13c775dd11401f621f6736913cfd88fb4fadda8416bb99bf6d83617015",
+    "qwen3.5-9b/U07.request.json": "ca7e921340d3033743b84f2451aa8d329b61dd45a55f477037c99c856e0b5da5",
+    "qwen3.5-9b/U08.receipt.json": "ff2acccb927e792c44ad67d09145769bd7d1a900f58dd07340cca31acddce78a",
+    "qwen3.5-9b/U08.request.json": "55ff49e7db4cec8016191bfd9e75243e4ee26cd19f3a3eaa660047289c12bd06",
+    "qwen3.5-9b/U09.receipt.json": "209f2e2c1279a272faff94c9503ba34ad6e199b927fe63da7abb295c99588a15",
+    "qwen3.5-9b/U09.request.json": "b5d82ea28e9d335121c48dcfa9b20e151154618bdb5485c55cf254ed35b0eeb6",
+    "qwen3.5-9b/U10.receipt.json": "2e7f51ef130a36278d0ddafbed5d0cc8fd85c68a2467b274fe645470f431d2be",
+    "qwen3.5-9b/U10.request.json": "54666a1a1fbd6ff35cba37acf7399155b0832f8fb1243e0e3925a0d5e9f1c8fa",
+    "qwen3.5-9b/U11.receipt.json": "f20ec320ac1ac83d0b7c5e1cf7e59a7148bc1b3f75848f7ed1ab67533e91e2a7",
+    "qwen3.5-9b/U11.request.json": "b01f65ddd32aee96a36f20ba811752f41a186c413450131b375fb23019dbbcfa",
+    "qwen3.5-9b/U12.receipt.json": "bfcd805c9a172760a7783fcbb54a9ace0690e13cb09ca726e6dd5ada7d80337f",
+    "qwen3.5-9b/U12.request.json": "704a19b7b8af2341f2dd5a54087041bf8525e3b9b39a1ff429d2e2fecf861237"
+  },
+  "calls": [
+    {
+      "annotation_sha256": "596d2092183caf2d0a8bef78238bdca88647867baa9f13959b8d7a013e388c7d",
+      "class": "AMBIGUOUS",
+      "done_reason": "stop",
+      "elapsed_seconds": 30.605,
+      "id": "U01",
+      "model": "gemma3:12b",
+      "raw_response_sha256": "f4b2d2a00e34a348b8b704dd6f69473ee092884d88c31b2529eb1d7c3c819d73",
+      "replay": false,
+      "request_sha256": "e57c71c6c0a7b2aecbbe15be4349389ee1c7f3303e05071708da3caf1f63745f",
+      "response_content_sha256": "1cb181ac67c3eaad512920854d98edf5fad8e83c3c71191ae17650d6863f026d",
+      "status": "VALID_OUTPUT"
+    },
+    {
+      "annotation_sha256": "5e559e8b4daab32972a2d2aa4d751d14a11430609c61ae91bcfdd60a9e277785",
+      "class": "AMBIGUOUS",
+      "done_reason": "stop",
+      "elapsed_seconds": 22.483,
+      "id": "U02",
+      "model": "gemma3:12b",
+      "raw_response_sha256": "986e6035cfebb5988c428fb32a24d27b8bfbb6fbfc1bca827ebce3f6fb98c3d1",
+      "replay": false,
+      "request_sha256": "6164ff4c51ea38eb86935438b1df10e2418eab093f6d68d95297f5b78fc4146d",
+      "response_content_sha256": "0109aea949e1d60cf39df3e1b3f4b63d56a8ee29eedadfa726af9b9024ae9c5e",
+      "status": "VALID_OUTPUT"
+    },
+    {
+      "annotation_sha256": "81f66ba37970909408cbaf63e134c11c9e3fb5f3fb179ddb9419b6e18bcf14c3",
+      "class": "AMBIGUOUS",
+      "done_reason": "stop",
+      "elapsed_seconds": 47.414,
+      "id": "U03",
+      "model": "gemma3:12b",
+      "raw_response_sha256": "5cfd7e8c5c9dfbf6fb8058e1f47679bff10c2892e31ba27b999bd667b8bf1dac",
+      "replay": false,
+      "request_sha256": "4755491a7ae9c6b2662062c9f4143bd082da4017db2dfcc8af3ae52bcf87a3c8",
+      "response_content_sha256": "082016ad6abb4563efe671dc377949389246ee2166ec2be09b497c0b250c3d91",
+      "status": "VALID_OUTPUT"
+    },
+    {
+      "annotation_sha256": "e6893214f3f6fb7a6eaaa9520baf23cb545b922b0d0eb5fc5347b72c11145e38",
+      "class": "ALL_OF",
+      "done_reason": "stop",
+      "elapsed_seconds": 50.832,
+      "id": "U04",
+      "model": "gemma3:12b",
+      "raw_response_sha256": "db9a2fc28bbb009508a3183941dc746de1e4c4d2164362a68cce9f3a99284313",
+      "replay": false,
+      "request_sha256": "234242d67f239c7342c8c240e674d46ce85800cfb96f6a587ebf653f6b47b7b6",
+      "response_content_sha256": "b6003989fdaea7572c274d589870c63200cbfe691a09da23d150375f845e370c",
+      "status": "VALID_OUTPUT"
+    },
+    {
+      "annotation_sha256": "2c343d3281d19eeea33806744a7001f3060c227dd46f23b9eafd554a81f36594",
+      "class": "ALL_OF",
+      "done_reason": "stop",
+      "elapsed_seconds": 42.546,
+      "id": "U05",
+      "model": "gemma3:12b",
+      "raw_response_sha256": "51117af788cf558d093645c5d6a9cd356fa980f8a50ab54b8f9607fe0060b8f6",
+      "replay": false,
+      "request_sha256": "0d1c3371e6eafc47ccd6837fbb6c601f129a9b9178bb1543fe100cdb57463f22",
+      "response_content_sha256": "0bab35456ff2a8e888a01f52df230c4f629cb077d38ed89c247e4dfd782c13de",
+      "status": "VALID_OUTPUT"
+    },
+    {
+      "annotation_sha256": "e434c4da69a91ae216de5e08d3e9ed500b302bca5b709e78f495ee496bed6330",
+      "class": "ALL_OF",
+      "done_reason": "stop",
+      "elapsed_seconds": 56.318,
+      "id": "U06",
+      "model": "gemma3:12b",
+      "raw_response_sha256": "c4bbd19ebf629005e3170eb06340c628bf660c0204a3e3c375e8924a9bf3231a",
+      "replay": false,
+      "request_sha256": "fe1f1352122f22fae4e33282083dc79cc724194dd57f1a0d6456ea3375a02e3e",
+      "response_content_sha256": "9623a748a25f82aec7727828a19ee5bd19f241183b7b9d12cd93200022824797",
+      "status": "VALID_OUTPUT"
+    },
+    {
+      "annotation_sha256": "0405fc44275792d19cd0c67aa9dfff3d0390f6a0ff044ed8338196ae9f3076da",
+      "class": "ALL_OF",
+      "done_reason": "stop",
+      "elapsed_seconds": 57.535,
+      "id": "U07",
+      "model": "gemma3:12b",
+      "raw_response_sha256": "d5e2acda2e63fdc6f4ee8b1d13f388ba3315ed8f9f4b8de4b4d55a2fc1f7dc1c",
+      "replay": false,
+      "request_sha256": "860b677d75dabdcf4d3c5742ced0259abbe330d0696e5098c5ca0ef5b8251c74",
+      "response_content_sha256": "ab6018ffa20e2eaf04df2c5347c869a0f9549dbbb783da7f8fcd7f16e3544b6e",
+      "status": "VALID_OUTPUT"
+    },
+    {
+      "annotation_sha256": "6c539cbaa474b847c04551169511ce4f0b8dd3fa5b577221209927de470a1c80",
+      "class": "AMBIGUOUS",
+      "done_reason": "stop",
+      "elapsed_seconds": 44.155,
+      "id": "U08",
+      "model": "gemma3:12b",
+      "raw_response_sha256": "eb5b362caf3773ecd447f3b61284a1b58f5138055f59d94138e54c9a9339c87a",
+      "replay": false,
+      "request_sha256": "3c39a683471527aa171b130b707f191ba6fdc7c8db2c1a88192c7db84a333ebd",
+      "response_content_sha256": "86c21b16234bb4edd1da2d01fc30262e6960b8c0cb1acba8d3ec3bd05c98c678",
+      "status": "VALID_OUTPUT"
+    },
+    {
+      "annotation_sha256": "7044fe8c0f51edf7b34b10a2ca0555b6dbc06610d524d95d7dd72d996f033f08",
+      "class": "ALL_OF",
+      "done_reason": "stop",
+      "elapsed_seconds": 47.03,
+      "id": "U09",
+      "model": "gemma3:12b",
+      "raw_response_sha256": "2c8f8ce4b2df97b192b8eabb834bc2538b5d1b2b113868ac1ea9e0a8c7e643b5",
+      "replay": false,
+      "request_sha256": "6f086fdabeb024f42f1560f5580153326e720bdd9e2cce0154506fd29bb993e1",
+      "response_content_sha256": "bb7e90d88c6573cdd3e51dc1e3469d51443805c2d92f1fdb7d7e6d5fb42f534f",
+      "status": "VALID_OUTPUT"
+    },
+    {
+      "annotation_sha256": "245fe072524c33e7069432d32545c9ed1845beb156713ecaf04146bf32510f41",
+      "class": "NON_ALL_OF",
+      "done_reason": "stop",
+      "elapsed_seconds": 44.26,
+      "id": "U10",
+      "model": "gemma3:12b",
+      "raw_response_sha256": "0441ec348dd258663b9d62eca9a1e0b515adb42c62fbba4d8f79f5504a31b78b",
+      "replay": false,
+      "request_sha256": "220424e5ac43cd8c60e1934b5797c803feccf5f9b424c3df44f2e09da46357e5",
+      "response_content_sha256": "2998d4c605ddf73aed2555a1b2b0637adbe92a0c00b43cd35c3c06475a8e117c",
+      "status": "VALID_OUTPUT"
+    },
+    {
+      "annotation_sha256": "02eaf11e58c71172a946da979983b0c70f03698072dcf0bedd6c8e81e8c783a0",
+      "class": "AMBIGUOUS",
+      "done_reason": "stop",
+      "elapsed_seconds": 34.398,
+      "id": "U11",
+      "model": "gemma3:12b",
+      "raw_response_sha256": "6e2516806ac6445995a7ffd8fbcd55d3d363d84744e71e3a745542cf3c9292f7",
+      "replay": false,
+      "request_sha256": "bb0803e7db665257e843c313f90f691f0e56c39a8bd66262be4bb1b23a66fcee",
+      "response_content_sha256": "957b7470fd62317b4c9f9a7c1c1cc87a08922cf61ef056da0990d53f928ec01d",
+      "status": "VALID_OUTPUT"
+    },
+    {
+      "annotation_sha256": "66a6463ff71a80b56be00603afc6ac9dedcce79c84bb772c73715cbdb7d1e4b5",
+      "class": "ALL_OF",
+      "done_reason": "stop",
+      "elapsed_seconds": 31.135,
+      "id": "U12",
+      "model": "gemma3:12b",
+      "raw_response_sha256": "e207ee5d02e09e816be1af3f6a5ae243ed63b5ba3a0c410ad29be2ba46998232",
+      "replay": false,
+      "request_sha256": "fe4721aa2a007b9f95c79be88d2323897b70c78e452bbf181ded57bdaf7c6684",
+      "response_content_sha256": "254627ddd62247c1a2e9f96c5aacc066a198af2addea62a9d56bf62fc35e0985",
+      "status": "VALID_OUTPUT"
+    },
+    {
+      "annotation_sha256": "e51fd7715c7547ca9b1d8d391034ee9b3e1cae94f13e47f7d82736ed6a9858fa",
+      "class": "AMBIGUOUS",
+      "done_reason": "stop",
+      "elapsed_seconds": 50.746,
+      "id": "R01",
+      "model": "gemma3:12b",
+      "raw_response_sha256": "d9956e51edc6fd32c82843b4358a9c8bd6bc0a0b7658acf6b7761dfca609fe85",
+      "replay": false,
+      "request_sha256": "6e25761a1cf4602c89ccbf8dc9da9608ccce72322f7c538b991f5dea8ba5a18e",
+      "response_content_sha256": "4adfc422f8984e59cf0b494244276525f81278e02d542ad5cccc13188c1ece4b",
+      "status": "VALID_OUTPUT"
+    },
+    {
+      "annotation_sha256": "b6e6df26206d19fc783126d1a45e2fd3b1809fad0a483f22a8e63d13ccfd9604",
+      "class": "ALL_OF",
+      "done_reason": "stop",
+      "elapsed_seconds": 47.474,
+      "id": "R02",
+      "model": "gemma3:12b",
+      "raw_response_sha256": "3767ea26835340501c8a1df23608a6fd0f82e82d89a87de357e1b716287cdcda",
+      "replay": false,
+      "request_sha256": "e52568e6046465b9835aa728c1dc9bfbf7acfd953f92b18423005b9dc7e82ffb",
+      "response_content_sha256": "0cd5225dba689f490a8d14e0c8670549c68f23f0c439d180b9cdea1287b43fb0",
+      "status": "VALID_OUTPUT"
+    },
+    {
+      "annotation_sha256": "42d660e4412a12bbe67afadc44a80307b88cb5f064bffb192207f3086373acef",
+      "class": "AMBIGUOUS",
+      "done_reason": "stop",
+      "elapsed_seconds": 41.07,
+      "id": "C01",
+      "model": "gemma3:12b",
+      "raw_response_sha256": "1edba4afcac369ba1d099b85f1ebed5cbeabf6a9a5b66d6fb7ec699ff830144e",
+      "replay": false,
+      "request_sha256": "96f1be204f29a951990afa0808b24149fc92235d3b3b5a205330d68da84550df",
+      "response_content_sha256": "6300a0ba6d7770e68cb76773d5d30f4795313c24a44566e0b931e2c27c3681ec",
+      "status": "VALID_OUTPUT"
+    },
+    {
+      "annotation_sha256": "c13b7470c35ee21ae4fac498c14880a9ff966cba7ec20fd94ca1ef1eafb415bb",
+      "class": "ALL_OF",
+      "done_reason": "stop",
+      "elapsed_seconds": 46.7,
+      "id": "C02",
+      "model": "gemma3:12b",
+      "raw_response_sha256": "60d654e6413442d6c34f1a2ce91ed8ef611203c7fd957fa113b87b683d03c848",
+      "replay": false,
+      "request_sha256": "7e87d98f05932b448d42837410308a68565f8fa7d4acba6a072172930249fe61",
+      "response_content_sha256": "27696f3aa1abceb3c435d7bacf397a3a63bc60191660e995fe84823853b4b806",
+      "status": "VALID_OUTPUT"
+    },
+    {
+      "annotation_sha256": "45b2d182e2e00c09fb27511318040b1ef4b7e40c2f65aee4900a656f84d53b92",
+      "class": "ALL_OF",
+      "done_reason": "stop",
+      "elapsed_seconds": 41.386,
+      "id": "C03",
+      "model": "gemma3:12b",
+      "raw_response_sha256": "7fe1e5d6bfa5168663d199e05fb33044e3160728393bc8437fd4dcb33ab8d57e",
+      "replay": false,
+      "request_sha256": "1064be9726cc9cfdc3177cd4aa09399405418d86f580ad8635ddee0ea4727aeb",
+      "response_content_sha256": "ab96c8b68a13f88d835c4d6026a3af110910d198842ec79b07bd4341066155e0",
+      "status": "VALID_OUTPUT"
+    },
+    {
+      "annotation_sha256": "2a2b4bfb7a71c40540a8a29678883757c92d346ca4307095ddb4347c01a51afc",
+      "class": "NON_ALL_OF",
+      "done_reason": "stop",
+      "elapsed_seconds": 54.941,
+      "id": "C04",
+      "model": "gemma3:12b",
+      "raw_response_sha256": "5776301366426384825ac461a18fb41cbd57100ba6a292600abc8c862a67998c",
+      "replay": false,
+      "request_sha256": "dac28ce4f2ab98556140cc96d49965ab9122ebcafe2175cb288f5499ce054dc9",
+      "response_content_sha256": "52e9744d08fe54a153905e47afaa91c9d4d70bdeb861b8d6d3f02ea05a766837",
+      "status": "VALID_OUTPUT"
+    },
+    {
+      "annotation_sha256": "7c04b0e8bdb83858e8a432aff9218ce0ae0ad5dd0062cb7f470159ddd6acb821",
+      "class": "NON_ALL_OF",
+      "done_reason": "stop",
+      "elapsed_seconds": 50.683,
+      "id": "C05",
+      "model": "gemma3:12b",
+      "raw_response_sha256": "1f22331c572064ec5ad18b7a78783ce638bdfc5fc6e3d2410b04a765ac78e6ba",
+      "replay": false,
+      "request_sha256": "0c04c13a9e5756a54d379f2559524d3495b02d8655d81abc2f03086a041d117f",
+      "response_content_sha256": "03f48dfe8d6313c5d2f9a3f00d233c5ce9bff4cee2e07c6bbc0fea4823eaab49",
+      "status": "VALID_OUTPUT"
+    },
+    {
+      "annotation_sha256": "d0a99d9a67c469c8aa5344a5ce4c51ef135ef1bfeaac8f5d549e895bb078889b",
+      "class": "AMBIGUOUS",
+      "done_reason": "stop",
+      "elapsed_seconds": 41.808,
+      "id": "C06",
+      "model": "gemma3:12b",
+      "raw_response_sha256": "7b002beb99bb5430230849af996a8d1c9d6225a8c168b1a86a0fa6038ba2bec9",
+      "replay": false,
+      "request_sha256": "06a597757462e9f395cee5c75d146aae0a54f2943b3724509621de2de4bbb1ce",
+      "response_content_sha256": "2246beff88450c1c86e625f65a3e20fb725429905e6dbc13d5a002bed0577a0f",
+      "status": "VALID_OUTPUT"
+    },
+    {
+      "annotation_sha256": "0da70d9f76839f47bb9a22e148d6a660cdb3a1f9a0ffe4d20aee53d72e499f27",
+      "class": "ALL_OF",
+      "done_reason": "stop",
+      "elapsed_seconds": 50.748,
+      "id": "R01",
+      "model": "gemma3:12b",
+      "raw_response_sha256": "e220dabea19e62adddeee671f74986d28b0e2ae2cdc44565ee95077a11a4ac86",
+      "replay": true,
+      "request_sha256": "6e25761a1cf4602c89ccbf8dc9da9608ccce72322f7c538b991f5dea8ba5a18e",
+      "response_content_sha256": "fac8e1874ff82361c4711b4bd0a8f07bdaadc90bc6f921e5a289e8bca55eafdd",
+      "status": "VALID_OUTPUT"
+    },
+    {
+      "elapsed_seconds": 9.588,
+      "error": "Remote end closed connection without response",
+      "error_type": "RemoteDisconnected",
+      "id": "C03",
+      "model": "gemma3:12b",
+      "replay": true,
+      "request_sha256": "1064be9726cc9cfdc3177cd4aa09399405418d86f580ad8635ddee0ea4727aeb",
+      "status": "FAILED"
+    },
+    {
+      "elapsed_seconds": 0.002,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "error_type": "URLError",
+      "id": "U01",
+      "model": "qwen3.5:9b",
+      "replay": false,
+      "request_sha256": "55a2c4d7708b18c46a99ee22ee692181e3fbe190b25b3bb5e8facb4b52a11258",
+      "status": "FAILED"
+    },
+    {
+      "elapsed_seconds": 0.001,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "error_type": "URLError",
+      "id": "U02",
+      "model": "qwen3.5:9b",
+      "replay": false,
+      "request_sha256": "9e630bcf6104e1e6f387055ecd558c1e73b74c68ebf24ef989bde87c344fcaae",
+      "status": "FAILED"
+    },
+    {
+      "elapsed_seconds": 0.001,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "error_type": "URLError",
+      "id": "U03",
+      "model": "qwen3.5:9b",
+      "replay": false,
+      "request_sha256": "1358b308bad736e4133e73e102483bccf308cef89171289f165c10f6ff9ef0e4",
+      "status": "FAILED"
+    },
+    {
+      "elapsed_seconds": 0.0,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "error_type": "URLError",
+      "id": "U04",
+      "model": "qwen3.5:9b",
+      "replay": false,
+      "request_sha256": "14de83f5a2349c3f571be07602a17fd2e5e9e866dd623f764c65a5f323e7fd63",
+      "status": "FAILED"
+    },
+    {
+      "elapsed_seconds": 0.0,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "error_type": "URLError",
+      "id": "U05",
+      "model": "qwen3.5:9b",
+      "replay": false,
+      "request_sha256": "6698f3f25181e502d96c5c1fc5f90f54f63742d6339cb23ec57c8e65474fa9e5",
+      "status": "FAILED"
+    },
+    {
+      "elapsed_seconds": 0.0,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "error_type": "URLError",
+      "id": "U06",
+      "model": "qwen3.5:9b",
+      "replay": false,
+      "request_sha256": "2662c08a3cd57595373ab54d1acc0cd139ccc250ac4b9d7d358b4c6eeddd6bda",
+      "status": "FAILED"
+    },
+    {
+      "elapsed_seconds": 0.001,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "error_type": "URLError",
+      "id": "U07",
+      "model": "qwen3.5:9b",
+      "replay": false,
+      "request_sha256": "ca7e921340d3033743b84f2451aa8d329b61dd45a55f477037c99c856e0b5da5",
+      "status": "FAILED"
+    },
+    {
+      "elapsed_seconds": 0.0,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "error_type": "URLError",
+      "id": "U08",
+      "model": "qwen3.5:9b",
+      "replay": false,
+      "request_sha256": "55ff49e7db4cec8016191bfd9e75243e4ee26cd19f3a3eaa660047289c12bd06",
+      "status": "FAILED"
+    },
+    {
+      "elapsed_seconds": 0.0,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "error_type": "URLError",
+      "id": "U09",
+      "model": "qwen3.5:9b",
+      "replay": false,
+      "request_sha256": "b5d82ea28e9d335121c48dcfa9b20e151154618bdb5485c55cf254ed35b0eeb6",
+      "status": "FAILED"
+    },
+    {
+      "elapsed_seconds": 0.0,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "error_type": "URLError",
+      "id": "U10",
+      "model": "qwen3.5:9b",
+      "replay": false,
+      "request_sha256": "54666a1a1fbd6ff35cba37acf7399155b0832f8fb1243e0e3925a0d5e9f1c8fa",
+      "status": "FAILED"
+    },
+    {
+      "elapsed_seconds": 0.001,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "error_type": "URLError",
+      "id": "U11",
+      "model": "qwen3.5:9b",
+      "replay": false,
+      "request_sha256": "b01f65ddd32aee96a36f20ba811752f41a186c413450131b375fb23019dbbcfa",
+      "status": "FAILED"
+    },
+    {
+      "elapsed_seconds": 0.0,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "error_type": "URLError",
+      "id": "U12",
+      "model": "qwen3.5:9b",
+      "replay": false,
+      "request_sha256": "704a19b7b8af2341f2dd5a54087041bf8525e3b9b39a1ff429d2e2fecf861237",
+      "status": "FAILED"
+    },
+    {
+      "elapsed_seconds": 0.001,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "error_type": "URLError",
+      "id": "R01",
+      "model": "qwen3.5:9b",
+      "replay": false,
+      "request_sha256": "8d299d09087c0501bc330f08f6229406f854b7ab482396d0097abcbc14498dd2",
+      "status": "FAILED"
+    },
+    {
+      "elapsed_seconds": 0.0,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "error_type": "URLError",
+      "id": "R02",
+      "model": "qwen3.5:9b",
+      "replay": false,
+      "request_sha256": "370d7449ce225ffa41dc00a7ca8a35fe835a25a8d96d3731108deed0e5531c47",
+      "status": "FAILED"
+    },
+    {
+      "elapsed_seconds": 0.001,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "error_type": "URLError",
+      "id": "C01",
+      "model": "qwen3.5:9b",
+      "replay": false,
+      "request_sha256": "d7c03575370c035568b50f80a2c87537a6e55fe68f14b1a151fe7e437b0c2f80",
+      "status": "FAILED"
+    },
+    {
+      "elapsed_seconds": 0.001,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "error_type": "URLError",
+      "id": "C02",
+      "model": "qwen3.5:9b",
+      "replay": false,
+      "request_sha256": "a04cd0fa214adf54fe81d19772fd7f2cbf16586b57d9959d1d5644513a8ac352",
+      "status": "FAILED"
+    },
+    {
+      "elapsed_seconds": 0.004,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "error_type": "URLError",
+      "id": "C03",
+      "model": "qwen3.5:9b",
+      "replay": false,
+      "request_sha256": "2424c3a5cce363be0ec952cc73b1601bee19aef83a0ccdcd804179d494f3493c",
+      "status": "FAILED"
+    },
+    {
+      "elapsed_seconds": 0.0,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "error_type": "URLError",
+      "id": "C04",
+      "model": "qwen3.5:9b",
+      "replay": false,
+      "request_sha256": "ba034520c53fae22127d67af983da1b50a0fbf459743df542ab40ae2bef5d405",
+      "status": "FAILED"
+    },
+    {
+      "elapsed_seconds": 0.0,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "error_type": "URLError",
+      "id": "C05",
+      "model": "qwen3.5:9b",
+      "replay": false,
+      "request_sha256": "0f0576800ffbe91927195234e8ac09067c9536f2c872fc86106ef8aa5fb4bbd5",
+      "status": "FAILED"
+    },
+    {
+      "elapsed_seconds": 0.002,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "error_type": "URLError",
+      "id": "C06",
+      "model": "qwen3.5:9b",
+      "replay": false,
+      "request_sha256": "bc16fb08b97e864230c16e6a15c7f331caf3e1a9fa14fcea9a4d01b5ca6d15ab",
+      "status": "FAILED"
+    },
+    {
+      "elapsed_seconds": 0.0,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "error_type": "URLError",
+      "id": "R01",
+      "model": "qwen3.5:9b",
+      "replay": true,
+      "request_sha256": "8d299d09087c0501bc330f08f6229406f854b7ab482396d0097abcbc14498dd2",
+      "status": "FAILED"
+    },
+    {
+      "elapsed_seconds": 0.001,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "error_type": "URLError",
+      "id": "C03",
+      "model": "qwen3.5:9b",
+      "replay": true,
+      "request_sha256": "2424c3a5cce363be0ec952cc73b1601bee19aef83a0ccdcd804179d494f3493c",
+      "status": "FAILED"
+    }
+  ],
+  "failures": [
+    {
+      "call": "C03-replay",
+      "error_type": "RemoteDisconnected",
+      "model": "gemma3:12b"
+    },
+    {
+      "call": "U01",
+      "error_type": "URLError",
+      "model": "qwen3.5:9b"
+    },
+    {
+      "call": "U02",
+      "error_type": "URLError",
+      "model": "qwen3.5:9b"
+    },
+    {
+      "call": "U03",
+      "error_type": "URLError",
+      "model": "qwen3.5:9b"
+    },
+    {
+      "call": "U04",
+      "error_type": "URLError",
+      "model": "qwen3.5:9b"
+    },
+    {
+      "call": "U05",
+      "error_type": "URLError",
+      "model": "qwen3.5:9b"
+    },
+    {
+      "call": "U06",
+      "error_type": "URLError",
+      "model": "qwen3.5:9b"
+    },
+    {
+      "call": "U07",
+      "error_type": "URLError",
+      "model": "qwen3.5:9b"
+    },
+    {
+      "call": "U08",
+      "error_type": "URLError",
+      "model": "qwen3.5:9b"
+    },
+    {
+      "call": "U09",
+      "error_type": "URLError",
+      "model": "qwen3.5:9b"
+    },
+    {
+      "call": "U10",
+      "error_type": "URLError",
+      "model": "qwen3.5:9b"
+    },
+    {
+      "call": "U11",
+      "error_type": "URLError",
+      "model": "qwen3.5:9b"
+    },
+    {
+      "call": "U12",
+      "error_type": "URLError",
+      "model": "qwen3.5:9b"
+    },
+    {
+      "call": "R01",
+      "error_type": "URLError",
+      "model": "qwen3.5:9b"
+    },
+    {
+      "call": "R02",
+      "error_type": "URLError",
+      "model": "qwen3.5:9b"
+    },
+    {
+      "call": "C01",
+      "error_type": "URLError",
+      "model": "qwen3.5:9b"
+    },
+    {
+      "call": "C02",
+      "error_type": "URLError",
+      "model": "qwen3.5:9b"
+    },
+    {
+      "call": "C03",
+      "error_type": "URLError",
+      "model": "qwen3.5:9b"
+    },
+    {
+      "call": "C04",
+      "error_type": "URLError",
+      "model": "qwen3.5:9b"
+    },
+    {
+      "call": "C05",
+      "error_type": "URLError",
+      "model": "qwen3.5:9b"
+    },
+    {
+      "call": "C06",
+      "error_type": "URLError",
+      "model": "qwen3.5:9b"
+    },
+    {
+      "call": "R01-replay",
+      "error_type": "URLError",
+      "model": "qwen3.5:9b"
+    },
+    {
+      "call": "C03-replay",
+      "error_type": "URLError",
+      "model": "qwen3.5:9b"
+    }
+  ],
+  "guaranteed_determinism": false,
+  "input_freeze_sha256": "7d5667c0de9b891b69f0edf71a551415da23a46415db6c60931fbcc130c40a65",
+  "models": [
+    {
+      "capabilities": [
+        "completion",
+        "vision"
+      ],
+      "details": {
+        "context_length": 131072,
+        "embedding_length": 3840,
+        "families": [
+          "gemma3"
+        ],
+        "family": "gemma3",
+        "format": "gguf",
+        "parameter_size": "12.2B",
+        "parent_model": "",
+        "quantization_level": "Q4_K_M"
+      },
+      "digest": "f4031aab637d1ffa37b42570452ae0e4fad0314754d17ded67322e4b95836f8a",
+      "name": "gemma3:12b",
+      "size": 8149190253
+    },
+    {
+      "capabilities": [
+        "completion",
+        "vision",
+        "tools",
+        "thinking"
+      ],
+      "details": {
+        "context_length": 262144,
+        "embedding_length": 4096,
+        "families": [
+          "qwen35"
+        ],
+        "family": "qwen35",
+        "format": "gguf",
+        "parameter_size": "9.7B",
+        "parent_model": "",
+        "quantization_level": "Q4_K_M"
+      },
+      "digest": "6488c96fa5faab64bb65cbd30d4289e20e6130ef535a93ef9a49f42eda893ea7",
+      "name": "qwen3.5:9b",
+      "size": 6594474711
+    }
+  ],
+  "provider": "local_ollama",
+  "runtime": {
+    "version": "0.34.4"
+  },
+  "schema": "s0-cold-review-execution-r2",
+  "subject_commit": "172738433e770ed96f949da2dcc0b4743f87af5f"
+}

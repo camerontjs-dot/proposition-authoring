@@ -1,0 +1,1 @@
+{"alternatives": [], "basis": "The root asserts a comparative property of Venus regarding brightness relative to the Sun and Moon. It is a single, atomic assertion.", "children": ["Venus is the third brightest object in the sky after the Sun and Moon."], "class": "AMBIGUOUS", "confidence": "low", "id": "U01", "operator": "is", "scoped_obligations": [], "unresolved": false}

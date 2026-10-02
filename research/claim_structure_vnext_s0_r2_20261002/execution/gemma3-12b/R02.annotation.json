@@ -1,0 +1,1 @@
+{"alternatives": [], "basis": "Preserve all asserted content.", "children": ["It is slowly moving towards Mars and will crash into the planet or break apart in about 50 million years."], "class": "ALL_OF", "confidence": "low", "id": "R02", "operator": "AND", "scoped_obligations": ["The 'or' operator scopes over 'crash into the planet' and 'break apart'."], "unresolved": false}

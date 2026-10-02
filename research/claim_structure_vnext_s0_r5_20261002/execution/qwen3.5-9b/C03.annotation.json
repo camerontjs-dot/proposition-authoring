@@ -1,0 +1,1 @@
+{"id": "C03", "location_scope_alternatives": [{"first_event": "UNSPECIFIED", "second_event": "UNSPECIFIED"}, {"first_event": "Ontario", "second_event": "Ontario"}], "operator": "all_of", "predications": ["Ada inspected the valve", "Bea recorded the pressure"]}

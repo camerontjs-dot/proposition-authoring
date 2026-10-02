@@ -1,0 +1,16 @@
+{
+  "disposition": "FALSIFIED_LOCAL_COLD_WITNESS_ORACLE",
+  "execution_sha256": "073a8a1a5ef9352bc826828a4a7f70fc9e003a2a9384a16e6e723ab3bfefaf5b",
+  "independent_reproduction": "NOT_RUN",
+  "limits": [
+    "Two reused synthetic controls per model; component matching does not verify predicate subjects/roles."
+  ],
+  "production_authority": "NOT_RUN",
+  "protected_states": {
+    "RC0": "INCONCLUSIVE",
+    "RC1": "BLOCKED_INSUFFICIENT_REVIEW_STRATUM"
+  },
+  "schema": "s0-stage-terminal",
+  "stage": "S0-R5",
+  "subject_commit": "fe88b6d0d030f4642415a06adbf5c11b5dbd0200"
+}

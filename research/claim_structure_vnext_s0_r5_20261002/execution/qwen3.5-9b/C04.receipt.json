@@ -1,0 +1,23 @@
+{
+  "annotation_sha256": "f0f07b4af9979f19768d22b2537b8bfe79ff4cd0f1ba53295f1753fe762b94e3",
+  "elapsed_seconds": 6.814,
+  "expected_witness": {
+    "derived_class": "NON_ALL_OF",
+    "location_scope_alternatives": [
+      {
+        "first_event": "UNSPECIFIED",
+        "second_event": "UNSPECIFIED"
+      }
+    ],
+    "operator": "any_of",
+    "predication_count": 2
+  },
+  "id": "C04",
+  "model": "qwen3.5:9b",
+  "operator": "any_of",
+  "request_sha256": "66cd2856c8200357b1dd01c5f29fd2becd168f0c0e8f0f7d920d4504c348226c",
+  "response_sha256": "4d1ceaeec89d9e2d0abd9b68711b8dddb9a9dc26a365e3eea48f57eabee77c9f",
+  "status": "VALID_OUTPUT",
+  "witness_correct": true,
+  "witness_errors": []
+}

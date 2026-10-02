@@ -1,0 +1,16 @@
+{
+  "disposition": "FALSIFIED_CLOSED_COLD_REVIEW_ORACLE",
+  "execution_sha256": "8da637a6ef5c0d09bdceb9b741323d9014c131a0f3c78d1a86b0cc5f291467f8",
+  "independent_reproduction": "NOT_RUN",
+  "limits": [
+    "Four synthetic controls per model; no broad/public qualification."
+  ],
+  "production_authority": "NOT_RUN",
+  "protected_states": {
+    "RC0": "INCONCLUSIVE",
+    "RC1": "BLOCKED_INSUFFICIENT_REVIEW_STRATUM"
+  },
+  "schema": "s0-stage-terminal",
+  "stage": "S0-R4",
+  "subject_commit": "33d0e9977cdca78817323ca9b2ae1c922a16a94f"
+}

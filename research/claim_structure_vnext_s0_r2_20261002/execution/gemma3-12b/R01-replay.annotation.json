@@ -1,0 +1,1 @@
+{"alternatives": [], "basis": "The root asserts a comparative property of Venus's rotation relative to other planets.", "children": ["Venus spins slowly", "Venus spins in the opposite direction from most planets"], "class": "ALL_OF", "confidence": "low", "id": "R01", "operator": "AND", "scoped_obligations": [], "unresolved": false}

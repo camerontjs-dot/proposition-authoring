@@ -1,0 +1,13 @@
+{
+  "actual_returncode": 0,
+  "disposition": "FAILED_APPARATUS",
+  "elapsed_seconds": 658.123,
+  "explanation": "Exact frozen runner was physically invoked; local provider preflight at port 11434 failed before format cells.",
+  "format_semantic_cells": "NOT_RUN",
+  "observed_error_tail": [],
+  "schema": "s0-r3-apparatus-failure",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_sha256": "786a865372848b8defae29441b36f7e4acc64396f3b8364a396ef0de3022f387",
+  "subject_commit": "9e48c8663dbb9b5dad10a0f3aac40359ddf2ff36",
+  "subject_tree": "3d5cc0472f4c4bbc4618d9b6243ae050abb8d051"
+}

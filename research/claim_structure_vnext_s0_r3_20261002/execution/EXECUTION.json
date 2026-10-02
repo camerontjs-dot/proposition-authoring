@@ -1,0 +1,180 @@
+{
+  "artifact_sha256": {
+    "gemma3-12b/C01-json_only.receipt.json": "81347d70d449520114a82d88fd2549b7c35c529cb073a29dcded7b0f0e5d8f5e",
+    "gemma3-12b/C01-json_only.request.json": "ebb87cd657e88a0600c1569b43505477d70d05121627dda272726faf4b725201",
+    "gemma3-12b/C01-original_schema.annotation.json": "42d660e4412a12bbe67afadc44a80307b88cb5f064bffb192207f3086373acef",
+    "gemma3-12b/C01-original_schema.receipt.json": "3aebffc41af54095207da26fa5e041ab5c04c567f53247667c43909341e52cda",
+    "gemma3-12b/C01-original_schema.request.json": "96f1be204f29a951990afa0808b24149fc92235d3b3b5a205330d68da84550df",
+    "gemma3-12b/C01-original_schema.response.json": "1edba4afcac369ba1d099b85f1ebed5cbeabf6a9a5b66d6fb7ec699ff830144e",
+    "gemma3-12b/C01-reversed_class_enum.annotation.json": "42d660e4412a12bbe67afadc44a80307b88cb5f064bffb192207f3086373acef",
+    "gemma3-12b/C01-reversed_class_enum.receipt.json": "adebbccc0a22fc87362135f8d77fbcb5bec35c80193f6bd32dcbec74b666f578",
+    "gemma3-12b/C01-reversed_class_enum.request.json": "fee145fb237966d40e4ddf9fbdd50162d06fd66a80eb011cfcc7883e0485c86a",
+    "gemma3-12b/C01-reversed_class_enum.response.json": "2fbd741390a88770b48f3cfedbc0f0858c1c9750ecb6e6c7c585080e540f6d47",
+    "gemma3-12b/C03-json_only.receipt.json": "f24d3c0de07120894096dca2959d3846b37525345ba00d3f828a26d33d3e40fc",
+    "gemma3-12b/C03-json_only.request.json": "d99ca7ea73354be923908704a0c66e103e023d3f5039580c466f65cd40e1bf2b",
+    "gemma3-12b/C03-original_schema.annotation.json": "45b2d182e2e00c09fb27511318040b1ef4b7e40c2f65aee4900a656f84d53b92",
+    "gemma3-12b/C03-original_schema.receipt.json": "8f9bc488e3bdf5f58dc7d6bab944bf5b67dd6fabae9f75e21bba45a1c83beb3e",
+    "gemma3-12b/C03-original_schema.request.json": "1064be9726cc9cfdc3177cd4aa09399405418d86f580ad8635ddee0ea4727aeb",
+    "gemma3-12b/C03-original_schema.response.json": "7fe1e5d6bfa5168663d199e05fb33044e3160728393bc8437fd4dcb33ab8d57e",
+    "gemma3-12b/C03-reversed_class_enum.annotation.json": "45b2d182e2e00c09fb27511318040b1ef4b7e40c2f65aee4900a656f84d53b92",
+    "gemma3-12b/C03-reversed_class_enum.receipt.json": "fb07450942c65c389949431811168f29103d83549d749080f0f7a353218b514e",
+    "gemma3-12b/C03-reversed_class_enum.request.json": "967c9f267a4ec1df16519cd8a17061d0868ac0c536c759bf50fdab8fb3b16761",
+    "gemma3-12b/C03-reversed_class_enum.response.json": "9194d5142fb545f81722f7519b3348a1cf84469d61c194f80e2384cb74d81d44",
+    "gemma3-12b/C04-json_only.receipt.json": "b7f8e44eb5c99a287ab2e57ea7c2109c458413c7b726ddd25801a774856fa6c7",
+    "gemma3-12b/C04-json_only.request.json": "d3504a7adfd7176610d80017d8fc4507f74e7556238341e54455664eebda0284",
+    "gemma3-12b/C04-original_schema.annotation.json": "2a2b4bfb7a71c40540a8a29678883757c92d346ca4307095ddb4347c01a51afc",
+    "gemma3-12b/C04-original_schema.receipt.json": "c97a2ba84ed3b6f60e4435a5c2277abd15c1ebbcc25fdc81cc59747dc5290446",
+    "gemma3-12b/C04-original_schema.request.json": "dac28ce4f2ab98556140cc96d49965ab9122ebcafe2175cb288f5499ce054dc9",
+    "gemma3-12b/C04-original_schema.response.json": "5776301366426384825ac461a18fb41cbd57100ba6a292600abc8c862a67998c",
+    "gemma3-12b/C04-reversed_class_enum.annotation.json": "2a2b4bfb7a71c40540a8a29678883757c92d346ca4307095ddb4347c01a51afc",
+    "gemma3-12b/C04-reversed_class_enum.receipt.json": "459ee747e74a6858a2a33ad648372354ce6b9c93abe5c88af04b668588084dbd",
+    "gemma3-12b/C04-reversed_class_enum.request.json": "573c070774b4c3aa76cb07ea419c2581b2535b1867fc7351ee9a21363db1e5a4",
+    "gemma3-12b/C04-reversed_class_enum.response.json": "67be312b623c7d8f56beec6bc9145a249ead765f2951991bda550c665a4bcd28"
+  },
+  "cells": [
+    {
+      "annotation_sha256": "42d660e4412a12bbe67afadc44a80307b88cb5f064bffb192207f3086373acef",
+      "class_correct": false,
+      "consistency_errors": [
+        "AMBIGUITY_WITHOUT_TWO_UNSELECTED_READINGS"
+      ],
+      "elapsed_seconds": 0.003,
+      "expected_class": "ATOMIC",
+      "format": "original_schema",
+      "id": "C01",
+      "judged_class": "AMBIGUOUS",
+      "model": "gemma3:12b",
+      "request_sha256": "96f1be204f29a951990afa0808b24149fc92235d3b3b5a205330d68da84550df",
+      "response_sha256": "1edba4afcac369ba1d099b85f1ebed5cbeabf6a9a5b66d6fb7ec699ff830144e",
+      "status": "VALID_OUTPUT"
+    },
+    {
+      "elapsed_seconds": 180.018,
+      "error": "timed out",
+      "error_type": "TimeoutError",
+      "expected_class": "ATOMIC",
+      "format": "json_only",
+      "id": "C01",
+      "model": "gemma3:12b",
+      "request_sha256": "ebb87cd657e88a0600c1569b43505477d70d05121627dda272726faf4b725201",
+      "status": "FAILED"
+    },
+    {
+      "annotation_sha256": "42d660e4412a12bbe67afadc44a80307b88cb5f064bffb192207f3086373acef",
+      "class_correct": false,
+      "consistency_errors": [
+        "AMBIGUITY_WITHOUT_TWO_UNSELECTED_READINGS"
+      ],
+      "elapsed_seconds": 31.535,
+      "expected_class": "ATOMIC",
+      "format": "reversed_class_enum",
+      "id": "C01",
+      "judged_class": "AMBIGUOUS",
+      "model": "gemma3:12b",
+      "request_sha256": "fee145fb237966d40e4ddf9fbdd50162d06fd66a80eb011cfcc7883e0485c86a",
+      "response_sha256": "2fbd741390a88770b48f3cfedbc0f0858c1c9750ecb6e6c7c585080e540f6d47",
+      "status": "VALID_OUTPUT"
+    },
+    {
+      "annotation_sha256": "45b2d182e2e00c09fb27511318040b1ef4b7e40c2f65aee4900a656f84d53b92",
+      "class_correct": false,
+      "consistency_errors": [],
+      "elapsed_seconds": 0.014,
+      "expected_class": "AMBIGUOUS",
+      "format": "original_schema",
+      "id": "C03",
+      "judged_class": "ALL_OF",
+      "model": "gemma3:12b",
+      "request_sha256": "1064be9726cc9cfdc3177cd4aa09399405418d86f580ad8635ddee0ea4727aeb",
+      "response_sha256": "7fe1e5d6bfa5168663d199e05fb33044e3160728393bc8437fd4dcb33ab8d57e",
+      "status": "VALID_OUTPUT"
+    },
+    {
+      "elapsed_seconds": 180.065,
+      "error": "timed out",
+      "error_type": "TimeoutError",
+      "expected_class": "AMBIGUOUS",
+      "format": "json_only",
+      "id": "C03",
+      "model": "gemma3:12b",
+      "request_sha256": "d99ca7ea73354be923908704a0c66e103e023d3f5039580c466f65cd40e1bf2b",
+      "status": "FAILED"
+    },
+    {
+      "annotation_sha256": "45b2d182e2e00c09fb27511318040b1ef4b7e40c2f65aee4900a656f84d53b92",
+      "class_correct": false,
+      "consistency_errors": [],
+      "elapsed_seconds": 30.98,
+      "expected_class": "AMBIGUOUS",
+      "format": "reversed_class_enum",
+      "id": "C03",
+      "judged_class": "ALL_OF",
+      "model": "gemma3:12b",
+      "request_sha256": "967c9f267a4ec1df16519cd8a17061d0868ac0c536c759bf50fdab8fb3b16761",
+      "response_sha256": "9194d5142fb545f81722f7519b3348a1cf84469d61c194f80e2384cb74d81d44",
+      "status": "VALID_OUTPUT"
+    },
+    {
+      "annotation_sha256": "2a2b4bfb7a71c40540a8a29678883757c92d346ca4307095ddb4347c01a51afc",
+      "class_correct": true,
+      "consistency_errors": [],
+      "elapsed_seconds": 0.01,
+      "expected_class": "NON_ALL_OF",
+      "format": "original_schema",
+      "id": "C04",
+      "judged_class": "NON_ALL_OF",
+      "model": "gemma3:12b",
+      "request_sha256": "dac28ce4f2ab98556140cc96d49965ab9122ebcafe2175cb288f5499ce054dc9",
+      "response_sha256": "5776301366426384825ac461a18fb41cbd57100ba6a292600abc8c862a67998c",
+      "status": "VALID_OUTPUT"
+    },
+    {
+      "elapsed_seconds": 180.028,
+      "error": "timed out",
+      "error_type": "TimeoutError",
+      "expected_class": "NON_ALL_OF",
+      "format": "json_only",
+      "id": "C04",
+      "model": "gemma3:12b",
+      "request_sha256": "d3504a7adfd7176610d80017d8fc4507f74e7556238341e54455664eebda0284",
+      "status": "FAILED"
+    },
+    {
+      "annotation_sha256": "2a2b4bfb7a71c40540a8a29678883757c92d346ca4307095ddb4347c01a51afc",
+      "class_correct": true,
+      "consistency_errors": [],
+      "elapsed_seconds": 55.107,
+      "expected_class": "NON_ALL_OF",
+      "format": "reversed_class_enum",
+      "id": "C04",
+      "judged_class": "NON_ALL_OF",
+      "model": "gemma3:12b",
+      "request_sha256": "573c070774b4c3aa76cb07ea419c2581b2535b1867fc7351ee9a21363db1e5a4",
+      "response_sha256": "67be312b623c7d8f56beec6bc9145a249ead765f2951991bda550c665a4bcd28",
+      "status": "VALID_OUTPUT"
+    },
+    {
+      "format": "original_schema",
+      "id": "C01",
+      "model": "qwen3.5:9b",
+      "status": "FAILED_PREDECESSOR"
+    },
+    {
+      "format": "original_schema",
+      "id": "C03",
+      "model": "qwen3.5:9b",
+      "status": "FAILED_PREDECESSOR"
+    },
+    {
+      "format": "original_schema",
+      "id": "C04",
+      "model": "qwen3.5:9b",
+      "status": "FAILED_PREDECESSOR"
+    }
+  ],
+  "guaranteed_determinism": false,
+  "input_freeze_sha256": "dea52abcdef24f497cb668dcc4f9d8a188e4c65a776075c3d0820109651b450f",
+  "predecessor_execution_sha256": "38353d5e95b515c4c4b6bdf0bee52eba85814760fc9642df5845078368d83d3c",
+  "schema": "s0-format-diagnostic-r3",
+  "subject_commit": "9e48c8663dbb9b5dad10a0f3aac40359ddf2ff36"
+}
