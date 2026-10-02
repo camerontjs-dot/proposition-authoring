@@ -1,0 +1,34 @@
+{
+  "schema": "claim-structure-s0-mutation-family-v1",
+  "tracking_issue": 60,
+  "authority": "research-only",
+  "application_rule": "Concrete mutations are instantiated only from S0 adjudicated non-excluded structures and frozen before S2 instrument execution.",
+  "families": [
+    {"id":"M01_DROP_REQUIRED_CHILD","expected_effect":"semantic-loss","hard_reject":true},
+    {"id":"M02_INJECT_UNSUPPORTED_CHILD","expected_effect":"semantic-invention","hard_reject":true},
+    {"id":"M03_DUPLICATE_CHILD","expected_effect":"structural-duplication","hard_reject":true},
+    {"id":"M04_SWAP_SUBJECT_OBJECT","expected_effect":"role-reversal","hard_reject":true},
+    {"id":"M05_SWAP_REFERENT","expected_effect":"reference-change","hard_reject":true},
+    {"id":"M06_REMOVE_NEGATION","expected_effect":"polarity-change","hard_reject":true},
+    {"id":"M07_OVERDISTRIBUTE_NEGATION","expected_effect":"scope-change","hard_reject":true},
+    {"id":"M08_ALTER_MODALITY","expected_effect":"modal-force-change","hard_reject":true},
+    {"id":"M09_REMOVE_ATTRIBUTION","expected_effect":"source-scope-loss","hard_reject":true},
+    {"id":"M10_NARROW_ATTRIBUTION","expected_effect":"attribution-scope-change","hard_reject":true},
+    {"id":"M11_CHANGE_NUMBER","expected_effect":"quantity-change","hard_reject":true},
+    {"id":"M12_CHANGE_UNIT","expected_effect":"unit-change","hard_reject":true},
+    {"id":"M13_CHANGE_THRESHOLD","expected_effect":"threshold-change","hard_reject":true},
+    {"id":"M14_CHANGE_DATE","expected_effect":"temporal-value-change","hard_reject":true},
+    {"id":"M15_DROP_TEMPORAL_SCOPE","expected_effect":"temporal-scope-loss","hard_reject":true},
+    {"id":"M16_DROP_JURISDICTION_SCOPE","expected_effect":"jurisdiction-scope-loss","hard_reject":true},
+    {"id":"M17_MISATTACH_SHARED_MODIFIER","expected_effect":"modifier-scope-change","hard_reject":true},
+    {"id":"M18_AND_TO_OR","expected_effect":"operator-change","hard_reject":true},
+    {"id":"M19_OR_TO_ALL_OF","expected_effect":"operator-flattening","hard_reject":true},
+    {"id":"M20_HARMLESS_PARAPHRASE","expected_effect":"semantic-preserving","hard_reject":false,"expected_accept":true}
+  ],
+  "controls": {
+    "proposal_order_must_not_matter": true,
+    "duplicate_candidate_count_must_not_matter": true,
+    "model_confidence_is_not_authority": true,
+    "downstream_performance_is_not_authority": true
+  }
+}
