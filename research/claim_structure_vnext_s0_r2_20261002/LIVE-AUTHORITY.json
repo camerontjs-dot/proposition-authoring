@@ -1,0 +1,11 @@
+{
+  "canonical_issue_60_s0_freeze_branch": "NOT_FOUND_404",
+  "checked_at_utc": "2026-10-02T15:21:02.634305+00:00",
+  "decisive_S1": "NOT_RUN",
+  "main": "96efd44e9d6d2325b9bccc6d6ebdcdad9c8411b1",
+  "parallel_pr_61_head": "2ec965cc1b6dca96fba3093c0a60c8796f929c9d",
+  "programme_freeze_branch": "freeze/claim-structure-vnext-program-rc0-20261002",
+  "programme_freeze_commit": "1a25c4eabffead034187f97573dc53f9e9be1b6a",
+  "programme_pr_59_head": "1a25c4eabffead034187f97573dc53f9e9be1b6a",
+  "repository": "camerontjs-dot/proposition-authoring"
+}

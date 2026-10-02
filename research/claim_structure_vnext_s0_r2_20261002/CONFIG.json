@@ -1,0 +1,91 @@
+{
+  "allow_retries": false,
+  "guaranteed_determinism": false,
+  "isolation": "one fresh /api/generate request per root; no returned context reused; no memory/filesystem/tool inputs; weights retain pretraining knowledge",
+  "keep_alive": "2m",
+  "models": [
+    {
+      "capabilities": [
+        "completion",
+        "vision"
+      ],
+      "details": {
+        "context_length": 131072,
+        "embedding_length": 3840,
+        "families": [
+          "gemma3"
+        ],
+        "family": "gemma3",
+        "format": "gguf",
+        "parameter_size": "12.2B",
+        "parent_model": "",
+        "quantization_level": "Q4_K_M"
+      },
+      "digest": "f4031aab637d1ffa37b42570452ae0e4fad0314754d17ded67322e4b95836f8a",
+      "name": "gemma3:12b",
+      "size": 8149190253
+    },
+    {
+      "capabilities": [
+        "completion",
+        "vision",
+        "tools",
+        "thinking"
+      ],
+      "details": {
+        "context_length": 262144,
+        "embedding_length": 4096,
+        "families": [
+          "qwen35"
+        ],
+        "family": "qwen35",
+        "format": "gguf",
+        "parameter_size": "9.7B",
+        "parent_model": "",
+        "quantization_level": "Q4_K_M"
+      },
+      "digest": "6488c96fa5faab64bb65cbd30d4289e20e6130ef535a93ef9a49f42eda893ea7",
+      "name": "qwen3.5:9b",
+      "size": 6594474711
+    }
+  ],
+  "options": {
+    "num_ctx": 8192,
+    "num_predict": 1536,
+    "num_thread": 4,
+    "seed": 58,
+    "temperature": 0
+  },
+  "provider": "local_ollama",
+  "replay_ids": [
+    "R01",
+    "C03"
+  ],
+  "row_order": [
+    "U01",
+    "U02",
+    "U03",
+    "U04",
+    "U05",
+    "U06",
+    "U07",
+    "U08",
+    "U09",
+    "U10",
+    "U11",
+    "U12",
+    "R01",
+    "R02",
+    "C01",
+    "C02",
+    "C03",
+    "C04",
+    "C05",
+    "C06"
+  ],
+  "runtime_version": "0.34.4",
+  "schema": "s0-review-config-r2",
+  "stream": false,
+  "think": false,
+  "timeout_seconds": 180
+}

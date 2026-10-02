@@ -1,0 +1,127 @@
+{
+  "aperture": {
+    "annotation_basis": "Exact root_text plus supplied context_text and the S0 annotation guideline only.",
+    "classes_inferred_from_ids_or_source_titles": false,
+    "development_transcript_visible": false,
+    "files_read": [
+      "<local-custody>/research-repo/research/claim_structure_vnext_s0_20261002/ANNOTATION.md",
+      "<local-custody>/research-repo/research/claim_structure_vnext_s0_20261002/targeted.jsonl"
+    ],
+    "files_written": [
+      "<local-custody>/s0-second-review.jsonl",
+      "<local-custody>/s0-second-review-meta.json"
+    ],
+    "implementation_read": false,
+    "memory_files_read": false,
+    "mutation_suite_read": false,
+    "neighboring_research_read": false,
+    "prior_or_other_reviewer_outputs_read": false,
+    "proposer_outputs_read": false,
+    "rerolls_or_label_tuning": 0,
+    "source_locators_used_for_interpretation": false,
+    "source_pages_fetched": false
+  },
+  "artifacts": {
+    "metadata_sha256": "Reported externally after serialization to avoid a self-referential hash.",
+    "review_jsonl_sha256": "65e89456b856ad5887b6a4e0b6ecb80ce1bec14131f3d636aca2f41447e6d37b"
+  },
+  "blinding_limits": {
+    "agreement_creates_production_semantic_authority": false,
+    "deviations": [
+      "The review guideline restricts exposure to the guideline and targeted input, but the developer-preloaded memory summary was already visible before the review. This exposure cannot be undone and is retained in this receipt."
+    ],
+    "enforced_os_isolation": false,
+    "human_or_deterministic_semantic_truth": false,
+    "no_history_assertion": "No development transcript or other reviewer output is visible in the received task context, but the preloaded memory summary is a background exposure. This is not a fully context-free verifier.",
+    "os_isolation_basis": "The session has unrestricted filesystem access and shares the workspace with other agents. No OS sandbox, restricted checkout, capability boundary, or file-access monitor was supplied or created.",
+    "process_instructions": "The task prohibited implementation, history, other reviewers, neighboring records, mutation material, memory reads, source research, Git, and further writes. The observed file read/write set follows those process limits.",
+    "production_semantic_authority": false,
+    "working_semantic_oracle_only": true
+  },
+  "created_at_utc": "2026-10-02T15:02:08.408613+00:00",
+  "evaluator": "agent_llm",
+  "input_freeze": {
+    "annotation_path": "<local-custody>/research-repo/research/claim_structure_vnext_s0_20261002/ANNOTATION.md",
+    "annotation_sha256": "c87e8f2873a5dc144acc11e5fe2f56b6c8c6f77c76ad56f5fc8d52b2226d6989",
+    "git_identity_independently_verified": false,
+    "git_verification_limit": "Git operations were prohibited for this review.",
+    "provided_first_input_freeze": "fee72103a4d471d80b8f78a596ef6b91873d2fbc",
+    "root_text_hashes_checked": 24,
+    "root_text_hashes_match": true,
+    "targeted_hash_match": true,
+    "targeted_path": "<local-custody>/research-repo/research/claim_structure_vnext_s0_20261002/targeted.jsonl",
+    "targeted_sha256_expected": "8aa01866f86572b87633e2b68cbd19af0f1c2434a53956b3e214cde01ccd0cef",
+    "targeted_sha256_observed": "8aa01866f86572b87633e2b68cbd19af0f1c2434a53956b3e214cde01ccd0cef"
+  },
+  "model": "UNKNOWN",
+  "preloaded_background_exposures": [
+    {
+      "exposure": "System and developer operating instructions, tool documentation, available skill names, and generic Codex role description.",
+      "use": "Process compliance only; no skill documents were read."
+    },
+    {
+      "exposure": "User-supplied MainFrame global AGENTS.md operating contract and environment context.",
+      "use": "Process and path constraints only."
+    },
+    {
+      "deviation": true,
+      "exposure": "Developer-preloaded memory summary describing prior MainFrame projects and general preferences, including Claim Audit Lab, Evidence Bundler, ClaimGate-related work, independent qualification, and preservation of unresolved outcomes.",
+      "use": "Visible in the initial context; not used to classify any root. No memory file or linked prior record was opened."
+    },
+    {
+      "exposure": "Parent task instructions supplied the programme-successor purpose, allowed paths, targeted SHA256, first input-freeze identity, and disagreement-detection boundary.",
+      "use": "Aperture, custody, and reporting instructions only."
+    }
+  ],
+  "provider": "UNKNOWN",
+  "results": {
+    "ambiguous_ids": [
+      "T13",
+      "T14",
+      "T15",
+      "T16",
+      "T17",
+      "T18",
+      "T22"
+    ],
+    "balanced_counts_imposed": false,
+    "class_counts": {
+      "ALL_OF": 6,
+      "AMBIGUOUS": 7,
+      "ATOMIC": 5,
+      "NON_ALL_OF": 5,
+      "UNRESOLVED_REVIEW": 1
+    },
+    "guideline_issues": [
+      {
+        "disposition": "UNRESOLVED_REVIEW; both atomizations retained; blocks positive qualification.",
+        "ids": [
+          "T02"
+        ],
+        "issue": "Qualifier versus independently asserted property boundary is underdefined for integrated spin rate and direction descriptions."
+      },
+      {
+        "disposition": "AMBIGUOUS with moderate confidence; local and distributed adjective scopes retained.",
+        "ids": [
+          "T16"
+        ],
+        "issue": "Explicit leading shared modifier is not defined precisely for an adjective inside a coordinated noun phrase."
+      },
+      {
+        "disposition": "AMBIGUOUS under the explicit ambiguity-plus-unsupported-representation rule; both time scopes and non-flat representation retained.",
+        "ids": [
+          "T22"
+        ],
+        "issue": "The trailing temporal phrase can qualify one or both future disjuncts, while either interpretation still requires mixed operators."
+      }
+    ],
+    "qualification_limit": "This receipt supplies an independent first-pass disagreement observation within its documented exposure limits. It cannot establish production semantic authority, and the unresolved annotation prevents a positive qualification claim.",
+    "row_count": 24,
+    "unresolved_boolean_definition": "True means the guideline does not adjudicate the annotation. An AMBIGUOUS annotation can have unresolved=false because its preservation as ambiguous is adjudicated.",
+    "unresolved_ids": [
+      "T02"
+    ]
+  },
+  "review_type": "separate_first_pass_blind_semantic_review_for_disagreement_detection",
+  "runtime_identity_basis": "No authoritative exact model or provider identity is exposed to this reviewer. A generic developer role description is not treated as an exact runtime identity."
+}
