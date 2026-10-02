@@ -1,0 +1,70 @@
+{
+  "schema": "gate-v1-production-slice-candidate-v1",
+  "status": "ASSEMBLED_AWAITING_PRODUCTION_SLICE_QUALIFICATION",
+  "production_base": {
+    "repository": "camerontjs-dot/proposition-authoring",
+    "branch": "promotion/main-converge-v1.0.0-20260917",
+    "commit": "a66b23b413bb5e51626c32694261a71c7b69d5ea",
+    "tree": "4ea9d0fa5ab9d926e0bf960da2103be8c202d400",
+    "dependency_pr": 51
+  },
+  "release_predecessor": {
+    "tag": "v1.0.0",
+    "commit": "c0da10e2e3b9aada5f66af9859cf27964fd3c5fc",
+    "tree": "4ea9d0fa5ab9d926e0bf960da2103be8c202d400"
+  },
+  "frozen_research_authority": {
+    "pr": 53,
+    "candidate_commit": "c3d04eadfc74c6614836533c24476252e3dd74f6",
+    "qualification_run": 35419559454,
+    "artifact_id": 10576936659,
+    "artifact_digest": "sha256:7b960025eee635e4d4c56330361df084ce8f8bfe58d277e486990796d09ceb6b",
+    "disposition": "SUPPORTED FOR PROMOTION"
+  },
+  "preserved_falsifier": {
+    "pr": 50,
+    "disposition": "FALSIFIED_GATE_V1_RELEASED_CONTRACT_A_PRODUCER_CONFORMANCE"
+  },
+  "runtime_blob_pins": {
+    "src/proposition_authoring/production_slice.py": "22fc914868cb9da36cfbba77e1c43cd557df46a1",
+    "scripts/run_gate_production_slice_v1.py": "f7f2e48ffc61ba676ac1ed7629c5dcbc9e41e1e8",
+    "tests/test_production_slice.py": "79a4e88a37d60a0064512635cb81c03a595b4290",
+    "src/proposition_authoring/gate_v1_rc3.py": "00918633bd83e2b69e083d20c2d4578b797ed9e4",
+    "src/proposition_authoring/gate_v1.py": "d5120bd09050f7566b15ddd6347a6fdfbfc01450",
+    "src/proposition_authoring/contract_a.py": "c7997d91146a1a7b3e888c98a9ed5f9610ce3f6e"
+  },
+  "contract_a": {
+    "version": "2.0.0",
+    "release_commit": "529c92b49a34d5c610618551a8737f019f9fa332",
+    "allowed_source_media_types": [
+      "text/plain; charset=utf-8",
+      "text/markdown; charset=utf-8"
+    ]
+  },
+  "next_consumer": {
+    "repository": "camerontjs-dot/evidence-bundler",
+    "pr": 120,
+    "runtime_tested_head": "e8fe42b8f58099885a5530665e9047be5f531b6a",
+    "current_assembly_head": "5b8677ff51b039c2704ce29ee9c8e08bd02e95ca",
+    "note": "heads differ only in Evidence Bundler qualification workflow"
+  },
+  "invocation": "python scripts/run_gate_production_slice_v1.py PACKET.json --out-dir RUN_DIR/gate --implementation-identity <pinned-identity>",
+  "version_posture": {
+    "package_version_changed_in_slice": false,
+    "gate_wire_version_changed_in_slice": false,
+    "expected_future_release_version": "1.0.1",
+    "expected_compatibility_class": "PATCH",
+    "reason": "bounded producer-conformance correction without intentional public schema/capability expansion"
+  },
+  "deferred": [
+    "representation_transformation",
+    "contract_a_widening",
+    "gate_informed_eb_selection",
+    "subject_extraction",
+    "expected_evidence_form_routing",
+    "cal_semantics",
+    "contract_c",
+    "decision_engine",
+    "authorization"
+  ]
+}
