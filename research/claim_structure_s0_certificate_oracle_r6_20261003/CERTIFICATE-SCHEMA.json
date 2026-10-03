@@ -1,0 +1,498 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "claim-structure-scope-obligation-certificate-v0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "certificate_id",
+    "root",
+    "source_provenance",
+    "classification",
+    "predicates",
+    "readings",
+    "obligations",
+    "completeness",
+    "review_status"
+  ],
+  "properties": {
+    "schema": {
+      "const": "claim-structure-scope-obligation-certificate-v0"
+    },
+    "certificate_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "root": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "claim_id",
+        "text",
+        "text_sha256"
+      ],
+      "properties": {
+        "claim_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "text_sha256": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "authorized_context": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "authorized_context_sha256": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        }
+      }
+    },
+    "source_provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "root_source",
+        "analysis_basis"
+      ],
+      "properties": {
+        "root_source": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "locator"
+          ],
+          "properties": {
+            "kind": {
+              "enum": [
+                "published_example",
+                "public_document",
+                "project_public_artifact",
+                "synthetic_control"
+              ]
+            },
+            "locator": {
+              "type": "string",
+              "minLength": 1
+            },
+            "source_sha256": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            },
+            "location": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        },
+        "analysis_basis": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "basis_kind",
+              "locator",
+              "claim"
+            ],
+            "properties": {
+              "basis_kind": {
+                "enum": [
+                  "published_annotation",
+                  "published_analysis",
+                  "annotation_guideline",
+                  "synthetic_gold_rule",
+                  "independent_adjudication"
+                ]
+              },
+              "locator": {
+                "type": "string",
+                "minLength": 1
+              },
+              "claim": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    "classification": {
+      "enum": [
+        "ATOMIC",
+        "ALL_OF",
+        "AMBIGUOUS",
+        "NON_ALL_OF"
+      ]
+    },
+    "predicates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "predicate_id",
+          "surface",
+          "span",
+          "roles"
+        ],
+        "properties": {
+          "predicate_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "surface": {
+            "type": "string",
+            "minLength": 1
+          },
+          "span": {
+            "$ref": "#/$defs/span"
+          },
+          "roles": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "role_id",
+                "role",
+                "surface",
+                "span"
+              ],
+              "properties": {
+                "role_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "role": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "surface": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "span": {
+                  "$ref": "#/$defs/span"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "readings": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "reading_id",
+          "operator",
+          "propositions",
+          "scope_bindings",
+          "status"
+        ],
+        "properties": {
+          "reading_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "operator": {
+            "enum": [
+              "ATOMIC",
+              "ALL_OF",
+              "ANY_OF",
+              "IF_THEN",
+              "SCOPED",
+              "OTHER"
+            ]
+          },
+          "propositions": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "proposition_id",
+                "text",
+                "predicate_ids"
+              ],
+              "properties": {
+                "proposition_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "text": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "predicate_ids": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "scope_bindings": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "binding_id",
+                "kind",
+                "surface",
+                "span",
+                "targets"
+              ],
+              "properties": {
+                "binding_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "kind": {
+                  "enum": [
+                    "NEGATION",
+                    "MODALITY",
+                    "ATTRIBUTION",
+                    "TEMPORAL",
+                    "LOCATION",
+                    "JURISDICTION",
+                    "QUANTIFIER",
+                    "CONDITION",
+                    "EXCEPTION",
+                    "OTHER"
+                  ]
+                },
+                "surface": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "span": {
+                  "$ref": "#/$defs/span"
+                },
+                "targets": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "status": {
+            "enum": [
+              "MATERIALLY_LIVE",
+              "WARRANTED",
+              "REJECTED_BY_EXTERNAL_BASIS"
+            ]
+          }
+        }
+      }
+    },
+    "obligations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "obligation_id",
+          "kind",
+          "description",
+          "source_spans",
+          "must_be_preserved_in"
+        ],
+        "properties": {
+          "obligation_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "enum": [
+              "PREDICATE",
+              "ROLE_BINDING",
+              "NEGATION",
+              "MODALITY",
+              "ATTRIBUTION",
+              "TEMPORAL",
+              "LOCATION",
+              "JURISDICTION",
+              "QUANTITY",
+              "UNIT",
+              "THRESHOLD",
+              "CONJUNCTION",
+              "DISJUNCTION",
+              "CONDITION",
+              "REFERENCE",
+              "OTHER"
+            ]
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_spans": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/span"
+            }
+          },
+          "must_be_preserved_in": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "completeness": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "material_span_ledger",
+        "unassigned_material_spans",
+        "all_predicates_bound",
+        "all_roles_bound",
+        "all_operators_bound",
+        "all_material_qualifiers_bound",
+        "all_live_readings_recorded"
+      ],
+      "properties": {
+        "material_span_ledger": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "span",
+              "semantic_status",
+              "object_refs"
+            ],
+            "properties": {
+              "span": {
+                "$ref": "#/$defs/span"
+              },
+              "semantic_status": {
+                "enum": [
+                  "ACCOUNTED_MATERIAL",
+                  "ACCOUNTED_NON_MATERIAL",
+                  "PUNCTUATION_OR_CONNECTIVE",
+                  "UNRESOLVED"
+                ]
+              },
+              "object_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "unassigned_material_spans": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/span"
+          }
+        },
+        "all_predicates_bound": {
+          "type": "boolean"
+        },
+        "all_roles_bound": {
+          "type": "boolean"
+        },
+        "all_operators_bound": {
+          "type": "boolean"
+        },
+        "all_material_qualifiers_bound": {
+          "type": "boolean"
+        },
+        "all_live_readings_recorded": {
+          "type": "boolean"
+        }
+      }
+    },
+    "review_status": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "state",
+        "independent_reviews_required",
+        "adjudication_required"
+      ],
+      "properties": {
+        "state": {
+          "enum": [
+            "DRAFT",
+            "FROZEN_PENDING_REVIEW",
+            "REVIEWED",
+            "ADJUDICATED",
+            "REJECTED"
+          ]
+        },
+        "independent_reviews_required": {
+          "type": "integer",
+          "minimum": 2
+        },
+        "adjudication_required": {
+          "type": "boolean"
+        }
+      }
+    }
+  },
+  "$defs": {
+    "span": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "start",
+        "end",
+        "text"
+      ],
+      "properties": {
+        "start": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "end": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}
