@@ -1,0 +1,477 @@
+{
+  "schema": "claim-structure-scope-obligation-certificate-v0",
+  "certificate_id": "s0r6-cal-attr--reattach_attribution",
+  "root": {
+    "claim_id": "cal-attr",
+    "text": "Ann said that Bob left and Chris stayed.",
+    "text_sha256": "sha256:71a8004e1a36d7706ecc0b8841d5399924df2ba2a0c77a8e9628d1a197243abf"
+  },
+  "source_provenance": {
+    "root_source": {
+      "kind": "synthetic_control",
+      "locator": "calibration:attribution",
+      "location": "Labeled calibration control. Not a decisive root."
+    },
+    "analysis_basis": [
+      {
+        "basis_kind": "synthetic_gold_rule",
+        "locator": "calibration:attribution",
+        "claim": "Gold rule: said attributes both Bob left and Chris stayed. An attachment that reaches only Chris stayed is incomplete."
+      }
+    ]
+  },
+  "classification": "NON_ALL_OF",
+  "predicates": [
+    {
+      "predicate_id": "p-said",
+      "surface": "said",
+      "span": {
+        "start": 4,
+        "end": 8,
+        "text": "said"
+      },
+      "roles": [
+        {
+          "role_id": "r-ann",
+          "role": "subject",
+          "surface": "Ann",
+          "span": {
+            "start": 0,
+            "end": 3,
+            "text": "Ann"
+          }
+        },
+        {
+          "role_id": "r-complement",
+          "role": "complement",
+          "surface": "that Bob left and Chris stayed",
+          "span": {
+            "start": 9,
+            "end": 39,
+            "text": "that Bob left and Chris stayed"
+          }
+        }
+      ]
+    },
+    {
+      "predicate_id": "p-left",
+      "surface": "left",
+      "span": {
+        "start": 18,
+        "end": 22,
+        "text": "left"
+      },
+      "roles": [
+        {
+          "role_id": "r-bob",
+          "role": "subject",
+          "surface": "Bob",
+          "span": {
+            "start": 14,
+            "end": 17,
+            "text": "Bob"
+          }
+        }
+      ]
+    },
+    {
+      "predicate_id": "p-stayed",
+      "surface": "stayed",
+      "span": {
+        "start": 33,
+        "end": 39,
+        "text": "stayed"
+      },
+      "roles": [
+        {
+          "role_id": "r-chris",
+          "role": "subject",
+          "surface": "Chris",
+          "span": {
+            "start": 27,
+            "end": 32,
+            "text": "Chris"
+          }
+        }
+      ]
+    }
+  ],
+  "readings": [
+    {
+      "reading_id": "rd-said",
+      "operator": "OTHER",
+      "propositions": [
+        {
+          "proposition_id": "prop-comp",
+          "text": "that Bob left and Chris stayed",
+          "predicate_ids": [
+            "p-said",
+            "p-left",
+            "p-stayed"
+          ]
+        },
+        {
+          "proposition_id": "prop-bob",
+          "text": "Bob left",
+          "predicate_ids": [
+            "p-left"
+          ]
+        },
+        {
+          "proposition_id": "prop-chris",
+          "text": "Chris stayed",
+          "predicate_ids": [
+            "p-stayed"
+          ]
+        }
+      ],
+      "scope_bindings": [
+        {
+          "binding_id": "b-said",
+          "kind": "ATTRIBUTION",
+          "surface": "said",
+          "span": {
+            "start": 4,
+            "end": 8,
+            "text": "said"
+          },
+          "targets": [
+            "prop-bob"
+          ]
+        }
+      ],
+      "status": "MATERIALLY_LIVE"
+    }
+  ],
+  "obligations": [
+    {
+      "obligation_id": "ob-b-said",
+      "kind": "ATTRIBUTION",
+      "description": "said scopes over both complement conjuncts.",
+      "source_spans": [
+        {
+          "start": 4,
+          "end": 8,
+          "text": "said"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-said"
+      ]
+    },
+    {
+      "obligation_id": "ob-p-said",
+      "kind": "PREDICATE",
+      "description": "Predicate 'said' is part of the certificate.",
+      "source_spans": [
+        {
+          "start": 4,
+          "end": 8,
+          "text": "said"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-said"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-ann",
+      "kind": "ROLE_BINDING",
+      "description": "subject 'Ann' is bound to 'said'.",
+      "source_spans": [
+        {
+          "start": 0,
+          "end": 3,
+          "text": "Ann"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-said"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-complement",
+      "kind": "ROLE_BINDING",
+      "description": "complement 'that Bob left and Chris stayed' is bound to 'said'.",
+      "source_spans": [
+        {
+          "start": 9,
+          "end": 39,
+          "text": "that Bob left and Chris stayed"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-said"
+      ]
+    },
+    {
+      "obligation_id": "ob-p-left",
+      "kind": "PREDICATE",
+      "description": "Predicate 'left' is part of the certificate.",
+      "source_spans": [
+        {
+          "start": 18,
+          "end": 22,
+          "text": "left"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-said"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-bob",
+      "kind": "ROLE_BINDING",
+      "description": "subject 'Bob' is bound to 'left'.",
+      "source_spans": [
+        {
+          "start": 14,
+          "end": 17,
+          "text": "Bob"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-said"
+      ]
+    },
+    {
+      "obligation_id": "ob-p-stayed",
+      "kind": "PREDICATE",
+      "description": "Predicate 'stayed' is part of the certificate.",
+      "source_spans": [
+        {
+          "start": 33,
+          "end": 39,
+          "text": "stayed"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-said"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-chris",
+      "kind": "ROLE_BINDING",
+      "description": "subject 'Chris' is bound to 'stayed'.",
+      "source_spans": [
+        {
+          "start": 27,
+          "end": 32,
+          "text": "Chris"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-said"
+      ]
+    },
+    {
+      "obligation_id": "ob-and",
+      "kind": "CONJUNCTION",
+      "description": "and coordinates the two reported clauses.",
+      "source_spans": [
+        {
+          "start": 23,
+          "end": 26,
+          "text": "and"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-said"
+      ]
+    }
+  ],
+  "completeness": {
+    "material_span_ledger": [
+      {
+        "span": {
+          "start": 0,
+          "end": 3,
+          "text": "Ann"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-ann",
+          "ob-r-ann"
+        ]
+      },
+      {
+        "span": {
+          "start": 3,
+          "end": 4,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 4,
+          "end": 8,
+          "text": "said"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "p-said",
+          "b-said",
+          "ob-b-said",
+          "ob-p-said"
+        ]
+      },
+      {
+        "span": {
+          "start": 8,
+          "end": 9,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 9,
+          "end": 13,
+          "text": "that"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-complement",
+          "ob-r-complement"
+        ]
+      },
+      {
+        "span": {
+          "start": 13,
+          "end": 14,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 14,
+          "end": 17,
+          "text": "Bob"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-complement",
+          "r-bob",
+          "ob-r-complement",
+          "ob-r-bob"
+        ]
+      },
+      {
+        "span": {
+          "start": 17,
+          "end": 18,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 18,
+          "end": 22,
+          "text": "left"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-complement",
+          "p-left",
+          "ob-r-complement",
+          "ob-p-left"
+        ]
+      },
+      {
+        "span": {
+          "start": 22,
+          "end": 23,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 23,
+          "end": 26,
+          "text": "and"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-complement",
+          "ob-r-complement",
+          "ob-and"
+        ]
+      },
+      {
+        "span": {
+          "start": 26,
+          "end": 27,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 27,
+          "end": 32,
+          "text": "Chris"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-complement",
+          "r-chris",
+          "ob-r-complement",
+          "ob-r-chris"
+        ]
+      },
+      {
+        "span": {
+          "start": 32,
+          "end": 33,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 33,
+          "end": 39,
+          "text": "stayed"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-complement",
+          "p-stayed",
+          "ob-r-complement",
+          "ob-p-stayed"
+        ]
+      },
+      {
+        "span": {
+          "start": 39,
+          "end": 40,
+          "text": "."
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      }
+    ],
+    "unassigned_material_spans": [],
+    "all_predicates_bound": true,
+    "all_roles_bound": true,
+    "all_operators_bound": true,
+    "all_material_qualifiers_bound": true,
+    "all_live_readings_recorded": true
+  },
+  "review_status": {
+    "state": "FROZEN_PENDING_REVIEW",
+    "independent_reviews_required": 2,
+    "adjudication_required": false
+  }
+}

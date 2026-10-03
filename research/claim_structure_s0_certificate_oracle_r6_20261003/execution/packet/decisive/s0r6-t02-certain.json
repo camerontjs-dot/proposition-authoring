@@ -1,0 +1,414 @@
+{
+  "schema": "claim-structure-scope-obligation-certificate-v0",
+  "certificate_id": "s0r6-t02-certain",
+  "root": {
+    "claim_id": "t02",
+    "text": "I am certain that he did it",
+    "text_sha256": "sha256:f89b35bf3d2861de65e893dbffa1a9d3fc7b04aa6810ad0c27e20bcf4bd12894"
+  },
+  "source_provenance": {
+    "root_source": {
+      "kind": "published_example",
+      "locator": "https://universaldependencies.org/en/dep/ccomp.html",
+      "source_sha256": "sha256:682488859e78b5f043df5856daf690e7e5ebfb256c75ac00400391b84fb6e691",
+      "location": "sdparse 'I am certain that he did it'; saved ud/ccomp.md"
+    },
+    "analysis_basis": [
+      {
+        "basis_kind": "annotation_guideline",
+        "locator": "https://universaldependencies.org/en/dep/ccomp.html",
+        "claim": "ccomp(certain, did) and mark(did, that). certain is the attitude predicate. am is the copula and is not printed on this sdparse. it is the remaining nominal of did and is labeled object from the obj guideline, whose example is a different sentence."
+      }
+    ]
+  },
+  "classification": "ATOMIC",
+  "predicates": [
+    {
+      "predicate_id": "p-certain",
+      "surface": "certain",
+      "span": {
+        "start": 5,
+        "end": 12,
+        "text": "certain"
+      },
+      "roles": [
+        {
+          "role_id": "r-i",
+          "role": "experiencer",
+          "surface": "I",
+          "span": {
+            "start": 0,
+            "end": 1,
+            "text": "I"
+          }
+        },
+        {
+          "role_id": "r-am",
+          "role": "copula",
+          "surface": "am",
+          "span": {
+            "start": 2,
+            "end": 4,
+            "text": "am"
+          }
+        },
+        {
+          "role_id": "r-complement",
+          "role": "complement",
+          "surface": "that he did it",
+          "span": {
+            "start": 13,
+            "end": 27,
+            "text": "that he did it"
+          }
+        }
+      ]
+    },
+    {
+      "predicate_id": "p-did",
+      "surface": "did",
+      "span": {
+        "start": 21,
+        "end": 24,
+        "text": "did"
+      },
+      "roles": [
+        {
+          "role_id": "r-he",
+          "role": "subject",
+          "surface": "he",
+          "span": {
+            "start": 18,
+            "end": 20,
+            "text": "he"
+          }
+        },
+        {
+          "role_id": "r-it",
+          "role": "object",
+          "surface": "it",
+          "span": {
+            "start": 25,
+            "end": 27,
+            "text": "it"
+          }
+        }
+      ]
+    }
+  ],
+  "readings": [
+    {
+      "reading_id": "rd-report",
+      "operator": "ATOMIC",
+      "propositions": [
+        {
+          "proposition_id": "prop-report",
+          "text": "I am certain that he did it",
+          "predicate_ids": [
+            "p-certain",
+            "p-did"
+          ]
+        }
+      ],
+      "scope_bindings": [
+        {
+          "binding_id": "b-certain",
+          "kind": "ATTRIBUTION",
+          "surface": "certain",
+          "span": {
+            "start": 5,
+            "end": 12,
+            "text": "certain"
+          },
+          "targets": [
+            "prop-report"
+          ]
+        }
+      ],
+      "status": "MATERIALLY_LIVE"
+    }
+  ],
+  "obligations": [
+    {
+      "obligation_id": "ob-b-certain",
+      "kind": "ATTRIBUTION",
+      "description": "certain attributes the complement that he did it.",
+      "source_spans": [
+        {
+          "start": 5,
+          "end": 12,
+          "text": "certain"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-report"
+      ]
+    },
+    {
+      "obligation_id": "ob-p-certain",
+      "kind": "PREDICATE",
+      "description": "Predicate 'certain' is part of the certificate.",
+      "source_spans": [
+        {
+          "start": 5,
+          "end": 12,
+          "text": "certain"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-report"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-i",
+      "kind": "ROLE_BINDING",
+      "description": "experiencer 'I' is bound to 'certain'.",
+      "source_spans": [
+        {
+          "start": 0,
+          "end": 1,
+          "text": "I"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-report"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-am",
+      "kind": "ROLE_BINDING",
+      "description": "copula 'am' is bound to 'certain'.",
+      "source_spans": [
+        {
+          "start": 2,
+          "end": 4,
+          "text": "am"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-report"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-complement",
+      "kind": "ROLE_BINDING",
+      "description": "complement 'that he did it' is bound to 'certain'.",
+      "source_spans": [
+        {
+          "start": 13,
+          "end": 27,
+          "text": "that he did it"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-report"
+      ]
+    },
+    {
+      "obligation_id": "ob-p-did",
+      "kind": "PREDICATE",
+      "description": "Predicate 'did' is part of the certificate.",
+      "source_spans": [
+        {
+          "start": 21,
+          "end": 24,
+          "text": "did"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-report"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-he",
+      "kind": "ROLE_BINDING",
+      "description": "subject 'he' is bound to 'did'.",
+      "source_spans": [
+        {
+          "start": 18,
+          "end": 20,
+          "text": "he"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-report"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-it",
+      "kind": "ROLE_BINDING",
+      "description": "object 'it' is bound to 'did'.",
+      "source_spans": [
+        {
+          "start": 25,
+          "end": 27,
+          "text": "it"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-report"
+      ]
+    }
+  ],
+  "completeness": {
+    "material_span_ledger": [
+      {
+        "span": {
+          "start": 0,
+          "end": 1,
+          "text": "I"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-i",
+          "ob-r-i"
+        ]
+      },
+      {
+        "span": {
+          "start": 1,
+          "end": 2,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 2,
+          "end": 4,
+          "text": "am"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-am",
+          "ob-r-am"
+        ]
+      },
+      {
+        "span": {
+          "start": 4,
+          "end": 5,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 5,
+          "end": 12,
+          "text": "certain"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "p-certain",
+          "b-certain",
+          "ob-b-certain",
+          "ob-p-certain"
+        ]
+      },
+      {
+        "span": {
+          "start": 12,
+          "end": 13,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 13,
+          "end": 17,
+          "text": "that"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-complement",
+          "ob-r-complement"
+        ]
+      },
+      {
+        "span": {
+          "start": 17,
+          "end": 18,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 18,
+          "end": 20,
+          "text": "he"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-complement",
+          "r-he",
+          "ob-r-complement",
+          "ob-r-he"
+        ]
+      },
+      {
+        "span": {
+          "start": 20,
+          "end": 21,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 21,
+          "end": 24,
+          "text": "did"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-complement",
+          "p-did",
+          "ob-r-complement",
+          "ob-p-did"
+        ]
+      },
+      {
+        "span": {
+          "start": 24,
+          "end": 25,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 25,
+          "end": 27,
+          "text": "it"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-complement",
+          "r-it",
+          "ob-r-complement",
+          "ob-r-it"
+        ]
+      }
+    ],
+    "unassigned_material_spans": [],
+    "all_predicates_bound": true,
+    "all_roles_bound": true,
+    "all_operators_bound": true,
+    "all_material_qualifiers_bound": true,
+    "all_live_readings_recorded": true
+  },
+  "review_status": {
+    "state": "FROZEN_PENDING_REVIEW",
+    "independent_reviews_required": 2,
+    "adjudication_required": false
+  }
+}

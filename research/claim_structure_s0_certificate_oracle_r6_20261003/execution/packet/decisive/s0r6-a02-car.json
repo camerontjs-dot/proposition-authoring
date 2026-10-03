@@ -1,0 +1,246 @@
+{
+  "schema": "claim-structure-scope-obligation-certificate-v0",
+  "certificate_id": "s0r6-a02-car",
+  "root": {
+    "claim_id": "a02",
+    "text": "The car is red .",
+    "text_sha256": "sha256:8d1bc2523b8a88b2dcaff284392c21b4b32dff0e22bfacd358e7d25ed3265e41"
+  },
+  "source_provenance": {
+    "root_source": {
+      "kind": "published_example",
+      "locator": "https://universaldependencies.org/en/dep/nsubj.html",
+      "source_sha256": "sha256:c9ee2861edfb04ee8e969a9ea79a5d110987fd4e7fe0d26a660f337a771f10a9",
+      "location": "sdparse 'The car is red .', including the space before the period; saved ud/nsubj.md"
+    },
+    "analysis_basis": [
+      {
+        "basis_kind": "annotation_guideline",
+        "locator": "https://universaldependencies.org/en/dep/nsubj.html",
+        "claim": "nsubj(red, car). The page says that in a copular clause the complement is the root. 'The' is the determiner of car and 'is' is the copula; neither relation is printed on this sdparse."
+      }
+    ]
+  },
+  "classification": "ATOMIC",
+  "predicates": [
+    {
+      "predicate_id": "p-red",
+      "surface": "red",
+      "span": {
+        "start": 11,
+        "end": 14,
+        "text": "red"
+      },
+      "roles": [
+        {
+          "role_id": "r-the",
+          "role": "determiner",
+          "surface": "The",
+          "span": {
+            "start": 0,
+            "end": 3,
+            "text": "The"
+          }
+        },
+        {
+          "role_id": "r-car",
+          "role": "subject",
+          "surface": "car",
+          "span": {
+            "start": 4,
+            "end": 7,
+            "text": "car"
+          }
+        },
+        {
+          "role_id": "r-is",
+          "role": "copula",
+          "surface": "is",
+          "span": {
+            "start": 8,
+            "end": 10,
+            "text": "is"
+          }
+        }
+      ]
+    }
+  ],
+  "readings": [
+    {
+      "reading_id": "rd-atomic",
+      "operator": "ATOMIC",
+      "propositions": [
+        {
+          "proposition_id": "prop-1",
+          "text": "The car is red .",
+          "predicate_ids": [
+            "p-red"
+          ]
+        }
+      ],
+      "scope_bindings": [],
+      "status": "MATERIALLY_LIVE"
+    }
+  ],
+  "obligations": [
+    {
+      "obligation_id": "ob-p-red",
+      "kind": "PREDICATE",
+      "description": "Predicate 'red' is part of the certificate.",
+      "source_spans": [
+        {
+          "start": 11,
+          "end": 14,
+          "text": "red"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-atomic"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-the",
+      "kind": "ROLE_BINDING",
+      "description": "determiner 'The' is bound to 'red'.",
+      "source_spans": [
+        {
+          "start": 0,
+          "end": 3,
+          "text": "The"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-atomic"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-car",
+      "kind": "ROLE_BINDING",
+      "description": "subject 'car' is bound to 'red'.",
+      "source_spans": [
+        {
+          "start": 4,
+          "end": 7,
+          "text": "car"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-atomic"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-is",
+      "kind": "ROLE_BINDING",
+      "description": "copula 'is' is bound to 'red'.",
+      "source_spans": [
+        {
+          "start": 8,
+          "end": 10,
+          "text": "is"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-atomic"
+      ]
+    }
+  ],
+  "completeness": {
+    "material_span_ledger": [
+      {
+        "span": {
+          "start": 0,
+          "end": 3,
+          "text": "The"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-the",
+          "ob-r-the"
+        ]
+      },
+      {
+        "span": {
+          "start": 3,
+          "end": 4,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 4,
+          "end": 7,
+          "text": "car"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-car",
+          "ob-r-car"
+        ]
+      },
+      {
+        "span": {
+          "start": 7,
+          "end": 8,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 8,
+          "end": 10,
+          "text": "is"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-is",
+          "ob-r-is"
+        ]
+      },
+      {
+        "span": {
+          "start": 10,
+          "end": 11,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 11,
+          "end": 14,
+          "text": "red"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "p-red",
+          "ob-p-red"
+        ]
+      },
+      {
+        "span": {
+          "start": 14,
+          "end": 16,
+          "text": " ."
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      }
+    ],
+    "unassigned_material_spans": [],
+    "all_predicates_bound": true,
+    "all_roles_bound": true,
+    "all_operators_bound": true,
+    "all_material_qualifiers_bound": true,
+    "all_live_readings_recorded": true
+  },
+  "review_status": {
+    "state": "FROZEN_PENDING_REVIEW",
+    "independent_reviews_required": 2,
+    "adjudication_required": false
+  }
+}

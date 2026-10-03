@@ -1,0 +1,89 @@
+{
+  "items": [
+    {
+      "item_id": "s0r6-cal-kim",
+      "kind": "known_good",
+      "expected_mechanical": "pass"
+    },
+    {
+      "item_id": "s0r6-cal-kim--drop_subject",
+      "kind": "hard_mutation",
+      "mutation": "drop_subject",
+      "expected_mechanical": "fail"
+    },
+    {
+      "item_id": "s0r6-cal-kim--drop_object",
+      "kind": "hard_mutation",
+      "mutation": "drop_object",
+      "expected_mechanical": "fail"
+    },
+    {
+      "item_id": "s0r6-cal-kim--drop_qualifier",
+      "kind": "hard_mutation",
+      "mutation": "drop_qualifier",
+      "expected_mechanical": "fail"
+    },
+    {
+      "item_id": "s0r6-cal-kim--alter_span",
+      "kind": "hard_mutation",
+      "mutation": "alter_span",
+      "expected_mechanical": "fail"
+    },
+    {
+      "item_id": "s0r6-cal-kim--invent_proposition",
+      "kind": "hard_mutation",
+      "mutation": "invent_proposition",
+      "expected_mechanical": "fail"
+    },
+    {
+      "item_id": "s0r6-cal-or",
+      "kind": "known_good",
+      "expected_mechanical": "pass"
+    },
+    {
+      "item_id": "s0r6-cal-or--or_to_and",
+      "kind": "hard_mutation",
+      "mutation": "or_to_and",
+      "expected_mechanical": "fail"
+    },
+    {
+      "item_id": "s0r6-cal-amb",
+      "kind": "known_good",
+      "expected_mechanical": "pass"
+    },
+    {
+      "item_id": "s0r6-cal-amb--drop_live_reading",
+      "kind": "hard_mutation",
+      "mutation": "drop_live_reading",
+      "expected_mechanical": "fail"
+    },
+    {
+      "item_id": "s0r6-cal-amb--drop_negation",
+      "kind": "hard_mutation",
+      "mutation": "drop_negation",
+      "expected_mechanical": "fail"
+    },
+    {
+      "item_id": "s0r6-cal-attr",
+      "kind": "known_good",
+      "expected_mechanical": "pass"
+    },
+    {
+      "item_id": "s0r6-cal-attr--reattach_attribution",
+      "kind": "hard_mutation",
+      "mutation": "reattach_attribution",
+      "expected_mechanical": "fail"
+    },
+    {
+      "item_id": "s0r6-cal-must",
+      "kind": "known_good",
+      "expected_mechanical": "pass"
+    },
+    {
+      "item_id": "s0r6-cal-must--change_modality",
+      "kind": "hard_mutation",
+      "mutation": "change_modality",
+      "expected_mechanical": "fail"
+    }
+  ]
+}

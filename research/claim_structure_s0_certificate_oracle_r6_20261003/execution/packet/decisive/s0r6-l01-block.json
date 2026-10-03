@@ -1,0 +1,420 @@
+{
+  "schema": "claim-structure-scope-obligation-certificate-v0",
+  "certificate_id": "s0r6-l01-block",
+  "root": {
+    "claim_id": "l01",
+    "text": "Put the block on the table in the morning.",
+    "text_sha256": "sha256:246e560802c56b4d61016e7526472d811debf41448f42bb14c66a15bce12b556"
+  },
+  "source_provenance": {
+    "root_source": {
+      "kind": "published_example",
+      "locator": "https://aclanthology.org/J06-3002.pdf",
+      "source_sha256": "sha256:50207f1c326fd4040977bc486ac1094084afcd49a34ca476302d9abc5ac6f5b5",
+      "location": "PDF page 2, example (2)."
+    },
+    "analysis_basis": [
+      {
+        "basis_kind": "published_analysis",
+        "locator": "https://aclanthology.org/J06-3002.pdf#page-2",
+        "claim": "Merlo and Ferrer say both PPs modify put. on the table is a locative argument required by put. in the morning is an optional time adjunct. The imperative has no overt subject."
+      }
+    ]
+  },
+  "classification": "ATOMIC",
+  "predicates": [
+    {
+      "predicate_id": "p-put",
+      "surface": "Put",
+      "span": {
+        "start": 0,
+        "end": 3,
+        "text": "Put"
+      },
+      "roles": [
+        {
+          "role_id": "r-block",
+          "role": "object",
+          "surface": "the block",
+          "span": {
+            "start": 4,
+            "end": 13,
+            "text": "the block"
+          }
+        },
+        {
+          "role_id": "r-table",
+          "role": "location",
+          "surface": "on the table",
+          "span": {
+            "start": 14,
+            "end": 26,
+            "text": "on the table"
+          }
+        },
+        {
+          "role_id": "r-morning",
+          "role": "temporal",
+          "surface": "in the morning",
+          "span": {
+            "start": 27,
+            "end": 41,
+            "text": "in the morning"
+          }
+        }
+      ]
+    }
+  ],
+  "readings": [
+    {
+      "reading_id": "rd-put",
+      "operator": "ATOMIC",
+      "propositions": [
+        {
+          "proposition_id": "prop-put",
+          "text": "Put the block on the table in the morning.",
+          "predicate_ids": [
+            "p-put"
+          ]
+        }
+      ],
+      "scope_bindings": [
+        {
+          "binding_id": "b-table",
+          "kind": "LOCATION",
+          "surface": "on the table",
+          "span": {
+            "start": 14,
+            "end": 26,
+            "text": "on the table"
+          },
+          "targets": [
+            "prop-put"
+          ]
+        },
+        {
+          "binding_id": "b-morning",
+          "kind": "TEMPORAL",
+          "surface": "in the morning",
+          "span": {
+            "start": 27,
+            "end": 41,
+            "text": "in the morning"
+          },
+          "targets": [
+            "prop-put"
+          ]
+        }
+      ],
+      "status": "MATERIALLY_LIVE"
+    }
+  ],
+  "obligations": [
+    {
+      "obligation_id": "ob-b-table",
+      "kind": "LOCATION",
+      "description": "Locative argument of put.",
+      "source_spans": [
+        {
+          "start": 14,
+          "end": 26,
+          "text": "on the table"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-put"
+      ]
+    },
+    {
+      "obligation_id": "ob-b-morning",
+      "kind": "TEMPORAL",
+      "description": "Time adjunct of put.",
+      "source_spans": [
+        {
+          "start": 27,
+          "end": 41,
+          "text": "in the morning"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-put"
+      ]
+    },
+    {
+      "obligation_id": "ob-p-put",
+      "kind": "PREDICATE",
+      "description": "Predicate 'Put' is part of the certificate.",
+      "source_spans": [
+        {
+          "start": 0,
+          "end": 3,
+          "text": "Put"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-put"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-block",
+      "kind": "ROLE_BINDING",
+      "description": "object 'the block' is bound to 'Put'.",
+      "source_spans": [
+        {
+          "start": 4,
+          "end": 13,
+          "text": "the block"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-put"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-table",
+      "kind": "ROLE_BINDING",
+      "description": "location 'on the table' is bound to 'Put'.",
+      "source_spans": [
+        {
+          "start": 14,
+          "end": 26,
+          "text": "on the table"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-put"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-morning",
+      "kind": "ROLE_BINDING",
+      "description": "temporal 'in the morning' is bound to 'Put'.",
+      "source_spans": [
+        {
+          "start": 27,
+          "end": 41,
+          "text": "in the morning"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-put"
+      ]
+    }
+  ],
+  "completeness": {
+    "material_span_ledger": [
+      {
+        "span": {
+          "start": 0,
+          "end": 3,
+          "text": "Put"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "p-put",
+          "ob-p-put"
+        ]
+      },
+      {
+        "span": {
+          "start": 3,
+          "end": 4,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 4,
+          "end": 7,
+          "text": "the"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-block",
+          "ob-r-block"
+        ]
+      },
+      {
+        "span": {
+          "start": 7,
+          "end": 8,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 8,
+          "end": 13,
+          "text": "block"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-block",
+          "ob-r-block"
+        ]
+      },
+      {
+        "span": {
+          "start": 13,
+          "end": 14,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 14,
+          "end": 16,
+          "text": "on"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-table",
+          "b-table",
+          "ob-b-table",
+          "ob-r-table"
+        ]
+      },
+      {
+        "span": {
+          "start": 16,
+          "end": 17,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 17,
+          "end": 20,
+          "text": "the"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-table",
+          "b-table",
+          "ob-b-table",
+          "ob-r-table"
+        ]
+      },
+      {
+        "span": {
+          "start": 20,
+          "end": 21,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 21,
+          "end": 26,
+          "text": "table"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-table",
+          "b-table",
+          "ob-b-table",
+          "ob-r-table"
+        ]
+      },
+      {
+        "span": {
+          "start": 26,
+          "end": 27,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 27,
+          "end": 29,
+          "text": "in"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-morning",
+          "b-morning",
+          "ob-b-morning",
+          "ob-r-morning"
+        ]
+      },
+      {
+        "span": {
+          "start": 29,
+          "end": 30,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 30,
+          "end": 33,
+          "text": "the"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-morning",
+          "b-morning",
+          "ob-b-morning",
+          "ob-r-morning"
+        ]
+      },
+      {
+        "span": {
+          "start": 33,
+          "end": 34,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 34,
+          "end": 41,
+          "text": "morning"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-morning",
+          "b-morning",
+          "ob-b-morning",
+          "ob-r-morning"
+        ]
+      },
+      {
+        "span": {
+          "start": 41,
+          "end": 42,
+          "text": "."
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      }
+    ],
+    "unassigned_material_spans": [],
+    "all_predicates_bound": true,
+    "all_roles_bound": true,
+    "all_operators_bound": true,
+    "all_material_qualifiers_bound": true,
+    "all_live_readings_recorded": true
+  },
+  "review_status": {
+    "state": "FROZEN_PENDING_REVIEW",
+    "independent_reviews_required": 2,
+    "adjudication_required": false
+  }
+}

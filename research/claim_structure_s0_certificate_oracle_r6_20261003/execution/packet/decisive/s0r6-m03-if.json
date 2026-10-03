@@ -1,0 +1,499 @@
+{
+  "schema": "claim-structure-scope-obligation-certificate-v0",
+  "certificate_id": "s0r6-m03-if",
+  "root": {
+    "claim_id": "m03",
+    "text": "If you know who did it , you should tell the teacher",
+    "text_sha256": "sha256:54cddd17658b6083fd4a2c10af04b00d238e7c85ebc0e3a3f7c2bcf57f5dec37"
+  },
+  "source_provenance": {
+    "root_source": {
+      "kind": "published_example",
+      "locator": "https://universaldependencies.org/en/dep/advcl.html",
+      "source_sha256": "sha256:40157e20f15a93a00f14291d309e29415f7a48ce68dc024e8d2a33c77363ea92",
+      "location": "sdparse includes the space before the comma and has no final period; saved ud/advcl.md"
+    },
+    "analysis_basis": [
+      {
+        "basis_kind": "annotation_guideline",
+        "locator": "https://universaldependencies.org/en/dep/advcl.html",
+        "claim": "advcl(tell, know). If introduces the adverbial clause headed by know. should is the modal auxiliary of the main clause and is not printed on this sdparse. The page does not assign it a force label."
+      }
+    ]
+  },
+  "classification": "NON_ALL_OF",
+  "predicates": [
+    {
+      "predicate_id": "p-know",
+      "surface": "know",
+      "span": {
+        "start": 7,
+        "end": 11,
+        "text": "know"
+      },
+      "roles": [
+        {
+          "role_id": "r-you-know",
+          "role": "subject",
+          "surface": "you",
+          "span": {
+            "start": 3,
+            "end": 6,
+            "text": "you"
+          }
+        },
+        {
+          "role_id": "r-who",
+          "role": "complement",
+          "surface": "who did it",
+          "span": {
+            "start": 12,
+            "end": 22,
+            "text": "who did it"
+          }
+        }
+      ]
+    },
+    {
+      "predicate_id": "p-tell",
+      "surface": "tell",
+      "span": {
+        "start": 36,
+        "end": 40,
+        "text": "tell"
+      },
+      "roles": [
+        {
+          "role_id": "r-you-tell",
+          "role": "subject",
+          "surface": "you",
+          "span": {
+            "start": 25,
+            "end": 28,
+            "text": "you"
+          }
+        },
+        {
+          "role_id": "r-teacher",
+          "role": "object",
+          "surface": "the teacher",
+          "span": {
+            "start": 41,
+            "end": 52,
+            "text": "the teacher"
+          }
+        }
+      ]
+    }
+  ],
+  "readings": [
+    {
+      "reading_id": "rd-if",
+      "operator": "IF_THEN",
+      "propositions": [
+        {
+          "proposition_id": "prop-if",
+          "text": "you know who did it",
+          "predicate_ids": [
+            "p-know"
+          ]
+        },
+        {
+          "proposition_id": "prop-then",
+          "text": "you should tell the teacher",
+          "predicate_ids": [
+            "p-tell"
+          ]
+        }
+      ],
+      "scope_bindings": [
+        {
+          "binding_id": "b-if",
+          "kind": "CONDITION",
+          "surface": "If",
+          "span": {
+            "start": 0,
+            "end": 2,
+            "text": "If"
+          },
+          "targets": [
+            "prop-if"
+          ]
+        },
+        {
+          "binding_id": "b-should",
+          "kind": "MODALITY",
+          "surface": "should",
+          "span": {
+            "start": 29,
+            "end": 35,
+            "text": "should"
+          },
+          "targets": [
+            "prop-then"
+          ]
+        }
+      ],
+      "status": "MATERIALLY_LIVE"
+    }
+  ],
+  "obligations": [
+    {
+      "obligation_id": "ob-b-if",
+      "kind": "CONDITION",
+      "description": "If marks the antecedent headed by know.",
+      "source_spans": [
+        {
+          "start": 0,
+          "end": 2,
+          "text": "If"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-if"
+      ]
+    },
+    {
+      "obligation_id": "ob-b-should",
+      "kind": "MODALITY",
+      "description": "modal auxiliary should in the consequent.",
+      "source_spans": [
+        {
+          "start": 29,
+          "end": 35,
+          "text": "should"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-if"
+      ]
+    },
+    {
+      "obligation_id": "ob-p-know",
+      "kind": "PREDICATE",
+      "description": "Predicate 'know' is part of the certificate.",
+      "source_spans": [
+        {
+          "start": 7,
+          "end": 11,
+          "text": "know"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-if"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-you-know",
+      "kind": "ROLE_BINDING",
+      "description": "subject 'you' is bound to 'know'.",
+      "source_spans": [
+        {
+          "start": 3,
+          "end": 6,
+          "text": "you"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-if"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-who",
+      "kind": "ROLE_BINDING",
+      "description": "complement 'who did it' is bound to 'know'.",
+      "source_spans": [
+        {
+          "start": 12,
+          "end": 22,
+          "text": "who did it"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-if"
+      ]
+    },
+    {
+      "obligation_id": "ob-p-tell",
+      "kind": "PREDICATE",
+      "description": "Predicate 'tell' is part of the certificate.",
+      "source_spans": [
+        {
+          "start": 36,
+          "end": 40,
+          "text": "tell"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-if"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-you-tell",
+      "kind": "ROLE_BINDING",
+      "description": "subject 'you' is bound to 'tell'.",
+      "source_spans": [
+        {
+          "start": 25,
+          "end": 28,
+          "text": "you"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-if"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-teacher",
+      "kind": "ROLE_BINDING",
+      "description": "object 'the teacher' is bound to 'tell'.",
+      "source_spans": [
+        {
+          "start": 41,
+          "end": 52,
+          "text": "the teacher"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-if"
+      ]
+    }
+  ],
+  "completeness": {
+    "material_span_ledger": [
+      {
+        "span": {
+          "start": 0,
+          "end": 2,
+          "text": "If"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "b-if",
+          "ob-b-if"
+        ]
+      },
+      {
+        "span": {
+          "start": 2,
+          "end": 3,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 3,
+          "end": 6,
+          "text": "you"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-you-know",
+          "ob-r-you-know"
+        ]
+      },
+      {
+        "span": {
+          "start": 6,
+          "end": 7,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 7,
+          "end": 11,
+          "text": "know"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "p-know",
+          "ob-p-know"
+        ]
+      },
+      {
+        "span": {
+          "start": 11,
+          "end": 12,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 12,
+          "end": 15,
+          "text": "who"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-who",
+          "ob-r-who"
+        ]
+      },
+      {
+        "span": {
+          "start": 15,
+          "end": 16,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 16,
+          "end": 19,
+          "text": "did"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-who",
+          "ob-r-who"
+        ]
+      },
+      {
+        "span": {
+          "start": 19,
+          "end": 20,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 20,
+          "end": 22,
+          "text": "it"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-who",
+          "ob-r-who"
+        ]
+      },
+      {
+        "span": {
+          "start": 22,
+          "end": 25,
+          "text": " , "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 25,
+          "end": 28,
+          "text": "you"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-you-tell",
+          "ob-r-you-tell"
+        ]
+      },
+      {
+        "span": {
+          "start": 28,
+          "end": 29,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 29,
+          "end": 35,
+          "text": "should"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "b-should",
+          "ob-b-should"
+        ]
+      },
+      {
+        "span": {
+          "start": 35,
+          "end": 36,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 36,
+          "end": 40,
+          "text": "tell"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "p-tell",
+          "ob-p-tell"
+        ]
+      },
+      {
+        "span": {
+          "start": 40,
+          "end": 41,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 41,
+          "end": 44,
+          "text": "the"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-teacher",
+          "ob-r-teacher"
+        ]
+      },
+      {
+        "span": {
+          "start": 44,
+          "end": 45,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 45,
+          "end": 52,
+          "text": "teacher"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-teacher",
+          "ob-r-teacher"
+        ]
+      }
+    ],
+    "unassigned_material_spans": [],
+    "all_predicates_bound": true,
+    "all_roles_bound": true,
+    "all_operators_bound": true,
+    "all_material_qualifiers_bound": true,
+    "all_live_readings_recorded": true
+  },
+  "review_status": {
+    "state": "FROZEN_PENDING_REVIEW",
+    "independent_reviews_required": 2,
+    "adjudication_required": false
+  }
+}

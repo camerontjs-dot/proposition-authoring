@@ -1,0 +1,338 @@
+{
+  "schema": "claim-structure-scope-obligation-certificate-v0",
+  "certificate_id": "s0r6-n02-peter",
+  "root": {
+    "claim_id": "n02",
+    "text": "Peter didn’t catch every crook.",
+    "text_sha256": "sha256:0a34cee80c04918bd50308cd37d8008e7f31ae8bc9448adde54e71a80ab7cdfb"
+  },
+  "source_provenance": {
+    "root_source": {
+      "kind": "published_example",
+      "locator": "https://aclanthology.org/W12-4626.pdf",
+      "source_sha256": "sha256:64cf16fca478f2e26dd8858dd0e28b6f2ad44de756a51e9486a6409c0cd73f65",
+      "location": "PDF page 1, example (1a). The apostrophe in didn't is U+2019."
+    },
+    "analysis_basis": [
+      {
+        "basis_kind": "published_analysis",
+        "locator": "https://aclanthology.org/W12-4626.pdf#page-1",
+        "claim": "The paper marks Peter didn't catch every crook as (*∀>¬, ¬>∀). Only negation outscoping the object universal is available. The wide-scope universal is recorded as rejected."
+      }
+    ]
+  },
+  "classification": "ATOMIC",
+  "predicates": [
+    {
+      "predicate_id": "p-catch",
+      "surface": "catch",
+      "span": {
+        "start": 13,
+        "end": 18,
+        "text": "catch"
+      },
+      "roles": [
+        {
+          "role_id": "r-peter",
+          "role": "subject",
+          "surface": "Peter",
+          "span": {
+            "start": 0,
+            "end": 5,
+            "text": "Peter"
+          }
+        },
+        {
+          "role_id": "r-crook",
+          "role": "object",
+          "surface": "every crook",
+          "span": {
+            "start": 19,
+            "end": 30,
+            "text": "every crook"
+          }
+        }
+      ]
+    }
+  ],
+  "readings": [
+    {
+      "reading_id": "rd-live",
+      "operator": "ATOMIC",
+      "propositions": [
+        {
+          "proposition_id": "prop-live",
+          "text": "Peter didn’t catch every crook.",
+          "predicate_ids": [
+            "p-catch"
+          ]
+        }
+      ],
+      "scope_bindings": [
+        {
+          "binding_id": "b-neg",
+          "kind": "NEGATION",
+          "surface": "didn’t",
+          "span": {
+            "start": 6,
+            "end": 12,
+            "text": "didn’t"
+          },
+          "targets": [
+            "prop-live"
+          ]
+        },
+        {
+          "binding_id": "b-every",
+          "kind": "QUANTIFIER",
+          "surface": "every",
+          "span": {
+            "start": 19,
+            "end": 24,
+            "text": "every"
+          },
+          "targets": [
+            "prop-live"
+          ]
+        }
+      ],
+      "status": "MATERIALLY_LIVE"
+    },
+    {
+      "reading_id": "rd-rejected",
+      "operator": "OTHER",
+      "propositions": [
+        {
+          "proposition_id": "prop-q",
+          "text": "every crook",
+          "predicate_ids": [
+            "p-catch"
+          ]
+        },
+        {
+          "proposition_id": "prop-e",
+          "text": "Peter didn’t catch",
+          "predicate_ids": [
+            "p-catch"
+          ]
+        }
+      ],
+      "scope_bindings": [
+        {
+          "binding_id": "b-every-rejected",
+          "kind": "QUANTIFIER",
+          "surface": "every",
+          "span": {
+            "start": 19,
+            "end": 24,
+            "text": "every"
+          },
+          "targets": [
+            "prop-e"
+          ]
+        }
+      ],
+      "status": "REJECTED_BY_EXTERNAL_BASIS"
+    }
+  ],
+  "obligations": [
+    {
+      "obligation_id": "ob-b-neg",
+      "kind": "NEGATION",
+      "description": "Live reading: negation outscopes every. The paper's available scope is ¬>∀.",
+      "source_spans": [
+        {
+          "start": 6,
+          "end": 12,
+          "text": "didn’t"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-live"
+      ]
+    },
+    {
+      "obligation_id": "ob-b-every",
+      "kind": "QUANTITY",
+      "description": "every is the object quantifier under negation.",
+      "source_spans": [
+        {
+          "start": 19,
+          "end": 24,
+          "text": "every"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-live"
+      ]
+    },
+    {
+      "obligation_id": "ob-p-catch",
+      "kind": "PREDICATE",
+      "description": "Predicate 'catch' is part of the certificate.",
+      "source_spans": [
+        {
+          "start": 13,
+          "end": 18,
+          "text": "catch"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-live"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-peter",
+      "kind": "ROLE_BINDING",
+      "description": "subject 'Peter' is bound to 'catch'.",
+      "source_spans": [
+        {
+          "start": 0,
+          "end": 5,
+          "text": "Peter"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-live"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-crook",
+      "kind": "ROLE_BINDING",
+      "description": "object 'every crook' is bound to 'catch'.",
+      "source_spans": [
+        {
+          "start": 19,
+          "end": 30,
+          "text": "every crook"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-live"
+      ]
+    }
+  ],
+  "completeness": {
+    "material_span_ledger": [
+      {
+        "span": {
+          "start": 0,
+          "end": 5,
+          "text": "Peter"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-peter",
+          "ob-r-peter"
+        ]
+      },
+      {
+        "span": {
+          "start": 5,
+          "end": 6,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 6,
+          "end": 12,
+          "text": "didn’t"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "b-neg",
+          "ob-b-neg"
+        ]
+      },
+      {
+        "span": {
+          "start": 12,
+          "end": 13,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 13,
+          "end": 18,
+          "text": "catch"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "p-catch",
+          "ob-p-catch"
+        ]
+      },
+      {
+        "span": {
+          "start": 18,
+          "end": 19,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 19,
+          "end": 24,
+          "text": "every"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-crook",
+          "b-every",
+          "b-every-rejected",
+          "ob-b-every",
+          "ob-r-crook"
+        ]
+      },
+      {
+        "span": {
+          "start": 24,
+          "end": 25,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 25,
+          "end": 30,
+          "text": "crook"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-crook",
+          "ob-r-crook"
+        ]
+      },
+      {
+        "span": {
+          "start": 30,
+          "end": 31,
+          "text": "."
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      }
+    ],
+    "unassigned_material_spans": [],
+    "all_predicates_bound": true,
+    "all_roles_bound": true,
+    "all_operators_bound": true,
+    "all_material_qualifiers_bound": true,
+    "all_live_readings_recorded": true
+  },
+  "review_status": {
+    "state": "FROZEN_PENDING_REVIEW",
+    "independent_reviews_required": 2,
+    "adjudication_required": false
+  }
+}

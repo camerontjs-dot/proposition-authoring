@@ -1,0 +1,430 @@
+{
+  "schema": "claim-structure-scope-obligation-certificate-v0",
+  "certificate_id": "s0r6-n01-horse",
+  "root": {
+    "claim_id": "n01",
+    "text": "Every horse didn’t jump over the fence.",
+    "text_sha256": "sha256:419b5ad3061bbc9bc2eb150878720467695a313b81d64fb08c209d0385dfbaad"
+  },
+  "source_provenance": {
+    "root_source": {
+      "kind": "published_example",
+      "locator": "https://aclanthology.org/2021.scil-1.23.pdf",
+      "source_sha256": "sha256:e6bf489cc259ccbb75ed85fd30b5a33fc11282176806ec9a12b0e683d685063b",
+      "location": "PDF page 1, example (1). The apostrophe in didn't is U+2019."
+    },
+    "analysis_basis": [
+      {
+        "basis_kind": "published_analysis",
+        "locator": "https://aclanthology.org/2021.scil-1.23.pdf#page-1",
+        "claim": "The paper gives two readings: (1a) none, 'None of the horses jumped over the fence', and (1b) not-all, 'Not all horses jumped over the fence'."
+      }
+    ]
+  },
+  "classification": "AMBIGUOUS",
+  "predicates": [
+    {
+      "predicate_id": "p-jump",
+      "surface": "jump",
+      "span": {
+        "start": 19,
+        "end": 23,
+        "text": "jump"
+      },
+      "roles": [
+        {
+          "role_id": "r-horse",
+          "role": "subject",
+          "surface": "Every horse",
+          "span": {
+            "start": 0,
+            "end": 11,
+            "text": "Every horse"
+          }
+        },
+        {
+          "role_id": "r-path",
+          "role": "path",
+          "surface": "over the fence",
+          "span": {
+            "start": 24,
+            "end": 38,
+            "text": "over the fence"
+          }
+        }
+      ]
+    }
+  ],
+  "readings": [
+    {
+      "reading_id": "rd-none",
+      "operator": "ATOMIC",
+      "propositions": [
+        {
+          "proposition_id": "prop-none",
+          "text": "Every horse didn’t jump over the fence.",
+          "predicate_ids": [
+            "p-jump"
+          ]
+        }
+      ],
+      "scope_bindings": [
+        {
+          "binding_id": "b-every-none",
+          "kind": "QUANTIFIER",
+          "surface": "Every",
+          "span": {
+            "start": 0,
+            "end": 5,
+            "text": "Every"
+          },
+          "targets": [
+            "prop-none"
+          ]
+        },
+        {
+          "binding_id": "b-neg-none",
+          "kind": "NEGATION",
+          "surface": "didn’t",
+          "span": {
+            "start": 12,
+            "end": 18,
+            "text": "didn’t"
+          },
+          "targets": [
+            "prop-none"
+          ]
+        }
+      ],
+      "status": "MATERIALLY_LIVE"
+    },
+    {
+      "reading_id": "rd-notall",
+      "operator": "OTHER",
+      "propositions": [
+        {
+          "proposition_id": "prop-q",
+          "text": "Every horse",
+          "predicate_ids": [
+            "p-jump"
+          ]
+        },
+        {
+          "proposition_id": "prop-e",
+          "text": "jump over the fence",
+          "predicate_ids": [
+            "p-jump"
+          ]
+        }
+      ],
+      "scope_bindings": [
+        {
+          "binding_id": "b-every-notall",
+          "kind": "QUANTIFIER",
+          "surface": "Every",
+          "span": {
+            "start": 0,
+            "end": 5,
+            "text": "Every"
+          },
+          "targets": [
+            "prop-q"
+          ]
+        },
+        {
+          "binding_id": "b-neg-notall",
+          "kind": "NEGATION",
+          "surface": "didn’t",
+          "span": {
+            "start": 12,
+            "end": 18,
+            "text": "didn’t"
+          },
+          "targets": [
+            "prop-q",
+            "prop-e"
+          ]
+        }
+      ],
+      "status": "MATERIALLY_LIVE"
+    }
+  ],
+  "obligations": [
+    {
+      "obligation_id": "ob-b-every-none",
+      "kind": "QUANTITY",
+      "description": "None reading: the universal outscopes negation.",
+      "source_spans": [
+        {
+          "start": 0,
+          "end": 5,
+          "text": "Every"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-none"
+      ]
+    },
+    {
+      "obligation_id": "ob-b-neg-none",
+      "kind": "NEGATION",
+      "description": "None reading: negation is inside the universal. Published paraphrase: None of the horses jumped over the fence.",
+      "source_spans": [
+        {
+          "start": 12,
+          "end": 18,
+          "text": "didn’t"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-none"
+      ]
+    },
+    {
+      "obligation_id": "ob-b-every-notall",
+      "kind": "QUANTITY",
+      "description": "Not-all reading: the universal is the restriction under negation.",
+      "source_spans": [
+        {
+          "start": 0,
+          "end": 5,
+          "text": "Every"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-notall"
+      ]
+    },
+    {
+      "obligation_id": "ob-b-neg-notall",
+      "kind": "NEGATION",
+      "description": "Not-all reading: negation outscopes the universal. Published paraphrase: Not all horses jumped over the fence.",
+      "source_spans": [
+        {
+          "start": 12,
+          "end": 18,
+          "text": "didn’t"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-notall"
+      ]
+    },
+    {
+      "obligation_id": "ob-p-jump",
+      "kind": "PREDICATE",
+      "description": "Predicate 'jump' is part of the certificate.",
+      "source_spans": [
+        {
+          "start": 19,
+          "end": 23,
+          "text": "jump"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-none",
+        "rd-notall"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-horse",
+      "kind": "ROLE_BINDING",
+      "description": "subject 'Every horse' is bound to 'jump'.",
+      "source_spans": [
+        {
+          "start": 0,
+          "end": 11,
+          "text": "Every horse"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-none",
+        "rd-notall"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-path",
+      "kind": "ROLE_BINDING",
+      "description": "path 'over the fence' is bound to 'jump'.",
+      "source_spans": [
+        {
+          "start": 24,
+          "end": 38,
+          "text": "over the fence"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-none",
+        "rd-notall"
+      ]
+    }
+  ],
+  "completeness": {
+    "material_span_ledger": [
+      {
+        "span": {
+          "start": 0,
+          "end": 5,
+          "text": "Every"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-horse",
+          "b-every-none",
+          "b-every-notall",
+          "ob-b-every-none",
+          "ob-b-every-notall",
+          "ob-r-horse"
+        ]
+      },
+      {
+        "span": {
+          "start": 5,
+          "end": 6,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 6,
+          "end": 11,
+          "text": "horse"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-horse",
+          "ob-r-horse"
+        ]
+      },
+      {
+        "span": {
+          "start": 11,
+          "end": 12,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 12,
+          "end": 18,
+          "text": "didn’t"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "b-neg-none",
+          "b-neg-notall",
+          "ob-b-neg-none",
+          "ob-b-neg-notall"
+        ]
+      },
+      {
+        "span": {
+          "start": 18,
+          "end": 19,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 19,
+          "end": 23,
+          "text": "jump"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "p-jump",
+          "ob-p-jump"
+        ]
+      },
+      {
+        "span": {
+          "start": 23,
+          "end": 24,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 24,
+          "end": 28,
+          "text": "over"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-path",
+          "ob-r-path"
+        ]
+      },
+      {
+        "span": {
+          "start": 28,
+          "end": 29,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 29,
+          "end": 32,
+          "text": "the"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-path",
+          "ob-r-path"
+        ]
+      },
+      {
+        "span": {
+          "start": 32,
+          "end": 33,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 33,
+          "end": 38,
+          "text": "fence"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-path",
+          "ob-r-path"
+        ]
+      },
+      {
+        "span": {
+          "start": 38,
+          "end": 39,
+          "text": "."
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      }
+    ],
+    "unassigned_material_spans": [],
+    "all_predicates_bound": true,
+    "all_roles_bound": true,
+    "all_operators_bound": true,
+    "all_material_qualifiers_bound": true,
+    "all_live_readings_recorded": true
+  },
+  "review_status": {
+    "state": "FROZEN_PENDING_REVIEW",
+    "independent_reviews_required": 2,
+    "adjudication_required": false
+  }
+}

@@ -1,0 +1,398 @@
+{
+  "schema": "claim-structure-scope-obligation-certificate-v0",
+  "certificate_id": "s0r6-am01-old-scope",
+  "root": {
+    "claim_id": "am01",
+    "text": "the old men and women",
+    "text_sha256": "sha256:cc2323704e099ec36d53ab419d448843536e27a539620bc4435c31e416a3fd34"
+  },
+  "source_provenance": {
+    "root_source": {
+      "kind": "published_example",
+      "locator": "https://aclanthology.org/C08-1055.pdf",
+      "source_sha256": "sha256:f18245a2f10858839cc699ac0da37a9d74d5c17545570113d2ca062d07abca78",
+      "location": "PDF page 7 realisation item (1). The text layer has a space before the list comma; the root is the NP without that comma. CC BY-NC-SA 3.0."
+    },
+    "analysis_basis": [
+      {
+        "basis_kind": "published_analysis",
+        "locator": "https://aclanthology.org/C08-1055.pdf#page-7",
+        "claim": "Chantree and Willis say nps (1) and (2) are structurally ambiguous. Wide scope applies old to both nouns. Narrow scope applies old only to the first noun. Their Word Sketch heuristic prefers the wide reading; it does not delete the narrow structure."
+      }
+    ]
+  },
+  "classification": "AMBIGUOUS",
+  "predicates": [
+    {
+      "predicate_id": "p-men",
+      "surface": "men",
+      "span": {
+        "start": 8,
+        "end": 11,
+        "text": "men"
+      },
+      "roles": [
+        {
+          "role_id": "r-the",
+          "role": "determiner",
+          "surface": "the",
+          "span": {
+            "start": 0,
+            "end": 3,
+            "text": "the"
+          }
+        },
+        {
+          "role_id": "r-old",
+          "role": "modifier",
+          "surface": "old",
+          "span": {
+            "start": 4,
+            "end": 7,
+            "text": "old"
+          }
+        }
+      ]
+    },
+    {
+      "predicate_id": "p-women",
+      "surface": "women",
+      "span": {
+        "start": 16,
+        "end": 21,
+        "text": "women"
+      },
+      "roles": [
+        {
+          "role_id": "r-women-head",
+          "role": "head",
+          "surface": "women",
+          "span": {
+            "start": 16,
+            "end": 21,
+            "text": "women"
+          }
+        }
+      ]
+    }
+  ],
+  "readings": [
+    {
+      "reading_id": "rd-wide",
+      "operator": "ALL_OF",
+      "propositions": [
+        {
+          "proposition_id": "prop-men",
+          "text": "the old men",
+          "predicate_ids": [
+            "p-men"
+          ]
+        },
+        {
+          "proposition_id": "prop-women-wide",
+          "text": "the old women",
+          "predicate_ids": [
+            "p-women"
+          ]
+        }
+      ],
+      "scope_bindings": [
+        {
+          "binding_id": "b-old-wide",
+          "kind": "OTHER",
+          "surface": "old",
+          "span": {
+            "start": 4,
+            "end": 7,
+            "text": "old"
+          },
+          "targets": [
+            "prop-men",
+            "prop-women-wide"
+          ]
+        }
+      ],
+      "status": "MATERIALLY_LIVE"
+    },
+    {
+      "reading_id": "rd-narrow",
+      "operator": "ALL_OF",
+      "propositions": [
+        {
+          "proposition_id": "prop-men-narrow",
+          "text": "the old men",
+          "predicate_ids": [
+            "p-men"
+          ]
+        },
+        {
+          "proposition_id": "prop-women-narrow",
+          "text": "the women",
+          "predicate_ids": [
+            "p-women"
+          ]
+        }
+      ],
+      "scope_bindings": [
+        {
+          "binding_id": "b-old-narrow",
+          "kind": "OTHER",
+          "surface": "old",
+          "span": {
+            "start": 4,
+            "end": 7,
+            "text": "old"
+          },
+          "targets": [
+            "prop-men-narrow"
+          ]
+        }
+      ],
+      "status": "MATERIALLY_LIVE"
+    }
+  ],
+  "obligations": [
+    {
+      "obligation_id": "ob-b-old-wide",
+      "kind": "OTHER",
+      "description": "Wide reading: old applies to men and to women.",
+      "source_spans": [
+        {
+          "start": 4,
+          "end": 7,
+          "text": "old"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-wide"
+      ]
+    },
+    {
+      "obligation_id": "ob-b-old-narrow",
+      "kind": "OTHER",
+      "description": "Narrow reading: old applies only to men.",
+      "source_spans": [
+        {
+          "start": 4,
+          "end": 7,
+          "text": "old"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-narrow"
+      ]
+    },
+    {
+      "obligation_id": "ob-p-men",
+      "kind": "PREDICATE",
+      "description": "Predicate 'men' is part of the certificate.",
+      "source_spans": [
+        {
+          "start": 8,
+          "end": 11,
+          "text": "men"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-wide",
+        "rd-narrow"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-the",
+      "kind": "ROLE_BINDING",
+      "description": "determiner 'the' is bound to 'men'.",
+      "source_spans": [
+        {
+          "start": 0,
+          "end": 3,
+          "text": "the"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-wide",
+        "rd-narrow"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-old",
+      "kind": "ROLE_BINDING",
+      "description": "modifier 'old' is bound to 'men'.",
+      "source_spans": [
+        {
+          "start": 4,
+          "end": 7,
+          "text": "old"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-wide",
+        "rd-narrow"
+      ]
+    },
+    {
+      "obligation_id": "ob-p-women",
+      "kind": "PREDICATE",
+      "description": "Predicate 'women' is part of the certificate.",
+      "source_spans": [
+        {
+          "start": 16,
+          "end": 21,
+          "text": "women"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-wide",
+        "rd-narrow"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-women-head",
+      "kind": "ROLE_BINDING",
+      "description": "head 'women' is bound to 'women'.",
+      "source_spans": [
+        {
+          "start": 16,
+          "end": 21,
+          "text": "women"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-wide",
+        "rd-narrow"
+      ]
+    },
+    {
+      "obligation_id": "ob-and",
+      "kind": "CONJUNCTION",
+      "description": "and coordinates men and women.",
+      "source_spans": [
+        {
+          "start": 12,
+          "end": 15,
+          "text": "and"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-wide",
+        "rd-narrow"
+      ]
+    }
+  ],
+  "completeness": {
+    "material_span_ledger": [
+      {
+        "span": {
+          "start": 0,
+          "end": 3,
+          "text": "the"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-the",
+          "ob-r-the"
+        ]
+      },
+      {
+        "span": {
+          "start": 3,
+          "end": 4,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 4,
+          "end": 7,
+          "text": "old"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-old",
+          "b-old-wide",
+          "b-old-narrow",
+          "ob-b-old-wide",
+          "ob-b-old-narrow",
+          "ob-r-old"
+        ]
+      },
+      {
+        "span": {
+          "start": 7,
+          "end": 8,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 8,
+          "end": 11,
+          "text": "men"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "p-men",
+          "ob-p-men"
+        ]
+      },
+      {
+        "span": {
+          "start": 11,
+          "end": 12,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 12,
+          "end": 15,
+          "text": "and"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "ob-and"
+        ]
+      },
+      {
+        "span": {
+          "start": 15,
+          "end": 16,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 16,
+          "end": 21,
+          "text": "women"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-women-head",
+          "p-women",
+          "ob-p-women",
+          "ob-r-women-head"
+        ]
+      }
+    ],
+    "unassigned_material_spans": [],
+    "all_predicates_bound": true,
+    "all_roles_bound": true,
+    "all_operators_bound": true,
+    "all_material_qualifiers_bound": true,
+    "all_live_readings_recorded": true
+  },
+  "review_status": {
+    "state": "FROZEN_PENDING_REVIEW",
+    "independent_reviews_required": 2,
+    "adjudication_required": false
+  }
+}

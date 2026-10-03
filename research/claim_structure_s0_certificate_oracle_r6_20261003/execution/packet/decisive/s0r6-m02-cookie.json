@@ -1,0 +1,262 @@
+{
+  "schema": "claim-structure-scope-obligation-certificate-v0",
+  "certificate_id": "s0r6-m02-cookie",
+  "root": {
+    "claim_id": "m02",
+    "text": "You may have a cookie",
+    "text_sha256": "sha256:791027c15e8cb9b59d3c07a5b901b9672f938d3e84aa4839a09f8aba5cfdc0d0"
+  },
+  "source_provenance": {
+    "root_source": {
+      "kind": "published_example",
+      "locator": "https://aclanthology.org/2022.sigtyp-1.6.pdf",
+      "source_sha256": "sha256:b5cf83e950a78bc92a3b8648180a615958405524c00ab20f843cff0ceac5ed08",
+      "location": "PDF page 2, Table 1, example (4). The cell has no sentence-final period."
+    },
+    "analysis_basis": [
+      {
+        "basis_kind": "published_analysis",
+        "locator": "https://aclanthology.org/2022.sigtyp-1.6.pdf#page-2",
+        "claim": "Table 1 labels the example weak deontic. The prose says may has weak possibility force, and example (4) is deontic. This certificate records that force as weak deontic permission."
+      }
+    ]
+  },
+  "classification": "ATOMIC",
+  "predicates": [
+    {
+      "predicate_id": "p-have",
+      "surface": "have",
+      "span": {
+        "start": 8,
+        "end": 12,
+        "text": "have"
+      },
+      "roles": [
+        {
+          "role_id": "r-you",
+          "role": "subject",
+          "surface": "You",
+          "span": {
+            "start": 0,
+            "end": 3,
+            "text": "You"
+          }
+        },
+        {
+          "role_id": "r-cookie",
+          "role": "object",
+          "surface": "a cookie",
+          "span": {
+            "start": 13,
+            "end": 21,
+            "text": "a cookie"
+          }
+        }
+      ]
+    }
+  ],
+  "readings": [
+    {
+      "reading_id": "rd-may",
+      "operator": "ATOMIC",
+      "propositions": [
+        {
+          "proposition_id": "prop-may",
+          "text": "You may have a cookie",
+          "predicate_ids": [
+            "p-have"
+          ]
+        }
+      ],
+      "scope_bindings": [
+        {
+          "binding_id": "b-may",
+          "kind": "MODALITY",
+          "surface": "may",
+          "span": {
+            "start": 4,
+            "end": 7,
+            "text": "may"
+          },
+          "targets": [
+            "prop-may"
+          ]
+        }
+      ],
+      "status": "MATERIALLY_LIVE"
+    }
+  ],
+  "obligations": [
+    {
+      "obligation_id": "ob-b-may",
+      "kind": "MODALITY",
+      "description": "weak deontic permission; possibility force with deontic flavor.",
+      "source_spans": [
+        {
+          "start": 4,
+          "end": 7,
+          "text": "may"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-may"
+      ]
+    },
+    {
+      "obligation_id": "ob-p-have",
+      "kind": "PREDICATE",
+      "description": "Predicate 'have' is part of the certificate.",
+      "source_spans": [
+        {
+          "start": 8,
+          "end": 12,
+          "text": "have"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-may"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-you",
+      "kind": "ROLE_BINDING",
+      "description": "subject 'You' is bound to 'have'.",
+      "source_spans": [
+        {
+          "start": 0,
+          "end": 3,
+          "text": "You"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-may"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-cookie",
+      "kind": "ROLE_BINDING",
+      "description": "object 'a cookie' is bound to 'have'.",
+      "source_spans": [
+        {
+          "start": 13,
+          "end": 21,
+          "text": "a cookie"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-may"
+      ]
+    }
+  ],
+  "completeness": {
+    "material_span_ledger": [
+      {
+        "span": {
+          "start": 0,
+          "end": 3,
+          "text": "You"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-you",
+          "ob-r-you"
+        ]
+      },
+      {
+        "span": {
+          "start": 3,
+          "end": 4,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 4,
+          "end": 7,
+          "text": "may"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "b-may",
+          "ob-b-may"
+        ]
+      },
+      {
+        "span": {
+          "start": 7,
+          "end": 8,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 8,
+          "end": 12,
+          "text": "have"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "p-have",
+          "ob-p-have"
+        ]
+      },
+      {
+        "span": {
+          "start": 12,
+          "end": 13,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 13,
+          "end": 14,
+          "text": "a"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-cookie",
+          "ob-r-cookie"
+        ]
+      },
+      {
+        "span": {
+          "start": 14,
+          "end": 15,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 15,
+          "end": 21,
+          "text": "cookie"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-cookie",
+          "ob-r-cookie"
+        ]
+      }
+    ],
+    "unassigned_material_spans": [],
+    "all_predicates_bound": true,
+    "all_roles_bound": true,
+    "all_operators_bound": true,
+    "all_material_qualifiers_bound": true,
+    "all_live_readings_recorded": true
+  },
+  "review_status": {
+    "state": "FROZEN_PENDING_REVIEW",
+    "independent_reviews_required": 2,
+    "adjudication_required": false
+  }
+}

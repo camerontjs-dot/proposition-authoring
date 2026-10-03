@@ -1,0 +1,42 @@
+{
+  "execution": "separate local processes against http://127.0.0.1:11434/api/chat",
+  "request": {
+    "stream": false,
+    "think": false,
+    "format": "json",
+    "options": {
+      "temperature": 0,
+      "seed": 7,
+      "num_ctx": 16384
+    }
+  },
+  "qualification": "These profiles are independently executed local instruction-tuned models. They are not human reviewers. Repeating one profile is not a second reviewer. Models may still share error modes. gemma3:12b and qwen3.5:9b are excluded because that pair was the failed free-form oracle in the predecessor.",
+  "eligibility": "A profile is eligible only if it returns ACCEPT_COMPLETE for every frozen calibration known-good and does not return ACCEPT_COMPLETE for any frozen hard calibration mutation. An unparsable response is not ACCEPT_COMPLETE.",
+  "decisive_minimum": 2,
+  "profiles": [
+    {
+      "profile_id": "ollama-gemma4-12b-t0-s7",
+      "model": "gemma4:12b",
+      "model_digest": "4eb23ef187e2",
+      "order": 1
+    },
+    {
+      "profile_id": "ollama-qwen3-14b-t0-s7",
+      "model": "qwen3:14b",
+      "model_digest": "bdbd181c33f2",
+      "order": 2
+    },
+    {
+      "profile_id": "ollama-qwen3-coder-30b-t0-s7",
+      "model": "qwen3-coder:30b",
+      "model_digest": "06c1097efce0",
+      "order": 3
+    },
+    {
+      "profile_id": "ollama-muse-glimmer-30b-t0-s7",
+      "model": "muse-glimmer:30b",
+      "model_digest": "de878ce33ad8",
+      "order": 4
+    }
+  ]
+}

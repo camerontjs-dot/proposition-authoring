@@ -1,0 +1,209 @@
+{
+  "decisive_count": 17,
+  "calibration_count": 5,
+  "family_note": "A root may cover more than one family. temporal_location_scope is L01 (both PPs on the verb) and L02 (verb-level versus nominal PP). AM01 is the coordination modifier shared-versus-local analogue, not a place-name sentence. D02's parenthetical not-both is negation on a disjunction and is also tagged negation_scope.",
+  "items": [
+    {
+      "certificate_id": "s0r6-a01-clinton",
+      "claim_id": "a01",
+      "families": [
+        "atomic"
+      ],
+      "classification": "ATOMIC",
+      "root_sha256": "sha256:d4c646e3f6d6a263879c98c203c0911e33b5aaa695b3831db6adb0edab6d1976",
+      "source_locator": "https://universaldependencies.org/en/dep/nsubj.html",
+      "source_location": "sdparse 'Clinton defeated Dole'; saved ud/nsubj.md"
+    },
+    {
+      "certificate_id": "s0r6-a02-car",
+      "claim_id": "a02",
+      "families": [
+        "atomic"
+      ],
+      "classification": "ATOMIC",
+      "root_sha256": "sha256:8d1bc2523b8a88b2dcaff284392c21b4b32dff0e22bfacd358e7d25ed3265e41",
+      "source_locator": "https://universaldependencies.org/en/dep/nsubj.html",
+      "source_location": "sdparse 'The car is red .', including the space before the period; saved ud/nsubj.md"
+    },
+    {
+      "certificate_id": "s0r6-j01-bill",
+      "claim_id": "j01",
+      "families": [
+        "all_of",
+        "conjunction"
+      ],
+      "classification": "ALL_OF",
+      "root_sha256": "sha256:aaefc16a4d6f8ccb558e34c9aed93f005d232087f124161aaed4adfb83ef0cbb",
+      "source_locator": "https://universaldependencies.org/en/dep/conj.html",
+      "source_location": "sdparse 'Bill is big and honest'; saved ud/conj.md"
+    },
+    {
+      "certificate_id": "s0r6-j02-old-repeated",
+      "claim_id": "j02",
+      "families": [
+        "all_of",
+        "conjunction"
+      ],
+      "classification": "ALL_OF",
+      "root_sha256": "sha256:d9c5b0220207417e9317477776dd29ac52e7e1e6dd03071cfbdbfa8693a05b17",
+      "source_locator": "https://aclanthology.org/C08-1055.pdf",
+      "source_location": "PDF page 7 realisation item (3). The text layer breaks the NP after 'and'; the root joins that break with one space and omits the list punctuation. CC BY-NC-SA 3.0."
+    },
+    {
+      "certificate_id": "s0r6-d01-gum-or",
+      "claim_id": "d01",
+      "families": [
+        "disjunction",
+        "conjunction_disjunction_contrast",
+        "modality_condition"
+      ],
+      "classification": "NON_ALL_OF",
+      "root_sha256": "sha256:59e6dcc346e8f6431363d7d35bc5b919090a3d1d7af0f003cc5b957c93e266fc",
+      "source_locator": "https://github.com/UniversalDependencies/UD_English-GUM",
+      "source_location": "UD_English-GUM en_gum-ud-test.conllu sent_id GUM_essay_system-51. The full file is not committed; the sentence block is in execution/sources/excerpts/gum_essay_system-51.txt."
+    },
+    {
+      "certificate_id": "s0r6-d02-truck",
+      "claim_id": "d02",
+      "families": [
+        "disjunction",
+        "conjunction_disjunction_contrast",
+        "negation_scope"
+      ],
+      "classification": "NON_ALL_OF",
+      "root_sha256": "sha256:ddd44ea06aa5a7b922697c8aca8e8f533598671a6eb962f479b7b5b1c6fa254c",
+      "source_locator": "https://aclanthology.org/2024.tacl-1.41.pdf",
+      "source_location": "PDF page 6, Table 1, Quantifier-Misc. row. The root has no sentence-final period."
+    },
+    {
+      "certificate_id": "s0r6-t01-says",
+      "claim_id": "t01",
+      "families": [
+        "attribution_scope",
+        "atomic"
+      ],
+      "classification": "ATOMIC",
+      "root_sha256": "sha256:3bd5949c9d0ca85ff3d342f60566426b0e754f047b87176c7de9645cdeab34ac",
+      "source_locator": "https://universaldependencies.org/en/dep/ccomp.html",
+      "source_location": "sdparse 'He says that you like to swim'; saved ud/ccomp.md"
+    },
+    {
+      "certificate_id": "s0r6-t02-certain",
+      "claim_id": "t02",
+      "families": [
+        "attribution_scope",
+        "atomic"
+      ],
+      "classification": "ATOMIC",
+      "root_sha256": "sha256:f89b35bf3d2861de65e893dbffa1a9d3fc7b04aa6810ad0c27e20bcf4bd12894",
+      "source_locator": "https://universaldependencies.org/en/dep/ccomp.html",
+      "source_location": "sdparse 'I am certain that he did it'; saved ud/ccomp.md"
+    },
+    {
+      "certificate_id": "s0r6-n01-horse",
+      "claim_id": "n01",
+      "families": [
+        "negation_scope",
+        "ambiguous"
+      ],
+      "classification": "AMBIGUOUS",
+      "root_sha256": "sha256:419b5ad3061bbc9bc2eb150878720467695a313b81d64fb08c209d0385dfbaad",
+      "source_locator": "https://aclanthology.org/2021.scil-1.23.pdf",
+      "source_location": "PDF page 1, example (1). The apostrophe in didn't is U+2019."
+    },
+    {
+      "certificate_id": "s0r6-n02-peter",
+      "claim_id": "n02",
+      "families": [
+        "negation_scope",
+        "atomic"
+      ],
+      "classification": "ATOMIC",
+      "root_sha256": "sha256:0a34cee80c04918bd50308cd37d8008e7f31ae8bc9448adde54e71a80ab7cdfb",
+      "source_locator": "https://aclanthology.org/W12-4626.pdf",
+      "source_location": "PDF page 1, example (1a). The apostrophe in didn't is U+2019."
+    },
+    {
+      "certificate_id": "s0r6-l01-block",
+      "claim_id": "l01",
+      "families": [
+        "temporal_location_scope"
+      ],
+      "classification": "ATOMIC",
+      "root_sha256": "sha256:246e560802c56b4d61016e7526472d811debf41448f42bb14c66a15bce12b556",
+      "source_locator": "https://aclanthology.org/J06-3002.pdf",
+      "source_location": "PDF page 2, example (2)."
+    },
+    {
+      "certificate_id": "s0r6-l02-telescope",
+      "claim_id": "l02",
+      "families": [
+        "temporal_location_scope",
+        "ambiguous"
+      ],
+      "classification": "AMBIGUOUS",
+      "root_sha256": "sha256:8a71ccd04662b042918bcc18af675c42d29f959a9e58588d646329b0d29893fc",
+      "source_locator": "https://aclanthology.org/J06-3002.pdf",
+      "source_location": "PDF page 1, example (1)."
+    },
+    {
+      "certificate_id": "s0r6-q01-donkey",
+      "claim_id": "q01",
+      "families": [
+        "ambiguous"
+      ],
+      "classification": "AMBIGUOUS",
+      "root_sha256": "sha256:4c9c44c1a671a58a1d3bfb385da30f28edaf17eeab193fa78bbe73c221fa9b5d",
+      "source_locator": "https://aclanthology.org/2024.tacl-1.41.pdf",
+      "source_location": "PDF page 1, example (1a)."
+    },
+    {
+      "certificate_id": "s0r6-m01-must",
+      "claim_id": "m01",
+      "families": [
+        "modality_condition",
+        "atomic"
+      ],
+      "classification": "ATOMIC",
+      "root_sha256": "sha256:5bd277804745ef7f96a08643939f3b753395d28f34ceb1cd3d034dafd1e9f0d5",
+      "source_locator": "https://aclanthology.org/2022.sigtyp-1.6.pdf",
+      "source_location": "PDF page 2, Table 1, example (2). The text layer breaks the cell after 'your'; the root joins that break with one space and keeps the period."
+    },
+    {
+      "certificate_id": "s0r6-m02-cookie",
+      "claim_id": "m02",
+      "families": [
+        "modality_condition",
+        "atomic"
+      ],
+      "classification": "ATOMIC",
+      "root_sha256": "sha256:791027c15e8cb9b59d3c07a5b901b9672f938d3e84aa4839a09f8aba5cfdc0d0",
+      "source_locator": "https://aclanthology.org/2022.sigtyp-1.6.pdf",
+      "source_location": "PDF page 2, Table 1, example (4). The cell has no sentence-final period."
+    },
+    {
+      "certificate_id": "s0r6-m03-if",
+      "claim_id": "m03",
+      "families": [
+        "modality_condition",
+        "condition"
+      ],
+      "classification": "NON_ALL_OF",
+      "root_sha256": "sha256:54cddd17658b6083fd4a2c10af04b00d238e7c85ebc0e3a3f7c2bcf57f5dec37",
+      "source_locator": "https://universaldependencies.org/en/dep/advcl.html",
+      "source_location": "sdparse includes the space before the comma and has no final period; saved ud/advcl.md"
+    },
+    {
+      "certificate_id": "s0r6-am01-old-scope",
+      "claim_id": "am01",
+      "families": [
+        "ambiguous",
+        "coordination_modifier_scope"
+      ],
+      "classification": "AMBIGUOUS",
+      "root_sha256": "sha256:cc2323704e099ec36d53ab419d448843536e27a539620bc4435c31e416a3fd34",
+      "source_locator": "https://aclanthology.org/C08-1055.pdf",
+      "source_location": "PDF page 7 realisation item (1). The text layer has a space before the list comma; the root is the NP without that comma. CC BY-NC-SA 3.0."
+    }
+  ]
+}

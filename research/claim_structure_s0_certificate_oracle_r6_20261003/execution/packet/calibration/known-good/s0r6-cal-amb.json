@@ -1,0 +1,340 @@
+{
+  "schema": "claim-structure-scope-obligation-certificate-v0",
+  "certificate_id": "s0r6-cal-amb",
+  "root": {
+    "claim_id": "cal-amb",
+    "text": "Every guest didn't leave.",
+    "text_sha256": "sha256:a5e93c1c70c3d274f606e6ac529802d27c5d988bebb99e8cd7c3b4b54641d5ff"
+  },
+  "source_provenance": {
+    "root_source": {
+      "kind": "synthetic_control",
+      "locator": "calibration:every-not",
+      "location": "Labeled calibration control. Not a decisive root."
+    },
+    "analysis_basis": [
+      {
+        "basis_kind": "synthetic_gold_rule",
+        "locator": "calibration:every-not",
+        "claim": "Gold rule: this synthetic sentence follows the published every/not pattern and has two live readings, none and not-all. It is not a decisive root. The apostrophe is ASCII."
+      }
+    ]
+  },
+  "classification": "AMBIGUOUS",
+  "predicates": [
+    {
+      "predicate_id": "p-leave",
+      "surface": "leave",
+      "span": {
+        "start": 19,
+        "end": 24,
+        "text": "leave"
+      },
+      "roles": [
+        {
+          "role_id": "r-guest",
+          "role": "subject",
+          "surface": "Every guest",
+          "span": {
+            "start": 0,
+            "end": 11,
+            "text": "Every guest"
+          }
+        }
+      ]
+    }
+  ],
+  "readings": [
+    {
+      "reading_id": "rd-none",
+      "operator": "ATOMIC",
+      "propositions": [
+        {
+          "proposition_id": "prop-none",
+          "text": "Every guest didn't leave.",
+          "predicate_ids": [
+            "p-leave"
+          ]
+        }
+      ],
+      "scope_bindings": [
+        {
+          "binding_id": "b-every-none",
+          "kind": "QUANTIFIER",
+          "surface": "Every",
+          "span": {
+            "start": 0,
+            "end": 5,
+            "text": "Every"
+          },
+          "targets": [
+            "prop-none"
+          ]
+        },
+        {
+          "binding_id": "b-neg-none",
+          "kind": "NEGATION",
+          "surface": "didn't",
+          "span": {
+            "start": 12,
+            "end": 18,
+            "text": "didn't"
+          },
+          "targets": [
+            "prop-none"
+          ]
+        }
+      ],
+      "status": "MATERIALLY_LIVE"
+    },
+    {
+      "reading_id": "rd-notall",
+      "operator": "OTHER",
+      "propositions": [
+        {
+          "proposition_id": "prop-q",
+          "text": "Every guest",
+          "predicate_ids": [
+            "p-leave"
+          ]
+        },
+        {
+          "proposition_id": "prop-e",
+          "text": "leave",
+          "predicate_ids": [
+            "p-leave"
+          ]
+        }
+      ],
+      "scope_bindings": [
+        {
+          "binding_id": "b-every-notall",
+          "kind": "QUANTIFIER",
+          "surface": "Every",
+          "span": {
+            "start": 0,
+            "end": 5,
+            "text": "Every"
+          },
+          "targets": [
+            "prop-q"
+          ]
+        },
+        {
+          "binding_id": "b-neg-notall",
+          "kind": "NEGATION",
+          "surface": "didn't",
+          "span": {
+            "start": 12,
+            "end": 18,
+            "text": "didn't"
+          },
+          "targets": [
+            "prop-q",
+            "prop-e"
+          ]
+        }
+      ],
+      "status": "MATERIALLY_LIVE"
+    }
+  ],
+  "obligations": [
+    {
+      "obligation_id": "ob-b-every-none",
+      "kind": "QUANTITY",
+      "description": "QUANTIFIER span 'Every' is bound in rd-none.",
+      "source_spans": [
+        {
+          "start": 0,
+          "end": 5,
+          "text": "Every"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-none"
+      ]
+    },
+    {
+      "obligation_id": "ob-b-neg-none",
+      "kind": "NEGATION",
+      "description": "None reading: every guest failed to leave.",
+      "source_spans": [
+        {
+          "start": 12,
+          "end": 18,
+          "text": "didn't"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-none"
+      ]
+    },
+    {
+      "obligation_id": "ob-b-every-notall",
+      "kind": "QUANTITY",
+      "description": "QUANTIFIER span 'Every' is bound in rd-notall.",
+      "source_spans": [
+        {
+          "start": 0,
+          "end": 5,
+          "text": "Every"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-notall"
+      ]
+    },
+    {
+      "obligation_id": "ob-b-neg-notall",
+      "kind": "NEGATION",
+      "description": "Not-all reading: negation outscopes every.",
+      "source_spans": [
+        {
+          "start": 12,
+          "end": 18,
+          "text": "didn't"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-notall"
+      ]
+    },
+    {
+      "obligation_id": "ob-p-leave",
+      "kind": "PREDICATE",
+      "description": "Predicate 'leave' is part of the certificate.",
+      "source_spans": [
+        {
+          "start": 19,
+          "end": 24,
+          "text": "leave"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-none",
+        "rd-notall"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-guest",
+      "kind": "ROLE_BINDING",
+      "description": "subject 'Every guest' is bound to 'leave'.",
+      "source_spans": [
+        {
+          "start": 0,
+          "end": 11,
+          "text": "Every guest"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-none",
+        "rd-notall"
+      ]
+    }
+  ],
+  "completeness": {
+    "material_span_ledger": [
+      {
+        "span": {
+          "start": 0,
+          "end": 5,
+          "text": "Every"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-guest",
+          "b-every-none",
+          "b-every-notall",
+          "ob-b-every-none",
+          "ob-b-every-notall",
+          "ob-r-guest"
+        ]
+      },
+      {
+        "span": {
+          "start": 5,
+          "end": 6,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 6,
+          "end": 11,
+          "text": "guest"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-guest",
+          "ob-r-guest"
+        ]
+      },
+      {
+        "span": {
+          "start": 11,
+          "end": 12,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 12,
+          "end": 18,
+          "text": "didn't"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "b-neg-none",
+          "b-neg-notall",
+          "ob-b-neg-none",
+          "ob-b-neg-notall"
+        ]
+      },
+      {
+        "span": {
+          "start": 18,
+          "end": 19,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 19,
+          "end": 24,
+          "text": "leave"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "p-leave",
+          "ob-p-leave"
+        ]
+      },
+      {
+        "span": {
+          "start": 24,
+          "end": 25,
+          "text": "."
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      }
+    ],
+    "unassigned_material_spans": [],
+    "all_predicates_bound": true,
+    "all_roles_bound": true,
+    "all_operators_bound": true,
+    "all_material_qualifiers_bound": true,
+    "all_live_readings_recorded": true
+  },
+  "review_status": {
+    "state": "FROZEN_PENDING_REVIEW",
+    "independent_reviews_required": 2,
+    "adjudication_required": false
+  }
+}
