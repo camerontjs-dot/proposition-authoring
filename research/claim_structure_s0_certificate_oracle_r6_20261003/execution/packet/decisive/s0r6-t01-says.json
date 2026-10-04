@@ -1,0 +1,396 @@
+{
+  "schema": "claim-structure-scope-obligation-certificate-v0",
+  "certificate_id": "s0r6-t01-says",
+  "root": {
+    "claim_id": "t01",
+    "text": "He says that you like to swim",
+    "text_sha256": "sha256:3bd5949c9d0ca85ff3d342f60566426b0e754f047b87176c7de9645cdeab34ac"
+  },
+  "source_provenance": {
+    "root_source": {
+      "kind": "published_example",
+      "locator": "https://universaldependencies.org/en/dep/ccomp.html",
+      "source_sha256": "sha256:682488859e78b5f043df5856daf690e7e5ebfb256c75ac00400391b84fb6e691",
+      "location": "sdparse 'He says that you like to swim'; saved ud/ccomp.md"
+    },
+    "analysis_basis": [
+      {
+        "basis_kind": "annotation_guideline",
+        "locator": "https://universaldependencies.org/en/dep/ccomp.html",
+        "claim": "ccomp(says, like) and mark(like, that). One matrix clause takes the complement clause. The certificate keeps both predicates in one proposition and binds says to that proposition."
+      },
+      {
+        "basis_kind": "annotation_guideline",
+        "locator": "https://universaldependencies.org/en/dep/mark.html",
+        "claim": "The mark page annotates the same sentence as mark(swim, that). That disagreement is about the mark head, not about whether that belongs to the complement. This certificate does not choose the mark head."
+      }
+    ]
+  },
+  "classification": "ATOMIC",
+  "predicates": [
+    {
+      "predicate_id": "p-says",
+      "surface": "says",
+      "span": {
+        "start": 3,
+        "end": 7,
+        "text": "says"
+      },
+      "roles": [
+        {
+          "role_id": "r-he",
+          "role": "subject",
+          "surface": "He",
+          "span": {
+            "start": 0,
+            "end": 2,
+            "text": "He"
+          }
+        },
+        {
+          "role_id": "r-complement",
+          "role": "complement",
+          "surface": "that you like to swim",
+          "span": {
+            "start": 8,
+            "end": 29,
+            "text": "that you like to swim"
+          }
+        }
+      ]
+    },
+    {
+      "predicate_id": "p-like",
+      "surface": "like",
+      "span": {
+        "start": 17,
+        "end": 21,
+        "text": "like"
+      },
+      "roles": [
+        {
+          "role_id": "r-you",
+          "role": "subject",
+          "surface": "you",
+          "span": {
+            "start": 13,
+            "end": 16,
+            "text": "you"
+          }
+        },
+        {
+          "role_id": "r-swim",
+          "role": "complement",
+          "surface": "to swim",
+          "span": {
+            "start": 22,
+            "end": 29,
+            "text": "to swim"
+          }
+        }
+      ]
+    }
+  ],
+  "readings": [
+    {
+      "reading_id": "rd-report",
+      "operator": "ATOMIC",
+      "propositions": [
+        {
+          "proposition_id": "prop-report",
+          "text": "He says that you like to swim",
+          "predicate_ids": [
+            "p-says",
+            "p-like"
+          ]
+        }
+      ],
+      "scope_bindings": [
+        {
+          "binding_id": "b-says",
+          "kind": "ATTRIBUTION",
+          "surface": "says",
+          "span": {
+            "start": 3,
+            "end": 7,
+            "text": "says"
+          },
+          "targets": [
+            "prop-report"
+          ]
+        }
+      ],
+      "status": "MATERIALLY_LIVE"
+    }
+  ],
+  "obligations": [
+    {
+      "obligation_id": "ob-b-says",
+      "kind": "ATTRIBUTION",
+      "description": "says attributes the complement that you like to swim.",
+      "source_spans": [
+        {
+          "start": 3,
+          "end": 7,
+          "text": "says"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-report"
+      ]
+    },
+    {
+      "obligation_id": "ob-p-says",
+      "kind": "PREDICATE",
+      "description": "Predicate 'says' is part of the certificate.",
+      "source_spans": [
+        {
+          "start": 3,
+          "end": 7,
+          "text": "says"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-report"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-he",
+      "kind": "ROLE_BINDING",
+      "description": "subject 'He' is bound to 'says'.",
+      "source_spans": [
+        {
+          "start": 0,
+          "end": 2,
+          "text": "He"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-report"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-complement",
+      "kind": "ROLE_BINDING",
+      "description": "complement 'that you like to swim' is bound to 'says'.",
+      "source_spans": [
+        {
+          "start": 8,
+          "end": 29,
+          "text": "that you like to swim"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-report"
+      ]
+    },
+    {
+      "obligation_id": "ob-p-like",
+      "kind": "PREDICATE",
+      "description": "Predicate 'like' is part of the certificate.",
+      "source_spans": [
+        {
+          "start": 17,
+          "end": 21,
+          "text": "like"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-report"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-you",
+      "kind": "ROLE_BINDING",
+      "description": "subject 'you' is bound to 'like'.",
+      "source_spans": [
+        {
+          "start": 13,
+          "end": 16,
+          "text": "you"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-report"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-swim",
+      "kind": "ROLE_BINDING",
+      "description": "complement 'to swim' is bound to 'like'.",
+      "source_spans": [
+        {
+          "start": 22,
+          "end": 29,
+          "text": "to swim"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-report"
+      ]
+    }
+  ],
+  "completeness": {
+    "material_span_ledger": [
+      {
+        "span": {
+          "start": 0,
+          "end": 2,
+          "text": "He"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-he",
+          "ob-r-he"
+        ]
+      },
+      {
+        "span": {
+          "start": 2,
+          "end": 3,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 3,
+          "end": 7,
+          "text": "says"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "p-says",
+          "b-says",
+          "ob-b-says",
+          "ob-p-says"
+        ]
+      },
+      {
+        "span": {
+          "start": 7,
+          "end": 8,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 8,
+          "end": 12,
+          "text": "that"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-complement",
+          "ob-r-complement"
+        ]
+      },
+      {
+        "span": {
+          "start": 12,
+          "end": 13,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 13,
+          "end": 16,
+          "text": "you"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-complement",
+          "r-you",
+          "ob-r-complement",
+          "ob-r-you"
+        ]
+      },
+      {
+        "span": {
+          "start": 16,
+          "end": 17,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 17,
+          "end": 21,
+          "text": "like"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-complement",
+          "p-like",
+          "ob-r-complement",
+          "ob-p-like"
+        ]
+      },
+      {
+        "span": {
+          "start": 21,
+          "end": 22,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 22,
+          "end": 24,
+          "text": "to"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-complement",
+          "r-swim",
+          "ob-r-complement",
+          "ob-r-swim"
+        ]
+      },
+      {
+        "span": {
+          "start": 24,
+          "end": 25,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 25,
+          "end": 29,
+          "text": "swim"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-complement",
+          "r-swim",
+          "ob-r-complement",
+          "ob-r-swim"
+        ]
+      }
+    ],
+    "unassigned_material_spans": [],
+    "all_predicates_bound": true,
+    "all_roles_bound": true,
+    "all_operators_bound": true,
+    "all_material_qualifiers_bound": true,
+    "all_live_readings_recorded": true
+  },
+  "review_status": {
+    "state": "FROZEN_PENDING_REVIEW",
+    "independent_reviews_required": 2,
+    "adjudication_required": false
+  }
+}

@@ -1,0 +1,513 @@
+{
+  "schema": "claim-structure-scope-obligation-certificate-v0",
+  "certificate_id": "s0r6-d02-truck",
+  "root": {
+    "claim_id": "d02",
+    "text": "Each truck is either green or red (but not both)",
+    "text_sha256": "sha256:ddd44ea06aa5a7b922697c8aca8e8f533598671a6eb962f479b7b5b1c6fa254c"
+  },
+  "source_provenance": {
+    "root_source": {
+      "kind": "published_example",
+      "locator": "https://aclanthology.org/2024.tacl-1.41.pdf",
+      "source_sha256": "sha256:54cc530bd2677602fffff47ad0f6d0cbe73b9737bc73bfe2f11cb6dbf56cdd37",
+      "location": "PDF page 6, Table 1, Quantifier-Misc. row. The root has no sentence-final period."
+    },
+    "analysis_basis": [
+      {
+        "basis_kind": "published_analysis",
+        "locator": "https://aclanthology.org/2024.tacl-1.41.pdf#page-6",
+        "claim": "The published sentence itself says 'either ... or' and '(but not both)'. Exclusivity is the parenthetical, not an inferred quantifier scope."
+      }
+    ]
+  },
+  "classification": "NON_ALL_OF",
+  "predicates": [
+    {
+      "predicate_id": "p-green",
+      "surface": "green",
+      "span": {
+        "start": 21,
+        "end": 26,
+        "text": "green"
+      },
+      "roles": [
+        {
+          "role_id": "r-truck-green",
+          "role": "subject",
+          "surface": "Each truck",
+          "span": {
+            "start": 0,
+            "end": 10,
+            "text": "Each truck"
+          }
+        },
+        {
+          "role_id": "r-is-green",
+          "role": "copula",
+          "surface": "is",
+          "span": {
+            "start": 11,
+            "end": 13,
+            "text": "is"
+          }
+        }
+      ]
+    },
+    {
+      "predicate_id": "p-red",
+      "surface": "red",
+      "span": {
+        "start": 30,
+        "end": 33,
+        "text": "red"
+      },
+      "roles": [
+        {
+          "role_id": "r-truck-red",
+          "role": "subject",
+          "surface": "Each truck",
+          "span": {
+            "start": 0,
+            "end": 10,
+            "text": "Each truck"
+          }
+        },
+        {
+          "role_id": "r-is-red",
+          "role": "copula",
+          "surface": "is",
+          "span": {
+            "start": 11,
+            "end": 13,
+            "text": "is"
+          }
+        }
+      ]
+    }
+  ],
+  "readings": [
+    {
+      "reading_id": "rd-xor",
+      "operator": "ANY_OF",
+      "propositions": [
+        {
+          "proposition_id": "prop-green",
+          "text": "Each truck is green",
+          "predicate_ids": [
+            "p-green"
+          ]
+        },
+        {
+          "proposition_id": "prop-red",
+          "text": "Each truck is red",
+          "predicate_ids": [
+            "p-red"
+          ]
+        }
+      ],
+      "scope_bindings": [
+        {
+          "binding_id": "b-but",
+          "kind": "EXCEPTION",
+          "surface": "but",
+          "span": {
+            "start": 35,
+            "end": 38,
+            "text": "but"
+          },
+          "targets": [
+            "prop-green",
+            "prop-red"
+          ]
+        },
+        {
+          "binding_id": "b-not-both",
+          "kind": "NEGATION",
+          "surface": "not both",
+          "span": {
+            "start": 39,
+            "end": 47,
+            "text": "not both"
+          },
+          "targets": [
+            "prop-green",
+            "prop-red"
+          ]
+        }
+      ],
+      "status": "MATERIALLY_LIVE"
+    }
+  ],
+  "obligations": [
+    {
+      "obligation_id": "ob-b-but",
+      "kind": "OTHER",
+      "description": "EXCEPTION span 'but' is bound in rd-xor.",
+      "source_spans": [
+        {
+          "start": 35,
+          "end": 38,
+          "text": "but"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-xor"
+      ]
+    },
+    {
+      "obligation_id": "ob-b-not-both",
+      "kind": "NEGATION",
+      "description": "The parenthetical not both excludes the reading in which both colours hold.",
+      "source_spans": [
+        {
+          "start": 39,
+          "end": 47,
+          "text": "not both"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-xor"
+      ]
+    },
+    {
+      "obligation_id": "ob-p-green",
+      "kind": "PREDICATE",
+      "description": "Predicate 'green' is part of the certificate.",
+      "source_spans": [
+        {
+          "start": 21,
+          "end": 26,
+          "text": "green"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-xor"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-truck-green",
+      "kind": "ROLE_BINDING",
+      "description": "subject 'Each truck' is bound to 'green'.",
+      "source_spans": [
+        {
+          "start": 0,
+          "end": 10,
+          "text": "Each truck"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-xor"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-is-green",
+      "kind": "ROLE_BINDING",
+      "description": "copula 'is' is bound to 'green'.",
+      "source_spans": [
+        {
+          "start": 11,
+          "end": 13,
+          "text": "is"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-xor"
+      ]
+    },
+    {
+      "obligation_id": "ob-p-red",
+      "kind": "PREDICATE",
+      "description": "Predicate 'red' is part of the certificate.",
+      "source_spans": [
+        {
+          "start": 30,
+          "end": 33,
+          "text": "red"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-xor"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-truck-red",
+      "kind": "ROLE_BINDING",
+      "description": "subject 'Each truck' is bound to 'red'.",
+      "source_spans": [
+        {
+          "start": 0,
+          "end": 10,
+          "text": "Each truck"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-xor"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-is-red",
+      "kind": "ROLE_BINDING",
+      "description": "copula 'is' is bound to 'red'.",
+      "source_spans": [
+        {
+          "start": 11,
+          "end": 13,
+          "text": "is"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-xor"
+      ]
+    },
+    {
+      "obligation_id": "ob-either-or",
+      "kind": "DISJUNCTION",
+      "description": "either and or mark the disjunction of green and red.",
+      "source_spans": [
+        {
+          "start": 14,
+          "end": 20,
+          "text": "either"
+        },
+        {
+          "start": 27,
+          "end": 29,
+          "text": "or"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-xor"
+      ]
+    }
+  ],
+  "completeness": {
+    "material_span_ledger": [
+      {
+        "span": {
+          "start": 0,
+          "end": 4,
+          "text": "Each"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-truck-green",
+          "r-truck-red",
+          "ob-r-truck-green",
+          "ob-r-truck-red"
+        ]
+      },
+      {
+        "span": {
+          "start": 4,
+          "end": 5,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 5,
+          "end": 10,
+          "text": "truck"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-truck-green",
+          "r-truck-red",
+          "ob-r-truck-green",
+          "ob-r-truck-red"
+        ]
+      },
+      {
+        "span": {
+          "start": 10,
+          "end": 11,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 11,
+          "end": 13,
+          "text": "is"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-is-green",
+          "r-is-red",
+          "ob-r-is-green",
+          "ob-r-is-red"
+        ]
+      },
+      {
+        "span": {
+          "start": 13,
+          "end": 14,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 14,
+          "end": 20,
+          "text": "either"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "ob-either-or"
+        ]
+      },
+      {
+        "span": {
+          "start": 20,
+          "end": 21,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 21,
+          "end": 26,
+          "text": "green"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "p-green",
+          "ob-p-green"
+        ]
+      },
+      {
+        "span": {
+          "start": 26,
+          "end": 27,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 27,
+          "end": 29,
+          "text": "or"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "ob-either-or"
+        ]
+      },
+      {
+        "span": {
+          "start": 29,
+          "end": 30,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 30,
+          "end": 33,
+          "text": "red"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "p-red",
+          "ob-p-red"
+        ]
+      },
+      {
+        "span": {
+          "start": 33,
+          "end": 35,
+          "text": " ("
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 35,
+          "end": 38,
+          "text": "but"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "b-but",
+          "ob-b-but"
+        ]
+      },
+      {
+        "span": {
+          "start": 38,
+          "end": 39,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 39,
+          "end": 42,
+          "text": "not"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "b-not-both",
+          "ob-b-not-both"
+        ]
+      },
+      {
+        "span": {
+          "start": 42,
+          "end": 43,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 43,
+          "end": 47,
+          "text": "both"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "b-not-both",
+          "ob-b-not-both"
+        ]
+      },
+      {
+        "span": {
+          "start": 47,
+          "end": 48,
+          "text": ")"
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      }
+    ],
+    "unassigned_material_spans": [],
+    "all_predicates_bound": true,
+    "all_roles_bound": true,
+    "all_operators_bound": true,
+    "all_material_qualifiers_bound": true,
+    "all_live_readings_recorded": true
+  },
+  "review_status": {
+    "state": "FROZEN_PENDING_REVIEW",
+    "independent_reviews_required": 2,
+    "adjudication_required": false
+  }
+}

@@ -1,0 +1,621 @@
+{
+  "predecessor_commit": "da6007163bfe96d39ef1026f9efb98e42edbbbeb",
+  "predecessor_tag": "freeze/claim-structure-s0-certificate-oracle-r6-decisive-20261003",
+  "note": "Compact calibration summary. Raw records stayed in the gitignored review-runs directory. No profile was eligible. Decisive review did not start.",
+  "profiles": [
+    {
+      "profile_id": "ollama-gemma4-12b-t0-s7",
+      "wall_seconds": 2646.41,
+      "eligible": false,
+      "reason": "Rejected two known-good certificates and accepted the subject-removed copy.",
+      "accept_complete": [
+        "s0r6-cal-amb",
+        "s0r6-cal-attr",
+        "s0r6-cal-kim--drop_subject",
+        "s0r6-cal-or"
+      ],
+      "items": [
+        {
+          "item": "s0r6-cal-amb--drop_live_reading",
+          "verdict": "REJECT_OMISSION",
+          "objections": [
+            {
+              "question": 5,
+              "severity": "material",
+              "detail": "The basis identifies two live readings (none and not-all), but the certificate only contains one (rd-notall)."
+            }
+          ],
+          "parse_error": null,
+          "raw_chars": 202
+        },
+        {
+          "item": "s0r6-cal-amb--drop_negation",
+          "verdict": "REJECT_OMISSION",
+          "objections": [
+            {
+              "question": 3,
+              "severity": "material",
+              "detail": "The analysis basis requires a 'not' reading (negation), but the certificate's 'rd-none' reading omits the negation from the proposition text and the ledger marks 'didn't' as non-material."
+            }
+          ],
+          "parse_error": null,
+          "raw_chars": 280
+        },
+        {
+          "item": "s0r6-cal-amb",
+          "verdict": "ACCEPT_COMPLETE",
+          "objections": [],
+          "parse_error": null,
+          "raw_chars": 45
+        },
+        {
+          "item": "s0r6-cal-attr--reattach_attribution",
+          "verdict": "REJECT_SCOPE",
+          "objections": [
+            {
+              "question": 3,
+              "severity": "material",
+              "detail": "The attribution 'said' is only bound to 'prop-bob' in the scope_bindings, but the analysis basis requires it to cover both 'Bob left' and 'Chris stayed'."
+            }
+          ],
+          "parse_error": null,
+          "raw_chars": 243
+        },
+        {
+          "item": "s0r6-cal-attr",
+          "verdict": "ACCEPT_COMPLETE",
+          "objections": [],
+          "parse_error": null,
+          "raw_chars": 45
+        },
+        {
+          "item": "s0r6-cal-kim--alter_span",
+          "verdict": "REJECT_SOURCE_BINDING",
+          "objections": [
+            {
+              "question": 8,
+              "severity": "material",
+              "detail": "The predicate span for 'p-bought' contains 'NOT-THE-SOURCE' instead of the root text 'bought'."
+            }
+          ],
+          "parse_error": null,
+          "raw_chars": 193
+        },
+        {
+          "item": "s0r6-cal-kim--drop_object",
+          "verdict": "REJECT_ROLE_BINDING",
+          "objections": [
+            {
+              "question": 2,
+              "severity": "material",
+              "detail": "The object 'a book' is missing from the predicate 'p-bought' roles."
+            }
+          ],
+          "parse_error": null,
+          "raw_chars": 164
+        },
+        {
+          "item": "s0r6-cal-kim--drop_qualifier",
+          "verdict": "REJECT_OMISSION",
+          "objections": [
+            {
+              "question": 3,
+              "severity": "material",
+              "detail": "The analysis basis requires 'on Friday' as a temporal modifier, but it is marked as ACCOUNTED_NON_MATERIAL and is not included in any scope_bindings."
+            }
+          ],
+          "parse_error": null,
+          "raw_chars": 242
+        },
+        {
+          "item": "s0r6-cal-kim--drop_subject",
+          "verdict": "ACCEPT_COMPLETE",
+          "objections": [],
+          "parse_error": null,
+          "raw_chars": 45
+        },
+        {
+          "item": "s0r6-cal-kim--invent_proposition",
+          "verdict": "REJECT_INVENTION",
+          "objections": [
+            {
+              "question": 7,
+              "severity": "material",
+              "detail": "Proposition rd-kim-invented ('a parade') is not in the root text."
+            }
+          ],
+          "parse_error": null,
+          "raw_chars": 159
+        },
+        {
+          "item": "s0r6-cal-kim",
+          "verdict": "REJECT_SOURCE_BINDING",
+          "objections": [
+            {
+              "question": 8,
+              "severity": "material",
+              "detail": "The span for 'a book' in the ledger (11-17) does not match the span in the predicate (11-17) because the predicate's role 'r-book' is bound to a span that includes the article 'a', but the ledger splits 'a' and 'book' into two separate entries."
+            }
+          ],
+          "parse_error": null,
+          "raw_chars": 343
+        },
+        {
+          "item": "s0r6-cal-must--change_modality",
+          "verdict": "REJECT_INVENTION",
+          "objections": [
+            {
+              "question": 7,
+              "severity": "material",
+              "detail": "The obligation 'ob-b-must' describes the modal as 'permission', but the analysis basis explicitly states 'must is strong deontic necessity' and warns that 'Representing it as permission is a modality change'."
+            }
+          ],
+          "parse_error": null,
+          "raw_chars": 302
+        },
+        {
+          "item": "s0r6-cal-must",
+          "verdict": "REJECT_ROLE_BINDING",
+          "objections": [
+            {
+              "question": 2,
+              "severity": "material",
+              "detail": "The role 'r-form' (the form) is bound to the predicate 'file' in the certificate, but the span for 'r-form' in the certificate (14-22) includes the word 'the', while the root text only contains 'the form' at that position. However, the ledger shows 'the' (14-17) and 'form' (18-22) as separate spans, but the role 'r-form' is mapped to a span that combines them. More critically, the certificate's role 'r-form' span (14-22) is used to cover the object, but the ledger shows 'the' and 'form' as separate entities. The certificate's role 'r-form' span (14-17, 18-22) is inconsistent with the ledger's split."
+            }
+          ],
+          "parse_error": null,
+          "raw_chars": 703
+        },
+        {
+          "item": "s0r6-cal-or--or_to_and",
+          "verdict": "REJECT_OPERATOR",
+          "objections": [
+            {
+              "question": 4,
+              "severity": "material",
+              "detail": "The coordinator 'or' is identified as a DISJUNCTION in obligations but the reading 'rd-or' uses the operator ALL_OF."
+            }
+          ],
+          "parse_error": null,
+          "raw_chars": 209
+        },
+        {
+          "item": "s0r6-cal-or",
+          "verdict": "ACCEPT_COMPLETE",
+          "objections": [],
+          "parse_error": null,
+          "raw_chars": 45
+        }
+      ]
+    },
+    {
+      "profile_id": "ollama-muse-glimmer-30b-t0-s7",
+      "wall_seconds": 105.4,
+      "eligible": false,
+      "reason": "Empty message content on every item. Unparsable is not an accept.",
+      "accept_complete": [],
+      "items": [
+        {
+          "item": "s0r6-cal-amb--drop_live_reading",
+          "verdict": "UNPARSABLE",
+          "objections": [],
+          "parse_error": "no json object",
+          "raw_chars": 0
+        },
+        {
+          "item": "s0r6-cal-amb--drop_negation",
+          "verdict": "UNPARSABLE",
+          "objections": [],
+          "parse_error": "no json object",
+          "raw_chars": 0
+        },
+        {
+          "item": "s0r6-cal-amb",
+          "verdict": "UNPARSABLE",
+          "objections": [],
+          "parse_error": "no json object",
+          "raw_chars": 0
+        },
+        {
+          "item": "s0r6-cal-attr--reattach_attribution",
+          "verdict": "UNPARSABLE",
+          "objections": [],
+          "parse_error": "no json object",
+          "raw_chars": 0
+        },
+        {
+          "item": "s0r6-cal-attr",
+          "verdict": "UNPARSABLE",
+          "objections": [],
+          "parse_error": "no json object",
+          "raw_chars": 0
+        },
+        {
+          "item": "s0r6-cal-kim--alter_span",
+          "verdict": "UNPARSABLE",
+          "objections": [],
+          "parse_error": "no json object",
+          "raw_chars": 0
+        },
+        {
+          "item": "s0r6-cal-kim--drop_object",
+          "verdict": "UNPARSABLE",
+          "objections": [],
+          "parse_error": "no json object",
+          "raw_chars": 0
+        },
+        {
+          "item": "s0r6-cal-kim--drop_qualifier",
+          "verdict": "UNPARSABLE",
+          "objections": [],
+          "parse_error": "no json object",
+          "raw_chars": 0
+        },
+        {
+          "item": "s0r6-cal-kim--drop_subject",
+          "verdict": "UNPARSABLE",
+          "objections": [],
+          "parse_error": "no json object",
+          "raw_chars": 0
+        },
+        {
+          "item": "s0r6-cal-kim--invent_proposition",
+          "verdict": "UNPARSABLE",
+          "objections": [],
+          "parse_error": "no json object",
+          "raw_chars": 0
+        },
+        {
+          "item": "s0r6-cal-kim",
+          "verdict": "UNPARSABLE",
+          "objections": [],
+          "parse_error": "no json object",
+          "raw_chars": 0
+        },
+        {
+          "item": "s0r6-cal-must--change_modality",
+          "verdict": "UNPARSABLE",
+          "objections": [],
+          "parse_error": "no json object",
+          "raw_chars": 0
+        },
+        {
+          "item": "s0r6-cal-must",
+          "verdict": "UNPARSABLE",
+          "objections": [],
+          "parse_error": "no json object",
+          "raw_chars": 0
+        },
+        {
+          "item": "s0r6-cal-or--or_to_and",
+          "verdict": "UNPARSABLE",
+          "objections": [],
+          "parse_error": "no json object",
+          "raw_chars": 0
+        },
+        {
+          "item": "s0r6-cal-or",
+          "verdict": "UNPARSABLE",
+          "objections": [],
+          "parse_error": "no json object",
+          "raw_chars": 0
+        }
+      ]
+    },
+    {
+      "profile_id": "ollama-qwen3-14b-t0-s7",
+      "wall_seconds": 710.47,
+      "eligible": false,
+      "reason": "Accepted hard copies that removed a subject, object, qualifier, negation binding, or live reading, and a copy that changed modal force.",
+      "accept_complete": [
+        "s0r6-cal-amb--drop_live_reading",
+        "s0r6-cal-amb--drop_negation",
+        "s0r6-cal-amb",
+        "s0r6-cal-attr",
+        "s0r6-cal-kim--drop_object",
+        "s0r6-cal-kim--drop_qualifier",
+        "s0r6-cal-kim--drop_subject",
+        "s0r6-cal-kim",
+        "s0r6-cal-must--change_modality",
+        "s0r6-cal-must",
+        "s0r6-cal-or"
+      ],
+      "items": [
+        {
+          "item": "s0r6-cal-amb--drop_live_reading",
+          "verdict": "ACCEPT_COMPLETE",
+          "objections": [],
+          "parse_error": null,
+          "raw_chars": 45
+        },
+        {
+          "item": "s0r6-cal-amb--drop_negation",
+          "verdict": "ACCEPT_COMPLETE",
+          "objections": [],
+          "parse_error": null,
+          "raw_chars": 45
+        },
+        {
+          "item": "s0r6-cal-amb",
+          "verdict": "ACCEPT_COMPLETE",
+          "objections": [],
+          "parse_error": null,
+          "raw_chars": 45
+        },
+        {
+          "item": "s0r6-cal-attr--reattach_attribution",
+          "verdict": "REJECT_SCOPE",
+          "objections": [
+            {
+              "question": 10,
+              "severity": "material",
+              "detail": "The top-level class 'NON_ALL_OF' does not match the live readings in the certificate, which only include 'rd-said' with 'OTHER' operator."
+            }
+          ],
+          "parse_error": null,
+          "raw_chars": 228
+        },
+        {
+          "item": "s0r6-cal-attr",
+          "verdict": "ACCEPT_COMPLETE",
+          "objections": [],
+          "parse_error": null,
+          "raw_chars": 45
+        },
+        {
+          "item": "s0r6-cal-kim--alter_span",
+          "verdict": "REJECT_SOURCE_BINDING",
+          "objections": [
+            {
+              "question": 8,
+              "severity": "material",
+              "detail": "The span for predicate 'p-bought' in the certificate is 'NOT-THE-SOURCE', which does not reproduce the root slice 'bought' from the root text."
+            }
+          ],
+          "parse_error": null,
+          "raw_chars": 241
+        },
+        {
+          "item": "s0r6-cal-kim--drop_object",
+          "verdict": "ACCEPT_COMPLETE",
+          "objections": [],
+          "parse_error": null,
+          "raw_chars": 45
+        },
+        {
+          "item": "s0r6-cal-kim--drop_qualifier",
+          "verdict": "ACCEPT_COMPLETE",
+          "objections": [],
+          "parse_error": null,
+          "raw_chars": 45
+        },
+        {
+          "item": "s0r6-cal-kim--drop_subject",
+          "verdict": "ACCEPT_COMPLETE",
+          "objections": [],
+          "parse_error": null,
+          "raw_chars": 45
+        },
+        {
+          "item": "s0r6-cal-kim--invent_proposition",
+          "verdict": "REJECT_INVENTION",
+          "objections": [
+            {
+              "question": 7,
+              "severity": "material",
+              "detail": "The proposition 'a parade' adds a word absent from the root and an event the basis does not support."
+            }
+          ],
+          "parse_error": null,
+          "raw_chars": 194
+        },
+        {
+          "item": "s0r6-cal-kim",
+          "verdict": "ACCEPT_COMPLETE",
+          "objections": [],
+          "parse_error": null,
+          "raw_chars": 45
+        },
+        {
+          "item": "s0r6-cal-must--change_modality",
+          "verdict": "ACCEPT_COMPLETE",
+          "objections": [],
+          "parse_error": null,
+          "raw_chars": 45
+        },
+        {
+          "item": "s0r6-cal-must",
+          "verdict": "ACCEPT_COMPLETE",
+          "objections": [],
+          "parse_error": null,
+          "raw_chars": 45
+        },
+        {
+          "item": "s0r6-cal-or--or_to_and",
+          "verdict": "REJECT_OPERATOR",
+          "objections": [
+            {
+              "question": 4,
+              "severity": "material",
+              "detail": "The operator for the reading 'rd-or' is labeled as 'ALL_OF' instead of 'DISJUNCTION' as required by the analysis basis."
+            }
+          ],
+          "parse_error": null,
+          "raw_chars": 212
+        },
+        {
+          "item": "s0r6-cal-or",
+          "verdict": "ACCEPT_COMPLETE",
+          "objections": [],
+          "parse_error": null,
+          "raw_chars": 45
+        }
+      ]
+    },
+    {
+      "profile_id": "ollama-qwen3-coder-30b-t0-s7",
+      "wall_seconds": 325.03,
+      "eligible": false,
+      "reason": "Accepted hard copies that removed a subject, qualifier, or negation binding, and a span whose text was not the root slice.",
+      "accept_complete": [
+        "s0r6-cal-amb--drop_negation",
+        "s0r6-cal-amb",
+        "s0r6-cal-attr",
+        "s0r6-cal-kim--alter_span",
+        "s0r6-cal-kim--drop_qualifier",
+        "s0r6-cal-kim--drop_subject",
+        "s0r6-cal-kim",
+        "s0r6-cal-must",
+        "s0r6-cal-or"
+      ],
+      "items": [
+        {
+          "item": "s0r6-cal-amb--drop_live_reading",
+          "verdict": "REJECT_OMISSION",
+          "objections": [
+            {
+              "question": 1,
+              "severity": "material",
+              "detail": "The certificate does not represent the 'none' reading, which is explicitly required by the analysis basis as one of two live readings for this sentence."
+            },
+            {
+              "question": 10,
+              "severity": "material",
+              "detail": "The top-level classification is 'AMBIGUOUS', but only one live reading ('not-all') is present in the certificate, while the basis specifies that both 'none' and 'not-all' are live."
+            }
+          ],
+          "parse_error": null,
+          "raw_chars": 555
+        },
+        {
+          "item": "s0r6-cal-amb--drop_negation",
+          "verdict": "ACCEPT_COMPLETE",
+          "objections": [],
+          "parse_error": null,
+          "raw_chars": 54
+        },
+        {
+          "item": "s0r6-cal-amb",
+          "verdict": "ACCEPT_COMPLETE",
+          "objections": [],
+          "parse_error": null,
+          "raw_chars": 54
+        },
+        {
+          "item": "s0r6-cal-attr--reattach_attribution",
+          "verdict": "REJECT_ROLE_BINDING",
+          "objections": [
+            {
+              "question": 2,
+              "severity": "material",
+              "detail": "The basis requires that 'said' attributes both conjuncts ('Bob left' and 'Chris stayed'), but the certificate only binds 'said' to 'Bob left' (prop-bob), omitting 'Chris stayed' (prop-chris)."
+            }
+          ],
+          "parse_error": null,
+          "raw_chars": 334
+        },
+        {
+          "item": "s0r6-cal-attr",
+          "verdict": "ACCEPT_COMPLETE",
+          "objections": [],
+          "parse_error": null,
+          "raw_chars": 54
+        },
+        {
+          "item": "s0r6-cal-kim--alter_span",
+          "verdict": "ACCEPT_COMPLETE",
+          "objections": [],
+          "parse_error": null,
+          "raw_chars": 54
+        },
+        {
+          "item": "s0r6-cal-kim--drop_object",
+          "verdict": "REJECT_OMISSION",
+          "objections": [
+            {
+              "question": 2,
+              "severity": "material",
+              "detail": "The object role 'a book' is required by the basis but is missing from the predicate 'bought'."
+            }
+          ],
+          "parse_error": null,
+          "raw_chars": 232
+        },
+        {
+          "item": "s0r6-cal-kim--drop_qualifier",
+          "verdict": "ACCEPT_COMPLETE",
+          "objections": [],
+          "parse_error": null,
+          "raw_chars": 54
+        },
+        {
+          "item": "s0r6-cal-kim--drop_subject",
+          "verdict": "ACCEPT_COMPLETE",
+          "objections": [],
+          "parse_error": null,
+          "raw_chars": 54
+        },
+        {
+          "item": "s0r6-cal-kim--invent_proposition",
+          "verdict": "REJECT_INVENTION",
+          "objections": [
+            {
+              "question": 7,
+              "severity": "material",
+              "detail": "The proposition 'a parade' is added to the certificate and is not present in the root text."
+            }
+          ],
+          "parse_error": null,
+          "raw_chars": 231
+        },
+        {
+          "item": "s0r6-cal-kim",
+          "verdict": "ACCEPT_COMPLETE",
+          "objections": [],
+          "parse_error": null,
+          "raw_chars": 54
+        },
+        {
+          "item": "s0r6-cal-must--change_modality",
+          "verdict": "REJECT_INVENTION",
+          "objections": [
+            {
+              "question": 3,
+              "severity": "material",
+              "detail": "The obligation states 'The modal is permission,' but the analysis basis requires 'must' to be represented as strong deontic necessity, not permission. This invention of a different modality is unsupported by the basis."
+            }
+          ],
+          "parse_error": null,
+          "raw_chars": 358
+        },
+        {
+          "item": "s0r6-cal-must",
+          "verdict": "ACCEPT_COMPLETE",
+          "objections": [],
+          "parse_error": null,
+          "raw_chars": 54
+        },
+        {
+          "item": "s0r6-cal-or--or_to_and",
+          "verdict": "REJECT_OPERATOR",
+          "objections": [
+            {
+              "question": 4,
+              "severity": "material",
+              "detail": "The basis explicitly states that 'or is a disjunction' and must not be represented as 'and'. The certificate incorrectly uses 'ALL_OF' as the operator, which represents a conjunction, not a disjunction."
+            }
+          ],
+          "parse_error": null,
+          "raw_chars": 341
+        },
+        {
+          "item": "s0r6-cal-or",
+          "verdict": "ACCEPT_COMPLETE",
+          "objections": [],
+          "parse_error": null,
+          "raw_chars": 54
+        }
+      ]
+    }
+  ]
+}

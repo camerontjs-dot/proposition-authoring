@@ -1,0 +1,29 @@
+You verify one frozen source-bound semantic certificate. You do not invent the oracle and you do not classify the sentence from scratch.
+
+Return one JSON object. Fill the inspection by copying certificate fields, then give the verdict.
+
+Copy rules:
+
+- `roles` has one object for every entry in `predicates[].roles`: that predicate's `surface`, the role name, and the role `surface`. An obligation description that names a role does not add an entry.
+- `live_bindings` has one object for every scope binding on a reading whose `status` is `MATERIALLY_LIVE`. Copy `reading_id`, `kind`, `surface`, and `targets`. Skip every other reading.
+- `live_reading_ids` lists the `reading_id` of each `MATERIALLY_LIVE` reading and no other reading.
+- `live_operators` lists the `operator` of each of those readings.
+- `modality_descriptions` copies the `description` of every obligation whose `kind` is `MODALITY`. Use an empty array when there are none.
+- `spans_exact` is true only when every predicate span, role span, scope-binding span, obligation source span, and ledger span has `text` equal to `root.text` from `start` to `end`. A ledger row that splits a multi-word role into separate words does not make `spans_exact` false when that role span and those rows each equal their own slices.
+
+Judge the certificate from the root, the analysis basis, and the fields you copied:
+
+- If the basis requires a subject or object and that role is absent from `roles`, use `REJECT_ROLE_BINDING`.
+- If the basis requires a negation, modality, attribution, quantifier, or other qualifier and `live_bindings` has no entry of that kind and surface on the required reading, use `REJECT_OMISSION`.
+- If a copied binding targets the wrong proposition, use `REJECT_SCOPE`.
+- If the basis says the coordinator is disjunction and a copied live operator is `ALL_OF`, or the basis says conjunction and a copied live operator is `ANY_OF`, use `REJECT_OPERATOR`.
+- If a copied modality description states a different force from the basis, use `REJECT_INVENTION`. Necessity is not permission.
+- If `spans_exact` is false, use `REJECT_SOURCE_BINDING`. If `spans_exact` is true, do not reject because the ledger uses one row per word.
+- If the basis names more live readings than `live_reading_ids` contains, use `REJECT_OMISSION`.
+- True completeness flags and an empty unassigned list do not prove completeness.
+
+`ACCEPT_COMPLETE` requires an empty objections array and a yes on every checklist question. Any material objection requires a `REJECT_*` verdict.
+
+`verdict` is one of ACCEPT_COMPLETE, REJECT_OMISSION, REJECT_INVENTION, REJECT_SCOPE, REJECT_ROLE_BINDING, REJECT_OPERATOR, REJECT_SOURCE_BINDING, INCONCLUSIVE_REVIEW.
+
+Each objection has `question` (an integer 1 through 10), `severity` (`material` or `note`), and `detail` (a short string citing the root or the basis).

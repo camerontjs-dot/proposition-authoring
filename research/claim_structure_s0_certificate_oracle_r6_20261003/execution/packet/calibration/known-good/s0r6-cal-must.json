@@ -1,0 +1,270 @@
+{
+  "schema": "claim-structure-scope-obligation-certificate-v0",
+  "certificate_id": "s0r6-cal-must",
+  "root": {
+    "claim_id": "cal-must",
+    "text": "Kim must file the form.",
+    "text_sha256": "sha256:4315c078e116d9f0b60fae99ceacc916102d775d1dcff7597230bcdf6b2a53da"
+  },
+  "source_provenance": {
+    "root_source": {
+      "kind": "synthetic_control",
+      "locator": "calibration:must",
+      "location": "Labeled calibration control. Not a decisive root."
+    },
+    "analysis_basis": [
+      {
+        "basis_kind": "synthetic_gold_rule",
+        "locator": "calibration:must",
+        "claim": "Gold rule: must is strong deontic necessity. Representing it as permission is a modality change."
+      }
+    ]
+  },
+  "classification": "ATOMIC",
+  "predicates": [
+    {
+      "predicate_id": "p-file",
+      "surface": "file",
+      "span": {
+        "start": 9,
+        "end": 13,
+        "text": "file"
+      },
+      "roles": [
+        {
+          "role_id": "r-kim",
+          "role": "subject",
+          "surface": "Kim",
+          "span": {
+            "start": 0,
+            "end": 3,
+            "text": "Kim"
+          }
+        },
+        {
+          "role_id": "r-form",
+          "role": "object",
+          "surface": "the form",
+          "span": {
+            "start": 14,
+            "end": 22,
+            "text": "the form"
+          }
+        }
+      ]
+    }
+  ],
+  "readings": [
+    {
+      "reading_id": "rd-must",
+      "operator": "ATOMIC",
+      "propositions": [
+        {
+          "proposition_id": "prop-must",
+          "text": "Kim must file the form.",
+          "predicate_ids": [
+            "p-file"
+          ]
+        }
+      ],
+      "scope_bindings": [
+        {
+          "binding_id": "b-must",
+          "kind": "MODALITY",
+          "surface": "must",
+          "span": {
+            "start": 4,
+            "end": 8,
+            "text": "must"
+          },
+          "targets": [
+            "prop-must"
+          ]
+        }
+      ],
+      "status": "MATERIALLY_LIVE"
+    }
+  ],
+  "obligations": [
+    {
+      "obligation_id": "ob-b-must",
+      "kind": "MODALITY",
+      "description": "strong deontic necessity.",
+      "source_spans": [
+        {
+          "start": 4,
+          "end": 8,
+          "text": "must"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-must"
+      ]
+    },
+    {
+      "obligation_id": "ob-p-file",
+      "kind": "PREDICATE",
+      "description": "Predicate 'file' is part of the certificate.",
+      "source_spans": [
+        {
+          "start": 9,
+          "end": 13,
+          "text": "file"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-must"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-kim",
+      "kind": "ROLE_BINDING",
+      "description": "subject 'Kim' is bound to 'file'.",
+      "source_spans": [
+        {
+          "start": 0,
+          "end": 3,
+          "text": "Kim"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-must"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-form",
+      "kind": "ROLE_BINDING",
+      "description": "object 'the form' is bound to 'file'.",
+      "source_spans": [
+        {
+          "start": 14,
+          "end": 22,
+          "text": "the form"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-must"
+      ]
+    }
+  ],
+  "completeness": {
+    "material_span_ledger": [
+      {
+        "span": {
+          "start": 0,
+          "end": 3,
+          "text": "Kim"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-kim",
+          "ob-r-kim"
+        ]
+      },
+      {
+        "span": {
+          "start": 3,
+          "end": 4,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 4,
+          "end": 8,
+          "text": "must"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "b-must",
+          "ob-b-must"
+        ]
+      },
+      {
+        "span": {
+          "start": 8,
+          "end": 9,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 9,
+          "end": 13,
+          "text": "file"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "p-file",
+          "ob-p-file"
+        ]
+      },
+      {
+        "span": {
+          "start": 13,
+          "end": 14,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 14,
+          "end": 17,
+          "text": "the"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-form",
+          "ob-r-form"
+        ]
+      },
+      {
+        "span": {
+          "start": 17,
+          "end": 18,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 18,
+          "end": 22,
+          "text": "form"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-form",
+          "ob-r-form"
+        ]
+      },
+      {
+        "span": {
+          "start": 22,
+          "end": 23,
+          "text": "."
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      }
+    ],
+    "unassigned_material_spans": [],
+    "all_predicates_bound": true,
+    "all_roles_bound": true,
+    "all_operators_bound": true,
+    "all_material_qualifiers_bound": true,
+    "all_live_readings_recorded": true
+  },
+  "review_status": {
+    "state": "FROZEN_PENDING_REVIEW",
+    "independent_reviews_required": 2,
+    "adjudication_required": false
+  }
+}

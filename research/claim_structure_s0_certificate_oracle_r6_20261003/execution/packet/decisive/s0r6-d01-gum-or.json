@@ -1,0 +1,750 @@
+{
+  "schema": "claim-structure-scope-obligation-certificate-v0",
+  "certificate_id": "s0r6-d01-gum-or",
+  "root": {
+    "claim_id": "d01",
+    "text": "You can keep beating yourself up for your forgetfulness, or you can put a system in place.",
+    "text_sha256": "sha256:59e6dcc346e8f6431363d7d35bc5b919090a3d1d7af0f003cc5b957c93e266fc"
+  },
+  "source_provenance": {
+    "root_source": {
+      "kind": "public_document",
+      "locator": "https://github.com/UniversalDependencies/UD_English-GUM",
+      "source_sha256": "sha256:cd96a285e7339f401f4803dd0f4f61109c51692e3ef6f9186a1f977544080b69",
+      "location": "UD_English-GUM en_gum-ud-test.conllu sent_id GUM_essay_system-51. The full file is not committed; the sentence block is in execution/sources/excerpts/gum_essay_system-51.txt."
+    },
+    "analysis_basis": [
+      {
+        "basis_kind": "published_annotation",
+        "locator": "https://github.com/UniversalDependencies/UD_English-GUM#GUM_essay_system-51",
+        "claim": "Token or is cc of put; put is conj of keep; both can tokens are aux; You is nsubj of keep; you is nsubj of put; yourself is obj of beating; system is obj of put; forgetfulness is obl of beating; place is obl of put."
+      }
+    ]
+  },
+  "classification": "NON_ALL_OF",
+  "predicates": [
+    {
+      "predicate_id": "p-keep",
+      "surface": "keep",
+      "span": {
+        "start": 8,
+        "end": 12,
+        "text": "keep"
+      },
+      "roles": [
+        {
+          "role_id": "r-you-keep",
+          "role": "subject",
+          "surface": "You",
+          "span": {
+            "start": 0,
+            "end": 3,
+            "text": "You"
+          }
+        }
+      ]
+    },
+    {
+      "predicate_id": "p-beating",
+      "surface": "beating",
+      "span": {
+        "start": 13,
+        "end": 20,
+        "text": "beating"
+      },
+      "roles": [
+        {
+          "role_id": "r-yourself",
+          "role": "object",
+          "surface": "yourself",
+          "span": {
+            "start": 21,
+            "end": 29,
+            "text": "yourself"
+          }
+        },
+        {
+          "role_id": "r-up",
+          "role": "particle",
+          "surface": "up",
+          "span": {
+            "start": 30,
+            "end": 32,
+            "text": "up"
+          }
+        },
+        {
+          "role_id": "r-forgetfulness",
+          "role": "oblique",
+          "surface": "for your forgetfulness",
+          "span": {
+            "start": 33,
+            "end": 55,
+            "text": "for your forgetfulness"
+          }
+        }
+      ]
+    },
+    {
+      "predicate_id": "p-put",
+      "surface": "put",
+      "span": {
+        "start": 68,
+        "end": 71,
+        "text": "put"
+      },
+      "roles": [
+        {
+          "role_id": "r-you-put",
+          "role": "subject",
+          "surface": "you",
+          "span": {
+            "start": 60,
+            "end": 63,
+            "text": "you"
+          }
+        },
+        {
+          "role_id": "r-system",
+          "role": "object",
+          "surface": "a system",
+          "span": {
+            "start": 72,
+            "end": 80,
+            "text": "a system"
+          }
+        },
+        {
+          "role_id": "r-place",
+          "role": "oblique",
+          "surface": "in place",
+          "span": {
+            "start": 81,
+            "end": 89,
+            "text": "in place"
+          }
+        }
+      ]
+    }
+  ],
+  "readings": [
+    {
+      "reading_id": "rd-or",
+      "operator": "ANY_OF",
+      "propositions": [
+        {
+          "proposition_id": "prop-keep",
+          "text": "You can keep beating yourself up for your forgetfulness",
+          "predicate_ids": [
+            "p-keep",
+            "p-beating"
+          ]
+        },
+        {
+          "proposition_id": "prop-put",
+          "text": "you can put a system in place",
+          "predicate_ids": [
+            "p-put"
+          ]
+        }
+      ],
+      "scope_bindings": [
+        {
+          "binding_id": "b-can-1",
+          "kind": "MODALITY",
+          "surface": "can",
+          "span": {
+            "start": 4,
+            "end": 7,
+            "text": "can"
+          },
+          "targets": [
+            "prop-keep"
+          ]
+        },
+        {
+          "binding_id": "b-can-2",
+          "kind": "MODALITY",
+          "surface": "can",
+          "span": {
+            "start": 64,
+            "end": 67,
+            "text": "can"
+          },
+          "targets": [
+            "prop-put"
+          ]
+        }
+      ],
+      "status": "MATERIALLY_LIVE"
+    }
+  ],
+  "obligations": [
+    {
+      "obligation_id": "ob-b-can-1",
+      "kind": "MODALITY",
+      "description": "modal auxiliary can on keep; UD labels it aux.",
+      "source_spans": [
+        {
+          "start": 4,
+          "end": 7,
+          "text": "can"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-or"
+      ]
+    },
+    {
+      "obligation_id": "ob-b-can-2",
+      "kind": "MODALITY",
+      "description": "modal auxiliary can on put; UD labels it aux.",
+      "source_spans": [
+        {
+          "start": 64,
+          "end": 67,
+          "text": "can"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-or"
+      ]
+    },
+    {
+      "obligation_id": "ob-p-keep",
+      "kind": "PREDICATE",
+      "description": "Predicate 'keep' is part of the certificate.",
+      "source_spans": [
+        {
+          "start": 8,
+          "end": 12,
+          "text": "keep"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-or"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-you-keep",
+      "kind": "ROLE_BINDING",
+      "description": "subject 'You' is bound to 'keep'.",
+      "source_spans": [
+        {
+          "start": 0,
+          "end": 3,
+          "text": "You"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-or"
+      ]
+    },
+    {
+      "obligation_id": "ob-p-beating",
+      "kind": "PREDICATE",
+      "description": "Predicate 'beating' is part of the certificate.",
+      "source_spans": [
+        {
+          "start": 13,
+          "end": 20,
+          "text": "beating"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-or"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-yourself",
+      "kind": "ROLE_BINDING",
+      "description": "object 'yourself' is bound to 'beating'.",
+      "source_spans": [
+        {
+          "start": 21,
+          "end": 29,
+          "text": "yourself"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-or"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-up",
+      "kind": "ROLE_BINDING",
+      "description": "particle 'up' is bound to 'beating'.",
+      "source_spans": [
+        {
+          "start": 30,
+          "end": 32,
+          "text": "up"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-or"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-forgetfulness",
+      "kind": "ROLE_BINDING",
+      "description": "oblique 'for your forgetfulness' is bound to 'beating'.",
+      "source_spans": [
+        {
+          "start": 33,
+          "end": 55,
+          "text": "for your forgetfulness"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-or"
+      ]
+    },
+    {
+      "obligation_id": "ob-p-put",
+      "kind": "PREDICATE",
+      "description": "Predicate 'put' is part of the certificate.",
+      "source_spans": [
+        {
+          "start": 68,
+          "end": 71,
+          "text": "put"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-or"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-you-put",
+      "kind": "ROLE_BINDING",
+      "description": "subject 'you' is bound to 'put'.",
+      "source_spans": [
+        {
+          "start": 60,
+          "end": 63,
+          "text": "you"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-or"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-system",
+      "kind": "ROLE_BINDING",
+      "description": "object 'a system' is bound to 'put'.",
+      "source_spans": [
+        {
+          "start": 72,
+          "end": 80,
+          "text": "a system"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-or"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-place",
+      "kind": "ROLE_BINDING",
+      "description": "oblique 'in place' is bound to 'put'.",
+      "source_spans": [
+        {
+          "start": 81,
+          "end": 89,
+          "text": "in place"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-or"
+      ]
+    },
+    {
+      "obligation_id": "ob-or",
+      "kind": "DISJUNCTION",
+      "description": "or is the coordinating conjunction of the two clauses.",
+      "source_spans": [
+        {
+          "start": 57,
+          "end": 59,
+          "text": "or"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-or"
+      ]
+    }
+  ],
+  "completeness": {
+    "material_span_ledger": [
+      {
+        "span": {
+          "start": 0,
+          "end": 3,
+          "text": "You"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-you-keep",
+          "ob-r-you-keep"
+        ]
+      },
+      {
+        "span": {
+          "start": 3,
+          "end": 4,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 4,
+          "end": 7,
+          "text": "can"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "b-can-1",
+          "ob-b-can-1"
+        ]
+      },
+      {
+        "span": {
+          "start": 7,
+          "end": 8,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 8,
+          "end": 12,
+          "text": "keep"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "p-keep",
+          "ob-p-keep"
+        ]
+      },
+      {
+        "span": {
+          "start": 12,
+          "end": 13,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 13,
+          "end": 20,
+          "text": "beating"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "p-beating",
+          "ob-p-beating"
+        ]
+      },
+      {
+        "span": {
+          "start": 20,
+          "end": 21,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 21,
+          "end": 29,
+          "text": "yourself"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-yourself",
+          "ob-r-yourself"
+        ]
+      },
+      {
+        "span": {
+          "start": 29,
+          "end": 30,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 30,
+          "end": 32,
+          "text": "up"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-up",
+          "ob-r-up"
+        ]
+      },
+      {
+        "span": {
+          "start": 32,
+          "end": 33,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 33,
+          "end": 36,
+          "text": "for"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-forgetfulness",
+          "ob-r-forgetfulness"
+        ]
+      },
+      {
+        "span": {
+          "start": 36,
+          "end": 37,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 37,
+          "end": 41,
+          "text": "your"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-forgetfulness",
+          "ob-r-forgetfulness"
+        ]
+      },
+      {
+        "span": {
+          "start": 41,
+          "end": 42,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 42,
+          "end": 55,
+          "text": "forgetfulness"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-forgetfulness",
+          "ob-r-forgetfulness"
+        ]
+      },
+      {
+        "span": {
+          "start": 55,
+          "end": 57,
+          "text": ", "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 57,
+          "end": 59,
+          "text": "or"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "ob-or"
+        ]
+      },
+      {
+        "span": {
+          "start": 59,
+          "end": 60,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 60,
+          "end": 63,
+          "text": "you"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-you-put",
+          "ob-r-you-put"
+        ]
+      },
+      {
+        "span": {
+          "start": 63,
+          "end": 64,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 64,
+          "end": 67,
+          "text": "can"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "b-can-2",
+          "ob-b-can-2"
+        ]
+      },
+      {
+        "span": {
+          "start": 67,
+          "end": 68,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 68,
+          "end": 71,
+          "text": "put"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "p-put",
+          "ob-p-put"
+        ]
+      },
+      {
+        "span": {
+          "start": 71,
+          "end": 72,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 72,
+          "end": 73,
+          "text": "a"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-system",
+          "ob-r-system"
+        ]
+      },
+      {
+        "span": {
+          "start": 73,
+          "end": 74,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 74,
+          "end": 80,
+          "text": "system"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-system",
+          "ob-r-system"
+        ]
+      },
+      {
+        "span": {
+          "start": 80,
+          "end": 81,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 81,
+          "end": 83,
+          "text": "in"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-place",
+          "ob-r-place"
+        ]
+      },
+      {
+        "span": {
+          "start": 83,
+          "end": 84,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 84,
+          "end": 89,
+          "text": "place"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-place",
+          "ob-r-place"
+        ]
+      },
+      {
+        "span": {
+          "start": 89,
+          "end": 90,
+          "text": "."
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      }
+    ],
+    "unassigned_material_spans": [],
+    "all_predicates_bound": true,
+    "all_roles_bound": true,
+    "all_operators_bound": true,
+    "all_material_qualifiers_bound": true,
+    "all_live_readings_recorded": true
+  },
+  "review_status": {
+    "state": "FROZEN_PENDING_REVIEW",
+    "independent_reviews_required": 2,
+    "adjudication_required": false
+  }
+}

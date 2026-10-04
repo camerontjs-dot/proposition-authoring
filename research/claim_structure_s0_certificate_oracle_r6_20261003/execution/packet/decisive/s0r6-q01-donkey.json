@@ -1,0 +1,444 @@
+{
+  "schema": "claim-structure-scope-obligation-certificate-v0",
+  "certificate_id": "s0r6-q01-donkey",
+  "root": {
+    "claim_id": "q01",
+    "text": "Every farmer owns a donkey.",
+    "text_sha256": "sha256:4c9c44c1a671a58a1d3bfb385da30f28edaf17eeab193fa78bbe73c221fa9b5d"
+  },
+  "source_provenance": {
+    "root_source": {
+      "kind": "published_example",
+      "locator": "https://aclanthology.org/2024.tacl-1.41.pdf",
+      "source_sha256": "sha256:54cc530bd2677602fffff47ad0f6d0cbe73b9737bc73bfe2f11cb6dbf56cdd37",
+      "location": "PDF page 1, example (1a)."
+    },
+    "analysis_basis": [
+      {
+        "basis_kind": "published_analysis",
+        "locator": "https://aclanthology.org/2024.tacl-1.41.pdf#page-1",
+        "claim": "Surface scope: every farmer outscopes a donkey. Inverse scope: a donkey outscopes every farmer. The paper prints both logical forms."
+      }
+    ]
+  },
+  "classification": "AMBIGUOUS",
+  "predicates": [
+    {
+      "predicate_id": "p-owns",
+      "surface": "owns",
+      "span": {
+        "start": 13,
+        "end": 17,
+        "text": "owns"
+      },
+      "roles": [
+        {
+          "role_id": "r-farmer",
+          "role": "subject",
+          "surface": "Every farmer",
+          "span": {
+            "start": 0,
+            "end": 12,
+            "text": "Every farmer"
+          }
+        },
+        {
+          "role_id": "r-donkey-obj",
+          "role": "object",
+          "surface": "a donkey",
+          "span": {
+            "start": 18,
+            "end": 26,
+            "text": "a donkey"
+          }
+        }
+      ]
+    },
+    {
+      "predicate_id": "p-donkey",
+      "surface": "donkey",
+      "span": {
+        "start": 20,
+        "end": 26,
+        "text": "donkey"
+      },
+      "roles": [
+        {
+          "role_id": "r-a",
+          "role": "determiner",
+          "surface": "a",
+          "span": {
+            "start": 18,
+            "end": 19,
+            "text": "a"
+          }
+        }
+      ]
+    }
+  ],
+  "readings": [
+    {
+      "reading_id": "rd-surface",
+      "operator": "ATOMIC",
+      "propositions": [
+        {
+          "proposition_id": "prop-surface",
+          "text": "Every farmer owns a donkey.",
+          "predicate_ids": [
+            "p-owns"
+          ]
+        }
+      ],
+      "scope_bindings": [
+        {
+          "binding_id": "b-every-surface",
+          "kind": "QUANTIFIER",
+          "surface": "Every",
+          "span": {
+            "start": 0,
+            "end": 5,
+            "text": "Every"
+          },
+          "targets": [
+            "prop-surface"
+          ]
+        },
+        {
+          "binding_id": "b-a-surface",
+          "kind": "QUANTIFIER",
+          "surface": "a",
+          "span": {
+            "start": 18,
+            "end": 19,
+            "text": "a"
+          },
+          "targets": [
+            "prop-surface"
+          ]
+        }
+      ],
+      "status": "MATERIALLY_LIVE"
+    },
+    {
+      "reading_id": "rd-inverse",
+      "operator": "OTHER",
+      "propositions": [
+        {
+          "proposition_id": "prop-donkey",
+          "text": "a donkey",
+          "predicate_ids": [
+            "p-donkey"
+          ]
+        },
+        {
+          "proposition_id": "prop-owns",
+          "text": "Every farmer owns",
+          "predicate_ids": [
+            "p-owns"
+          ]
+        }
+      ],
+      "scope_bindings": [
+        {
+          "binding_id": "b-a-inverse",
+          "kind": "QUANTIFIER",
+          "surface": "a",
+          "span": {
+            "start": 18,
+            "end": 19,
+            "text": "a"
+          },
+          "targets": [
+            "prop-donkey"
+          ]
+        },
+        {
+          "binding_id": "b-every-inverse",
+          "kind": "QUANTIFIER",
+          "surface": "Every",
+          "span": {
+            "start": 0,
+            "end": 5,
+            "text": "Every"
+          },
+          "targets": [
+            "prop-owns"
+          ]
+        }
+      ],
+      "status": "MATERIALLY_LIVE"
+    }
+  ],
+  "obligations": [
+    {
+      "obligation_id": "ob-b-every-surface",
+      "kind": "QUANTITY",
+      "description": "Surface scope: the universal outscopes the existential.",
+      "source_spans": [
+        {
+          "start": 0,
+          "end": 5,
+          "text": "Every"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-surface"
+      ]
+    },
+    {
+      "obligation_id": "ob-b-a-surface",
+      "kind": "QUANTITY",
+      "description": "Surface scope: a donkey is inside the scope of every farmer.",
+      "source_spans": [
+        {
+          "start": 18,
+          "end": 19,
+          "text": "a"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-surface"
+      ]
+    },
+    {
+      "obligation_id": "ob-b-a-inverse",
+      "kind": "QUANTITY",
+      "description": "Inverse scope: one donkey is outside the universal.",
+      "source_spans": [
+        {
+          "start": 18,
+          "end": 19,
+          "text": "a"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-inverse"
+      ]
+    },
+    {
+      "obligation_id": "ob-b-every-inverse",
+      "kind": "QUANTITY",
+      "description": "Inverse scope: every farmer is inside the existential.",
+      "source_spans": [
+        {
+          "start": 0,
+          "end": 5,
+          "text": "Every"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-inverse"
+      ]
+    },
+    {
+      "obligation_id": "ob-p-owns",
+      "kind": "PREDICATE",
+      "description": "Predicate 'owns' is part of the certificate.",
+      "source_spans": [
+        {
+          "start": 13,
+          "end": 17,
+          "text": "owns"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-surface",
+        "rd-inverse"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-farmer",
+      "kind": "ROLE_BINDING",
+      "description": "subject 'Every farmer' is bound to 'owns'.",
+      "source_spans": [
+        {
+          "start": 0,
+          "end": 12,
+          "text": "Every farmer"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-surface",
+        "rd-inverse"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-donkey-obj",
+      "kind": "ROLE_BINDING",
+      "description": "object 'a donkey' is bound to 'owns'.",
+      "source_spans": [
+        {
+          "start": 18,
+          "end": 26,
+          "text": "a donkey"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-surface",
+        "rd-inverse"
+      ]
+    },
+    {
+      "obligation_id": "ob-p-donkey",
+      "kind": "PREDICATE",
+      "description": "Predicate 'donkey' is part of the certificate.",
+      "source_spans": [
+        {
+          "start": 20,
+          "end": 26,
+          "text": "donkey"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-inverse"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-a",
+      "kind": "ROLE_BINDING",
+      "description": "determiner 'a' is bound to 'donkey'.",
+      "source_spans": [
+        {
+          "start": 18,
+          "end": 19,
+          "text": "a"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-inverse"
+      ]
+    }
+  ],
+  "completeness": {
+    "material_span_ledger": [
+      {
+        "span": {
+          "start": 0,
+          "end": 5,
+          "text": "Every"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-farmer",
+          "b-every-surface",
+          "b-every-inverse",
+          "ob-b-every-surface",
+          "ob-b-every-inverse",
+          "ob-r-farmer"
+        ]
+      },
+      {
+        "span": {
+          "start": 5,
+          "end": 6,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 6,
+          "end": 12,
+          "text": "farmer"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-farmer",
+          "ob-r-farmer"
+        ]
+      },
+      {
+        "span": {
+          "start": 12,
+          "end": 13,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 13,
+          "end": 17,
+          "text": "owns"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "p-owns",
+          "ob-p-owns"
+        ]
+      },
+      {
+        "span": {
+          "start": 17,
+          "end": 18,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 18,
+          "end": 19,
+          "text": "a"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-donkey-obj",
+          "r-a",
+          "b-a-surface",
+          "b-a-inverse",
+          "ob-b-a-surface",
+          "ob-b-a-inverse",
+          "ob-r-donkey-obj",
+          "ob-r-a"
+        ]
+      },
+      {
+        "span": {
+          "start": 19,
+          "end": 20,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 20,
+          "end": 26,
+          "text": "donkey"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-donkey-obj",
+          "p-donkey",
+          "ob-r-donkey-obj",
+          "ob-p-donkey"
+        ]
+      },
+      {
+        "span": {
+          "start": 26,
+          "end": 27,
+          "text": "."
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      }
+    ],
+    "unassigned_material_spans": [],
+    "all_predicates_bound": true,
+    "all_roles_bound": true,
+    "all_operators_bound": true,
+    "all_material_qualifiers_bound": true,
+    "all_live_readings_recorded": true
+  },
+  "review_status": {
+    "state": "FROZEN_PENDING_REVIEW",
+    "independent_reviews_required": 2,
+    "adjudication_required": false
+  }
+}

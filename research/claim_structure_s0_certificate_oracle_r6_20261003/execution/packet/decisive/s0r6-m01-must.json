@@ -1,0 +1,359 @@
+{
+  "schema": "claim-structure-scope-obligation-certificate-v0",
+  "certificate_id": "s0r6-m01-must",
+  "root": {
+    "claim_id": "m01",
+    "text": "You must upload your homework as a PDF.",
+    "text_sha256": "sha256:5bd277804745ef7f96a08643939f3b753395d28f34ceb1cd3d034dafd1e9f0d5"
+  },
+  "source_provenance": {
+    "root_source": {
+      "kind": "published_example",
+      "locator": "https://aclanthology.org/2022.sigtyp-1.6.pdf",
+      "source_sha256": "sha256:b5cf83e950a78bc92a3b8648180a615958405524c00ab20f843cff0ceac5ed08",
+      "location": "PDF page 2, Table 1, example (2). The text layer breaks the cell after 'your'; the root joins that break with one space and keeps the period."
+    },
+    "analysis_basis": [
+      {
+        "basis_kind": "published_analysis",
+        "locator": "https://aclanthology.org/2022.sigtyp-1.6.pdf#page-2",
+        "claim": "Table 1 labels the example strong deontic. The prose says example (2) has universal force with deontic flavor: the rule-worlds are ones in which you upload a PDF. This certificate records that force as strong deontic necessity and does not call it permission."
+      }
+    ]
+  },
+  "classification": "ATOMIC",
+  "predicates": [
+    {
+      "predicate_id": "p-upload",
+      "surface": "upload",
+      "span": {
+        "start": 9,
+        "end": 15,
+        "text": "upload"
+      },
+      "roles": [
+        {
+          "role_id": "r-you",
+          "role": "subject",
+          "surface": "You",
+          "span": {
+            "start": 0,
+            "end": 3,
+            "text": "You"
+          }
+        },
+        {
+          "role_id": "r-homework",
+          "role": "object",
+          "surface": "your homework",
+          "span": {
+            "start": 16,
+            "end": 29,
+            "text": "your homework"
+          }
+        },
+        {
+          "role_id": "r-pdf",
+          "role": "form",
+          "surface": "as a PDF",
+          "span": {
+            "start": 30,
+            "end": 38,
+            "text": "as a PDF"
+          }
+        }
+      ]
+    }
+  ],
+  "readings": [
+    {
+      "reading_id": "rd-must",
+      "operator": "ATOMIC",
+      "propositions": [
+        {
+          "proposition_id": "prop-must",
+          "text": "You must upload your homework as a PDF.",
+          "predicate_ids": [
+            "p-upload"
+          ]
+        }
+      ],
+      "scope_bindings": [
+        {
+          "binding_id": "b-must",
+          "kind": "MODALITY",
+          "surface": "must",
+          "span": {
+            "start": 4,
+            "end": 8,
+            "text": "must"
+          },
+          "targets": [
+            "prop-must"
+          ]
+        }
+      ],
+      "status": "MATERIALLY_LIVE"
+    }
+  ],
+  "obligations": [
+    {
+      "obligation_id": "ob-b-must",
+      "kind": "MODALITY",
+      "description": "strong deontic necessity; universal force with deontic flavor.",
+      "source_spans": [
+        {
+          "start": 4,
+          "end": 8,
+          "text": "must"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-must"
+      ]
+    },
+    {
+      "obligation_id": "ob-p-upload",
+      "kind": "PREDICATE",
+      "description": "Predicate 'upload' is part of the certificate.",
+      "source_spans": [
+        {
+          "start": 9,
+          "end": 15,
+          "text": "upload"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-must"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-you",
+      "kind": "ROLE_BINDING",
+      "description": "subject 'You' is bound to 'upload'.",
+      "source_spans": [
+        {
+          "start": 0,
+          "end": 3,
+          "text": "You"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-must"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-homework",
+      "kind": "ROLE_BINDING",
+      "description": "object 'your homework' is bound to 'upload'.",
+      "source_spans": [
+        {
+          "start": 16,
+          "end": 29,
+          "text": "your homework"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-must"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-pdf",
+      "kind": "ROLE_BINDING",
+      "description": "form 'as a PDF' is bound to 'upload'.",
+      "source_spans": [
+        {
+          "start": 30,
+          "end": 38,
+          "text": "as a PDF"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-must"
+      ]
+    }
+  ],
+  "completeness": {
+    "material_span_ledger": [
+      {
+        "span": {
+          "start": 0,
+          "end": 3,
+          "text": "You"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-you",
+          "ob-r-you"
+        ]
+      },
+      {
+        "span": {
+          "start": 3,
+          "end": 4,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 4,
+          "end": 8,
+          "text": "must"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "b-must",
+          "ob-b-must"
+        ]
+      },
+      {
+        "span": {
+          "start": 8,
+          "end": 9,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 9,
+          "end": 15,
+          "text": "upload"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "p-upload",
+          "ob-p-upload"
+        ]
+      },
+      {
+        "span": {
+          "start": 15,
+          "end": 16,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 16,
+          "end": 20,
+          "text": "your"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-homework",
+          "ob-r-homework"
+        ]
+      },
+      {
+        "span": {
+          "start": 20,
+          "end": 21,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 21,
+          "end": 29,
+          "text": "homework"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-homework",
+          "ob-r-homework"
+        ]
+      },
+      {
+        "span": {
+          "start": 29,
+          "end": 30,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 30,
+          "end": 32,
+          "text": "as"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-pdf",
+          "ob-r-pdf"
+        ]
+      },
+      {
+        "span": {
+          "start": 32,
+          "end": 33,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 33,
+          "end": 34,
+          "text": "a"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-pdf",
+          "ob-r-pdf"
+        ]
+      },
+      {
+        "span": {
+          "start": 34,
+          "end": 35,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 35,
+          "end": 38,
+          "text": "PDF"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-pdf",
+          "ob-r-pdf"
+        ]
+      },
+      {
+        "span": {
+          "start": 38,
+          "end": 39,
+          "text": "."
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      }
+    ],
+    "unassigned_material_spans": [],
+    "all_predicates_bound": true,
+    "all_roles_bound": true,
+    "all_operators_bound": true,
+    "all_material_qualifiers_bound": true,
+    "all_live_readings_recorded": true
+  },
+  "review_status": {
+    "state": "FROZEN_PENDING_REVIEW",
+    "independent_reviews_required": 2,
+    "adjudication_required": false
+  }
+}

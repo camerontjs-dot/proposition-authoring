@@ -1,0 +1,881 @@
+{
+  "s0r6-a01-clinton": {
+    "min_live_readings": 1,
+    "max_live_readings": 1,
+    "required_roles": [
+      {
+        "predicate_surface": "defeated",
+        "role": "subject",
+        "surface": "Clinton"
+      },
+      {
+        "predicate_surface": "defeated",
+        "role": "object",
+        "surface": "Dole"
+      }
+    ],
+    "required_predicate_surfaces": [
+      "defeated"
+    ],
+    "required_bindings": [],
+    "modality_descriptions": []
+  },
+  "s0r6-a02-car": {
+    "min_live_readings": 1,
+    "max_live_readings": 1,
+    "required_roles": [
+      {
+        "predicate_surface": "red",
+        "role": "subject",
+        "surface": "car"
+      },
+      {
+        "predicate_surface": "red",
+        "role": "copula",
+        "surface": "is"
+      },
+      {
+        "predicate_surface": "red",
+        "role": "determiner",
+        "surface": "The"
+      }
+    ],
+    "required_predicate_surfaces": [
+      "red"
+    ],
+    "required_bindings": [],
+    "modality_descriptions": []
+  },
+  "s0r6-j01-bill": {
+    "min_live_readings": 1,
+    "max_live_readings": 1,
+    "required_roles": [
+      {
+        "predicate_surface": "big",
+        "role": "subject",
+        "surface": "Bill"
+      },
+      {
+        "predicate_surface": "honest",
+        "role": "subject",
+        "surface": "Bill"
+      },
+      {
+        "predicate_surface": "big",
+        "role": "copula",
+        "surface": "is"
+      },
+      {
+        "predicate_surface": "honest",
+        "role": "copula",
+        "surface": "is"
+      }
+    ],
+    "required_predicate_surfaces": [
+      "big",
+      "honest"
+    ],
+    "required_bindings": [],
+    "modality_descriptions": []
+  },
+  "s0r6-j02-old-repeated": {
+    "min_live_readings": 1,
+    "max_live_readings": 1,
+    "required_roles": [
+      {
+        "predicate_surface": "men",
+        "role": "modifier",
+        "surface": "old"
+      },
+      {
+        "predicate_surface": "women",
+        "role": "modifier",
+        "surface": "old"
+      }
+    ],
+    "required_predicate_surfaces": [
+      "men",
+      "women"
+    ],
+    "required_bindings": [],
+    "modality_descriptions": []
+  },
+  "s0r6-d01-gum-or": {
+    "min_live_readings": 1,
+    "max_live_readings": 1,
+    "required_roles": [
+      {
+        "predicate_surface": "keep",
+        "role": "subject",
+        "surface": "You"
+      },
+      {
+        "predicate_surface": "beating",
+        "role": "object",
+        "surface": "yourself"
+      },
+      {
+        "predicate_surface": "put",
+        "role": "subject",
+        "surface": "you"
+      },
+      {
+        "predicate_surface": "put",
+        "role": "object",
+        "surface": "a system"
+      }
+    ],
+    "required_predicate_surfaces": [
+      "keep",
+      "beating",
+      "put"
+    ],
+    "required_bindings": [
+      {
+        "kind": "MODALITY",
+        "surface": "can",
+        "target_must_contain_all": [
+          "forgetfulness"
+        ],
+        "start": 4
+      },
+      {
+        "kind": "MODALITY",
+        "surface": "can",
+        "target_must_contain_all": [
+          "system"
+        ],
+        "target_must_not_contain": [
+          "forgetfulness"
+        ],
+        "start": 64
+      }
+    ],
+    "modality_descriptions": [
+      {
+        "surface": "can",
+        "must_contain": "modal auxiliary",
+        "must_not_contain": [
+          "permission"
+        ]
+      }
+    ]
+  },
+  "s0r6-d02-truck": {
+    "min_live_readings": 1,
+    "max_live_readings": 1,
+    "required_roles": [
+      {
+        "predicate_surface": "green",
+        "role": "subject",
+        "surface": "Each truck"
+      },
+      {
+        "predicate_surface": "red",
+        "role": "subject",
+        "surface": "Each truck"
+      }
+    ],
+    "required_predicate_surfaces": [
+      "green",
+      "red"
+    ],
+    "required_bindings": [
+      {
+        "kind": "NEGATION",
+        "surface": "not both",
+        "target_must_contain_all": [
+          "green",
+          "red"
+        ]
+      },
+      {
+        "kind": "EXCEPTION",
+        "surface": "but",
+        "target_must_contain_all": [
+          "green",
+          "red"
+        ]
+      }
+    ],
+    "modality_descriptions": []
+  },
+  "s0r6-t01-says": {
+    "min_live_readings": 1,
+    "max_live_readings": 1,
+    "required_roles": [
+      {
+        "predicate_surface": "says",
+        "role": "subject",
+        "surface": "He"
+      },
+      {
+        "predicate_surface": "like",
+        "role": "subject",
+        "surface": "you"
+      },
+      {
+        "predicate_surface": "like",
+        "role": "complement",
+        "surface": "to swim"
+      }
+    ],
+    "required_predicate_surfaces": [
+      "says",
+      "like"
+    ],
+    "required_bindings": [
+      {
+        "kind": "ATTRIBUTION",
+        "surface": "says",
+        "target_must_contain_all": [
+          "like",
+          "swim"
+        ]
+      }
+    ],
+    "modality_descriptions": []
+  },
+  "s0r6-t02-certain": {
+    "min_live_readings": 1,
+    "max_live_readings": 1,
+    "required_roles": [
+      {
+        "predicate_surface": "certain",
+        "role": "experiencer",
+        "surface": "I"
+      },
+      {
+        "predicate_surface": "did",
+        "role": "subject",
+        "surface": "he"
+      },
+      {
+        "predicate_surface": "did",
+        "role": "object",
+        "surface": "it"
+      }
+    ],
+    "required_predicate_surfaces": [
+      "certain",
+      "did"
+    ],
+    "required_bindings": [
+      {
+        "kind": "ATTRIBUTION",
+        "surface": "certain",
+        "target_must_contain_all": [
+          "did",
+          "he"
+        ]
+      }
+    ],
+    "modality_descriptions": []
+  },
+  "s0r6-n01-horse": {
+    "min_live_readings": 2,
+    "required_roles": [
+      {
+        "predicate_surface": "jump",
+        "role": "subject",
+        "surface": "Every horse"
+      },
+      {
+        "predicate_surface": "jump",
+        "role": "path",
+        "surface": "over the fence"
+      }
+    ],
+    "required_predicate_surfaces": [
+      "jump"
+    ],
+    "required_bindings": [
+      {
+        "kind": "QUANTIFIER",
+        "surface": "Every",
+        "reading_id": "rd-none",
+        "target_must_contain_all": [
+          "didn’t",
+          "jump"
+        ]
+      },
+      {
+        "kind": "NEGATION",
+        "surface": "didn’t",
+        "reading_id": "rd-none",
+        "target_must_contain_all": [
+          "didn’t",
+          "jump"
+        ]
+      },
+      {
+        "kind": "NEGATION",
+        "surface": "didn’t",
+        "reading_id": "rd-notall",
+        "target_must_contain_all": [
+          "horse",
+          "jump"
+        ],
+        "target_must_not_contain": [
+          "didn’t"
+        ]
+      },
+      {
+        "kind": "QUANTIFIER",
+        "surface": "Every",
+        "reading_id": "rd-notall",
+        "target_must_contain_all": [
+          "horse"
+        ],
+        "target_must_not_contain": [
+          "jump"
+        ]
+      }
+    ],
+    "modality_descriptions": []
+  },
+  "s0r6-n02-peter": {
+    "min_live_readings": 1,
+    "max_live_readings": 1,
+    "required_roles": [
+      {
+        "predicate_surface": "catch",
+        "role": "subject",
+        "surface": "Peter"
+      },
+      {
+        "predicate_surface": "catch",
+        "role": "object",
+        "surface": "every crook"
+      }
+    ],
+    "required_predicate_surfaces": [
+      "catch"
+    ],
+    "required_bindings": [
+      {
+        "kind": "NEGATION",
+        "surface": "didn’t",
+        "target_must_contain_all": [
+          "Peter",
+          "every"
+        ]
+      },
+      {
+        "kind": "QUANTIFIER",
+        "surface": "every",
+        "reading_id": "rd-live",
+        "target_must_contain_all": [
+          "Peter",
+          "every"
+        ]
+      }
+    ],
+    "modality_descriptions": []
+  },
+  "s0r6-l01-block": {
+    "min_live_readings": 1,
+    "max_live_readings": 1,
+    "required_roles": [
+      {
+        "predicate_surface": "Put",
+        "role": "object",
+        "surface": "the block"
+      }
+    ],
+    "required_predicate_surfaces": [
+      "Put"
+    ],
+    "required_bindings": [
+      {
+        "kind": "LOCATION",
+        "surface": "on the table",
+        "target_must_contain_all": [
+          "Put",
+          "block"
+        ]
+      },
+      {
+        "kind": "TEMPORAL",
+        "surface": "in the morning",
+        "target_must_contain_all": [
+          "Put"
+        ]
+      }
+    ],
+    "modality_descriptions": []
+  },
+  "s0r6-l02-telescope": {
+    "min_live_readings": 2,
+    "required_roles": [
+      {
+        "predicate_surface": "saw",
+        "role": "subject",
+        "surface": "I"
+      },
+      {
+        "predicate_surface": "saw",
+        "role": "object",
+        "surface": "the man"
+      }
+    ],
+    "required_predicate_surfaces": [
+      "saw",
+      "man"
+    ],
+    "required_bindings": [
+      {
+        "kind": "OTHER",
+        "surface": "with the telescope",
+        "reading_id": "rd-instrument",
+        "target_must_contain_all": [
+          "saw",
+          "telescope"
+        ]
+      },
+      {
+        "kind": "OTHER",
+        "surface": "with the telescope",
+        "reading_id": "rd-nominal",
+        "target_must_contain_all": [
+          "man",
+          "telescope"
+        ],
+        "target_must_not_contain": [
+          "saw"
+        ]
+      }
+    ],
+    "modality_descriptions": []
+  },
+  "s0r6-q01-donkey": {
+    "min_live_readings": 2,
+    "required_roles": [
+      {
+        "predicate_surface": "owns",
+        "role": "subject",
+        "surface": "Every farmer"
+      },
+      {
+        "predicate_surface": "owns",
+        "role": "object",
+        "surface": "a donkey"
+      }
+    ],
+    "required_predicate_surfaces": [
+      "owns",
+      "donkey"
+    ],
+    "required_bindings": [
+      {
+        "kind": "QUANTIFIER",
+        "surface": "Every",
+        "reading_id": "rd-surface",
+        "target_must_contain_all": [
+          "farmer",
+          "donkey"
+        ]
+      },
+      {
+        "kind": "QUANTIFIER",
+        "surface": "a",
+        "reading_id": "rd-surface",
+        "target_must_contain_all": [
+          "farmer",
+          "donkey"
+        ]
+      },
+      {
+        "kind": "QUANTIFIER",
+        "surface": "a",
+        "reading_id": "rd-inverse",
+        "target_must_contain_all": [
+          "donkey"
+        ],
+        "target_must_not_contain": [
+          "farmer"
+        ]
+      },
+      {
+        "kind": "QUANTIFIER",
+        "surface": "Every",
+        "reading_id": "rd-inverse",
+        "target_must_contain_all": [
+          "farmer"
+        ],
+        "target_must_not_contain": [
+          "donkey"
+        ]
+      }
+    ],
+    "modality_descriptions": []
+  },
+  "s0r6-m01-must": {
+    "min_live_readings": 1,
+    "max_live_readings": 1,
+    "required_roles": [
+      {
+        "predicate_surface": "upload",
+        "role": "subject",
+        "surface": "You"
+      },
+      {
+        "predicate_surface": "upload",
+        "role": "object",
+        "surface": "your homework"
+      },
+      {
+        "predicate_surface": "upload",
+        "role": "form",
+        "surface": "as a PDF"
+      }
+    ],
+    "required_predicate_surfaces": [
+      "upload"
+    ],
+    "required_bindings": [
+      {
+        "kind": "MODALITY",
+        "surface": "must",
+        "target_must_contain_all": [
+          "upload"
+        ]
+      }
+    ],
+    "modality_descriptions": [
+      {
+        "surface": "must",
+        "must_contain": "strong deontic necessity",
+        "must_not_contain": [
+          "permission"
+        ]
+      }
+    ]
+  },
+  "s0r6-m02-cookie": {
+    "min_live_readings": 1,
+    "max_live_readings": 1,
+    "required_roles": [
+      {
+        "predicate_surface": "have",
+        "role": "subject",
+        "surface": "You"
+      },
+      {
+        "predicate_surface": "have",
+        "role": "object",
+        "surface": "a cookie"
+      }
+    ],
+    "required_predicate_surfaces": [
+      "have"
+    ],
+    "required_bindings": [
+      {
+        "kind": "MODALITY",
+        "surface": "may",
+        "target_must_contain_all": [
+          "cookie"
+        ]
+      }
+    ],
+    "modality_descriptions": [
+      {
+        "surface": "may",
+        "must_contain": "weak deontic permission",
+        "must_not_contain": [
+          "necessity"
+        ]
+      }
+    ]
+  },
+  "s0r6-m03-if": {
+    "min_live_readings": 1,
+    "max_live_readings": 1,
+    "required_roles": [
+      {
+        "predicate_surface": "know",
+        "role": "subject",
+        "surface": "you"
+      },
+      {
+        "predicate_surface": "know",
+        "role": "complement",
+        "surface": "who did it"
+      },
+      {
+        "predicate_surface": "tell",
+        "role": "subject",
+        "surface": "you"
+      },
+      {
+        "predicate_surface": "tell",
+        "role": "object",
+        "surface": "the teacher"
+      }
+    ],
+    "required_predicate_surfaces": [
+      "know",
+      "tell"
+    ],
+    "required_bindings": [
+      {
+        "kind": "CONDITION",
+        "surface": "If",
+        "target_must_contain_all": [
+          "know"
+        ],
+        "target_must_not_contain": [
+          "tell"
+        ]
+      },
+      {
+        "kind": "MODALITY",
+        "surface": "should",
+        "target_must_contain_all": [
+          "tell"
+        ],
+        "target_must_not_contain": [
+          "know"
+        ]
+      }
+    ],
+    "modality_descriptions": [
+      {
+        "surface": "should",
+        "must_contain": "modal auxiliary",
+        "must_not_contain": [
+          "permission"
+        ]
+      }
+    ]
+  },
+  "s0r6-am01-old-scope": {
+    "min_live_readings": 2,
+    "required_roles": [
+      {
+        "predicate_surface": "men",
+        "role": "modifier",
+        "surface": "old"
+      }
+    ],
+    "required_predicate_surfaces": [
+      "men",
+      "women"
+    ],
+    "required_bindings": [
+      {
+        "kind": "OTHER",
+        "surface": "old",
+        "reading_id": "rd-wide",
+        "target_must_contain_all": [
+          "men",
+          "women"
+        ]
+      },
+      {
+        "kind": "OTHER",
+        "surface": "old",
+        "reading_id": "rd-narrow",
+        "target_must_contain_all": [
+          "men"
+        ],
+        "target_must_not_contain": [
+          "women"
+        ]
+      }
+    ],
+    "modality_descriptions": []
+  },
+  "s0r6-cal-kim": {
+    "min_live_readings": 1,
+    "max_live_readings": 1,
+    "required_roles": [
+      {
+        "predicate_surface": "bought",
+        "role": "subject",
+        "surface": "Kim"
+      },
+      {
+        "predicate_surface": "bought",
+        "role": "object",
+        "surface": "a book"
+      }
+    ],
+    "required_predicate_surfaces": [
+      "bought"
+    ],
+    "required_bindings": [
+      {
+        "kind": "TEMPORAL",
+        "surface": "on Friday",
+        "target_must_contain_all": [
+          "Friday"
+        ]
+      }
+    ],
+    "modality_descriptions": []
+  },
+  "s0r6-cal-or": {
+    "min_live_readings": 1,
+    "max_live_readings": 1,
+    "required_roles": [
+      {
+        "predicate_surface": "bought",
+        "role": "subject",
+        "surface": "Kim"
+      },
+      {
+        "predicate_surface": "bought",
+        "role": "object",
+        "surface": "a book"
+      },
+      {
+        "predicate_surface": "sold",
+        "role": "subject",
+        "surface": "Lee"
+      },
+      {
+        "predicate_surface": "sold",
+        "role": "object",
+        "surface": "a pen"
+      }
+    ],
+    "required_predicate_surfaces": [
+      "bought",
+      "sold"
+    ],
+    "required_bindings": [],
+    "modality_descriptions": []
+  },
+  "s0r6-cal-amb": {
+    "min_live_readings": 2,
+    "required_roles": [
+      {
+        "predicate_surface": "leave",
+        "role": "subject",
+        "surface": "Every guest"
+      }
+    ],
+    "required_predicate_surfaces": [
+      "leave"
+    ],
+    "required_bindings": [
+      {
+        "kind": "QUANTIFIER",
+        "surface": "Every",
+        "reading_id": "rd-none",
+        "target_must_contain_all": [
+          "didn't",
+          "guest"
+        ]
+      },
+      {
+        "kind": "NEGATION",
+        "surface": "didn't",
+        "reading_id": "rd-none",
+        "target_must_contain_all": [
+          "didn't"
+        ]
+      },
+      {
+        "kind": "NEGATION",
+        "surface": "didn't",
+        "reading_id": "rd-notall",
+        "target_must_contain_all": [
+          "guest",
+          "leave"
+        ],
+        "target_must_not_contain": [
+          "didn't"
+        ]
+      },
+      {
+        "kind": "QUANTIFIER",
+        "surface": "Every",
+        "reading_id": "rd-notall",
+        "target_must_contain_all": [
+          "guest"
+        ],
+        "target_must_not_contain": [
+          "leave"
+        ]
+      }
+    ],
+    "modality_descriptions": []
+  },
+  "s0r6-cal-attr": {
+    "min_live_readings": 1,
+    "max_live_readings": 1,
+    "required_roles": [
+      {
+        "predicate_surface": "said",
+        "role": "subject",
+        "surface": "Ann"
+      },
+      {
+        "predicate_surface": "left",
+        "role": "subject",
+        "surface": "Bob"
+      },
+      {
+        "predicate_surface": "stayed",
+        "role": "subject",
+        "surface": "Chris"
+      }
+    ],
+    "required_predicate_surfaces": [
+      "said",
+      "left",
+      "stayed"
+    ],
+    "required_bindings": [
+      {
+        "kind": "ATTRIBUTION",
+        "surface": "said",
+        "target_must_contain_all": [
+          "Bob",
+          "Chris"
+        ]
+      }
+    ],
+    "modality_descriptions": []
+  },
+  "s0r6-cal-must": {
+    "min_live_readings": 1,
+    "max_live_readings": 1,
+    "required_roles": [
+      {
+        "predicate_surface": "file",
+        "role": "subject",
+        "surface": "Kim"
+      },
+      {
+        "predicate_surface": "file",
+        "role": "object",
+        "surface": "the form"
+      }
+    ],
+    "required_predicate_surfaces": [
+      "file"
+    ],
+    "required_bindings": [
+      {
+        "kind": "MODALITY",
+        "surface": "must",
+        "target_must_contain_all": [
+          "file"
+        ]
+      }
+    ],
+    "modality_descriptions": [
+      {
+        "surface": "must",
+        "must_contain": "strong deontic necessity",
+        "must_not_contain": [
+          "permission"
+        ]
+      }
+    ]
+  }
+}

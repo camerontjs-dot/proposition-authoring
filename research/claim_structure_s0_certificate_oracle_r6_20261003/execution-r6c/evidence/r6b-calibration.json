@@ -1,0 +1,846 @@
+{
+  "predecessor_commit": "9be357a6fd345a34a8245b34b80f624f0530ff6c",
+  "predecessor_tag": "freeze/claim-structure-s0-certificate-oracle-r6b-20261003",
+  "packet_commit": "da6007163bfe96d39ef1026f9efb98e42edbbbeb",
+  "note": "R6b calibration. One profile met the verdict rule. The decisive minimum is two, so decisive review did not start.",
+  "profiles": [
+    {
+      "profile_id": "ollama-qwen3-14b-t0-s7",
+      "wall_seconds": 639.9,
+      "eligible": false,
+      "failures": [
+        {
+          "item": "s0r6-cal-amb--drop_negation",
+          "reason": "hard_mutation_accepted",
+          "verdict": "ACCEPT_COMPLETE"
+        },
+        {
+          "item": "s0r6-cal-kim--drop_object",
+          "reason": "hard_mutation_accepted",
+          "verdict": "ACCEPT_COMPLETE"
+        },
+        {
+          "item": "s0r6-cal-kim--drop_qualifier",
+          "reason": "hard_mutation_accepted",
+          "verdict": "ACCEPT_COMPLETE"
+        },
+        {
+          "item": "s0r6-cal-kim--drop_subject",
+          "reason": "hard_mutation_accepted",
+          "verdict": "ACCEPT_COMPLETE"
+        }
+      ],
+      "items": [
+        {
+          "item": "s0r6-cal-amb--drop_live_reading",
+          "verdict": "REJECT_OMISSION",
+          "objections": [
+            {
+              "question": 5,
+              "severity": "material",
+              "detail": "The basis names two live readings (none and not-all), but only one (rd-notall) is present in the certificate."
+            }
+          ],
+          "parse_error": null,
+          "eval_count": 52,
+          "prompt_eval_count": 6022,
+          "raw_chars": 202
+        },
+        {
+          "item": "s0r6-cal-amb--drop_negation",
+          "verdict": "ACCEPT_COMPLETE",
+          "objections": [],
+          "parse_error": null,
+          "eval_count": 12,
+          "prompt_eval_count": 5893,
+          "raw_chars": 45
+        },
+        {
+          "item": "s0r6-cal-amb",
+          "verdict": "ACCEPT_COMPLETE",
+          "objections": [],
+          "parse_error": null,
+          "eval_count": 12,
+          "prompt_eval_count": 6269,
+          "raw_chars": 45
+        },
+        {
+          "item": "s0r6-cal-attr--reattach_attribution",
+          "verdict": "REJECT_OMISSION",
+          "objections": [
+            {
+              "question": 5,
+              "severity": "material",
+              "detail": "The basis gives more than one live reading, but only one is present in the certificate."
+            }
+          ],
+          "parse_error": null,
+          "eval_count": 64,
+          "prompt_eval_count": 7047,
+          "raw_chars": 226
+        },
+        {
+          "item": "s0r6-cal-attr",
+          "verdict": "ACCEPT_COMPLETE",
+          "objections": [],
+          "parse_error": null,
+          "eval_count": 18,
+          "prompt_eval_count": 7046,
+          "raw_chars": 54
+        },
+        {
+          "item": "s0r6-cal-kim--alter_span",
+          "verdict": "REJECT_SOURCE_BINDING",
+          "objections": [
+            {
+              "question": 8,
+              "severity": "material",
+              "detail": "span.text 'NOT-THE-SOURCE' does not equal root.text[4:10] 'bought'"
+            }
+          ],
+          "parse_error": null,
+          "eval_count": 49,
+          "prompt_eval_count": 5949,
+          "raw_chars": 165
+        },
+        {
+          "item": "s0r6-cal-kim--drop_object",
+          "verdict": "ACCEPT_COMPLETE",
+          "objections": [],
+          "parse_error": null,
+          "eval_count": 12,
+          "prompt_eval_count": 5877,
+          "raw_chars": 45
+        },
+        {
+          "item": "s0r6-cal-kim--drop_qualifier",
+          "verdict": "ACCEPT_COMPLETE",
+          "objections": [],
+          "parse_error": null,
+          "eval_count": 12,
+          "prompt_eval_count": 5751,
+          "raw_chars": 45
+        },
+        {
+          "item": "s0r6-cal-kim--drop_subject",
+          "verdict": "ACCEPT_COMPLETE",
+          "objections": [],
+          "parse_error": null,
+          "eval_count": 12,
+          "prompt_eval_count": 5884,
+          "raw_chars": 45
+        },
+        {
+          "item": "s0r6-cal-kim--invent_proposition",
+          "verdict": "REJECT_INVENTION",
+          "objections": [
+            {
+              "question": 10,
+              "severity": "material",
+              "detail": "The certificate includes a proposition 'a parade' which is not present in the root text."
+            },
+            {
+              "question": 7,
+              "severity": "material",
+              "detail": "The certificate adds a proposition 'a parade' which is not in the root text and is not supported by the basis."
+            }
+          ],
+          "parse_error": null,
+          "eval_count": 80,
+          "prompt_eval_count": 5985,
+          "raw_chars": 342
+        },
+        {
+          "item": "s0r6-cal-kim",
+          "verdict": "ACCEPT_COMPLETE",
+          "objections": [],
+          "parse_error": null,
+          "eval_count": 12,
+          "prompt_eval_count": 5946,
+          "raw_chars": 45
+        },
+        {
+          "item": "s0r6-cal-must--change_modality",
+          "verdict": "REJECT_OMISSION",
+          "objections": [
+            {
+              "question": 3,
+              "severity": "material",
+              "detail": "The obligation 'ob-b-must' describes the modal as permission, but the basis states that 'must' is strong deontic necessity. The modal force in the certificate does not match the basis."
+            }
+          ],
+          "parse_error": null,
+          "eval_count": 67,
+          "prompt_eval_count": 5800,
+          "raw_chars": 277
+        },
+        {
+          "item": "s0r6-cal-must",
+          "verdict": "ACCEPT_COMPLETE",
+          "objections": [],
+          "parse_error": null,
+          "eval_count": 12,
+          "prompt_eval_count": 5801,
+          "raw_chars": 45
+        },
+        {
+          "item": "s0r6-cal-or--or_to_and",
+          "verdict": "REJECT_OPERATOR",
+          "objections": [
+            {
+              "question": 4,
+              "severity": "material",
+              "detail": "The operator for the reading 'rd-or' is labeled as 'ALL_OF' instead of 'ANY_OF' as required by the analysis basis, which states that 'or' is a disjunction."
+            }
+          ],
+          "parse_error": null,
+          "eval_count": 64,
+          "prompt_eval_count": 6701,
+          "raw_chars": 248
+        },
+        {
+          "item": "s0r6-cal-or",
+          "verdict": "ACCEPT_COMPLETE",
+          "objections": [],
+          "parse_error": null,
+          "eval_count": 12,
+          "prompt_eval_count": 6701,
+          "raw_chars": 45
+        }
+      ]
+    },
+    {
+      "profile_id": "ollama-qwen3-coder-30b-t0-s7",
+      "wall_seconds": 312.49,
+      "eligible": false,
+      "failures": [
+        {
+          "item": "s0r6-cal-amb--drop_negation",
+          "reason": "hard_mutation_accepted",
+          "verdict": "ACCEPT_COMPLETE"
+        },
+        {
+          "item": "s0r6-cal-kim--drop_qualifier",
+          "reason": "hard_mutation_accepted",
+          "verdict": "ACCEPT_COMPLETE"
+        },
+        {
+          "item": "s0r6-cal-kim--drop_subject",
+          "reason": "hard_mutation_accepted",
+          "verdict": "ACCEPT_COMPLETE"
+        }
+      ],
+      "items": [
+        {
+          "item": "s0r6-cal-amb--drop_live_reading",
+          "verdict": "REJECT_OMISSION",
+          "objections": [
+            {
+              "question": 5,
+              "severity": "material",
+              "detail": "The basis states there are two live readings (none and not-all), but only one (not-all) is present in the certificate."
+            }
+          ],
+          "parse_error": null,
+          "eval_count": 73,
+          "prompt_eval_count": 6014,
+          "raw_chars": 257
+        },
+        {
+          "item": "s0r6-cal-amb--drop_negation",
+          "verdict": "ACCEPT_COMPLETE",
+          "objections": [],
+          "parse_error": null,
+          "eval_count": 18,
+          "prompt_eval_count": 5885,
+          "raw_chars": 54
+        },
+        {
+          "item": "s0r6-cal-amb",
+          "verdict": "ACCEPT_COMPLETE",
+          "objections": [],
+          "parse_error": null,
+          "eval_count": 18,
+          "prompt_eval_count": 6261,
+          "raw_chars": 54
+        },
+        {
+          "item": "s0r6-cal-attr--reattach_attribution",
+          "verdict": "REJECT_SCOPE",
+          "objections": [
+            {
+              "question": 3,
+              "severity": "material",
+              "detail": "The obligation 'said scopes over both complement conjuncts' requires the attribution to bind to both 'Bob left' and 'Chris stayed', but the certificate only binds it to 'Bob left'."
+            }
+          ],
+          "parse_error": null,
+          "eval_count": 84,
+          "prompt_eval_count": 7039,
+          "raw_chars": 316
+        },
+        {
+          "item": "s0r6-cal-attr",
+          "verdict": "ACCEPT_COMPLETE",
+          "objections": [],
+          "parse_error": null,
+          "eval_count": 18,
+          "prompt_eval_count": 7038,
+          "raw_chars": 54
+        },
+        {
+          "item": "s0r6-cal-kim--alter_span",
+          "verdict": "REJECT_SOURCE_BINDING",
+          "objections": [
+            {
+              "question": 8,
+              "severity": "material",
+              "detail": "The span text 'NOT-THE-SOURCE' for predicate 'bought' does not match the root text 'bought' from index 4 to 10."
+            }
+          ],
+          "parse_error": null,
+          "eval_count": 80,
+          "prompt_eval_count": 5941,
+          "raw_chars": 256
+        },
+        {
+          "item": "s0r6-cal-kim--drop_object",
+          "verdict": "REJECT_OMISSION",
+          "objections": [
+            {
+              "question": 2,
+              "severity": "material",
+              "detail": "The basis requires that 'a book' is bound as the object of 'bought', but the certificate does not include this role binding in the predicate 'p-bought'."
+            }
+          ],
+          "parse_error": null,
+          "eval_count": 82,
+          "prompt_eval_count": 5869,
+          "raw_chars": 291
+        },
+        {
+          "item": "s0r6-cal-kim--drop_qualifier",
+          "verdict": "ACCEPT_COMPLETE",
+          "objections": [],
+          "parse_error": null,
+          "eval_count": 18,
+          "prompt_eval_count": 5743,
+          "raw_chars": 54
+        },
+        {
+          "item": "s0r6-cal-kim--drop_subject",
+          "verdict": "ACCEPT_COMPLETE",
+          "objections": [],
+          "parse_error": null,
+          "eval_count": 18,
+          "prompt_eval_count": 5876,
+          "raw_chars": 54
+        },
+        {
+          "item": "s0r6-cal-kim--invent_proposition",
+          "verdict": "REJECT_INVENTION",
+          "objections": [
+            {
+              "question": 7,
+              "severity": "material",
+              "detail": "The proposition 'a parade' is added by the certificate and is not present in the root text."
+            }
+          ],
+          "parse_error": null,
+          "eval_count": 66,
+          "prompt_eval_count": 5977,
+          "raw_chars": 231
+        },
+        {
+          "item": "s0r6-cal-kim",
+          "verdict": "ACCEPT_COMPLETE",
+          "objections": [],
+          "parse_error": null,
+          "eval_count": 18,
+          "prompt_eval_count": 5938,
+          "raw_chars": 54
+        },
+        {
+          "item": "s0r6-cal-must--change_modality",
+          "verdict": "REJECT_INVENTION",
+          "objections": [
+            {
+              "question": 3,
+              "severity": "material",
+              "detail": "The obligation 'ob-b-must' states 'The modal is permission,' but the analysis basis requires 'must is strong deontic necessity.' The certificate incorrectly represents the modality force."
+            }
+          ],
+          "parse_error": null,
+          "eval_count": 84,
+          "prompt_eval_count": 5792,
+          "raw_chars": 327
+        },
+        {
+          "item": "s0r6-cal-must",
+          "verdict": "ACCEPT_COMPLETE",
+          "objections": [],
+          "parse_error": null,
+          "eval_count": 18,
+          "prompt_eval_count": 5793,
+          "raw_chars": 54
+        },
+        {
+          "item": "s0r6-cal-or--or_to_and",
+          "verdict": "REJECT_OPERATOR",
+          "objections": [
+            {
+              "question": 4,
+              "severity": "material",
+              "detail": "The basis requires 'or' to be represented as a disjunction, but the certificate labels the operator as 'ALL_OF'."
+            }
+          ],
+          "parse_error": null,
+          "eval_count": 70,
+          "prompt_eval_count": 6693,
+          "raw_chars": 251
+        },
+        {
+          "item": "s0r6-cal-or",
+          "verdict": "ACCEPT_COMPLETE",
+          "objections": [],
+          "parse_error": null,
+          "eval_count": 18,
+          "prompt_eval_count": 6693,
+          "raw_chars": 54
+        }
+      ]
+    },
+    {
+      "profile_id": "ollama-gemma4-12b-t0-s7",
+      "wall_seconds": 1751.04,
+      "eligible": false,
+      "failures": [
+        {
+          "item": "s0r6-cal-kim",
+          "reason": "known_good_not_accepted",
+          "verdict": "REJECT_SOURCE_BINDING"
+        },
+        {
+          "item": "s0r6-cal-or--or_to_and",
+          "reason": "hard_mutation_accepted",
+          "verdict": "ACCEPT_COMPLETE"
+        }
+      ],
+      "items": [
+        {
+          "item": "s0r6-cal-amb--drop_live_reading",
+          "verdict": "REJECT_OMISSION",
+          "objections": [
+            {
+              "question": 5,
+              "severity": "material",
+              "detail": "The basis states there are two live readings (none and not-all), but only one (rd-notall) is present in the certificate."
+            }
+          ],
+          "parse_error": null,
+          "eval_count": 55,
+          "prompt_eval_count": 7044,
+          "raw_chars": 213
+        },
+        {
+          "item": "s0r6-cal-amb--drop_negation",
+          "verdict": "REJECT_OMISSION",
+          "objections": [
+            {
+              "question": 3,
+              "severity": "material",
+              "detail": "The basis requires a negation for the 'not' in 'didn't', but no scope_binding of kind NEGATION exists."
+            }
+          ],
+          "parse_error": null,
+          "eval_count": 52,
+          "prompt_eval_count": 6883,
+          "raw_chars": 195
+        },
+        {
+          "item": "s0r6-cal-amb",
+          "verdict": "ACCEPT_COMPLETE",
+          "objections": [],
+          "parse_error": null,
+          "eval_count": 13,
+          "prompt_eval_count": 7349,
+          "raw_chars": 45
+        },
+        {
+          "item": "s0r6-cal-attr--reattach_attribution",
+          "verdict": "REJECT_OMISSION",
+          "objections": [
+            {
+              "question": 3,
+              "severity": "material",
+              "detail": "The basis requires 'said' to scope over both 'Bob left' and 'Chris stayed', but the certificate's scope_binding b-said only targets prop-bob."
+            }
+          ],
+          "parse_error": null,
+          "eval_count": 61,
+          "prompt_eval_count": 8276,
+          "raw_chars": 234
+        },
+        {
+          "item": "s0r6-cal-attr",
+          "verdict": "ACCEPT_COMPLETE",
+          "objections": [],
+          "parse_error": null,
+          "eval_count": 13,
+          "prompt_eval_count": 8276,
+          "raw_chars": 45
+        },
+        {
+          "item": "s0r6-cal-kim--alter_span",
+          "verdict": "REJECT_SOURCE_BINDING",
+          "objections": [
+            {
+              "question": 8,
+              "severity": "material",
+              "detail": "The predicate 'p-bought' uses span text 'NOT-THE-SOURCE' instead of 'bought'."
+            }
+          ],
+          "parse_error": null,
+          "eval_count": 49,
+          "prompt_eval_count": 6939,
+          "raw_chars": 176
+        },
+        {
+          "item": "s0r6-cal-kim--drop_object",
+          "verdict": "REJECT_ROLE_BINDING",
+          "objections": [
+            {
+              "question": 2,
+              "severity": "material",
+              "detail": "The basis requires an object 'a book', but the predicate 'p-bought' only has one role defined in its roles array: 'r-kim' (subject). The role 'r-book' is missing from the predicate's roles list."
+            }
+          ],
+          "parse_error": null,
+          "eval_count": 79,
+          "prompt_eval_count": 6850,
+          "raw_chars": 291
+        },
+        {
+          "item": "s0r6-cal-kim--drop_qualifier",
+          "verdict": "REJECT_OMISSION",
+          "objections": [
+            {
+              "question": 3,
+              "severity": "material",
+              "detail": "The basis requires a temporal modifier 'on Friday', but no scope_binding for TEMPORAL is present in the certificate."
+            }
+          ],
+          "parse_error": null,
+          "eval_count": 50,
+          "prompt_eval_count": 6701,
+          "raw_chars": 209
+        },
+        {
+          "item": "s0r6-cal-kim--drop_subject",
+          "verdict": "REJECT_ROLE_BINDING",
+          "objections": [
+            {
+              "question": 2,
+              "severity": "material",
+              "detail": "The basis requires a subject 'Kim', but no role entry for 'Kim' exists in the predicates[].roles array."
+            }
+          ],
+          "parse_error": null,
+          "eval_count": 52,
+          "prompt_eval_count": 6861,
+          "raw_chars": 200
+        },
+        {
+          "item": "s0r6-cal-kim--invent_proposition",
+          "verdict": "REJECT_INVENTION",
+          "objections": [
+            {
+              "question": 7,
+              "severity": "material",
+              "detail": "Proposition rd-kim-invented ('a parade') is not supported by the root or the basis."
+            }
+          ],
+          "parse_error": null,
+          "eval_count": 46,
+          "prompt_eval_count": 6983,
+          "raw_chars": 177
+        },
+        {
+          "item": "s0r6-cal-kim",
+          "verdict": "REJECT_SOURCE_BINDING",
+          "objections": [
+            {
+              "question": 8,
+              "severity": "material",
+              "detail": "The span for role r-book (11-17) is 'a book', but the ledger splits this into two entries (11-12: 'a' and 13-17: 'book'). A role span must be a single entry in the ledger or a single continuous span in the certificate to match the root slice exactly."
+            }
+          ],
+          "parse_error": null,
+          "eval_count": 101,
+          "prompt_eval_count": 6935,
+          "raw_chars": 349
+        },
+        {
+          "item": "s0r6-cal-must--change_modality",
+          "verdict": "REJECT_OPERATOR",
+          "objections": [
+            {
+              "question": 3,
+              "severity": "material",
+              "detail": "The basis states 'must' is strong deontic necessity, but the obligation description 'ob-b-must' claims it is 'permission'."
+            }
+          ],
+          "parse_error": null,
+          "eval_count": 54,
+          "prompt_eval_count": 6768,
+          "raw_chars": 215
+        },
+        {
+          "item": "s0r6-cal-must",
+          "verdict": "ACCEPT_COMPLETE",
+          "objections": [],
+          "parse_error": null,
+          "eval_count": 13,
+          "prompt_eval_count": 6768,
+          "raw_chars": 45
+        },
+        {
+          "item": "s0r6-cal-or--or_to_and",
+          "verdict": "ACCEPT_COMPLETE",
+          "objections": [],
+          "parse_error": null,
+          "eval_count": 13,
+          "prompt_eval_count": 7872,
+          "raw_chars": 45
+        },
+        {
+          "item": "s0r6-cal-or",
+          "verdict": "ACCEPT_COMPLETE",
+          "objections": [],
+          "parse_error": null,
+          "eval_count": 13,
+          "prompt_eval_count": 7872,
+          "raw_chars": 45
+        }
+      ]
+    },
+    {
+      "profile_id": "ollama-muse-glimmer-30b-t0-s7",
+      "wall_seconds": 4272.12,
+      "eligible": true,
+      "failures": [],
+      "items": [
+        {
+          "item": "s0r6-cal-amb--drop_live_reading",
+          "verdict": "REJECT_OMISSION",
+          "objections": [
+            {
+              "question": 5,
+              "severity": "material",
+              "detail": "Basis requires two live readings none and not-all; certificate contains only rd-notall, rd-none is missing."
+            }
+          ],
+          "parse_error": null,
+          "eval_count": 47,
+          "prompt_eval_count": 6028,
+          "raw_chars": 207
+        },
+        {
+          "item": "s0r6-cal-amb--drop_negation",
+          "verdict": "REJECT_OMISSION",
+          "objections": [
+            {
+              "question": 3,
+              "severity": "material",
+              "detail": "Negation 'didn't' is present in root but no live NEGATION scope_binding is recorded; basis requires negation handling for both readings."
+            },
+            {
+              "question": 3,
+              "severity": "material",
+              "detail": "Negation span 'didn't' is marked ACCOUNTED_NON_MATERIAL with no object refs, so the required qualifier is omitted."
+            }
+          ],
+          "parse_error": null,
+          "eval_count": 90,
+          "prompt_eval_count": 5910,
+          "raw_chars": 399
+        },
+        {
+          "item": "s0r6-cal-amb",
+          "verdict": "ACCEPT_COMPLETE",
+          "objections": [],
+          "parse_error": null,
+          "eval_count": 13,
+          "prompt_eval_count": 6272,
+          "raw_chars": 52
+        },
+        {
+          "item": "s0r6-cal-attr--reattach_attribution",
+          "verdict": "REJECT_SCOPE",
+          "objections": [
+            {
+              "question": 3,
+              "severity": "material",
+              "detail": "Attribution binding b-said targets only prop-bob; analysis basis requires said to attribute both Bob left and Chris stayed."
+            }
+          ],
+          "parse_error": null,
+          "eval_count": 48,
+          "prompt_eval_count": 7043,
+          "raw_chars": 220
+        },
+        {
+          "item": "s0r6-cal-attr",
+          "verdict": "ACCEPT_COMPLETE",
+          "objections": [],
+          "parse_error": null,
+          "eval_count": 13,
+          "prompt_eval_count": 7042,
+          "raw_chars": 52
+        },
+        {
+          "item": "s0r6-cal-kim--alter_span",
+          "verdict": "REJECT_SOURCE_BINDING",
+          "objections": [
+            {
+              "question": 8,
+              "severity": "material",
+              "detail": "Predicate span text mismatch: span.text 'NOT-THE-SOURCE' does not equal root slice 'bought' at 4-10"
+            }
+          ],
+          "parse_error": null,
+          "eval_count": 54,
+          "prompt_eval_count": 5959,
+          "raw_chars": 205
+        },
+        {
+          "item": "s0r6-cal-kim--drop_object",
+          "verdict": "REJECT_ROLE_BINDING",
+          "objections": [
+            {
+              "question": 2,
+              "severity": "material",
+              "detail": "Analysis basis requires object 'a book' bound to 'bought'; predicates[].roles contains only subject 'Kim', no object role entry."
+            }
+          ],
+          "parse_error": null,
+          "eval_count": 53,
+          "prompt_eval_count": 5889,
+          "raw_chars": 232
+        },
+        {
+          "item": "s0r6-cal-kim--drop_qualifier",
+          "verdict": "REJECT_OMISSION",
+          "objections": [
+            {
+              "question": 2,
+              "severity": "material",
+              "detail": "Analysis basis requires temporal modifier 'on Friday' for bought; predicate p-bought has no temporal role entry in predicates[].roles."
+            },
+            {
+              "question": 3,
+              "severity": "material",
+              "detail": "Temporal qualifier 'on Friday' required by basis is not bound via scope_bindings or a TEMPORAL obligation with source span; spans for 'on' and 'Friday' are ACCOUNTED_NON_MATERIAL."
+            },
+            {
+              "question": 9,
+              "severity": "material",
+              "detail": "Ledger marks 'on' and 'Friday' as ACCOUNTED_NON_MATERIAL, hiding the required temporal role/qualifier from the root."
+            }
+          ],
+          "parse_error": null,
+          "eval_count": 143,
+          "prompt_eval_count": 5766,
+          "raw_chars": 627
+        },
+        {
+          "item": "s0r6-cal-kim--drop_subject",
+          "verdict": "REJECT_ROLE_BINDING",
+          "objections": [
+            {
+              "question": 2,
+              "severity": "material",
+              "detail": "Basis requires subject Kim bound to bought; predicates[].roles contains only object a book, no subject role entry."
+            }
+          ],
+          "parse_error": null,
+          "eval_count": 47,
+          "prompt_eval_count": 5894,
+          "raw_chars": 218
+        },
+        {
+          "item": "s0r6-cal-kim--invent_proposition",
+          "verdict": "REJECT_INVENTION",
+          "objections": [
+            {
+              "question": 7,
+              "severity": "material",
+              "detail": "Proposition rd-kim-invented adds 'a parade' which is not in root text 'Kim bought a book on Friday.'"
+            }
+          ],
+          "parse_error": null,
+          "eval_count": 52,
+          "prompt_eval_count": 5996,
+          "raw_chars": 201
+        },
+        {
+          "item": "s0r6-cal-kim",
+          "verdict": "ACCEPT_COMPLETE",
+          "objections": [],
+          "parse_error": null,
+          "eval_count": 13,
+          "prompt_eval_count": 5956,
+          "raw_chars": 52
+        },
+        {
+          "item": "s0r6-cal-must--change_modality",
+          "verdict": "REJECT_OMISSION",
+          "objections": [
+            {
+              "question": 3,
+              "severity": "material",
+              "detail": "MODALITY obligation description states permission while analysis basis requires strong deontic necessity for must"
+            }
+          ],
+          "parse_error": null,
+          "eval_count": 44,
+          "prompt_eval_count": 5818,
+          "raw_chars": 213
+        },
+        {
+          "item": "s0r6-cal-must",
+          "verdict": "ACCEPT_COMPLETE",
+          "objections": [],
+          "parse_error": null,
+          "eval_count": 13,
+          "prompt_eval_count": 5819,
+          "raw_chars": 52
+        },
+        {
+          "item": "s0r6-cal-or--or_to_and",
+          "verdict": "REJECT_OPERATOR",
+          "objections": [
+            {
+              "question": 4,
+              "severity": "material",
+              "detail": "Reading rd-or operator is ALL_OF but root contains 'or' and analysis basis requires disjunction; operator mislabeled"
+            }
+          ],
+          "parse_error": null,
+          "eval_count": 49,
+          "prompt_eval_count": 6691,
+          "raw_chars": 216
+        },
+        {
+          "item": "s0r6-cal-or",
+          "verdict": "ACCEPT_COMPLETE",
+          "objections": [],
+          "parse_error": null,
+          "eval_count": 13,
+          "prompt_eval_count": 6691,
+          "raw_chars": 52
+        }
+      ]
+    }
+  ]
+}

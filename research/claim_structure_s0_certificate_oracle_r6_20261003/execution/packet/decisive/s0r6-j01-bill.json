@@ -1,0 +1,334 @@
+{
+  "schema": "claim-structure-scope-obligation-certificate-v0",
+  "certificate_id": "s0r6-j01-bill",
+  "root": {
+    "claim_id": "j01",
+    "text": "Bill is big and honest",
+    "text_sha256": "sha256:aaefc16a4d6f8ccb558e34c9aed93f005d232087f124161aaed4adfb83ef0cbb"
+  },
+  "source_provenance": {
+    "root_source": {
+      "kind": "published_example",
+      "locator": "https://universaldependencies.org/en/dep/conj.html",
+      "source_sha256": "sha256:31456fffd3ca8307472645f9a7865974173b5678821a275725964d49307e3d42",
+      "location": "sdparse 'Bill is big and honest'; saved ud/conj.md"
+    },
+    "analysis_basis": [
+      {
+        "basis_kind": "annotation_guideline",
+        "locator": "https://universaldependencies.org/en/dep/conj.html",
+        "claim": "conj(big, honest). The page prints no subject and no copula. Bill and is are bound to both adjectival predicates because the nsubj guideline makes a copular complement the clause root and this page coordinates the two complements."
+      }
+    ]
+  },
+  "classification": "ALL_OF",
+  "predicates": [
+    {
+      "predicate_id": "p-big",
+      "surface": "big",
+      "span": {
+        "start": 8,
+        "end": 11,
+        "text": "big"
+      },
+      "roles": [
+        {
+          "role_id": "r-bill-big",
+          "role": "subject",
+          "surface": "Bill",
+          "span": {
+            "start": 0,
+            "end": 4,
+            "text": "Bill"
+          }
+        },
+        {
+          "role_id": "r-is-big",
+          "role": "copula",
+          "surface": "is",
+          "span": {
+            "start": 5,
+            "end": 7,
+            "text": "is"
+          }
+        }
+      ]
+    },
+    {
+      "predicate_id": "p-honest",
+      "surface": "honest",
+      "span": {
+        "start": 16,
+        "end": 22,
+        "text": "honest"
+      },
+      "roles": [
+        {
+          "role_id": "r-bill-honest",
+          "role": "subject",
+          "surface": "Bill",
+          "span": {
+            "start": 0,
+            "end": 4,
+            "text": "Bill"
+          }
+        },
+        {
+          "role_id": "r-is-honest",
+          "role": "copula",
+          "surface": "is",
+          "span": {
+            "start": 5,
+            "end": 7,
+            "text": "is"
+          }
+        }
+      ]
+    }
+  ],
+  "readings": [
+    {
+      "reading_id": "rd-and",
+      "operator": "ALL_OF",
+      "propositions": [
+        {
+          "proposition_id": "prop-big",
+          "text": "Bill is big",
+          "predicate_ids": [
+            "p-big"
+          ]
+        },
+        {
+          "proposition_id": "prop-honest",
+          "text": "Bill is honest",
+          "predicate_ids": [
+            "p-honest"
+          ]
+        }
+      ],
+      "scope_bindings": [],
+      "status": "MATERIALLY_LIVE"
+    }
+  ],
+  "obligations": [
+    {
+      "obligation_id": "ob-p-big",
+      "kind": "PREDICATE",
+      "description": "Predicate 'big' is part of the certificate.",
+      "source_spans": [
+        {
+          "start": 8,
+          "end": 11,
+          "text": "big"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-and"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-bill-big",
+      "kind": "ROLE_BINDING",
+      "description": "subject 'Bill' is bound to 'big'.",
+      "source_spans": [
+        {
+          "start": 0,
+          "end": 4,
+          "text": "Bill"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-and"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-is-big",
+      "kind": "ROLE_BINDING",
+      "description": "copula 'is' is bound to 'big'.",
+      "source_spans": [
+        {
+          "start": 5,
+          "end": 7,
+          "text": "is"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-and"
+      ]
+    },
+    {
+      "obligation_id": "ob-p-honest",
+      "kind": "PREDICATE",
+      "description": "Predicate 'honest' is part of the certificate.",
+      "source_spans": [
+        {
+          "start": 16,
+          "end": 22,
+          "text": "honest"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-and"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-bill-honest",
+      "kind": "ROLE_BINDING",
+      "description": "subject 'Bill' is bound to 'honest'.",
+      "source_spans": [
+        {
+          "start": 0,
+          "end": 4,
+          "text": "Bill"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-and"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-is-honest",
+      "kind": "ROLE_BINDING",
+      "description": "copula 'is' is bound to 'honest'.",
+      "source_spans": [
+        {
+          "start": 5,
+          "end": 7,
+          "text": "is"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-and"
+      ]
+    },
+    {
+      "obligation_id": "ob-and",
+      "kind": "CONJUNCTION",
+      "description": "The coordinator and joins the two adjectival predicates.",
+      "source_spans": [
+        {
+          "start": 12,
+          "end": 15,
+          "text": "and"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-and"
+      ]
+    }
+  ],
+  "completeness": {
+    "material_span_ledger": [
+      {
+        "span": {
+          "start": 0,
+          "end": 4,
+          "text": "Bill"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-bill-big",
+          "r-bill-honest",
+          "ob-r-bill-big",
+          "ob-r-bill-honest"
+        ]
+      },
+      {
+        "span": {
+          "start": 4,
+          "end": 5,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 5,
+          "end": 7,
+          "text": "is"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-is-big",
+          "r-is-honest",
+          "ob-r-is-big",
+          "ob-r-is-honest"
+        ]
+      },
+      {
+        "span": {
+          "start": 7,
+          "end": 8,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 8,
+          "end": 11,
+          "text": "big"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "p-big",
+          "ob-p-big"
+        ]
+      },
+      {
+        "span": {
+          "start": 11,
+          "end": 12,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 12,
+          "end": 15,
+          "text": "and"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "ob-and"
+        ]
+      },
+      {
+        "span": {
+          "start": 15,
+          "end": 16,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 16,
+          "end": 22,
+          "text": "honest"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "p-honest",
+          "ob-p-honest"
+        ]
+      }
+    ],
+    "unassigned_material_spans": [],
+    "all_predicates_bound": true,
+    "all_roles_bound": true,
+    "all_operators_bound": true,
+    "all_material_qualifiers_bound": true,
+    "all_live_readings_recorded": true
+  },
+  "review_status": {
+    "state": "FROZEN_PENDING_REVIEW",
+    "independent_reviews_required": 2,
+    "adjudication_required": false
+  }
+}

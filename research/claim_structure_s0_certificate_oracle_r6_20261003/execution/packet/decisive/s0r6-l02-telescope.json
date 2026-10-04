@@ -1,0 +1,428 @@
+{
+  "schema": "claim-structure-scope-obligation-certificate-v0",
+  "certificate_id": "s0r6-l02-telescope",
+  "root": {
+    "claim_id": "l02",
+    "text": "I saw the man with the telescope.",
+    "text_sha256": "sha256:8a71ccd04662b042918bcc18af675c42d29f959a9e58588d646329b0d29893fc"
+  },
+  "source_provenance": {
+    "root_source": {
+      "kind": "published_example",
+      "locator": "https://aclanthology.org/J06-3002.pdf",
+      "source_sha256": "sha256:50207f1c326fd4040977bc486ac1094084afcd49a34ca476302d9abc5ac6f5b5",
+      "location": "PDF page 1, example (1)."
+    },
+    "analysis_basis": [
+      {
+        "basis_kind": "published_analysis",
+        "locator": "https://aclanthology.org/J06-3002.pdf#page-1",
+        "claim": "Merlo and Ferrer: with the telescope may attach to the verb as the instrument of saw, or to the noun the man. The certificate uses OTHER because the schema has no instrument kind and the paper does not call this PP a location."
+      }
+    ]
+  },
+  "classification": "AMBIGUOUS",
+  "predicates": [
+    {
+      "predicate_id": "p-saw",
+      "surface": "saw",
+      "span": {
+        "start": 2,
+        "end": 5,
+        "text": "saw"
+      },
+      "roles": [
+        {
+          "role_id": "r-i",
+          "role": "subject",
+          "surface": "I",
+          "span": {
+            "start": 0,
+            "end": 1,
+            "text": "I"
+          }
+        },
+        {
+          "role_id": "r-man",
+          "role": "object",
+          "surface": "the man",
+          "span": {
+            "start": 6,
+            "end": 13,
+            "text": "the man"
+          }
+        }
+      ]
+    },
+    {
+      "predicate_id": "p-man",
+      "surface": "man",
+      "span": {
+        "start": 10,
+        "end": 13,
+        "text": "man"
+      },
+      "roles": [
+        {
+          "role_id": "r-the",
+          "role": "determiner",
+          "surface": "the",
+          "span": {
+            "start": 6,
+            "end": 9,
+            "text": "the"
+          }
+        }
+      ]
+    }
+  ],
+  "readings": [
+    {
+      "reading_id": "rd-instrument",
+      "operator": "ATOMIC",
+      "propositions": [
+        {
+          "proposition_id": "prop-saw",
+          "text": "I saw the man with the telescope.",
+          "predicate_ids": [
+            "p-saw"
+          ]
+        }
+      ],
+      "scope_bindings": [
+        {
+          "binding_id": "b-inst",
+          "kind": "OTHER",
+          "surface": "with the telescope",
+          "span": {
+            "start": 14,
+            "end": 32,
+            "text": "with the telescope"
+          },
+          "targets": [
+            "prop-saw"
+          ]
+        }
+      ],
+      "status": "MATERIALLY_LIVE"
+    },
+    {
+      "reading_id": "rd-nominal",
+      "operator": "OTHER",
+      "propositions": [
+        {
+          "proposition_id": "prop-see",
+          "text": "I saw the man",
+          "predicate_ids": [
+            "p-saw"
+          ]
+        },
+        {
+          "proposition_id": "prop-mod",
+          "text": "the man with the telescope",
+          "predicate_ids": [
+            "p-man"
+          ]
+        }
+      ],
+      "scope_bindings": [
+        {
+          "binding_id": "b-nom",
+          "kind": "OTHER",
+          "surface": "with the telescope",
+          "span": {
+            "start": 14,
+            "end": 32,
+            "text": "with the telescope"
+          },
+          "targets": [
+            "prop-mod"
+          ]
+        }
+      ],
+      "status": "MATERIALLY_LIVE"
+    }
+  ],
+  "obligations": [
+    {
+      "obligation_id": "ob-b-inst",
+      "kind": "OTHER",
+      "description": "Instrument reading: the PP attaches to saw.",
+      "source_spans": [
+        {
+          "start": 14,
+          "end": 32,
+          "text": "with the telescope"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-instrument"
+      ]
+    },
+    {
+      "obligation_id": "ob-b-nom",
+      "kind": "OTHER",
+      "description": "Nominal reading: the PP attaches to the man.",
+      "source_spans": [
+        {
+          "start": 14,
+          "end": 32,
+          "text": "with the telescope"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-nominal"
+      ]
+    },
+    {
+      "obligation_id": "ob-p-saw",
+      "kind": "PREDICATE",
+      "description": "Predicate 'saw' is part of the certificate.",
+      "source_spans": [
+        {
+          "start": 2,
+          "end": 5,
+          "text": "saw"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-instrument",
+        "rd-nominal"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-i",
+      "kind": "ROLE_BINDING",
+      "description": "subject 'I' is bound to 'saw'.",
+      "source_spans": [
+        {
+          "start": 0,
+          "end": 1,
+          "text": "I"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-instrument",
+        "rd-nominal"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-man",
+      "kind": "ROLE_BINDING",
+      "description": "object 'the man' is bound to 'saw'.",
+      "source_spans": [
+        {
+          "start": 6,
+          "end": 13,
+          "text": "the man"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-instrument",
+        "rd-nominal"
+      ]
+    },
+    {
+      "obligation_id": "ob-p-man",
+      "kind": "PREDICATE",
+      "description": "Predicate 'man' is part of the certificate.",
+      "source_spans": [
+        {
+          "start": 10,
+          "end": 13,
+          "text": "man"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-nominal"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-the",
+      "kind": "ROLE_BINDING",
+      "description": "determiner 'the' is bound to 'man'.",
+      "source_spans": [
+        {
+          "start": 6,
+          "end": 9,
+          "text": "the"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-nominal"
+      ]
+    }
+  ],
+  "completeness": {
+    "material_span_ledger": [
+      {
+        "span": {
+          "start": 0,
+          "end": 1,
+          "text": "I"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-i",
+          "ob-r-i"
+        ]
+      },
+      {
+        "span": {
+          "start": 1,
+          "end": 2,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 2,
+          "end": 5,
+          "text": "saw"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "p-saw",
+          "ob-p-saw"
+        ]
+      },
+      {
+        "span": {
+          "start": 5,
+          "end": 6,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 6,
+          "end": 9,
+          "text": "the"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-man",
+          "r-the",
+          "ob-r-man",
+          "ob-r-the"
+        ]
+      },
+      {
+        "span": {
+          "start": 9,
+          "end": 10,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 10,
+          "end": 13,
+          "text": "man"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-man",
+          "p-man",
+          "ob-r-man",
+          "ob-p-man"
+        ]
+      },
+      {
+        "span": {
+          "start": 13,
+          "end": 14,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 14,
+          "end": 18,
+          "text": "with"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "b-inst",
+          "b-nom",
+          "ob-b-inst",
+          "ob-b-nom"
+        ]
+      },
+      {
+        "span": {
+          "start": 18,
+          "end": 19,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 19,
+          "end": 22,
+          "text": "the"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "b-inst",
+          "b-nom",
+          "ob-b-inst",
+          "ob-b-nom"
+        ]
+      },
+      {
+        "span": {
+          "start": 22,
+          "end": 23,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 23,
+          "end": 32,
+          "text": "telescope"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "b-inst",
+          "b-nom",
+          "ob-b-inst",
+          "ob-b-nom"
+        ]
+      },
+      {
+        "span": {
+          "start": 32,
+          "end": 33,
+          "text": "."
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      }
+    ],
+    "unassigned_material_spans": [],
+    "all_predicates_bound": true,
+    "all_roles_bound": true,
+    "all_operators_bound": true,
+    "all_material_qualifiers_bound": true,
+    "all_live_readings_recorded": true
+  },
+  "review_status": {
+    "state": "FROZEN_PENDING_REVIEW",
+    "independent_reviews_required": 2,
+    "adjudication_required": false
+  }
+}

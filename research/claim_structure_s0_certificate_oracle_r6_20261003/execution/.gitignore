@@ -1,0 +1,7 @@
+sources/*.pdf
+sources/*.txt
+sources/*.csv
+sources/*.conllu
+review-runs/
+__pycache__/
+.pytest_cache/

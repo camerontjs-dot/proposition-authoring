@@ -1,0 +1,291 @@
+{
+  "schema": "claim-structure-scope-obligation-certificate-v0",
+  "certificate_id": "s0r6-cal-kim--alter_span",
+  "root": {
+    "claim_id": "cal-kim",
+    "text": "Kim bought a book on Friday.",
+    "text_sha256": "sha256:57298f6f3d14caaee3d4303471954de0b7a7a9524b490bfbca331e556334effe"
+  },
+  "source_provenance": {
+    "root_source": {
+      "kind": "synthetic_control",
+      "locator": "calibration:kim",
+      "location": "Labeled calibration control. Not a decisive root."
+    },
+    "analysis_basis": [
+      {
+        "basis_kind": "synthetic_gold_rule",
+        "locator": "calibration:kim",
+        "claim": "Gold rule: Kim is the subject, a book is the object, and on Friday is a temporal modifier of bought."
+      }
+    ]
+  },
+  "classification": "ATOMIC",
+  "predicates": [
+    {
+      "predicate_id": "p-bought",
+      "surface": "bought",
+      "span": {
+        "start": 4,
+        "end": 10,
+        "text": "NOT-THE-SOURCE"
+      },
+      "roles": [
+        {
+          "role_id": "r-kim",
+          "role": "subject",
+          "surface": "Kim",
+          "span": {
+            "start": 0,
+            "end": 3,
+            "text": "Kim"
+          }
+        },
+        {
+          "role_id": "r-book",
+          "role": "object",
+          "surface": "a book",
+          "span": {
+            "start": 11,
+            "end": 17,
+            "text": "a book"
+          }
+        }
+      ]
+    }
+  ],
+  "readings": [
+    {
+      "reading_id": "rd-kim",
+      "operator": "ATOMIC",
+      "propositions": [
+        {
+          "proposition_id": "prop-kim",
+          "text": "Kim bought a book on Friday.",
+          "predicate_ids": [
+            "p-bought"
+          ]
+        }
+      ],
+      "scope_bindings": [
+        {
+          "binding_id": "b-friday",
+          "kind": "TEMPORAL",
+          "surface": "on Friday",
+          "span": {
+            "start": 18,
+            "end": 27,
+            "text": "on Friday"
+          },
+          "targets": [
+            "prop-kim"
+          ]
+        }
+      ],
+      "status": "MATERIALLY_LIVE"
+    }
+  ],
+  "obligations": [
+    {
+      "obligation_id": "ob-b-friday",
+      "kind": "TEMPORAL",
+      "description": "on Friday modifies bought.",
+      "source_spans": [
+        {
+          "start": 18,
+          "end": 27,
+          "text": "on Friday"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-kim"
+      ]
+    },
+    {
+      "obligation_id": "ob-p-bought",
+      "kind": "PREDICATE",
+      "description": "Predicate 'bought' is part of the certificate.",
+      "source_spans": [
+        {
+          "start": 4,
+          "end": 10,
+          "text": "bought"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-kim"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-kim",
+      "kind": "ROLE_BINDING",
+      "description": "subject 'Kim' is bound to 'bought'.",
+      "source_spans": [
+        {
+          "start": 0,
+          "end": 3,
+          "text": "Kim"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-kim"
+      ]
+    },
+    {
+      "obligation_id": "ob-r-book",
+      "kind": "ROLE_BINDING",
+      "description": "object 'a book' is bound to 'bought'.",
+      "source_spans": [
+        {
+          "start": 11,
+          "end": 17,
+          "text": "a book"
+        }
+      ],
+      "must_be_preserved_in": [
+        "rd-kim"
+      ]
+    }
+  ],
+  "completeness": {
+    "material_span_ledger": [
+      {
+        "span": {
+          "start": 0,
+          "end": 3,
+          "text": "Kim"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-kim",
+          "ob-r-kim"
+        ]
+      },
+      {
+        "span": {
+          "start": 3,
+          "end": 4,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 4,
+          "end": 10,
+          "text": "bought"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "p-bought",
+          "ob-p-bought"
+        ]
+      },
+      {
+        "span": {
+          "start": 10,
+          "end": 11,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 11,
+          "end": 12,
+          "text": "a"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-book",
+          "ob-r-book"
+        ]
+      },
+      {
+        "span": {
+          "start": 12,
+          "end": 13,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 13,
+          "end": 17,
+          "text": "book"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "r-book",
+          "ob-r-book"
+        ]
+      },
+      {
+        "span": {
+          "start": 17,
+          "end": 18,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 18,
+          "end": 20,
+          "text": "on"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "b-friday",
+          "ob-b-friday"
+        ]
+      },
+      {
+        "span": {
+          "start": 20,
+          "end": 21,
+          "text": " "
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      },
+      {
+        "span": {
+          "start": 21,
+          "end": 27,
+          "text": "Friday"
+        },
+        "semantic_status": "ACCOUNTED_MATERIAL",
+        "object_refs": [
+          "b-friday",
+          "ob-b-friday"
+        ]
+      },
+      {
+        "span": {
+          "start": 27,
+          "end": 28,
+          "text": "."
+        },
+        "semantic_status": "PUNCTUATION_OR_CONNECTIVE",
+        "object_refs": []
+      }
+    ],
+    "unassigned_material_spans": [],
+    "all_predicates_bound": true,
+    "all_roles_bound": true,
+    "all_operators_bound": true,
+    "all_material_qualifiers_bound": true,
+    "all_live_readings_recorded": true
+  },
+  "review_status": {
+    "state": "FROZEN_PENDING_REVIEW",
+    "independent_reviews_required": 2,
+    "adjudication_required": false
+  }
+}
