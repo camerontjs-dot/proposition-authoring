@@ -1,0 +1,38 @@
+{
+  "schema": "claim-structure-s0-r7-reviewer-pool-v1",
+  "issue": 65,
+  "predecessor": {
+    "issue": 63,
+    "pr": 64,
+    "commit": "fb3e907d1b1e94f69eb8ccbf1f92e01bc7fed9e5",
+    "disposition": "BLOCKED_CERTIFICATE_SURFACE"
+  },
+  "frozen_packet": {
+    "commit": "da6007163bfe96d39ef1026f9efb98e42edbbbeb",
+    "tree": "9ef2e145af8e078d71a6da019613740be316d3cb"
+  },
+  "frozen_review_interface": {
+    "checklist_blob": "bef3ed02e738ab3c508d219ca2d13ef7d2756339",
+    "prompt_blob": "5656ffa07f40a6be13e2133b53c8af1c2b03b4a2",
+    "eligibility_blob": "8a2ac7ae23456bb9bd78ed2126b7fe8d17a8c273",
+    "inspection_blob": "ee0ebcc3444692eacfba527df8604ff3ea820089",
+    "runner_blob": "433c7613149ea7619dd964246a8b2e310cf0b4a3"
+  },
+  "excluded_models": [
+    "gemma3:12b",
+    "qwen3.5:9b",
+    "qwen3:14b",
+    "qwen3-coder:30b",
+    "gemma4:12b",
+    "muse-glimmer:30b"
+  ],
+  "required_eligible_profiles": 2,
+  "decisive_review_authorized": false,
+  "s1_authorized": false,
+  "allowed_dispositions": [
+    "SUPPORTED_NEW_REVIEWER_POOL_FOR_DECISIVE_REVIEW",
+    "BLOCKED_NEW_REVIEWER_POOL",
+    "INCONCLUSIVE_NEW_REVIEWER_POOL",
+    "FALSIFIED_CERTIFICATE_PACKET_BY_NEW_REVIEWER_EVIDENCE"
+  ]
+}
